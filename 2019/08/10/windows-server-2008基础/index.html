@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="windows server 2008基础内容第一章计算机的组装与维护本章结构一、计算机的硬件概述二、BIOS的设置三、常见故障排查 四、组装计算机（动手） 具体知识点一、    概述1、 计算机的工作原理：冯诺.伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成2、 硬件的主要参数​    机箱:物理保护,保护硬件安全.集成电源(升级硬件的时候,注意电源是否供足)​">
+<meta name="keywords" content="基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows server 2008基础内容">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/10/windows-server-2008基础/index.html">
+<meta property="og:site_name" content="changyouB-log">
+<meta property="og:description" content="windows server 2008基础内容第一章计算机的组装与维护本章结构一、计算机的硬件概述二、BIOS的设置三、常见故障排查 四、组装计算机（动手） 具体知识点一、    概述1、 计算机的工作原理：冯诺.伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成2、 硬件的主要参数​    机箱:物理保护,保护硬件安全.集成电源(升级硬件的时候,注意电源是否供足)​">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-10T03:46:15.305Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="windows server 2008基础内容">
+<meta name="twitter:description" content="windows server 2008基础内容第一章计算机的组装与维护本章结构一、计算机的硬件概述二、BIOS的设置三、常见故障排查 四、组装计算机（动手） 具体知识点一、    概述1、 计算机的工作原理：冯诺.伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成2、 硬件的主要参数​    机箱:物理保护,保护硬件安全.集成电源(升级硬件的时候,注意电源是否供足)​">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/10/windows-server-2008基础/">
+
+
+
+
+
+  <title>windows server 2008基础内容 | changyouB-log</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">changyouB-log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">网络安全</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/windows-server-2008基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">windows server 2008基础内容</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T10:33:24+08:00">
+                2019-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="windows-server-2008基础内容"><a href="#windows-server-2008基础内容" class="headerlink" title="windows server 2008基础内容"></a>windows server 2008基础内容</h1><h2 id="第一章计算机的组装与维护"><a href="#第一章计算机的组装与维护" class="headerlink" title="第一章计算机的组装与维护"></a>第一章计算机的组装与维护</h2><h4 id="本章结构"><a href="#本章结构" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、计算机的硬件概述<br>二、BIOS的设置<br>三、常见故障排查</p>
+<p>四、组装计算机（动手）</p>
+<h4 id="具体知识点"><a href="#具体知识点" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、-概述"><a href="#一、-概述" class="headerlink" title="一、    概述"></a>一、    概述</h4><h5 id="1、-计算机的工作原理：冯诺-伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成"><a href="#1、-计算机的工作原理：冯诺-伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成" class="headerlink" title="1、 计算机的工作原理：冯诺.伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成"></a>1、 计算机的工作原理：冯诺.伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成</h5><h5 id="2、-硬件的主要参数"><a href="#2、-硬件的主要参数" class="headerlink" title="2、 硬件的主要参数"></a>2、 硬件的主要参数</h5><p>​    机箱:物理保护,保护硬件安全.集成电源(升级硬件的时候,注意电源是否供足)<br>​        cpu风扇:风冷扇热和水冷扇热<br>​        光驱:已不流行.(作用:读取和写入光盘数据)<br>​    键盘鼠标:接口(ps2和usb)<br>​        显示器:(lcd crt)</p>
+<p>（1）、CPU(中央处理器)：负责运算与控制<br>核心数：内核，CPU中所有的运算、接受、存储命令都由核心执行<br>主频：表示CPU的运算速度，单位GHz，主频越高、CPU的运算速度越快<br>缓存：CPU和内存之间的临时存储器、容量小、速度快<br>CPU读取数据的顺序：先一级缓存、再二级缓存，然后三级缓存、最后内存<br>两大主流厂商：Intel  和AMD<br>接口类型:AMD针脚式   inter触点式</p>
+<p>（2）、主板：各部件的连接载体（接口类型和数量决定计算机的性能、扩展升级的能力）<br>组成命名：芯片组<br>  RJ45接口：网卡的接口  RJ-11<br>PATA（IDE）、SATA：硬盘接口、光驱（家用计算机）<br>  SCsi：硬盘接口（高档工作站、服务器、价格昂贵、支持热插拔）(sata IDE scsi)<br>PCI、PCI-E:显卡的接口<br>CPU的接口：LGA1633（触点式）、Socket（针脚式）<br>DIMM：内存插槽<br>南桥芯片:负责键盘鼠标显示器usb<br>北桥芯片:负责重要硬件(cpu 内存 硬盘 显卡<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">（3）、内存：负责临时存储CPU运算所需的数据（断电后数据丢失）</span><br><span class="line">容量：容量越大越好</span><br><span class="line">主频:标志着单位时间内内存的交换速度(频率)</span><br><span class="line">三通道技术：使用三条同等规格的内存(同主频同品牌同型号)</span><br><span class="line">DDR3：第三代内存</span><br><span class="line"></span><br><span class="line">（4）、显卡：负责将计算机的运算结果转换为影像</span><br><span class="line">芯片厂商：NViDIA和AMD</span><br><span class="line">显存：临时存储需要转换为图像的数据（容量越大越好）</span><br><span class="line">    显存频率：显卡工作的频率（越高速度越快）</span><br><span class="line">显存位宽：瞬间传输数据的流量（位数越大，传输越多）GTX1040  970</span><br><span class="line"></span><br><span class="line">（5）、硬盘：外部存储器（断电后数据不会丢失）</span><br><span class="line">分类:机械硬盘和固态硬盘</span><br><span class="line">        接口类型:sata(主流笔记本硬盘接口) IDE(光驱使用此接口,硬盘的IDE淘汰)  SCSI(用户服务器)</span><br><span class="line">        品牌:希捷 西部数据 三星</span><br><span class="line">    容量：越大越好</span><br><span class="line">    转速：越快传输数据速度越快  5400 7200 10000</span><br><span class="line">固态硬盘：芯片阵列组成、无盘片：读写速度快、散热低、无噪音</span><br><span class="line"></span><br><span class="line">###### （6）、驱动程序：硬件厂商根据操作系统编写的配置文件</span><br><span class="line"></span><br><span class="line">#### 二、    BIOS的设置</span><br><span class="line"></span><br><span class="line">1、概念：基本的输入输出系统的简称，存储在计算机主板的Flash  ROM(cmos芯片)中</span><br><span class="line"></span><br><span class="line">2、功能：存储计算机基本的硬件信息</span><br><span class="line">3、启动过程:</span><br><span class="line">A、加电自检：通电后自动检测硬件的连接情况，如果异常发出报警音</span><br><span class="line">B、初始化：读取硬件参数并存储</span><br><span class="line">C、引导操作系统：按照设定的顺序、将系统装入内存</span><br><span class="line">4、CMOS芯片  存储bios程序</span><br><span class="line"></span><br><span class="line">#### 常见设置</span><br><span class="line"></span><br><span class="line">User  Password  ：只能查看COMS的设置，可以更改自己的密码</span><br><span class="line">Supervisor  Password  ：可以修改（设置后保证了BIOS的安全）</span><br><span class="line">4）、忘记密码的解决方法</span><br><span class="line"></span><br><span class="line">将主板上的电池断电或者用芯片附近的跳线</span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">## Vmware  Workstation</span><br><span class="line"></span><br><span class="line">##### 本章结构</span><br><span class="line"></span><br><span class="line">一、虚拟机的概述</span><br><span class="line"></span><br><span class="line">二、虚拟机的使用</span><br><span class="line"></span><br><span class="line">##### 具体知识点</span><br><span class="line"></span><br><span class="line">###### 一、概述</span><br><span class="line"></span><br><span class="line">###### （一）、虚拟机的定义</span><br><span class="line"></span><br><span class="line">是一款软件，能实现模拟计算机硬件的功能，能给其他的应用程序提供一个独立的运行环境</span><br><span class="line"></span><br><span class="line">###### （二）、虚拟机的运行架构（两种）</span><br><span class="line"></span><br><span class="line">1、寄居架构：虚拟机软件需要安装在有操作系统的计算机上。本机称为宿主机，安装在虚拟机的系统称为客户机</span><br><span class="line">2、原生架构：虚拟机不需要依赖其他操作系统，自己本身就是一款系统直接安装在硬件之上</span><br><span class="line"></span><br><span class="line">3、各公司对应的产品</span><br><span class="line">       Vmware  Workstation   寄居架构</span><br><span class="line">1）、Vmware公司</span><br><span class="line">       VmwarevSphere原生架构</span><br></pre></td></tr></table></figure></p>
+<p>   Virtual  PC和Virtual Server   寄居架构</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2</span>、微软</span><br></pre></td></tr></table></figure>
+
+<p>   Hyper—V                   原生架构<br>```</p>
+<p>3、思杰公司XenDesktop<br>       XenServer原生架构</p>
+<h5 id="二、虚拟机操作应用"><a href="#二、虚拟机操作应用" class="headerlink" title="二、虚拟机操作应用"></a>二、虚拟机操作应用</h5><p>1、安装<br>2、新建虚拟机<br>3、常用的快捷键<br>a、从虚拟机切换到宿主机（本机）     Ctrl +Alt<br>b、虚拟机全屏显示                   Ctrl + Alt + Enter<br>c、重启                             Ctrl + Alt + Insert  = Ctrl + Alt + Delete<br>d、从宿主机进入虚拟机               Ctrl + G</p>
+<p>4、管理虚拟机<br>a、迁移虚拟机（把安装好的虚拟机系统复制到其他机器上直接使用）<br>b、安装Vmware Tools（增强虚拟机的硬件功能，使虚拟机能够使用真实机打印机和文件夹等功能，实现直接拖拽文件）<br>c、快照（将虚拟机的系统做个备份，当出现问题时，能将系统快速的恢复到稳定状态）<br>d、克隆：（能快速的创建多个虚拟机系统）<br>链接克隆：引用源虚拟机的一个当前状态，源虚拟机损坏，当前的虚拟机也会损坏（占用空间小）</p>
+<p>完整克隆：创建了一个完整的副本，该虚拟机状态是完全的独立的（占用空间大）</p>
+<p>vmnet0:桥接到真实网卡（真实电脑）<br>vmnet1(独立网络，相当于交换机)</p>
+<h5 id="安装操作系统"><a href="#安装操作系统" class="headerlink" title="安装操作系统"></a>安装操作系统</h5><p>Windows  7的安装</p>
+<h6 id="（一）、安装条件"><a href="#（一）、安装条件" class="headerlink" title="（一）、安装条件"></a>（一）、安装条件</h6><p>1、CPU的主频     32位系统 1GHz      64位系统  1.4GHz<br>2、内存           32位系统  1G       64位系统   2G</p>
+<p>3、系统盘容量32位系统  16G      64位系统   20G</p>
+<h6 id="（二）、安装方式"><a href="#（二）、安装方式" class="headerlink" title="（二）、安装方式"></a>（二）、安装方式</h6><p>1、全新安装安装后是该计算机上唯一的系统，不会保留系统分区<br>2、升级安装只能由Windows  Vista  版本升级到Windows 7<br>3、双引导安装装两个系统，注意：先安装低版本，再安装高版本</p>
+<hr>
+<p>注意事项：<br>USB3.0   数据的理论传输速度达到5GB/s ，是USB2.0的10倍</p>
+<hr>
+<h4 id="一-Windows-Server-Backup使用注意事项："><a href="#一-Windows-Server-Backup使用注意事项：" class="headerlink" title="一.Windows Server Backup使用注意事项："></a>一.Windows Server Backup使用注意事项：</h4><p>​     需要一个单独的专用磁盘运行计划备份<br>​      只能备份本地磁盘上 NTFS 格式的卷<br>​     不能备份到磁带<br>​     不能恢复由 Ntbackup.exe 创建的备份</p>
+<h4 id="二、添加Windows-Server-Backup功能"><a href="#二、添加Windows-Server-Backup功能" class="headerlink" title="二、添加Windows Server Backup功能"></a>二、添加Windows Server Backup功能</h4><p>​        图形化界面工具<br>​        命令行工具</p>
+<h4 id="三、备份方式："><a href="#三、备份方式：" class="headerlink" title="三、备份方式："></a>三、备份方式：</h4><p>​       1.一次性备份<br>​       2.备份计划<br>​          周期性进行<br>​          减小工作量</p>
+<h4 id="四、备份类型："><a href="#四、备份类型：" class="headerlink" title="四、备份类型："></a>四、备份类型：</h4><p>​         1.整个服务器备份<br>​         2.自定义备份</p>
+<h4 id="五、备份方式设置："><a href="#五、备份方式设置：" class="headerlink" title="五、备份方式设置："></a>五、备份方式设置：</h4><p>​         1.始终执行完整备份<br>​              所选数据全部备份<br>​               耗时较长<br>​         2.始终执行增量备份<br>​               只备份新添加或有改动的数据<br>​               备份速度快<br>​               降低系统整体性能损耗<br>​        3.自定义备份设置<br>​             针对不同磁盘选择不同的备份方式</p>
+<h4 id="六、一次性备份（控制台备份和命令行备份）"><a href="#六、一次性备份（控制台备份和命令行备份）" class="headerlink" title="六、一次性备份（控制台备份和命令行备份）"></a>六、一次性备份（控制台备份和命令行备份）</h4><pre><code>1.一次性备份（命令行）
+ wbadmin start backup -backuptarget :f: -include:d:   ----将D盘的数据备份到F盘
+2.一次性还原（命令行还原）
+get versions  -----查看备份
+wbadmin start recovery -version:10/09/2018-02:14 -itemtype:file -items:e:\aa.txt -recoverytarget:e:\-----将E盘的指定文件aa.txt恢复到E;
+wbadmin start recovery -version:10/09/2018-02:14 -itemtype:volume -items:e: -----将整个e盘的数据恢复到e盘
+-itemtype: -----还原对象类型
+对象类型包括三个：APP（程序） FILE（文件） VOLUME（卷）</code></pre><h4 id="七、计划备份"><a href="#七、计划备份" class="headerlink" title="七、计划备份"></a>七、计划备份</h4><p>​       1.控制台计划备份<br>​        2.计划任务备份<br>​             1.创建命令执行脚本（.bat）<br>​             wbadmin start backup -backuptarget:f: -include:e: -quiet<br>​             2.创建计划任务触发脚本<br>​              开始—-管理工具—-任务计划工具（触发器、操作）</p>
+<hr>
+<h2 id="第三章-Windows-的用户管理"><a href="#第三章-Windows-的用户管理" class="headerlink" title="第三章   Windows  的用户管理"></a>第三章   Windows  的用户管理</h2><h4 id="本章结构-1"><a href="#本章结构-1" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、用户管理<br>二、组的管理<br>具体知识点</p>
+<h4 id="一、用户的管理"><a href="#一、用户的管理" class="headerlink" title="一、用户的管理"></a>一、用户的管理</h4><h6 id="（一）、SID"><a href="#（一）、SID" class="headerlink" title="（一）、SID"></a>（一）、SID</h6><p>1、定义：每个用户账户拥有唯一的安全标识符，用来记录用户的权限<br>2、组成：  Windows ID  +  用户的相对ID组成<br> Windows  ID ：在安装Windows 的过程每台计算机都会产生不同的Windows  ID<br>相对ID： 500 是Administrator 账户的相对ID ；新建的第一个用户是1000，第二个是1001，依次类推。</p>
+<h6 id="（二）、创建账户"><a href="#（二）、创建账户" class="headerlink" title="（二）、创建账户"></a>（二）、创建账户</h6><h6 id="（三）、账户的分类"><a href="#（三）、账户的分类" class="headerlink" title="（三）、账户的分类"></a>（三）、账户的分类</h6><p>1、与使用者相关联的账户<br>1）、Administrator   默认管理员账户    （使用者中权限最高）<br>2）、Guest  账户    访客使用          （默认禁用）</p>
+<p>2、与Windows 组件关联的账户<br>1）、SYSTEM    本地系统账户；为Windows 核心组件访问文件提供权限   （拥有高于Administrator的权限）<br>2）、Local  Service  （本地服务） 为一部分服务提供访问系统权限  ；权限和Users一致<br>3）、Network  Service （网络服务）</p>
+<h4 id="二、组的管理"><a href="#二、组的管理" class="headerlink" title="二、组的管理"></a>二、组的管理</h4><p>作用：一些账户的集合，为“组”设置权限后，隶属于该组的账户默认具有这些权限，方便管理</p>
+<h6 id="（一）、需要人为添加成员的组"><a href="#（一）、需要人为添加成员的组" class="headerlink" title="（一）、需要人为添加成员的组"></a>（一）、需要人为添加成员的组</h6><p>1、Administrators 组  默认管理员组  （可以将账户加入改组让用户具有管理员权限）<br>2、Guests  默认来宾组<br>3、Power  Users  Windows Server 2008上为向下兼容保留的组  （不再使用）<br>4、Users   新用户的默认组</p>
+<h6 id="（二）、动态包含成员的组"><a href="#（二）、动态包含成员的组" class="headerlink" title="（二）、动态包含成员的组"></a>（二）、动态包含成员的组</h6><p>1、INTERACTIVE   默认包含在本地登录的账户<br>2、Authenticated  Users   包含了通过验证的所有账户<br>3、Everyone  所有账户  （设置开放权限时使用） </p>
+<p>命令配置用户<br>命令创建用户<br>Net uer 用户名 密码 /add<br>例如：net user zhangsan 123.com /add —–创建用户zhangsan密码为123.com</p>
+<p>命令删除用户<br>Net user 用户名 /del<br>例如：net user zhangsan /del ——-删除zhangsan用户<br>命令重置用户密码<br>Net user 用户名 “”<br>例如：net user zhangsan “” —–将zhangsan用户密码重置位空<br>查看用户<br>Net user<br>将用户假如指定组<br>Net localgroup 组名 用户名 /add<br>例如：net localgroup administrator zhangsan /add—将zhangsanj加入administrator管理组<br>命令配置组<br>命令创建组<br>Net localgroup 组名  /add<br>Net localgroup jishubu /add —–创建jishubu组<br>命令删除组<br>Net localgroup jishubu /del<br>命令添加用户到指定组<br>Net localgroup 组名 用户名 /add<br>例如：net localgroup administrator zhangsan /add—将zhangsanj加入administrator管理组</p>
+<hr>
+<h2 id="文件服务"><a href="#文件服务" class="headerlink" title="文件服务"></a>文件服务</h2><h4 id="本章结构-2"><a href="#本章结构-2" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、共享文件夹<br>二、文件服务器及其策略<br>具体知识点</p>
+<h4 id="一、共享文件夹"><a href="#一、共享文件夹" class="headerlink" title="一、共享文件夹"></a>一、共享文件夹</h4><h6 id="（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。"><a href="#（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。" class="headerlink" title="（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。"></a>（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。</h6><h6 id="（二）、访问共享文件夹"><a href="#（二）、访问共享文件夹" class="headerlink" title="（二）、访问共享文件夹"></a>（二）、访问共享文件夹</h6><p>1、UNC路径  ：   \对方的IP地址（主机名）\共享名<br>  （需要输入对方电脑上的一个用户及密码）<br>2、创建共享的用户： 只能是Administrators组成员<br>3、隐藏共享：在创建共享夹时共享名后加”$”<br>访问方式：\服务器主机名或IP地址\共享名<br>4、默认共享：Windows 默认创建分区的共享，访问这些默认共享需要administrator账户身份</p>
+<h4 id="二、文件服务器"><a href="#二、文件服务器" class="headerlink" title="二、文件服务器"></a>二、文件服务器</h4><h6 id="（一）、两种网络结构"><a href="#（一）、两种网络结构" class="headerlink" title="（一）、两种网络结构"></a>（一）、两种网络结构</h6><p>1、对等网：所有的机器都需要创建相同的用户名和密码；实现彼此访问共享文件夹<br>缺点：不适合大型网络，共享文件夹分散<br>2、C/S结构：网络中提供文件资源的集中存储和访问，实现：集中化管理、内容控制、高可靠性、便捷的搜索服务。</p>
+<h6 id="（二）、文件服务器的角色服务"><a href="#（二）、文件服务器的角色服务" class="headerlink" title="（二）、文件服务器的角色服务"></a>（二）、文件服务器的角色服务</h6><p>1、共享和存储管理    为共享文件夹和存储资源提供简化管理<br>2、分布式文件系统（ DF S）：两种技术：D F S命名空间和D F S复制技术<br>DFS 命名空间可以使用户从一个入口访问位于多台计算机上的共享资源<br>3、文件服务器资源管理器  ：实现文件夹和卷的配额，主动屏蔽文件<br>4、网络文件系统服务（NF S）：实现Windows 和Unix 混合环境的文件共享解决方案<br>5、Windows 搜索服务：是Windows  Server  2008上一种新型索引解决方案</p>
+<h6 id="（三）、服务器的策略管理"><a href="#（三）、服务器的策略管理" class="headerlink" title="（三）、服务器的策略管理"></a>（三）、服务器的策略管理</h6><p>1、拒绝从网络访问  （可以实现某些特殊用户通过网络访问服务器）<br>2、本地账户的共享安全模型   （实现强制网络访问者以来宾身份访问文件服务器）<br>注意：文件服务器上要启用来宾账户<br>3、使用空白密码的本地账户只允许进行控制台登录   （实现服务器中没有设置密码的账户不被冒用，针对administrator账户）<br>禁用 选项    说明administrator 账户不能登录（空密码）<br>启用选项     说明administrator 账户能登录   （空密码）<br>4、密码保护共享   （启用，要求文件服务器和客户端必须拥有相同的用户名和密码才能访问）</p>
+<h6 id="（四）、共享权限"><a href="#（四）、共享权限" class="headerlink" title="（四）、共享权限"></a>（四）、共享权限</h6><p>1、网络访问     共享权限和NTFS权限的交集  （拒绝权限大于一切）<br>2、本地访问     只看NTF S权限（唯一生效NTFS权限）</p>
+<hr>
+<h2 id="NTFS权限"><a href="#NTFS权限" class="headerlink" title="NTFS权限"></a>NTFS权限</h2><h4 id="本章结构-3"><a href="#本章结构-3" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、理解NTFS权限<br>二、掌握NTFS权限的设置方法<br>具体知识点</p>
+<h4 id="一、NTFS权限"><a href="#一、NTFS权限" class="headerlink" title="一、NTFS权限"></a>一、NTFS权限</h4><h6 id="（一）、文件系统"><a href="#（一）、文件系统" class="headerlink" title="（一）、文件系统"></a>（一）、文件系统</h6><p>1、定义：在外部的存储设备上（硬盘）管理组织存储文件的一种方法—–存储设备（U盘 硬盘 移动硬盘）没有文件系统是无法存储数据的，相当于电脑没有操作系统无法操作。<br>2、常见的文件系统 ：FAT  简单文件存储（FAT 16 、FAT32，无安全性）<br>                    NTFS  新型文件传输系统（有安全性）<br>                    EXT    （EXT3 ，EXT4  Linux系统下）<br>3、权限：理解一种权利，只有拥有权限才能对文件进行修改、删除、等操作</p>
+<h6 id="（二）、NTFS文件系统的新功能"><a href="#（二）、NTFS文件系统的新功能" class="headerlink" title="（二）、NTFS文件系统的新功能"></a>（二）、NTFS文件系统的新功能</h6><p>1、访问控制列表     （限定用户和组对文件或文件夹具有如何操作权限）<br>2、加密文件系统<br>3、压缩<br>4、磁盘配额   限定用户最大使用磁盘空间，保证磁盘的高效利用<br>二、权限的设置及规则<br>1、权限不冲突时累加    用户同时属于多个组，如果权限不冲突，该用户拥有所有组权限之和<br>2、权限冲突时，拒绝优先<br>3、默认继承权限   文件夹的权限默认会被其子文件夹和子<br>文件继承<br>1）阻止继承（在子文件夹和文件上操作）<br>2）强制生效（父级文件夹上操作）                     </p>
+<p>a、读取权限     读取访问控制列表的权限<br>4、特别的权限  b、更改权限     更改访问控制列表的权限（建立在读取权限基础上）<br>                  c、取得所有权     默认情况下文件的创建者就     是其所有者，拥有完全控制权限  </p>
+<hr>
+<h2 id="本地安全策略"><a href="#本地安全策略" class="headerlink" title="本地安全策略"></a>本地安全策略</h2><h4 id="本章结构-4"><a href="#本章结构-4" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、账户策略的配置<br>二、本地策略的配置<br>具体知识点</p>
+<h4 id="账户策略的配置"><a href="#账户策略的配置" class="headerlink" title="账户策略的配置"></a>账户策略的配置</h4><h6 id="（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制"><a href="#（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制" class="headerlink" title="（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制"></a>（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制</h6><h6 id="（二）、打开本地安全策略管理控制台："><a href="#（二）、打开本地安全策略管理控制台：" class="headerlink" title="（二）、打开本地安全策略管理控制台："></a>（二）、打开本地安全策略管理控制台：</h6><p>1、图形化： 开始\控制面板\系统和安全\管理工具\本地安全策略<br>2、命令：secpol.msc</p>
+<h6 id="（三）、账户策略"><a href="#（三）、账户策略" class="headerlink" title="（三）、账户策略"></a>（三）、账户策略</h6><p>1、作用：通过设置密码策略和账户锁定策略来提高用户的密码安全级别<br>2、包含：密码策略和账户锁定策略</p>
+<h6 id="（四）、密码策略"><a href="#（四）、密码策略" class="headerlink" title="（四）、密码策略"></a>（四）、密码策略</h6><p>1、密码复杂性要求   （包含4类字符中的三种）<br>2、密码长度最小值    （如果设为0代表可不设置密码；最大为14）<br>3、密码最短使用期限   （0<del>998之间；设置为0 代表可随时更改密码）（对Administrator不生效）<br>4、密码最长使用期限    （0</del>999天之间，默认42天，代表一个密码用42天后必须更改密码；设置为0代表密码永不过期）<br>5、强制密码历史    （代表最近使用的几次密码不可以被使用；范围0~24；0代表可随意使用过去使用的密码）<br>6、用可还原的加密存储密码   （一种密码的加密方式，默认设置为禁用，更安全）</p>
+<h6 id="（五）、账户锁定策略"><a href="#（五）、账户锁定策略" class="headerlink" title="（五）、账户锁定策略"></a>（五）、账户锁定策略</h6><p>1、账户锁定阈值    （代表用户连续输错 密码次数等于阈值后该账户被锁定；范围0<del>999；设置为0代表该账户永不锁定）<br>2、账户锁定时间    （代表该账户被锁定后，多长时间自动解锁；范围0</del>99999分钟；设置为代表永远被锁定，只能由管理员手动解锁）<br>3、重置账户锁定计数器  （用户在该计数器时间内只要输错次数不到锁定阈值，该账户不被锁定，过此时间后又有相同的输错次数；设置范围小于或等于账户锁定时间）<br>注意：账户锁定策略对管理员账户完全不生效</p>
+<h4 id="二、本地策略"><a href="#二、本地策略" class="headerlink" title="二、本地策略"></a>二、本地策略</h4><h6 id="（一）、三部分内容"><a href="#（一）、三部分内容" class="headerlink" title="（一）、三部分内容"></a>（一）、三部分内容</h6><p>1、审核策略    2、用户权限分配    3、安全选项</p>
+<h6 id="（二）、审核策略"><a href="#（二）、审核策略" class="headerlink" title="（二）、审核策略"></a>（二）、审核策略</h6><p>作用：确定是否将计算机与安全有关的事件记录到安全日志中，也可将用户成功或者失败的登录记录在日志中等<br>事件查看器：用于浏览和管理事件日志</p>
+<h6 id="（三）、用户权限分配"><a href="#（三）、用户权限分配" class="headerlink" title="（三）、用户权限分配"></a>（三）、用户权限分配</h6><p>作用：可以对某些特定的用户和组授予或拒绝一些特殊的权限<br>常用设置：<br>关闭系统<br>更改系统时间<br>拒绝本地登录<br>拒绝从网络访问这台计算机<br>允许通过远程桌面服务登陆</p>
+<h6 id="（三）、安全选项"><a href="#（三）、安全选项" class="headerlink" title="（三）、安全选项"></a>（三）、安全选项</h6><p>作用：控制一些和操作系统安全相关的设置<br>常用设置：<br>交互式登陆-登陆时不显示用户名<br>交互式登陆-试图登陆的用户的消息标题<br>交互式登陆-试图登陆的用户的消息文本<br>网络访问-本地账户的共享和安全模型<br>账户-使用空白密码的账户只允许控制台登陆</p>
+<p>注意：更新策略的命令  ：  gpupdate</p>
+<h6 id="（四）、本地组策略-（一组策略的集合，在工作组环境没有在域环境应用广泛）"><a href="#（四）、本地组策略-（一组策略的集合，在工作组环境没有在域环境应用广泛）" class="headerlink" title="（四）、本地组策略   （一组策略的集合，在工作组环境没有在域环境应用广泛）"></a>（四）、本地组策略   （一组策略的集合，在工作组环境没有在域环境应用广泛）</h6><p>打开管理控制台的命令：  gpedit.msc</p>
+<hr>
+<h2 id="Windows-磁盘管理"><a href="#Windows-磁盘管理" class="headerlink" title="Windows 磁盘管理"></a>Windows 磁盘管理</h2><h4 id="本章结构-5"><a href="#本章结构-5" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、磁盘管理概述<br>二、Windows 动态磁盘管理<br>具体知识点</p>
+<h4 id="一、磁盘管理概述"><a href="#一、磁盘管理概述" class="headerlink" title="一、磁盘管理概述"></a>一、磁盘管理概述</h4><h6 id="（一）、分区方式"><a href="#（一）、分区方式" class="headerlink" title="（一）、分区方式"></a>（一）、分区方式</h6><p>1、MBR 分区方式 ：主启动记录；包含引导程序和分区表（64字节）；每个分区信息会占16个字节；最多可划分4个主分区；<br>注意：如果想划分超过4个分区，第四个主分区会变成扩展分区，然后在扩展分区上再去划分逻辑分区<br>2、GPT的分区方式：分区表突破64字节；Windows 2008上最多可划分128个主分区</p>
+<h6 id="（二）、基本磁盘"><a href="#（二）、基本磁盘" class="headerlink" title="（二）、基本磁盘"></a>（二）、基本磁盘</h6><p>1、只能管理连续的磁盘空间<br>2、不能提高读写效率<br>3、无可靠性</p>
+<h6 id="（三）、动态磁盘"><a href="#（三）、动态磁盘" class="headerlink" title="（三）、动态磁盘"></a>（三）、动态磁盘</h6><p>1、可扩展性    （随时扩展文件系统的管理空间，即分区的容量）<br>2、高读写性    （动态磁盘中卷由多个硬盘组成，提高读写的速率）<br>3、高可靠性     （防止某个硬盘损坏导致数据丢失）</p>
+<h6 id="二、Windows-动态磁盘卷管理"><a href="#二、Windows-动态磁盘卷管理" class="headerlink" title="二、Windows 动态磁盘卷管理"></a>二、Windows 动态磁盘卷管理</h6><p>（一）、联机    只有联机硬盘才能初始化使用<br>（二）、初始化    选择两种分区方式的一种<br>（三）、新建卷的过程  （首先需要把基本磁盘转换为动态磁盘）</p>
+<p>1、简单卷  （条件：如果存一个比较大的文件放不下        跨区）</p>
+<p>2、跨区卷   （至少2块硬盘，写满一个再写下一块硬盘，无法提高效率       带区）</p>
+<p>3、带区卷   （数据会同时往N个硬盘上写，速率最快，但不能容错       镜像）</p>
+<p>4、镜像卷    （能实现容错，但损失磁盘利用率，不能提升读写速率       RAID-5卷）<br>5、RAID卷   （既能容错、也能提高读写速率）</p>
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>卷类型 需要磁盘数 每个磁盘提供的空间是否一致 可扩展性 读写性能 容错 空间利用率<br>简单卷 1 —— 可 正常 无 100%<br>跨区卷 2<del>32 不一致 可 正常 无 100%<br>带区卷 2</del>32 一致 否 最快 无 100%<br>镜像卷 只能是2个 一致 否 正常 有 50%<br>RAID-5卷 3~32 一致 否 较快 有 n-1</p>
+<h6 id="（四）、管理卷"><a href="#（四）、管理卷" class="headerlink" title="（四）、管理卷"></a>（四）、管理卷</h6><p>1、扩展性     （在简单卷和跨区卷上实现，只要不是系统盘就可扩展，如果跨到其他硬盘简单卷会变成跨区卷）<br>2、压缩卷<br>3、添加镜像   （简单卷添加镜像会变成镜像卷）<br>4、删除镜像    （镜像卷删除镜像后会变成简单卷）<br>5、中断镜像     （镜像卷会变成两个简单卷）<br>6、RAID-5卷     （最多只能损坏一块硬盘，可通过修复卷修复该RAID-5卷）</p>
+<hr>
+<h2 id="部署DHCP服务"><a href="#部署DHCP服务" class="headerlink" title="部署DHCP服务"></a>部署DHCP服务</h2><h2 id="FTP服务"><a href="#FTP服务" class="headerlink" title="FTP服务"></a>FTP服务</h2><h4 id="本章结构-6"><a href="#本章结构-6" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、FTP的客户端<br>二、FTP服务器</p>
+<h4 id="具体知识点-1"><a href="#具体知识点-1" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、FTP客户端"><a href="#一、FTP客户端" class="headerlink" title="一、FTP客户端"></a>一、FTP客户端</h4><h6 id="（一）、FTP定义"><a href="#（一）、FTP定义" class="headerlink" title="（一）、FTP定义"></a>（一）、FTP定义</h6><p>是一种应用层协议，称文件传输协议，主要能实现用户的上传和下载功能；采用C/S结构进行管理</p>
+<h6 id="（二）、常见的FTP客户端"><a href="#（二）、常见的FTP客户端" class="headerlink" title="（二）、常见的FTP客户端"></a>（二）、常见的FTP客户端</h6><p>1、WWW浏览器访问      （最常用）<br>2、命令行工具<br>具体操作方法：<br>a、登录FTP服务器      命令提示符 输入   ：  ftp   FTP服务器的IP地址<br>b、输入用户名      直接输入     （提示信息：以数字2或3的百位数说明登录成功；以5开头的百位数代表登录失败）<br>c、输入密码      （不显示密码）<br>d、显示文件列表      l s  （简单显示）  或  dir  （详细显示）<br>e、进入文件夹        c d   文件夹名<br>f、 后退一步          cd  . .<br>g、下载文件           get    文件名    （默认所在的下载位置是当前登录账户所在的文件夹内）<br>h、上传文件           put    文件名    （默认要把需要 上传的文件放在当前登录账户的文件夹内）<br>i、删除文件            del    文件名<br>j、退出登录            bye<br>3、专用图形工具<br>FileZilla   ；   CuteFTP  ；   FlashFXP；  LeapFTP</p>
+<h4 id="二、FTP服务器"><a href="#二、FTP服务器" class="headerlink" title="二、FTP服务器"></a>二、FTP服务器</h4><h6 id="（一）、在Windows-Server2008上搭建FTP服务器"><a href="#（一）、在Windows-Server2008上搭建FTP服务器" class="headerlink" title="（一）、在Windows  Server2008上搭建FTP服务器"></a>（一）、在Windows  Server2008上搭建FTP服务器</h6><p>1、需要在角色中/添加角色/Web服务器（IIS）/添加必须的功能/勾选上FTP服务/安装<br>2、启动FTP站点   （默认生成一个站点（可删也可保留）默认主目录：C:\inetpub\ftproot）<br>3、权限：用户的访问权限是NTFS权限和FTP权限的交集<br>4、匿名账户：anonymous 和 ftp</p>
+<h6 id="（二）、Serv-U"><a href="#（二）、Serv-U" class="headerlink" title="（二）、Serv-U"></a>（二）、Serv-U</h6><p>定义：是一款软件，可以将任何计算机变成FTP服务器</p>
+<h6 id="（三）、常见的FTP服务端"><a href="#（三）、常见的FTP服务端" class="headerlink" title="（三）、常见的FTP服务端"></a>（三）、常见的FTP服务端</h6><p>Xlight  ftp Server  ；  RaidenFTPD ； EFT  Server  ；FileZilla  Server</p>
+<hr>
+<h2 id="部署web服务"><a href="#部署web服务" class="headerlink" title="部署web服务"></a>部署web服务</h2><h2 id="部署DNS服务"><a href="#部署DNS服务" class="headerlink" title="部署DNS服务"></a>部署DNS服务</h2><h2 id="IIS"><a href="#IIS" class="headerlink" title="IIS"></a>IIS</h2><h4 id="WWW服务"><a href="#WWW服务" class="headerlink" title="WWW服务"></a>WWW服务</h4><p>www(word wide web)—万维网服务，其实现形式是通过web站点。</p>
+<p>搭建WEB服务的软件：</p>
+<p>1.Apache(开源软件，多应用于Linux、Unix系统下)</p>
+<p>2.IIS（微软产品，多应用于Windows系统下）</p>
+<hr>
+<h4 id="IIS7-5"><a href="#IIS7-5" class="headerlink" title="IIS7.5"></a>IIS7.5</h4><p>与老版本对比的技术改进：</p>
+<p>\1. 集成扩展</p>
+<p>2.管理功能增强</p>
+<p>3.应用程序宿主增强</p>
+<p>4.对服务器核心版本的.net功能增强</p>
+<p>WEB站点的安装（详细步骤见课本P62-63）</p>
+<p>安装之后，在浏览器输入localhost来验证IIS是否正常工作</p>
+<p>localhost=127.0.0.1</p>
+<h4 id="WEB站点的配置"><a href="#WEB站点的配置" class="headerlink" title="WEB站点的配置"></a>WEB站点的配置</h4><h6 id="1-配置站点的IP和端口号"><a href="#1-配置站点的IP和端口号" class="headerlink" title="1.配置站点的IP和端口号"></a>1.配置站点的IP和端口号</h6><p>   @IP地址建议使用静态地址</p>
+<p>   @端口号默认是80  可以更改端口号，更改后访问格式如下：<a href="http://ip:新端口号" target="_blank" rel="noopener">http://ip:新端口号</a></p>
+<p>   @类型：http&amp;https(安全版http，加密传输的网页数据)</p>
+<h6 id="2-配置站点的物理路径和连接限制"><a href="#2-配置站点的物理路径和连接限制" class="headerlink" title="2.配置站点的物理路径和连接限制"></a>2.配置站点的物理路径和连接限制</h6><p>   @默认站点的物理路径：c:\inetpub\wwwroot(注意：出于安全考虑，此路径不要与系统在同一个分区)</p>
+<p>   @连接限制分为三种设置：</p>
+<p>​         *链接超时：默认120秒（120S之后将重新访问）</p>
+<p>​         *最大并发连接数：最大可承载的访问数（防止系统超负荷过重）</p>
+<p>​         *最大带宽：限制站点使用的网络带宽，防止web服务占用过多的网络资源，影响其他网络服务。</p>
+<h6 id="3-默认文档"><a href="#3-默认文档" class="headerlink" title="3.默认文档"></a>3.默认文档</h6><p>  服务搭建成功后在没有指定要访问网页时，用于默认想用用户的文档网页</p>
+<p>  系统已设默认文档如下：Default.htm Default.asp ,index.html,iisstart.htm</p>
+<p>  优先显示顺序：至上而下（顺序可调整）</p>
+<hr>
+<h4 id="虚拟目录"><a href="#虚拟目录" class="headerlink" title="虚拟目录"></a>虚拟目录</h4><h6 id="一、概念："><a href="#一、概念：" class="headerlink" title="一、概念："></a>一、概念：</h6><p>逻辑上网站数据（文件夹或网页）在网站站点，物理上网站数据在其他主机或是路径，防止主目录</p>
+<p>占用空间过大，导致空间不足。</p>
+<h6 id="二、虚拟目录优点："><a href="#二、虚拟目录优点：" class="headerlink" title="二、虚拟目录优点："></a>二、虚拟目录优点：</h6><p>1.将数据分散保存到不同的磁盘或是主机，便于开发维护</p>
+<p>2.数据移动到其他位置时，不会影响到weB站点的逻辑结构</p>
+<p>3.虚拟目录的物理路径即可是本地路径也可以是远程共享文件夹</p>
+<h6 id="三、创建虚拟目录—"><a href="#三、创建虚拟目录—" class="headerlink" title="三、创建虚拟目录—"></a>三、创建虚拟目录—</h6><h6 id="四、配置虚拟目录"><a href="#四、配置虚拟目录" class="headerlink" title="四、配置虚拟目录"></a>四、配置虚拟目录</h6><p>​    @可以修改物理路径，但是不能修改虚拟主机别名</p>
+<p>​    @可以设置默认文档</p>
+<p>虚拟主机—-一台服务器上运行多个网站，这些网站成为虚拟主机</p>
+<h6 id="一、实现虚拟主机的方式："><a href="#一、实现虚拟主机的方式：" class="headerlink" title="一、实现虚拟主机的方式："></a>一、实现虚拟主机的方式：</h6><p>​    1.使用不同的IP</p>
+<p>​    2.使用相同的IP的不同的端口号</p>
+<p>​    3.使用相同的IP和端口号，不同的主机名</p>
+<hr>
+<h2 id="Windows-Server-2008R2-的安装与网络配置"><a href="#Windows-Server-2008R2-的安装与网络配置" class="headerlink" title="Windows  Server  2008R2 的安装与网络配置"></a>Windows  Server  2008R2 的安装与网络配置</h2><h4 id="本章结构-7"><a href="#本章结构-7" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、Windows Server 2008R2的版本及安装<br>二、基本配置</p>
+<h4 id="具体知识点-2"><a href="#具体知识点-2" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、Windows-Server-2008的版本及安装"><a href="#一、Windows-Server-2008的版本及安装" class="headerlink" title="一、Windows Server 2008的版本及安装"></a>一、Windows Server 2008的版本及安装</h4><h6 id="（一）、Windows-Server-2008R2-的改进"><a href="#（一）、Windows-Server-2008R2-的改进" class="headerlink" title="（一）、Windows  Server  2008R2 的改进"></a>（一）、Windows  Server  2008R2 的改进</h6><p>特点：集成了更多的功能、更多的网络服务组件（新技术：Hyper-V 、Server Core 、IIS 7.0等）</p>
+<h6 id="（二）、家族成员"><a href="#（二）、家族成员" class="headerlink" title="（二）、家族成员"></a>（二）、家族成员</h6><p>版本 支持CPU 内存 环境<br>标准版（Standard） 4个CPU 32位：4GB64位：32GB 中小企业<br>企业版（Enterprise） 8个CPU 32位：64GB64位：2TB 大型企业<br>数据中心版（Datacenter） 32位：32个CPU64位：64个CPU 32位：64GB64位：2TB 超大规模企业<br>Web 版 4个CPU 32位：4GB64位：32GB 为Web应用程序服务器<br>安腾版 64个CPU 2TB 基于Itanium计算机，不支持虚拟化</p>
+<h6 id="（三）、安装企业版最低的硬件要求"><a href="#（三）、安装企业版最低的硬件要求" class="headerlink" title="（三）、安装企业版最低的硬件要求"></a>（三）、安装企业版最低的硬件要求</h6><p>1、CPU速度       32位：1GHz      64位：1.4GHz<br>2、内存           512MB<br>3、硬盘空间       最少10GB</p>
+<h6 id="（四）、安装方式"><a href="#（四）、安装方式" class="headerlink" title="（四）、安装方式"></a>（四）、安装方式</h6><p>1、完全安装         （传统安装模式，安装完成后可充当各种服务器角色）<br>2、服务器核心安装   （不安装完整的图形用户界面，减少了受攻击面和硬件资源损耗）</p>
+<h4 id="二、基本配置"><a href="#二、基本配置" class="headerlink" title="二、基本配置"></a>二、基本配置</h4><h6 id="（一）、给接口配置IP地址"><a href="#（一）、给接口配置IP地址" class="headerlink" title="（一）、给接口配置IP地址"></a>（一）、给接口配置IP地址</h6><p>1、打开命令提示符：   输入：    netsh   interface   show  interface  （查看接口名称）<br>2、配置动态获取IP地址：  netsh  interface  ip  set  address  “接口名称”  DHCP<br>3、配置静态IP地址：  netsh   interface  ip  set  address “接口名称”  static  IP地址  子网掩码    默认网关</p>
+<h6 id="（二）、自动专用IP地址"><a href="#（二）、自动专用IP地址" class="headerlink" title="（二）、自动专用IP地址"></a>（二）、自动专用IP地址</h6><p>定义：当网络中不存在DHCP服务器或DHCP服务器宕机的情况下，如果选择自动获取IP地址，会得到169.254.0.0~169.254.255.255 这个网段的地址<br>备用配置：该备用配置中的用户配置优先级高于自动专用IP地址</p>
+<h6 id="（三）、配置DNS服务器地址"><a href="#（三）、配置DNS服务器地址" class="headerlink" title="（三）、配置DNS服务器地址"></a>（三）、配置DNS服务器地址</h6><p>1、静态的：   netsh  interface  ip  set  dnsserver  “接口名称”  static  DNS地址<br>2、动态的：   netsh  interface  ip  set  dnsserver  “接口名称”  DHCP</p>
+<h6 id="（四）、计算机名"><a href="#（四）、计算机名" class="headerlink" title="（四）、计算机名"></a>（四）、计算机名</h6><p>特点：网络上必须唯一，即使位于不同的工作组，也不能同名，尽量不要以数字开头，重启后才会生效<br>命令：  netdom  renamecomputer  localhost（127.0.0.1）  /newname ：” 新计算机名”</p>
+<h6 id="（五）、工作组"><a href="#（五）、工作组" class="headerlink" title="（五）、工作组"></a>（五）、工作组</h6><p>定义：是微软设计的一种网络模型，默认情况下所有机器都属于Workgroup工作组环境；该环境下所有机器地位平等</p>
+<hr>
+<h2 id="部署Windows-域环境"><a href="#部署Windows-域环境" class="headerlink" title="部署Windows  域环境"></a>部署Windows  域环境</h2><h4 id="本章结构-8"><a href="#本章结构-8" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、域、活动目录的相关概念<br>二、部署Windows 域环境<br>三、管理域中的账户、组、OU</p>
+<h4 id="具体知识点-3"><a href="#具体知识点-3" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、域、活动目录的相关概念"><a href="#一、域、活动目录的相关概念" class="headerlink" title="一、域、活动目录的相关概念"></a>一、域、活动目录的相关概念</h4><h6 id="（一）、工作组"><a href="#（一）、工作组" class="headerlink" title="（一）、工作组"></a>（一）、工作组</h6><p>特点：工作组环境下的计算机地位平等，规模很小（不适合大型企业网络环境）</p>
+<h6 id="（二）、域环境"><a href="#（二）、域环境" class="headerlink" title="（二）、域环境"></a>（二）、域环境</h6><p>定义：逻辑上把网络中计算机组织在一起，集中管理的一种网络环境<br>优点：1、集中管理   2、便捷的网络资源访问   3、可扩展性</p>
+<p>是一个数据库：存储着整个Windows网络中用户、组、计算机、共享文件夹</p>
+<p>活动目录等对象信息是一种服务：能实现对数据对象的增、删、改、查等操作</p>
+<p>域就是活动目录具体的体现形式</p>
+<p>域控制器（DC）：安装了活动目录功能的计算机</p>
+<p> 域环境成员计算机：加入了该域环境的计算机</p>
+<h6 id="（三）、域的结构"><a href="#（三）、域的结构" class="headerlink" title="（三）、域的结构"></a>（三）、域的结构</h6><p>单域：网络中只有一个域 （最常见的管理方式）<br>域树：具有连续名称空间的多个域<br>域林：由一个或多个没有形成连续名称的域树组成</p>
+<h4 id="二、部署Windows-域环境"><a href="#二、部署Windows-域环境" class="headerlink" title="二、部署Windows 域环境"></a>二、部署Windows 域环境</h4><h6 id="（一）、部署域控制器"><a href="#（一）、部署域控制器" class="headerlink" title="（一）、部署域控制器"></a>（一）、部署域控制器</h6><p>必须满足条件： 1、安装者必须是本地管理员权限<br>               2、操作系统版本必须是服务器版本（Web版除外）<br>               3、本地至少一个分区是NTFS文件系统<br>               4、配置静态的IP地址和子网掩码  （正确TCP/IP设置）<br>               5、磁盘空间足够<br>输入安装命令： dcpromo </p>
+<h6 id="（二）、部署成员计算机"><a href="#（二）、部署成员计算机" class="headerlink" title="（二）、部署成员计算机"></a>（二）、部署成员计算机</h6><p>1、客户机必须和域控制器是连通的<br>2、一定要配置正确的DNS地址 （否则无法解析域名，也就无法加入域）</p>
+<h4 id="三、域中用户、组-、OU的管理"><a href="#三、域中用户、组-、OU的管理" class="headerlink" title="三、域中用户、组 、OU的管理"></a>三、域中用户、组 、OU的管理</h4><h6 id="（一）、用户"><a href="#（一）、用户" class="headerlink" title="（一）、用户"></a>（一）、用户</h6><p>1、命名规则：<br>a、唯一的用户登录名  （登录名在域中是唯一的；显示名在OU中唯一）<br>b、最长20字符<br>c、不能出现非法字符  （ &lt;  &gt;  ?  !  /   \  |   = 等）</p>
+<p>2、用户属性<br>a、登录时间 ：  来限制用户登录域的时间<br>b、登录到：可实现账户可以登录的客户机范围<br>c、账户过期：规定用户账户是否存在过期的期限来保证账户安全</p>
+<h6 id="（二）、组"><a href="#（二）、组" class="headerlink" title="（二）、组"></a>（二）、组</h6><p>  安全组：主要是用于设置用户安全权限的组的类型<br>  通讯组：主要用于电子邮件通信的</p>
+<p> 本地域组：使用范围是本域</p>
+<p> 组的作用域    全局组：使用范围是整个林及信任域<br> 通用组：使用范围是整个林及信任域 （用户的登录或查询速度更快）</p>
+<h6 id="（三）、OU的管理"><a href="#（三）、OU的管理" class="headerlink" title="（三）、OU的管理"></a>（三）、OU的管理</h6><p>定义：是活动目录中的一个容器（组织单位）；可以存放用户、组、计算机、OU等其他对象<br>创建方法：基于部门的；基于地理位置的；基于对象类型的<br>特别注意：OU中不能包含来自其他域中的对象</p>
+<hr>
+<h2 id="域控管理"><a href="#域控管理" class="headerlink" title="域控管理"></a>域控管理</h2><h4 id="本章结构-9"><a href="#本章结构-9" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、回顾Windows 域<br>二、添加额外域控及管理<br>三、卸载域控</p>
+<h4 id="具体知识点-4"><a href="#具体知识点-4" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、回顾Windows-域"><a href="#一、回顾Windows-域" class="headerlink" title="一、回顾Windows 域"></a>一、回顾Windows 域</h4><p>1、域环境的概念<br>2、域环境的搭建<br>a、安装域控制器的条件      b、客户机加入域的条件   c、用户、组、OU的管理</p>
+<h4 id="二、添加额外域控及管理"><a href="#二、添加额外域控及管理" class="headerlink" title="二、添加额外域控及管理"></a>二、添加额外域控及管理</h4><h6 id="（一）、为什么要有额外域控？"><a href="#（一）、为什么要有额外域控？" class="headerlink" title="（一）、为什么要有额外域控？"></a>（一）、为什么要有额外域控？</h6><p>1、容错   当域中的域控制器出现故障时，其他域控仍能提供域服务<br>2、负载均衡                 适用大型网络环境，加快用户登录域的审核速度<br>3、更易于用户的连接访问     适用于分支机构，提高登录速度</p>
+<h6 id="（二）、安装额外域控的条件"><a href="#（二）、安装额外域控的条件" class="headerlink" title="（二）、安装额外域控的条件"></a>（二）、安装额外域控的条件</h6><p>1、必须具有域管理员身份<br>2、正确的TCP/IP设置  （能保证和域控制通信，DNS设置正确）<br>3、操作系统版本必须受当前域功能级别支持  （向下兼容）<br>安装过程使用命令：dcpromo   （在现有林，添加域控制器）<br>注意：安装过程中不需要加入域也能成功<br>安装完成后，AD中所有数据是同步的</p>
+<h4 id="三、卸载域控制器"><a href="#三、卸载域控制器" class="headerlink" title="三、卸载域控制器"></a>三、卸载域控制器</h4><h6 id="（一）、注意事项"><a href="#（一）、注意事项" class="headerlink" title="（一）、注意事项"></a>（一）、注意事项</h6><p>1、保证域环境中至少有一台全局编录服务器 （用于验证用户登录）<br>2、所有域控一定要处于联机状态<br>3、如果该域控制器不是域内的最后一台域控制器，则该控制器被降级为成员服务器；如果是最后一台域控制器，则降级为独立服务器</p>
+<h6 id="（二）、卸载命令-：-dcpromo"><a href="#（二）、卸载命令-：-dcpromo" class="headerlink" title="（二）、卸载命令 ： dcpromo"></a>（二）、卸载命令 ： dcpromo</h6><hr>
+<h2 id="组策略的应用"><a href="#组策略的应用" class="headerlink" title="组策略的应用"></a>组策略的应用</h2><h4 id="本章结构-10"><a href="#本章结构-10" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、组策略的相关概念<br>二、组策略的应用（修改现有策略、创建、应用规则、软件分发等）</p>
+<h4 id="具体知识点-5"><a href="#具体知识点-5" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、组策略的相关概念"><a href="#一、组策略的相关概念" class="headerlink" title="一、组策略的相关概念"></a>一、组策略的相关概念</h4><h6 id="（一）、作用："><a href="#（一）、作用：" class="headerlink" title="（一）、作用："></a>（一）、作用：</h6><p>统一桌面环境、自动执行脚本、安全设置、软件安装等</p>
+<h6 id="（二）、好处："><a href="#（二）、好处：" class="headerlink" title="（二）、好处："></a>（二）、好处：</h6><p>1、减小管理成本（只要设置一次就可对相关用户或计算机生效）<br>2、减小用户单独配置错误的可能性<br>3、可以针对特定对象（用户或计算机）实施特定策略</p>
+<h6 id="（三）、GPO"><a href="#（三）、GPO" class="headerlink" title="（三）、GPO"></a>（三）、GPO</h6><p>1、组策略的所有配置信息都存放在GPO中<br>2、GPO只能链接到站点、域、OU中（SDOU），通过设置来影响容器中的计算机或用户<br>3、默认存在的GPO： 默认域策略（Default Domain Policy ）对整个域都生效<br>                    默认域控制器策略（ Default Domain Controller Policy） 对域控生效</p>
+<h6 id="（四）、组策略的内容"><a href="#（四）、组策略的内容" class="headerlink" title="（四）、组策略的内容"></a>（四）、组策略的内容</h6><p>1、计算机配置 ： 对容器内的计算机生效  （客户端重启生效）<br>2、用户配置：    对容器内的账户生效     （客户端注销生效）</p>
+<h4 id="二、组策略的应用"><a href="#二、组策略的应用" class="headerlink" title="二、组策略的应用"></a>二、组策略的应用</h4><h6 id="（一）、应用规则"><a href="#（一）、应用规则" class="headerlink" title="（一）、应用规则"></a>（一）、应用规则</h6><p>1、默认继承    （下级容器会默认继承上级容器的策略）<br>2、阻止继承     （下级容器可以选择阻止继承上级容器的策略）<br>3、强制生效     （上级容器的策略可以强制让下级容器生效）</p>
+<p>强制生效 &gt; 阻止继承 &gt; 默认继承<br>4、应用顺序与规则<br>1）、顺序：LSDOU的顺序 （从左到右应用），后应用的生效<br>2）、不冲突 ： 累加<br>3）、冲突： 后应用的生效<br>4）、如果同一个容器应用了多个GPO，不冲突则累加；冲突，谁的优先级高谁后应用，谁生效  （优先级=1 为最高）<br>5、筛选：可以实现阻止一个GPO应用到容器中的特定账户或计算机</p>
+<p>6、软件分发<br>1）、准备.msi格式的软件包<br>2）、需要创建共享文件夹，把需要部署的软件放在共享文件夹中，并赋予共享文件夹的共享权限和NTFS权限<br>3）、创建GPO\用户配置\策略\软件设置\软件安装\属性\选择默认程序包的位置<br>4）、添加数据包<br>5）、设置“登录安装此应用程序”<br>6）、验证</p>
+<p> 分配：可以将程序分配到用户或计算机上 （用户必须用的软件，采用“分配”）<br>发布：可以将程序发布给用户，用户可选择是否安装</p>
+<p>注意：分配比发布更具有强制性的部署方式</p>
+<hr>
+<h2 id="Windows-备份和灾难恢复"><a href="#Windows-备份和灾难恢复" class="headerlink" title="Windows 备份和灾难恢复"></a>Windows 备份和灾难恢复</h2><h4 id="本章结构-11"><a href="#本章结构-11" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、Windows  备份工具的概述<br>二、数据备份<br>三、数据还原</p>
+<h4 id="具体知识点-6"><a href="#具体知识点-6" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、备份工具"><a href="#一、备份工具" class="headerlink" title="一、备份工具"></a>一、备份工具</h4><h6 id="（一）、备份："><a href="#（一）、备份：" class="headerlink" title="（一）、备份："></a>（一）、备份：</h6><p> 为了避免数据丢失（硬件故障、误操作、病毒感染…..），提前将系统中数据按一定策略存储到安全的地方，当出现问题时能快速还原减少损失</p>
+<h6 id="（二）、还原："><a href="#（二）、还原：" class="headerlink" title="（二）、还原："></a>（二）、还原：</h6><p> 备份的反向过程</p>
+<h6 id="（三）、Windows-Server-Backup"><a href="#（三）、Windows-Server-Backup" class="headerlink" title="（三）、Windows  Server  Backup"></a>（三）、Windows  Server  Backup</h6><p>特性：是Windows  Server 2008系统中的一个功能，由管理控制台和命令行工具组成；能实现对服务器执行基本的备份和还原功能。<br>改变：P73~ P74<br>安装：服务器管理器\功能\选择“Windows  Server Backup”(安装命令行工具，必须安装Windows  Powershell 功能）\下一步安装</p>
+<h4 id="二、数据备份"><a href="#二、数据备份" class="headerlink" title="二、数据备份"></a>二、数据备份</h4><h6 id="（一）、备份方式"><a href="#（一）、备份方式" class="headerlink" title="（一）、备份方式"></a>（一）、备份方式</h6><p>1、手动备份  （一次性备份）<br>2、自动备份   （备份计划）   周期性进行，减少管理员工作量</p>
+<h6 id="（二）、一次性备份的操作"><a href="#（二）、一次性备份的操作" class="headerlink" title="（二）、一次性备份的操作"></a>（二）、一次性备份的操作</h6><p>1、图形化方式<br>2、命令行方式备份<br>wbadmin （固定格式命令）   start  backup （开始备份） -backuptarget：盘符： （备份存储目标位置）  -include：盘符：  （备份的源位置）</p>
+<h6 id="（三）、一次性备份的恢复"><a href="#（三）、一次性备份的恢复" class="headerlink" title="（三）、一次性备份的恢复"></a>（三）、一次性备份的恢复</h6><p>1、图形化<br>2、命令行<br>a、查看可用的备份集版本          wbadmin    get   versions     （查出的关键数据是版本标识符）<br>b、开始恢复        wbadmin    start  recovery （开始恢复） -version：版本标识符   -itemtype：类型   -items：还原内容的具体位置列表（例：D：\aaa.txt）  -recoverytarget：盘符：\    （还原的目标位置）</p>
+<p>类型：三种    volume  代表卷    app  应用程序     file   文件或文件夹</p>
+<h6 id="（四）、计划备份的操作-（准备一块单独硬盘）"><a href="#（四）、计划备份的操作-（准备一块单独硬盘）" class="headerlink" title="（四）、计划备份的操作   （准备一块单独硬盘）"></a>（四）、计划备份的操作   （准备一块单独硬盘）</h6><p>1、图形化<br>2、命令行<br>a、查看可用的磁盘       wbadmin    get   disks    （查看的关键内容是目标磁盘的磁盘标识符）<br>b、 wbadmin   enable  backup （启用备份）   -addtarget ：磁盘标识符 （备份目标存储位置）  -schedule：备份时间     （如果多个时间用逗号隔开）  -include：盘符：  （需要备份的盘）   -allCritical  （包含系统分区卷）<br>注意：计划备份必须包含系统分区<br>3、命令行还原   （同一次性还原）</p>
+<h6 id="（五）、备份配置"><a href="#（五）、备份配置" class="headerlink" title="（五）、备份配置"></a>（五）、备份配置</h6><p>1、完整备份      每次备份所有内容都会备份  （时间长但不影响性能）<br>2、增量备份      只有改动的内容会被备份，以前备份过的不再备份 （速度快，降低整体性能）<br>3、自定义       可针对不同磁盘选择不同方式    （建议：系统盘完整备份，其他盘做增量备份）</p>
+<hr>
+<h2 id="活动目录备份和灾难恢复"><a href="#活动目录备份和灾难恢复" class="headerlink" title="活动目录备份和灾难恢复"></a>活动目录备份和灾难恢复</h2><h4 id="本章结构-12"><a href="#本章结构-12" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、AD备份/还原<br>二、备份/还原操作<br>三、Windows 的安全模式</p>
+<h4 id="具体知识点-7"><a href="#具体知识点-7" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、AD备份还原简介"><a href="#一、AD备份还原简介" class="headerlink" title="一、AD备份还原简介"></a>一、AD备份还原简介</h4><h6 id="（一）、为什么要进行活动目录备份？-（p105）"><a href="#（一）、为什么要进行活动目录备份？-（p105）" class="headerlink" title="（一）、为什么要进行活动目录备份？    （p105）"></a>（一）、为什么要进行活动目录备份？    （p105）</h6><h6 id="（二）、注意：如果要备份AD，只能当成系统状态的一部分完成"><a href="#（二）、注意：如果要备份AD，只能当成系统状态的一部分完成" class="headerlink" title="（二）、注意：如果要备份AD，只能当成系统状态的一部分完成"></a>（二）、注意：如果要备份AD，只能当成系统状态的一部分完成</h6><p>​       系统状态数据包括  ：   P105~P106</p>
+<h6 id="（三）、备份系统状态的注意事项"><a href="#（三）、备份系统状态的注意事项" class="headerlink" title="（三）、备份系统状态的注意事项"></a>（三）、备份系统状态的注意事项</h6><p>1、只能用命令完成<br>2、不能自动备份    （如果想实现自动备份，只能通过任务计划完成）<br>3、只能存在本地磁盘<br>4、恢复时只能恢复系统状态数据和应用程序；卷和文件无法恢复<br>5、备份操作者的权限：  只能是Administrators 组和 backup  Operators组成员</p>
+<h6 id="（四）、两种还原方式及区别"><a href="#（四）、两种还原方式及区别" class="headerlink" title="（四）、两种还原方式及区别"></a>（四）、两种还原方式及区别</h6><p>1、非授权还原     （域中只有一台DC  ；域中有多台DC，但是旧数据不需要还原到其他域控制器上）<br>2、授权还原        （域中有多台DC，数据需要还原到所有DC上；是建立在非授权基础之上）</p>
+<h4 id="二、备份-还原操作"><a href="#二、备份-还原操作" class="headerlink" title="二、备份\还原操作"></a>二、备份\还原操作</h4><h6 id="（一）、单域控备份，非授权还原"><a href="#（一）、单域控备份，非授权还原" class="headerlink" title="（一）、单域控备份，非授权还原"></a>（一）、单域控备份，非授权还原</h6><p>1、备份   ： wbadmin    start  systemstatebackup  （开始系统状态备份） -backuptarget：目标盘符：<br>2、删除用户和OU及文件夹<br>3、非授权还原<br>a、重启 按 F8  选择目录服务还原模式 ；用“.\administrator”输入安装域控时目录服务还原密码登录<br>b、查看备份集版本      wbadmin    get    versions    （关键版本标识符）<br>c、非授权还原     wbadmin   start    systemstaterecovery  （开始恢复）  -version：版本标识符<br>d、还原完成后重启，删除的用户和OU可以恢复，文件夹不能恢复</p>
+<h6 id="（二）、多域控，授权还原"><a href="#（二）、多域控，授权还原" class="headerlink" title="（二）、多域控，授权还原"></a>（二）、多域控，授权还原</h6><p>1、环境   （两台DC，一主，一额 ）<br>2、主域控建立了4个域用户：aa、bb、cc、dd ；aa、bb在user中；cc、dd直接在域中；建立了两个OU  aa和bb；在C盘还建立了T218的测试文件夹<br>3、做系统状态备份  （主域控）<br>4、备份完成后，删除刚刚建立的所有内容   （发现误操作）<br>5、先做非授权还原<br>6、授权还原     （需要建立在非授权基础上，非授权完成后不重启）<br>a、Ntdsutil      （进入这个管理工具，专门管理AD活动目录的）<br>b、Active   instance  ntds     （将实例名设置为“NTDS”）<br>c、Authoritative   restore    （进入授权还原命令模式）<br>d、Restore   object   cn=aa （用户名），cn=users ，（代表还原账户所在的位置），dc=benet，（域名），dc=com （域后缀）<br>如果还原OU  把cn改成OU    （注意：如果该用户直接在域中不在users中，可省略cn=users）<br>7、验证  ：只有做了授权的用户或OU会恢复</p>
+<hr>
+<h2 id="操作主机"><a href="#操作主机" class="headerlink" title="操作主机"></a>操作主机</h2><h4 id="本章结构-13"><a href="#本章结构-13" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、操作主机概念<br>二、转移和占用<br>三、操作主机应用  （2003的AD 升级到2008 AD）</p>
+<h4 id="具体知识点-8"><a href="#具体知识点-8" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、操作主机概念"><a href="#一、操作主机概念" class="headerlink" title="一、操作主机概念"></a>一、操作主机概念</h4><h6 id="（一）、单主复制"><a href="#（一）、单主复制" class="headerlink" title="（一）、单主复制"></a>（一）、单主复制</h6><p>（出现Windows  NT 4.0的域环境下；域控制器分为PDC （主域控）和BDC （备份域控）两种；PDC可以修改数据库内容；BDC只能读取AD数据库内容）</p>
+<h6 id="（二）、多主复制"><a href="#（二）、多主复制" class="headerlink" title="（二）、多主复制"></a>（二）、多主复制</h6><p>（Windows 2000后；所有域控制器都可以修改AD数据库内容）<br>缺点：所有域控制器的地位平等  （造成网络中某些功能不合适）                                                           </p>
+<h6 id="（三）、操作主机"><a href="#（三）、操作主机" class="headerlink" title="（三）、操作主机"></a>（三）、操作主机</h6><p>（是域控制器的一种角色，担任不同的角色的域控制器有不同功能）</p>
+<h6 id="（四）、五种操作主机角色"><a href="#（四）、五种操作主机角色" class="headerlink" title="（四）、五种操作主机角色"></a>（四）、五种操作主机角色</h6><p>范围 名称 作用 默认位置 管理工具<br>林内唯一 架构主机 统一林中所有对象及其属性 林内的第一台DC上 AD架构regsvr32 schmmgmt.dll)注册<br> 域命名主机 防止林中域名重复  AD域和信任关系<br>域内唯一 PDC仿真主机 域内密码和时间同步；支持2000之前的系统 域内第一台DC AD用户和计算机<br> RID主机 域内分配RID号（SID=域ID + RID）<br> 基础结构主机 所在域中对象到其他域的引用  </p>
+<h4 id="二、转移和占用"><a href="#二、转移和占用" class="headerlink" title="二、转移和占用"></a>二、转移和占用</h4><h6 id="（一）、为什么要转移和占用？-（P130"><a href="#（一）、为什么要转移和占用？-（P130" class="headerlink" title="（一）、为什么要转移和占用？     （P130)"></a>（一）、为什么要转移和占用？     （P130)</h6><h6 id="（二）、转移-正常的角色转换-（担任角色的主机和目标主机需要联机）"><a href="#（二）、转移-正常的角色转换-（担任角色的主机和目标主机需要联机）" class="headerlink" title="（二）、转移     正常的角色转换   （担任角色的主机和目标主机需要联机）"></a>（二）、转移     正常的角色转换   （担任角色的主机和目标主机需要联机）</h6><h6 id="（三）、占用-强制手段转移操作主机角色"><a href="#（三）、占用-强制手段转移操作主机角色" class="headerlink" title="（三）、占用     强制手段转移操作主机角色"></a>（三）、占用     强制手段转移操作主机角色</h6><p>操作步骤： 1、  Ntdsutil      进入管理工具<br>           2、  roles<br>           3、  connection<br>           4、  connect   to   server  本机的全名 （目标DC   的FQDN）<br>           5、   quit        后退一步<br>           6、   Seize   五种操作主机角色  （逐一操作）<br>注意：1、能转移绝不占用<br>      2、被占用的操作角色不要再连接到网络上 </p>
+<h4 id="三、将Windows-Server-2003的AD升级到Windows-Server-2008AD"><a href="#三、将Windows-Server-2003的AD升级到Windows-Server-2008AD" class="headerlink" title="三、将Windows  Server 2003的AD升级到Windows  Server 2008AD"></a>三、将Windows  Server 2003的AD升级到Windows  Server 2008AD</h4><h6 id="（一）、网络环境"><a href="#（一）、网络环境" class="headerlink" title="（一）、网络环境"></a>（一）、网络环境</h6><p>已知的2003的域控制器和一台2008工作组环境的服务器</p>
+<h6 id="（二）、目标"><a href="#（二）、目标" class="headerlink" title="（二）、目标"></a>（二）、目标</h6><p>将2008服务器变成该网络的域控制器</p>
+<h6 id="（三）、具体步骤"><a href="#（三）、具体步骤" class="headerlink" title="（三）、具体步骤"></a>（三）、具体步骤</h6><p>1、扩展2003的功能   （因为2003不支持2008的功能）<br>a、将2008的光盘插入2003系统中    运行命令 D:  进入光驱<br>b、运行命令    cd  source \adprep<br>c、adprep.exe  /forestprep        扩展林信息  输入 C  回车<br>d、提升域功能级别为本机模式   （即域功能级别为2003）<br>e、adprep.exe  /domainprep      （扩展域架构）<br>f、adprep.exe  /domainprep   /gpprep     （更新组策略对象权限）<br>g、adprep.exe   /rodcprep       （更新对只读域控的支持）</p>
+<p>2、将2008变成额外域控制器   （将首选DNS指向自己）<br>3、转移操作主机角色到2008上<br>4、卸载2003域控制器<br>5、先提升林功能级别和域功能级别<br>6、删除2003的残余信息   （在AD站点和服务）</p>
+<hr>
+<h2 id="AD常见故障排查"><a href="#AD常见故障排查" class="headerlink" title="AD常见故障排查"></a>AD常见故障排查</h2><h4 id="本章结构-14"><a href="#本章结构-14" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、AD常见故障排查思路<br>二、常见故障举例</p>
+<h4 id="具体知识点-9"><a href="#具体知识点-9" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、常见故障及排障思路"><a href="#一、常见故障及排障思路" class="headerlink" title="一、常见故障及排障思路"></a>一、常见故障及排障思路</h4><h6 id="（一）、常见故障"><a href="#（一）、常见故障" class="headerlink" title="（一）、常见故障"></a>（一）、常见故障</h6><p>1、加入域失败     2、域用户无法登录      3、域登录缓慢<br>4、组策略部署不生效     5、数据同步失败</p>
+<h6 id="（二）、排障思路"><a href="#（二）、排障思路" class="headerlink" title="（二）、排障思路"></a>（二）、排障思路</h6><p>1、单一用户        用户是否禁用、密码是否过期、是否有权限<br>2、单一客户端      时间是否同步、IP是否设置正确、DNS是否正确<br>3、网络            交换路由设备<br>4、服务器          AD是否正常运行，DNS服务器是否正常工作</p>
+<h4 id="二、常见故障举例"><a href="#二、常见故障举例" class="headerlink" title="二、常见故障举例"></a>二、常见故障举例</h4><h6 id="（一）、客户机无法加入域"><a href="#（一）、客户机无法加入域" class="headerlink" title="（一）、客户机无法加入域"></a>（一）、客户机无法加入域</h6><p>1、分析：不是单一用户          单一计算机  （DNS设置是否正确）<br>测试   ：ping   ip  和 域名<br>查看DNS缓存的命令：  ipconfig  /displaydns<br>刷新DNS缓存          ipconfig  /flushdns    （清空）<br>2、解决方法：设置正确的DNS指向，清空DNS缓存</p>
+<h6 id="（二）、用户无法登录"><a href="#（二）、用户无法登录" class="headerlink" title="（二）、用户无法登录"></a>（二）、用户无法登录</h6><p>1、分析：<br>1）、换用户登录，依旧不能登录说明不是用户的问题<br>2）、换客户端登录，依旧不能登录说明不是客户端问题<br>3）、用ping命令验证 ：  ping  IP地址可通；但是ping  域名不同  得出是DNS有问题<br>4）、首先检查DNS客户端；第二步检查DNS服务器问题<br>2、解决方法：重启DNS服务</p>
+<h6 id="（三）、部分用户登录缓慢"><a href="#（三）、部分用户登录缓慢" class="headerlink" title="（三）、部分用户登录缓慢"></a>（三）、部分用户登录缓慢</h6><p>1、分析：<br>1）、能登录，但是时间长说明不是客户端问题<br>2）、ping  两台DC的IP都能通，但是Ping 域名不通说明网络没问题还是DNS问题<br>3）、用nslookup 解析域名失败，换首选DNS能成功，说明其中一个DNS服务器有问题<br>2、解决方法：换DNS首选指向，解决故障的DNS服务器</p>
+<h6 id="（四）、组策略不生效的问题"><a href="#（四）、组策略不生效的问题" class="headerlink" title="（四）、组策略不生效的问题"></a>（四）、组策略不生效的问题</h6><p>1、分析：<br>1）、是否对所有用户都不生效<br>2）、在服务器上运行  “gpupdate /force”刷新组策略  （重启服务器和客户端）<br>3）、检查是计算机配置还是用户配置<br>4）、检查组策略是否有冲突    （LSDOU顺序及组策略应用规则）</p>
+<h6 id="（五）、DC间复制数据失败"><a href="#（五）、DC间复制数据失败" class="headerlink" title="（五）、DC间复制数据失败"></a>（五）、DC间复制数据失败</h6><p>1、分析：现象两台DC，在其中一台新建账户，发现账户不能同步<br>2、解决方法：DC间影响数据同步的因素<br>1）、网络问题     2）、时间是否同步<br>如果手动复制失败，时间问题<br>同步时间： net   time   \对方的主机名（或IP地址）   /set   /y</p>
+<hr>
+<h2 id="多域间访问"><a href="#多域间访问" class="headerlink" title="多域间访问"></a>多域间访问</h2><h4 id="本章结构-15"><a href="#本章结构-15" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、林内信任关系<br>二、林间信任关系</p>
+<h4 id="具体知识点-10"><a href="#具体知识点-10" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、林内信任关系"><a href="#一、林内信任关系" class="headerlink" title="一、林内信任关系"></a>一、林内信任关系</h4><h6 id="（一）、林根域、子域、树根域的概念"><a href="#（一）、林根域、子域、树根域的概念" class="headerlink" title="（一）、林根域、子域、树根域的概念"></a>（一）、林根域、子域、树根域的概念</h6><p>Enterprise  Admins （企业管理组）：可以对活动目录</p>
+<p>1、林根域：林中创建的第一个域       的整个林做修改Schema  Admins （架构管理组）：扩展林架构</p>
+<p>2、子域：向域树中添加的任何新域都叫子域，子域的域名= 自己的名字 + 父域的域名</p>
+<p>3、树根域：在林环境中建立的具有独立的域名的一个域树</p>
+<h6 id="（二）、林内的信任关系"><a href="#（二）、林内的信任关系" class="headerlink" title="（二）、林内的信任关系"></a>（二）、林内的信任关系</h6><p>1、搭建环境：必须是林根域Enterprise  Admins 成员<br>2、信任关系特点<br>a、自动建立 （环境搭建完成后自动建立 树根信任和父子信任）<br>b、双向</p>
+<p>c、可传递的信任    A和B相互信任  B和C相互信任        A和C相互信任<br>3、验证方法 ： AGDLP规则<br>1、A 用户；G代表全局组、DL代表本地域组、P权限<br>将本域中的账户加入全局组（范围信任整个林及信任域）；将全局组加入信任域的本地域组；给本地域组赋予权限；本域中的账户可以访问信任域中的资源<br>2、林中所有域账户都能在同一台客户机去登录自己的域</p>
+<h4 id="二、林间信任"><a href="#二、林间信任" class="headerlink" title="二、林间信任"></a>二、林间信任</h4><h6 id="（一）、外部信任"><a href="#（一）、外部信任" class="headerlink" title="（一）、外部信任"></a>（一）、外部信任</h6><p>特点：<br>1、手动建立   2、不可传递性   3、分双向和单向</p>
+<p> 外传：本地域信任指定域</p>
+<p>单向<br>内传： 指定域信任本域<br>作用：实现特定域之间的信任，从而实现相互访问</p>
+<h6 id="（二）、林信任"><a href="#（二）、林信任" class="headerlink" title="（二）、林信任"></a>（二）、林信任</h6><p>特点： 1、手动建立    2、可传递性   3、只能在林根域上建立  4、分双向和单向<br>作用：实现林间任意域之间的信任及相互访问</p>
+<hr>
+<h2 id="升级域和林功能级别"><a href="#升级域和林功能级别" class="headerlink" title="升级域和林功能级别"></a>升级域和林功能级别</h2><h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><ol>
+<li>写出打开本地安全策略  本地组策略的命令</li>
+</ol>
+<p>答：打开本地安全策略命令：<strong>Secpol.msc</strong></p>
+<p>​    打开本地组策略命令：<strong>gpedit.msc</strong></p>
+<ol>
+<li>写出所有用户和组相关的所有windows命令</li>
+</ol>
+<p>答：</p>
+<p>查看当前存在用户：</p>
+<p><strong>net user</strong></p>
+<p>查看当前用户组：</p>
+<p><strong>net localgroup</strong></p>
+<p>添加用户（以添加用户Waldo，密码为cuit为例）：</p>
+<p><strong>net user Waldo cuit /add</strong></p>
+<p>添加用户到组（以添加用户Waldo到Administrators组为例）：</p>
+<p><strong>net localgroup Administrators Waldo /add</strong></p>
+<p>skyfall007</p>
+<p>windows下CMD命令大全</p>
+<p>CMD命令：开始－&gt;运行－&gt;键入cmd或command（在命令行里可以看到系统版本、文件系统版本）</p>
+<p>chcp 修改默认字符集</p>
+<p>chcp 936默认中文</p>
+<p>chcp 65001</p>
+<p>\1. appwiz.cpl：程序和功能</p>
+<p>\2. calc：启动计算器</p>
+<p>\5. chkdsk.exe：Chkdsk磁盘检查（管理员身份运行命令提示符）</p>
+<p>\6. cleanmgr: 打开磁盘清理工具</p>
+<p>\9. cmd.exe：CMD命令提示符</p>
+<p>\10. 自动关机命令</p>
+<p>　 Shutdown -s -t 600：表示600秒后自动关机</p>
+<p>　 shutdown -a ：可取消定时关机</p>
+<p>　 Shutdown -r -t 600：表示600秒后自动重启</p>
+<p>\12. CompMgmtLauncher：计算机管理</p>
+<p>\13. compmgmt.msc：计算机管理</p>
+<p>\14. credwiz：备份或还原储存的用户名和密码</p>
+<p>\16. control：控制面版</p>
+<p>\17. dcomcnfg：打开系统组件服务</p>
+<p>\19. devmgmt.msc：设备管理器</p>
+<p>\20. desk.cpl：屏幕分辨率</p>
+<p>\21. dfrgui：优化驱动器 Windows 7→dfrg.msc：磁盘碎片整理程序</p>
+<p>\22. dialer：电话拨号程序</p>
+<p>\23. diskmgmt.msc：磁盘管理</p>
+<p>\24. dvdplay：DVD播放器</p>
+<p>\25. dxdiag：检查DirectX信息</p>
+<p>\26. eudcedit：造字程序</p>
+<p>\27. eventvwr：事件查看器</p>
+<p>\28. explorer：打开资源管理器</p>
+<p>\29. Firewall.cpl：Windows防火墙</p>
+<p>\31. fsmgmt.msc：共享文件夹管理器</p>
+<p>\32. gpedit.msc：组策略</p>
+<p>\33. hdwwiz.cpl：设备管理器</p>
+<p>\34. inetcpl.cpl：Internet属性</p>
+<p>\35. intl.cpl：区域</p>
+<p>\36. iexpress：木马捆绑工具，系统自带</p>
+<p>\37. joy.cpl：游戏控制器</p>
+<p>\38. logoff：注销命令</p>
+<p>\39. lusrmgr.msc：本地用户和组</p>
+<p>\40. lpksetup：语言包安装/删除向导，安装向导会提示下载语言包</p>
+<p>\41. lusrmgr.msc：本机用户和组</p>
+<p>\42. main.cpl：鼠标属性</p>
+<p>\43. mmsys.cpl：声音</p>
+<p>\45. mem.exe：显示内存使用情况（如果直接运行无效，可以先管理员身份运行命令提示符，在命令提示符里输入mem.exe&gt;d:a.txt 即可打开d盘查看a.txt，里面的就是内存使用情况了。当然什么盘什么文件名可自己决定。）</p>
+<p>\47. mmc：打开控制台</p>
+<p>\48. mobsync：同步命令</p>
+<p>\50. Msconfig.exe：系统配置实用程序</p>
+<p>\51. msdt：微软支持诊断工具</p>
+<p>\52. msinfo32：系统信息</p>
+<p>\53. mspaint：画图</p>
+<p>\54. Msra：Windows远程协助</p>
+<p>\55. mstsc：远程桌面连接</p>
+<p>\56. NAPCLCFG.MSC：客户端配置</p>
+<p>\57. ncpa.cpl：网络连接</p>
+<p>\58. narrator：屏幕“讲述人”</p>
+<p>\59. Netplwiz：高级用户帐户控制面板，设置登陆安全相关的选项</p>
+<p>\60. netstat : an(TC)命令检查接口</p>
+<p>\61. notepad：打开记事本</p>
+<p>\62. Nslookup：IP地址侦测器</p>
+<p>\63. odbcad32：ODBC数据源管理器</p>
+<p>\64. OptionalFeatures：打开“打开或关闭Windows功能”对话框</p>
+<p>\65. osk：打开屏幕键盘</p>
+<p>\66. perfmon.msc：计算机性能监测器</p>
+<p>\67. perfmon：计算机性能监测器</p>
+<p>\68. PowerShell：提供强大远程处理能力</p>
+<p>\69. printmanagement.msc：打印管理</p>
+<p>\70. powercfg.cpl：电源选项</p>
+<p>\71. psr：问题步骤记录器</p>
+<p>\72. Rasphone：网络连接</p>
+<p>\73. Recdisc：创建系统修复光盘</p>
+<p>\74. Resmon：资源监视器</p>
+<p>\75. Rstrui：系统还原</p>
+<p>\76. regedit.exe：注册表</p>
+<p>\77. regedt32：注册表编辑器</p>
+<p>\78. rsop.msc：组策略结果集</p>
+<p>\79. sdclt：备份状态与配置，就是查看系统是否已备份</p>
+<p>\80. secpol.msc：本地安全策略</p>
+<p>\81. services.msc：本地服务设置</p>
+<p>\82. sfc /scannow：扫描错误并复原/windows文件保护</p>
+<p>\83. sfc.exe：系统文件检查器</p>
+<p>\84. shrpubw：创建共享文件夹</p>
+<p>\85. sigverif：文件签名验证程序</p>
+<p>\86. slui：Windows激活，查看系统激活信息</p>
+<p>\87. slmgr.vbs -dlv ：显示详细的许可证信息</p>
+<p>　 slmgr.vbs -dli ：显示许可证信息</p>
+<p>　 slmgr.vbs -xpr ：当前许可证截止日期</p>
+<p>　 slmgr.vbs -dti ：显示安装ID 以进行脱机激</p>
+<p>　 slmgr.vbs -ipk ：(Product Key)安装产品密钥</p>
+<p>　 slmgr.vbs -ato ：激活Windows</p>
+<p>　 slmgr.vbs -cpky ：从注册表中清除产品密钥（防止泄露引起的攻击）</p>
+<p>　 slmgr.vbs -ilc ：(License file)安装许可证</p>
+<p>　 slmgr.vbs -upk ：卸载产品密钥</p>
+<p>　 slmgr.vbs -skms ：(name[ort] )批量授权</p>
+<p>\88. snippingtool：截图工具，支持无规则截图</p>
+<p>\89. soundrecorder：录音机，没有录音时间的限制</p>
+<p>\90. StikyNot：便笺</p>
+<p>\91. sysdm.cpl：系统属性</p>
+<p>\92. sysedit：系统配置编辑器</p>
+<p>\93. syskey：系统加密，一旦加密就不能解开，保护系统的双重密码</p>
+<p>\94. taskmgr：任务管理器（旧版）</p>
+<p>\95. TM任务管理器（新版）</p>
+<p>\96. taskschd.msc：任务计划程序</p>
+<p>\97. timedate.cpl：日期和时间</p>
+<p>\98. UserAccountControlSettings用户账户控制设置</p>
+<p>\99. utilman：辅助工具管理器</p>
+<p>\100. wf.msc：高级安全Windows防火墙</p>
+<p>\101. WFS：Windows传真和扫描</p>
+<p>\102. wiaacmgr：扫描仪和照相机向导</p>
+<p>\103. winver：关于Windows</p>
+<p>\104. wmimgmt.msc：打开windows管理体系结构(WMI)</p>
+<p>\105. write：写字板</p>
+<p>\106. wscui.cpl：操作中心</p>
+<p>\107. wscript：windows脚本宿主设置</p>
+<p>\108. wuapp：Windows更新</p>
+<p>　　1. gpedit.msc—–组策略</p>
+<p>　　2. sndrec32——-录音机</p>
+<p>　　3. Nslookup——-IP地址侦测器 ，是一个 监测网络中 DNS 服务器是否能正确实现域名解析的命令行工具。 它在 Windows NT/2000/XP 中均可使用 , 但在 Windows 98 中却没有集成这一个工具。</p>
+<p>　　4. explorer——-打开资源管理器</p>
+<p>　　5. logoff———注销命令</p>
+<p>　　6. shutdown——-60秒倒计时关机命令</p>
+<p>　　7. lusrmgr.msc—-本机用户和组</p>
+<p>　　8. services.msc—本地服务设置</p>
+<p>　　9. oobe/msoobe /a—-检查XP是否激活</p>
+<p>　　10. notepad——–打开记事本</p>
+<p>　　11. cleanmgr——-垃圾整理</p>
+<p>　　12. net start messenger—-开始信使服务</p>
+<p>　　13. compmgmt.msc—计算机管理</p>
+<p>　　14. net stop messenger—–停止信使服务</p>
+<p>　　15. conf———–启动netmeeting</p>
+<p>　　16. dvdplay——–DVD播放器</p>
+<p>　　17. charmap——–启动字符映射表</p>
+<p>　　18. diskmgmt.msc—磁盘管理实用程序</p>
+<p>　　19. calc———–启动计算器</p>
+<p>　　20. dfrg.msc——-磁盘碎片整理程序</p>
+<p>　　21. chkdsk.exe—–Chkdsk磁盘检查</p>
+<p>　　22. devmgmt.msc— 设备管理器</p>
+<p>　　23. regsvr32 /u *.dll—-停止dll文件运行</p>
+<p>　　24. drwtsn32—— 系统医生</p>
+<p>　　25. rononce -p—-15秒关机</p>
+<p>　　26. dxdiag———检查DirectX信息</p>
+<p>　　27. regedt32——-注册表编辑器</p>
+<p>　　28. Msconfig.exe—系统配置实用程序</p>
+<p>　　29. rsop.msc——-组策略结果集</p>
+<p>　　30. mem.exe——–显示内存使用情况</p>
+<p>　　31. regedit.exe—-注册表</p>
+<p>　　32. winchat——–XP自带局域网聊天</p>
+<p>　　33. progman——–程序管理器</p>
+<p>　　34. winmsd———系统信息</p>
+<p>　　35. perfmon.msc—-计算机性能监测程序</p>
+<p>　　36. winver———检查Windows版本</p>
+<p>　　37. sfc /scannow—–扫描错误并复原</p>
+<p>　　38. taskmgr—–任务管理器（2000/xp/2003</p>
+<p>　　39. winver———检查Windows版本</p>
+<p>　　40. wmimgmt.msc—-打开windows管理体系结构(WMI)</p>
+<p>　　41. wupdmgr——–windows更新程序</p>
+<p>　　42. wscript——–windows脚本宿主设置</p>
+<p>　　43. write———-写字板</p>
+<p>　　44. winmsd———系统信息</p>
+<p>　　45. wiaacmgr——-扫描仪和照相机向导</p>
+<p>　　46. winchat——–XP自带局域网聊天</p>
+<p>　　47. mem.exe——–显示内存使用情况</p>
+<p>　　48. Msconfig.exe—系统配置实用程序</p>
+<p>　　49. mplayer2——-简易widnows media player</p>
+<p>　　50. mspaint——–画图板</p>
+<p>　　51. mstsc———-远程桌面连接</p>
+<p>　　52. mplayer2——-媒体播放机</p>
+<p>　　53. magnify——–放大镜实用程序</p>
+<p>　　54. mmc————打开控制台</p>
+<p>　　55. mobsync——–同步命令</p>
+<p>　　56. dxdiag———检查DirectX信息</p>
+<p>　　57. iexpress——-木马捆绑工具，系统自带 58. fsmgmt.msc—–共享文件夹管理器</p>
+<p>　　59. utilman——–辅助工具管理器</p>
+<p>　　60. diskmgmt.msc—磁盘管理实用程序</p>
+<p>　　61. dcomcnfg——-打开系统组件服务</p>
+<p>　　62. ddeshare——-打开DDE共享设置</p>
+<p>　　110. osk————打开屏幕键盘</p>
+<p>　　111. odbcad32——-ODBC数据源管理器</p>
+<p>　　112. oobe/msoobe /a—-检查XP是否激活 114. logoff———注销命令</p>
+<p>　　66. notepad——–打开记事本</p>
+<p>　　67. nslookup——-网络管理的工具向导</p>
+<p>　　68. ntbackup——-系统备份和还原</p>
+<p>　　69. narrator——-屏幕“讲述人”</p>
+<p>　　70. ntmsmgr.msc—-移动存储管理器</p>
+<p>　　71. ntmsoprq.msc—移动存储管理员操作请求</p>
+<p>　　72. netstat -an—-(TC)命令检查接口</p>
+<p>　　73. syncapp——–创建一个公文包</p>
+<p>　　74. sysedit——–系统配置编辑器</p>
+<p>　　75. sigverif——-文件签名验证程序</p>
+<p>　　76. ciadv.msc——索引服务程序</p>
+<p>　　77. shrpubw——–创建共享文件夹</p>
+<p>　　78. secpol.msc—–本地安全策略</p>
+<p>　　79. syskey———系统加密，一旦加密就不能解开，保护windows xp系统的双重密码</p>
+<p>　　80. services.msc—本地服务设置</p>
+<p>　　81. Sndvol32——-音量控制程序</p>
+<p>　　82. sfc.exe——–系统文件检查器</p>
+<p>　　83. sfc /scannow—windows文件保护</p>
+<p>　　84. ciadv.msc——索引服务程序</p>
+<p>　　85. tourstart——xp简介（安装完成后出现的漫游xp程序）</p>
+<p>　　86. taskmgr——–任务管理器</p>
+<p>　　87. eventvwr——-事件查看器</p>
+<p>　　88. eudcedit——-造字程序</p>
+<p>　　89. compmgmt.msc—计算机管理</p>
+<p>　　90. packager——-对象包装程序</p>
+<p>　　91. perfmon.msc—-计算机性能监测程序</p>
+<p>　　92. charmap——–启动字符映射表</p>
+<p>　　93. cliconfg——-SQL SERVER 客户端网络实用程序</p>
+<p>　　94. Clipbrd——–剪贴板查看器</p>
+<p>　　95. conf———–启动netmeeting</p>
+<p>　　96. certmgr.msc—-证书管理实用程序</p>
+<p>　　97. regsvr32 /u *.dll—-停止dll文件运行</p>
+<p>　　98. regsvr32 /u zipfldr.dll——取消ZIP支持</p>
+<p>　　99. cmd.exe——–CMD命令提示符</p>
+<p>　　100. chkdsk.exe—–Chkdsk磁盘检查</p>
+<p>1.磁盘操作，</p>
+<p>　　fdisk 隐含 参数 /mbr 重建主引导记录fdisk /mbr 重建主引导记录</p>
+<p>　　fdisk 在DOS7.0以后增加了/cmbr参数，可在挂接多个物理硬盘时，重建排序在后面的硬盘的主引导记录，例如：fdisk /cmbr 2，可重写第二个硬盘的主引导记录。（在使用时要十分小心，避免把好的硬盘引导记录损坏）</p>
+<p>　　format 参数： /q 快速格式化 /u 不可恢复 /autotest 不提示 /s 创建 MS-DOS 引导盘 format c: /q /u /autotest</p>
+<p>2.目录操作</p>
+<p>　　DIR [目录名或文件名] [/S][/W][/P][/A] 列出目录 参数: /s 查找子目录/w 只显示文件名 /p 分页/a 显示隐藏文件 DIR format.exe /s查找该盘的format.exe文件并报告位置</p>
+<p>　　MD (MKDIR) [目录名] 创建目录 MKDIR HELLOWORLD 创建HELLOWORLD目录</p>
+<p>　　CD (CHDIR) [目录名] PS:可以使用相对目录或绝对目录 进入目录 CD AA 进入当前文件夹下的AA目录,cd .. 进入上一个文件夹cd \返回根目录;cd c:\windows 进入c:\windows文件夹</p>
+<p>　　RD ( RMDIR) [目录名] 删除目录 RD HELLOWORLD 删除HELLOWORLD目录</p>
+<p>3.文件操作</p>
+<p>　　删除目录及其文件： rmdir [目录名或文件名] [/S][/W][/P][/A] 。例 rmdir c:\qqdownload/s 删除C盘的qqdownload目录。</p>
+<p>　　del [目录名或文件名] [/f][/s][/q] 删除 参数:/f 删除只读文件/s 删除该目录及其下的所有内容 /q 删除前不确认</p>
+<p>　　del c:\del /s /q 自动删除c盘的del目录。</p>
+<p>　　copy [源文件或目录] [目标目录] 复制文件 copy d:\pwin98*.* c:\presetup 将d盘的pwin98的所有文件复制到c盘的presetup下。</p>
+<p>　　attrib [参数][源文件或目录] 文件属性操作命令，attrib命令可以列出或修改磁盘上文件的属性，文件属性包括文档（A）、只读(R)、隐藏(H)、系统(S)，例如：attrib -h -r -s io.sys 执行这一命令后，将把DOS系统文件io.sys文件的只读、隐藏、系统属性去掉，这时将可以直接通过dir命令看到io.sys文件。attrib +h +r +s autoexec.bat将为自动批处理文件增加以上属性。</p>
+<p>4.内存操作</p>
+<p>　　debug 调试内存 参数 -w [文件名] 写入二进制文件 -o [地址1] [地址2] 输出内存 -q 退出 exp:o 70 10[return] o 71 01</p>
+<p>　　[return] 01[return] q[return] DOS下通过写70h/71h PORT改变BIOS密码在CMOS中存放的对应位置的值,用以清除AWARD BIOS密码.debug 还可以破解硬盘保护卡等,但只可以在纯DOS下用。</p>
+<p>5.分区操作</p>
+<p>　　给磁盘分区，一般都会分成四个区，磁盘分区由主分区、扩展分区、逻辑分区组成。</p>
+<p>　　PQ和Acronis Disk Director这两个工具都可以在不丢失数据的情况下对分区进行调整大小，以及合并等操作，XP系统的话你用PQ，WIN7系统的话用Acronis Disk Director 操作基本一样，可以去网上找教程来看看，再不重装系统的情况下都能调整分区大小，但是建议你还是先备份下数据再调整，毕竟对硬盘直接进行的操作有一定的危险性。</p>
+<p>　　net use ipipc$ “ “ /user:” “ 建立IPC空链接</p>
+<p>　　net use ipipc$ “密码” /user:”用户名” 建立IPC非空链接</p>
+<p>　　net use h: ipc$ “密码” /user:”用户名” 直接登陆后映射对方C：到本地为H:</p>
+<p>　　net use h: ipc$ 登陆后映射对方C：到本地为H:</p>
+<p>　　net use ipipc$ /del 删除IPC链接</p>
+<p>　　net use h: /del 删除映射对方到本地的为H:的映射</p>
+<p>　　net user 用户名　密码　/add 建立用户</p>
+<p>　　net user guest /active:yes 激活guest用户</p>
+<p>　　net user 查看有哪些用户</p>
+<p>　　net user 帐户名 查看帐户的属性</p>
+<p>　　net localgroup administrators 用户名 /add 把“用户”添加到管理员中使其具有管理员权限</p>
+<p>　　net start 查看开启了哪些服务</p>
+<p>　　net start 服务名　开启服务；(如:net start telnet， net start schedule)</p>
+<p>　　net stop 服务名 停止某服务</p>
+<p>　　net time 目标ip 查看对方时间</p>
+<p>　　net time 目标ip /set 设置本地计算机时间与“目标IP”主机的时间同步,加上参数/yes可取消确认信息</p>
+<p>　　net view 查看本地局域网内开启了哪些共享</p>
+<p>　　net view ip 查看对方局域网内开启了哪些共享</p>
+<p>　　net config 显示系统网络设置</p>
+<p>　　net logoff 断开连接的共享</p>
+<p>　　net pause 服务名 暂停某服务</p>
+<p>　　net send ip “文本信息” 向对方发信息</p>
+<p>　　net ver 局域网内正在使用的网络连接类型和信息</p>
+<p>　　net share 查看本地开启的共享</p>
+<p>　　net share ipc$ 开启ipc$共享</p>
+<p>　　net share ipc$ /del 删除ipc$共享</p>
+<p>　　net share c$ /del 删除C：共享</p>
+<p>　　net user guest 12345 用guest用户登陆后用将密码改为12345</p>
+<p>　　net password 密码 更改系统登陆密码</p>
+<p>　　netstat -a 查看开启了哪些端口,常用netstat -an</p>
+<p>　　netstat -n 查看端口的网络连接情况，常用netstat -an</p>
+<p>　　netstat -v 查看正在进行的工作</p>
+<p>　　netstat -p 协议名 例：netstat -p tcq/ip 查看某协议使用情况</p>
+<p>　　netstat -s 查看正在使用的所有协议使用情况</p>
+<p>　　nbtstat -A ip 对方136到139其中一个端口开了的话，就可查看对方最近登陆的用户名</p>
+<p>　　tracert -参数 ip(或计算机名) 跟踪路由（数据包），参数：“-w数字”用于设置超时间隔。</p>
+<p>　　ping ip(或域名) 向对方主机发送默认大小为32字节的数据，参数：“-l[空格]数据包大小”；“-n发送数据次数”；“-t”指一直ping。</p>
+<p>　　ping -t -l 65550 ip 死亡之ping(发送大于64K的文件并一直ping就成了死亡之ping)</p>
+<p>　　ipconfig (winipcfg) 用于windows NT及XP(windows 95 98)查看本地ip地址，ipconfig可用参数“/all”显示全部配置信息</p>
+<p>　　tlist -t 以树行列表显示进程(为系统的附加工具，默认是没有安装的，在安装目录的Support/tools文件夹内)</p>
+<p>　　kill -F 进程名 加-F参数后强制结束某进程(为系统的附加工具，默认是没有安装的，在安装目录的Support/tools文件夹内)</p>
+<p>　　del -F 文件名 加-F参数后就可删除只读文件,/AR、/AH、/AS、/AA分别表示删除只读、隐藏、系统、存档文件，/A-R、/A-H、/A-S、/A-A表示删除除只读、隐藏、系统、存档以外的文件。例如“DEL/AR <em>.</em>”表示删除当前目录下所有只读文件，“DEL/A-S <em>.</em>”表示删除当前目录下除系统文件以外的所有文件</p>
+<p>　　del /S /Q 目录 或用：rmdir /s /Q 目录 /S删除目录及目录下的所有子目录和文件。同时使用参数/Q 可取消删除操作时的系统确认就直接删除。（二个命令作用相同）</p>
+<p>　　move 盘符路径要移动的文件名　存放移动文件的路径移动后文件名 移动文件,用参数/y将取消确认移动目录存在相同文件的提示就直接覆盖</p>
+<p>　　fc one.txt two.txt &gt; 3st.txt 对比二个文件并把不同之处输出到3st.txt文件中，”&gt; “和”&gt; &gt;” 是重定向命令</p>
+<p>　　at id号 开启已注册的某个计划任务</p>
+<p>　　at /delete 停止所有计划任务，用参数/yes则不需要确认就直接停止</p>
+<p>　　at id号 /delete 停止某个已注册的计划任务</p>
+<p>　　at 查看所有的计划任务</p>
+<p>　　at ip time 程序名(或一个命令) /r 在某时间运行对方某程序并重新启动计算机</p>
+<p>　　finger username @host 查看最近有哪些用户登陆</p>
+<p>　　telnet ip 端口 远和登陆服务器,默认端口为23</p>
+<p>　　open ip 连接到IP（属telnet登陆后的命令）</p>
+<p>　　telnet 在本机上直接键入telnet 将进入本机的telnet</p>
+<p>　　copy 路径文件名1　路径文件名2 /y 复制文件1到指定的目录为文件2，用参数/y就同时取消确认你要改写一份现存目录文件</p>
+<p>　　copy c:srv.exe ipadmin$ 复制本地c:srv.exe到对方的admin下</p>
+<p>　　copy 1st.jpg/b+2st.txt/a 3st.jpg 将2st.txt的内容藏身到1st.jpg中生成3st.jpg新的文件，注：2st.txt文件头要空三排，参数：/b指二进制文件，/a指ASCLL格式文件</p>
+<p>　　copy ipadmin$svv.exe c: 或:copyipadmin$<em>.</em> 复制对方admini$共享下的srv.exe文件（所有文件）至本地C：</p>
+<p>　　xcopy 要复制的文件或目录树　目标地址目录名 复制文件和目录树，用参数/Y将不提示覆盖相同文件</p>
+<p>　　用参数/e才可连目录下的子目录一起复制到目标地址下。</p>
+<p>　　tftp -i 自己IP(用肉机作跳板时这用肉机IP) get server.exec:server.exe 登陆后，将“IP”的server.exe下载到目标主机c:server.exe 参数：-i指以二进制模式传送，如传送exe文件时用，如不加-i 则以ASCII模式（传送文本文件模式）进行传送</p>
+<p>　　tftp -i 对方IP　put c:server.exe 登陆后，上传本地c:server.exe至主机</p>
+<p>　　ftp ip 端口 用于上传文件至服务器或进行文件操作，默认端口为21。bin指用二进制方式传送（可执行文件进）；默认为ASCII格式传送(文本文件时)</p>
+<p>　　route print 显示出IP路由，将主要显示网络地址Network addres，子网掩码Netmask，网关地址Gateway addres，接口地址Interface</p>
+<p>　　arp 查看和处理ARP缓存，ARP是名字解析的意思，负责把一个IP解析成一个物理性的MAC地址。arp -a将显示出全部信息</p>
+<p>　　start 程序名或命令 /max 或/min 新开一个新窗口并最大化（最小化）运行某程序或命令</p>
+<p>　　mem 查看cpu使用情况</p>
+<p>　　attrib 文件名(目录名) 查看某文件（目录）的属性</p>
+<p>　　attrib 文件名 -A -R -S -H 或 +A +R +S +H 去掉(添加)某文件的 存档，只读，系统，隐藏 属性；用+则是添加为某属性</p>
+<p>　　dir 查看文件，参数：/Q显示文件及目录属系统哪个用户，/T:C显示文件创建时间，/T:A显示文件上次被访问时间，/T:W上次被修改时间</p>
+<p>　　date /t 、 time /t 使用此参数即“DATE/T”、“TIME/T”将只显示当前日期和时间，而不必输入新日期和时间</p>
+<p>　　set 指定环境变量名称=要指派给变量的字符 设置环境变量</p>
+<p>　　set 显示当前所有的环境变量</p>
+<p>　　set p(或其它字符) 显示出当前以字符p(或其它字符)开头的所有环境变量</p>
+<p>　　pause 暂停批处理程序，并显示出：请按任意键继续….</p>
+<p>　　if 在批处理程序中执行条件处理（更多说明见if命令及变量）</p>
+<p>　　goto 标签 将cmd.exe导向到批处理程序中带标签的行（标签必须单独一行，且以冒号打头，例如：“：start”标签）</p>
+<p>　　call 路径批处理文件名 从批处理程序中调用另一个批处理程序 （更多说明见call /?）</p>
+<p>　　for 对一组文件中的每一个文件执行某个特定命令（更多说明见for命令及变量）</p>
+<p>　　echo on或off 打开或关闭echo，仅用echo不加参数则显示当前echo设置</p>
+<p>　　echo 信息 在屏幕上显示出信息</p>
+<p>　　echo 信息 &gt;&gt; pass.txt 将”信息”保存到pass.txt文件中</p>
+<p>　　findstr “Hello” aa.txt 在aa.txt文件中寻找字符串hello</p>
+<p>　　find 文件名 查找某文件</p>
+<p>　　title 标题名字 更改CMD窗口标题名字</p>
+<p>　　color 颜色值 设置cmd控制台前景和背景颜色；0=黑、1=蓝、2=绿、3=浅绿、4=红、5=紫、6=黄、7=白、8=灰、9=淡蓝、A=淡绿、B=淡浅绿、C=淡红、D=淡紫、E=淡黄、F=亮白</p>
+<p>　　prompt 名称 更改cmd.exe的显示的命令提示符(把C:、D:统一改为：EntSky )</p>
+<p>　　ver 在DOS窗口下显示版本信息</p>
+<p>　　winver 弹出一个窗口显示版本信息（内存大小、系统版本、补丁版本、计算机名）</p>
+<p>　　format 盘符 /FS:类型 格式化磁盘,类型:FAT、FAT32、NTFS ,例：Format D: /FS:NTFS</p>
+<p>　　md　目录名 创建目录</p>
+<p>　　replace 源文件　要替换文件的目录 替换文件</p>
+<p>　　ren 原文件名　新文件名 重命名文件名</p>
+<p>　　tree 以树形结构显示出目录，用参数-f 将列出第个文件夹中文件名称</p>
+<p>　　type 文件名 显示文本文件的内容</p>
+<p>　　more 文件名 逐屏显示输出文件</p>
+<p>　　doskey 要锁定的命令=字符</p>
+<p>　　doskey 要解锁命令= 为DOS提供的锁定命令(编辑命令行，重新调用win2k命令，并创建宏)。如：锁定dir命令：doskey dir=entsky (不能用doskey dir=dir)；解锁：doskey dir=</p>
+<p>　　taskmgr 调出任务管理器</p>
+<p>　　chkdsk /F D: 检查磁盘D并显示状态报告；加参数/f并修复磁盘上的错误</p>
+<p>　　tlntadmn telnt服务admn,键入tlntadmn选择3，再选择8,就可以更改telnet服务默认端口23为其它任何端口</p>
+<p>　 exit 退出cmd.exe程序或目前，用参数/B则是退出当前批处理脚本而不是cmd.exe</p>
+<p>　　path 路径可执行文件的文件名 为可执行文件设置一个路径。</p>
+<p>　　cmd 启动一个win2K命令解释窗口。参数：/eff、/en 关闭、开启命令扩展；更我详细说明见cmd /?</p>
+<p>　　regedit /s 注册表文件名 导入注册表；参数/S指安静模式导入，无任何提示；</p>
+<p>　　regedit /e 注册表文件名 导出注册表</p>
+<p>　　cacls 文件名　参数 显示或修改文件访问控制列表（ACL）——针对NTFS格式时。参数：/D 用户名:设定拒绝某用户访问；/P 用户名:perm 替换指定用户的访问权限；/G 用户名:perm 赋予指定用户访问权限；Perm 可以是: N 无，R 读取， W 写入， C 更改(写入)，F 完全控制；例：cacls D: est.txt /D pub 设定d: est.txt拒绝pub用户访问。</p>
+<p>　　cacls 文件名 查看文件的访问用户权限列表</p>
+<p>　　REM 文本内容 在批处理文件中添加注解</p>
+<p>　　netsh 查看或更改本地网络配置情况</p>
+<ol>
+<li>什么是SID?如何查看用户的SID</li>
+</ol>
+<p>答：<strong>什么是**</strong>SID** Windows NT系统使用 SID 来跟踪每个帐户： 如果重命名管理员帐户，计算机仍然知道哪个帐户是管理员帐户。 这是因为 SID 不同于名称，它永远不会更改。例如，您可以重命名计算机上的 Administrator帐户，并且仍将该帐户用作管理员，这是因为 Windows 真正关心的并不是名称是什么；Windows 仍然知道该帐户是 Administrator 帐户，因为无论帐户名称如何变化，SID 保持不变。</p>
+<p><strong>如何查看用户的SID</strong></p>
+<ol>
+<li>按⊞ Win+X。随后会在屏幕的左下角打开Windows“超级用户”菜单。</li>
+<li>单击命令提示符Command Prompt(admin)。随后会显示确认消息</li>
+<li>单击是。随后会显示带有命令提示符的终端窗口。</li>
+</ol>
+<p>\4.  输入WMIC useraccount get name,sid。此命令用于显示系统上所有用户帐户的SID。如果你知道用户名，将命令改为：wmic useraccount where name=”USER” get sid，其中“USER”是实际的用户名。</p>
+<p>\5.  按↵ Enter。用户名右侧的一长串数字就是SID。</p>
+<ol>
+<li>System用户和administrator用户的区别?</li>
+</ol>
+<p>答：SYSTEM 用户和使用普通管理员用户对于文件有同样的特权。可是它们有不同的功能。系统帐户可以由 Windows 下执行的服务和操作系统使用。有很多服务和Windows 进程须要可以在内部登录 （比如在 Windows 安装过程中）而 系统帐户就是为该目的设计的；它是内部帐户，不显示在用户管理器，也无法加入到不论什么组，而且不能分配用户权限。默认情况下，系统帐户授予全然控制 NTFS 卷上的全部文件。在此系统帐户具有作为管理员帐户同样的功能权限。</p>
+<p>而普通管理员账户是不可以在系统内部登录的。对于文件系统，管理员账户和SYSEM账户具有同样的权限。可是对于一些服务和进程，我们须要使用系统账户而非管理员账户，由于这些服务和进程要和系统交互，须要内部登录。</p>
+<p>在运行计划任务的时候，假设我们使用NT AUTHORITY\SYSTEM账户，那么是不须要输入password的。可是使用管理员账户，我们必须输入password。一般我们使用系统账户，主要是为了防止管理员改变password后任务无法运行。对于一般的操作，能够使用不论什么一个账户可是我还是建议您使用管理员或者普通用户运行。假设和进程或者服务有关的话，您能够使用系统账户。</p>
+<p>对于计划任务，假设须要该任务显示的话，必须以眼下登录的用户来运行，否则尽管该任务会运行，可是它仅仅是在后台运行，并不会在前台显示。</p>
+<ol>
+<li>账户锁定时间为0是什么意思?</li>
+</ol>
+<p>答：一直锁定，直到管理员改动设置</p>
+<ol>
+<li>本地安全策略中经典模式的参考模型和仅来宾账户分别是什么意思</li>
+</ol>
+<p>答：参考模型：登录需要用户名和密码</p>
+<p>仅来宾账户：登陆不需要用户和密码，直接以来宾访问</p>
+<ol>
+<li>密码保护的共享是什么意思</li>
+</ol>
+<p>答：禁止密码为空的账户访问</p>
+<ol>
+<li>ftp  dhcp 远程桌面 DNS  web文件共享等服务所使用的端口号分别是什么</li>
+</ol>
+<p>答：FTB（20 21） DHCB（67 68） 远程桌面（3389） DNS（58） WEB（80）</p>
+<ol>
+<li>FTP实现的思路</li>
+</ol>
+<p>答：1. 首先在开始–管理工具–服务器管理器中“添加角色”</p>
+<p>\2. 选择WEB服务器 找到FTB服务器安装</p>
+<p>\3. 安装成功后，点击关闭。接着添加用户，用于ftp的指定用户</p>
+<p>\4. 添加FTB站点</p>
+<p>\5. 设置FTB名称，物理路径，IP地址，身份验证基本，允许访问指定用户，权限读取写入。</p>
+<p>\6. 添加完站点之后，在服务器内部浏览器输入<a href="ftp://localhost后，可以成功弹出登录框，输入用户名密码完成后。" target="_blank" rel="noopener">ftp://localhost后，可以成功弹出登录框，输入用户名密码完成后。</a></p>
+<ol>
+<li>设置FTP服务器时,本地NTFS权限和FTP权限的应用规则</li>
+</ol>
+<p>答：取严格的权限应用，一般将FTP权限设为everyone 完全控制。</p>
+<ol>
+<li>写出命令行访问ftp服务器的所有相关命令</li>
+</ol>
+<p>答：FTP的命令行格式为：ftp -v -d -i -n -g [主机名]，其中</p>
+<p>　　-v显示远程服务器的所有响应信息；</p>
+<p>　　-n限制ftp的自动登录，即不使用；</p>
+<p>　　.n etrc文件；</p>
+<p>　　-d使用调试方式；</p>
+<p>　　-g取消全局文件名。</p>
+<p>　　ftp使用的内部命令如下(中括号表示可选项):</p>
+<p>\1. append local-file[remote-file]：将本地文件追加到远程系统主机，若未指定远程系统文件名，则使用本地文件名。</p>
+<p>\2. ascii：使用ascii类型传输方式。</p>
+<p>\3. bell：每个命令执行完毕后计算机响铃一次。</p>
+<p>\4. bin（全命令binary）：使用二进制文件传输方式</p>
+<p>\5. bye：退出ftp会话过程</p>
+<p>\6. cd remote-dir：进入远程主机目录。</p>
+<p>\7. close：中断与远程服务器的ftp会话(与open对应)</p>
+<p>\8. delete remote-file：删除远程主机文件。</p>
+<p>\9. debug[debug-value]：设置调试方式，显示发送至远程主机的每条命令，如：deb up 3，若设为0，表示取消debug。</p>
+<p>\10. dir[remote-dir][local-file]：显示远程主机目录，并将结果存入本地文件local-file。</p>
+<p>\11. disconnection：同close。</p>
+<p>\12. get remote-file[local-file]：将远程主机的文件remote-file传至本地硬盘的local-file。</p>
+<p>\13. glob：设置mdelete，mget，mput的文件名扩展，缺省时不扩展文件名，同命令行的-g参数。</p>
+<p>\14. hash：每传输1024字节，显示一个hash符号(#)</p>
+<p>\15. help[cmd]：显示ftp内部命令cmd的帮助信息，如：help get。</p>
+<p>\16. lcd[dir]：将本地工作目录切换至dir。</p>
+<p>17.ls[remote-dir][local-file]：显示远程目录remote-dir，并存入本地文件local-file。</p>
+<p>\18. mdelete[remote-file]：删除远程删除多个主机文件</p>
+<p>\19. mdir remote-files local-file：与dir类似，但可指定多个远程文件，如：mdir <em>.o.</em>.zipoutfile</p>
+<p>\20. mget remote-files：传输多个远程文件。</p>
+<p>\21. mkdir dir-name：在远程主机中建一目录</p>
+<p>\22. mls remote-file local-file：同nlist，但可指定多个文件名</p>
+<p>\23. mput local-file：将多个文件传输至远程主机。</p>
+<p>\24. open host[port]：建立指定ftp服务器连接，可指定连接端口</p>
+<p>\25. prompt：设置多个文件传输时的交互提示</p>
+<p>\26. put local-file[remote-file]：将本地文件local-file传送至远程主机。</p>
+<p>\27. pwd：显示远程主机的当前工作目录。</p>
+<p>\28. quit：同bye，退出ftp会话。</p>
+<p>\29. quote arg1，arg2…：将参数逐字发至远程ftp服务器，如：quote syst.</p>
+<p>\30. recv remote-file[local-file]：同get。</p>
+<p>\31. rename[from][to]：更改远程主机文件名。</p>
+<p>\32. rmdir dir-name：删除远程主机目录。</p>
+<p>\33. send local-file[remote-file]：同put。</p>
+<p>\34. status：显示当前ftp状态。</p>
+<p>\35. trace：设置包跟踪</p>
+<p>\36. type[type-name]：设置文件传输类型为type-name，缺省为ascii，如：type binary，设置二进制传输方式。</p>
+<p>\37. verbose：同命令行的-v参数，即设置详尽报告方式，ftp服务器的所有响应都将显示给用户，缺省为on.</p>
+<p>\38. user user-name[password][account]：向远程主机表明自己的身份，需要口令时，必须输入口令，</p>
+<ol>
+<li>Dhcp服务器的租约过程以及更新租约时间</li>
+</ol>
+<p>答：①客户端请求IP：发送discover广播包，源ip地址0.0.0.0 目标地址255.255.255.255</p>
+<p>②服务器端响应：发送offer包，源ip地址 192.168.1. 1 目标地址255.255.255.255 提供ip地址 192.168.1.12</p>
+<p>③客户端选择ip：发送request包，选择dhcp服务器192.168.1.1 源ip地址0.0.0.0 目标ip地址 255.255.255.255 租约期限 8</p>
+<p>④服务器确定租约 发送ACK确认 源地址192.168.1.1 目标地址255.255.255.255</p>
+<p>租约时间的50%和87.5%</p>
+<ol>
+<li>Client获取IP地址后,重启计算机是如何续约地址的?如果ip已经不可用和可用服务器分别如何回应?</li>
+</ol>
+<p>答：重启时客户端发送带有ip地址的request请求到服务器。如果ip可用，服务器发送ACK确认信息，ip继续使用；如果ip已经分配使用，服务器发送NACK，然后客户端重新发送DHCP Discover广播包</p>
+<ol>
+<li>画图描述DNS的解析过程(标出递归查询和迭代查询)</li>
+</ol>
+<p>答：</p>
+<ol>
+<li>DNS的正向解析和反向解析分别是什么意思</li>
+</ol>
+<p>答：正向：由域名解析出ip 反向：由ip解析出域名</p>
+<ol>
+<li>DNS服务器的分类,以及各自的特点</li>
+</ol>
+<p>答：主要名称服务器：数据全</p>
+<p>辅助名称服务器：数据是从主dns服务器中同步过来的，无法更改</p>
+<p>Cache-Only（缓存）名称服务器：速度快，由其他服务器提供dns解析将数据存于告诉缓存中。缓存需要经常释放，否则主服务器改动之后就会解析错误</p>
+<p>主控名称服务器：提供趋于数据复制的服务器</p>
+<ol>
+<li>DNS辅助DNS同步区域文件需要注意什么</li>
+</ol>
+<p>答：要在主DNS的属性区域传送中选中只允许到下列服务器，编辑辅助DNS的IP地址，然后在辅助DNS服务器上右键，从主DNS上传输即可</p>
+<ol>
+<li>Web服务器的安装程序是什么</li>
+</ol>
+<p>答：IIS web平台安装程序是一个非常酷的产品是一个很小的下载管理程序 - 微软Web平台安装程序（Microsoft Web Platform Installer），它极大地简化了web服务器和web开发设施的安装和配置。它可在Windows XP, Vista, Windows 7, Windows Server 2003 和 Windows Server 2008下工作。</p>
+<ol>
+<li>IIs程序中默认文档的作用</li>
+</ol>
+<p>答：直接访问网站首页</p>
+<ol>
+<li>如何实现一台WEB服务器提供多个网站(三种方式)</li>
+</ol>
+<p>答：相同IP不同端口</p>
+<p>相同端口不同IP</p>
+<p>相同端口 IP不同主机名</p>
+<ol>
+<li>MBR分区方式的硬盘为什么只能划分四个主分区?</li>
+</ol>
+<p>答：个分区信息占用16字节，总64字节。最多四个主分区</p>
+<ol>
+<li>写出动态磁盘的优点</li>
+</ol>
+<p>答：可扩展性：随时展开文件系统的管理空间</p>
+<p>高读写性：动态磁盘中卷由多个硬盘组成，提高读写性</p>
+<p>高可靠性：防止某个磁盘损坏造成数据丢失   </p>
+<ol>
+<li>写出动态磁盘卷的分类以及各自的特点(画表对比)</li>
+</ol>
+<p>答：</p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>磁盘个数</th>
+<th>每个磁盘提供的空间是否一致</th>
+<th>可扩展性</th>
+<th>读写性</th>
+<th>容错</th>
+<th>空间利用率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单卷</td>
+<td>1</td>
+<td>——</td>
+<td>可</td>
+<td>正常</td>
+<td>无</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>跨区卷</td>
+<td>2-32</td>
+<td>否</td>
+<td>可</td>
+<td>正常</td>
+<td>无</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>带区卷</td>
+<td>2-32</td>
+<td>是</td>
+<td>否</td>
+<td>最快</td>
+<td>无</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>镜像卷</td>
+<td>只能2个</td>
+<td>是</td>
+<td>否</td>
+<td>正常</td>
+<td>有</td>
+<td>50%</td>
+</tr>
+<tr>
+<td>Raid-5卷</td>
+<td>3-32</td>
+<td>是</td>
+<td>否</td>
+<td>较快</td>
+<td>有</td>
+<td>（n-1）/1</td>
+</tr>
+</tbody></table>
+<ol>
+<li>介绍一下以下相关域的概念</li>
+</ol>
+<p>域：</p>
+<p>活动目录的一种实现形式，属于活动目录中的核心管理单位，由域控制器和成员计算机组成</p>
+<p>AD：</p>
+<p>活动目录</p>
+<p>DC：</p>
+<p>域控制器</p>
+<p>OU：</p>
+<p>组织单位在容器中的称呼，可以存放一些对象和其他容器</p>
+<p>功能级别：</p>
+<p>域功能级别：限制域控制器的功能级别 林功能级别：限制林功能级别</p>
+<p>组策略：</p>
+<p>策略的集合，用于统一修改、设置程序</p>
+<ol>
+<li>写出DC的基本条件</li>
+</ol>
+<p>答：管理员权限；操作系统版本Windows Server 2003（Web版除外）、Windows Server 2008（Web版除外）、Windows Server 2008 R2（Web和Itanium版除外）；NTFS分区；静态ip；有足够可用的磁盘空间</p>
+<ol>
+<li>写出加入域的基本条件</li>
+</ol>
+<p>答：计算机IP地址设置正确，DNS配置正确；计算机能与域控制器互相连通</p>
+<ol>
+<li>写出卸载域的注意事项</li>
+</ol>
+<p>答：卸载域控制器之前，所有域控制器要相互联机，如果域内还有其他域控制器，则该计算机将会下降为成员服务器；如果该域控制器是域内最后一个域控制器，则该计算器降级为独立服务器，如果该域控制器担任了“全局编录”的角色，实施卸载前，先确认网络中还有其他域控制器承担这个角色，否则将影响用户的登录。</p>
+<ol>
+<li>写出组策略的应用规则</li>
+</ol>
+<p>答：策略继承与阻止：级容器可以继承或阻止应用其上级容器的GPO设置</p>
+<p>策略累加与冲突：多个GPO设置可以累加或发生冲突被覆盖（如果多个组策略设置不冲突，则最终的有效策略是所有组策略设置的累加；如果多个组策略设置冲突，则后应用的组策略覆盖先应用的组策略。）</p>
+<p>策略强制生效：使下级容器强制执行其上级容器的GPO设置</p>
+<p>筛选：阻止一个容器内的用户或计算机应用其GPO设置</p>
+<p>组策略应用顺序：LSDOU首先应用本地组策略，如果有站点组策略，则应用，接着应用域策略，最后应用OU上的策略（如果同一个OU上链接了多个GPO，则按照链接顺序从高到低逐个应用。）</p>
+<ol>
+<li>写出漫游桌面实现的思路</li>
+</ol>
+<p>答：在一个域环境当中，通过添加一个OU，将需要统一桌面的用户添加进去，给OU添加GPO，在用户设置中，找到桌面设置，Active Desktop选择已启用，禁止修改桌面选择已启用，统一桌面选择已启用（照片的路径设置为\IP\文件夹名\XX.jpg，该文件夹一定要设置共享），然后更新策略。这样OU内的所有用户就能实现漫游桌面。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/linux常用命令/" rel="next" title="linux常用命令">
+                <i class="fa fa-chevron-left"></i> linux常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/10/日志清除实验/" rel="prev" title="日志清除实验">
+                日志清除实验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="申子昊">
+            
+              <p class="site-author-name" itemprop="name">申子昊</p>
+              <p class="site-description motion-element" itemprop="description">多一份网络防护技能,多一份信息安全保证</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Flash1201" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shenzihao76@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://tcp123.cn" target="_blank" title="友情链接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>友情链接</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#windows-server-2008基础内容"><span class="nav-number">1.</span> <span class="nav-text">windows server 2008基础内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章计算机的组装与维护"><span class="nav-number">1.1.</span> <span class="nav-text">第一章计算机的组装与维护</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、-概述"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">一、    概述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、-计算机的工作原理：冯诺-伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成"><span class="nav-number">1.1.0.3.1.</span> <span class="nav-text">1、 计算机的工作原理：冯诺.伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、-硬件的主要参数"><span class="nav-number">1.1.0.3.2.</span> <span class="nav-text">2、 硬件的主要参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、虚拟机操作应用"><span class="nav-number">1.1.0.3.3.</span> <span class="nav-text">二、虚拟机操作应用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装操作系统"><span class="nav-number">1.1.0.3.4.</span> <span class="nav-text">安装操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、安装条件"><span class="nav-number">1.1.0.3.4.1.</span> <span class="nav-text">（一）、安装条件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、安装方式"><span class="nav-number">1.1.0.3.4.2.</span> <span class="nav-text">（二）、安装方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一-Windows-Server-Backup使用注意事项："><span class="nav-number">1.1.0.4.</span> <span class="nav-text">一.Windows Server Backup使用注意事项：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、添加Windows-Server-Backup功能"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">二、添加Windows Server Backup功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、备份方式："><span class="nav-number">1.1.0.6.</span> <span class="nav-text">三、备份方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、备份类型："><span class="nav-number">1.1.0.7.</span> <span class="nav-text">四、备份类型：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、备份方式设置："><span class="nav-number">1.1.0.8.</span> <span class="nav-text">五、备份方式设置：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、一次性备份（控制台备份和命令行备份）"><span class="nav-number">1.1.0.9.</span> <span class="nav-text">六、一次性备份（控制台备份和命令行备份）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、计划备份"><span class="nav-number">1.1.0.10.</span> <span class="nav-text">七、计划备份</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章-Windows-的用户管理"><span class="nav-number">1.2.</span> <span class="nav-text">第三章   Windows  的用户管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-1"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、用户的管理"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">一、用户的管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、SID"><span class="nav-number">1.2.0.2.0.1.</span> <span class="nav-text">（一）、SID</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、创建账户"><span class="nav-number">1.2.0.2.0.2.</span> <span class="nav-text">（二）、创建账户</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、账户的分类"><span class="nav-number">1.2.0.2.0.3.</span> <span class="nav-text">（三）、账户的分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、组的管理"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">二、组的管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、需要人为添加成员的组"><span class="nav-number">1.2.0.3.0.1.</span> <span class="nav-text">（一）、需要人为添加成员的组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、动态包含成员的组"><span class="nav-number">1.2.0.3.0.2.</span> <span class="nav-text">（二）、动态包含成员的组</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#文件服务"><span class="nav-number">1.3.</span> <span class="nav-text">文件服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-2"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、共享文件夹"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">一、共享文件夹</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。"><span class="nav-number">1.3.0.2.0.1.</span> <span class="nav-text">（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、访问共享文件夹"><span class="nav-number">1.3.0.2.0.2.</span> <span class="nav-text">（二）、访问共享文件夹</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、文件服务器"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">二、文件服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、两种网络结构"><span class="nav-number">1.3.0.3.0.1.</span> <span class="nav-text">（一）、两种网络结构</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、文件服务器的角色服务"><span class="nav-number">1.3.0.3.0.2.</span> <span class="nav-text">（二）、文件服务器的角色服务</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、服务器的策略管理"><span class="nav-number">1.3.0.3.0.3.</span> <span class="nav-text">（三）、服务器的策略管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、共享权限"><span class="nav-number">1.3.0.3.0.4.</span> <span class="nav-text">（四）、共享权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NTFS权限"><span class="nav-number">1.4.</span> <span class="nav-text">NTFS权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-3"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、NTFS权限"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">一、NTFS权限</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、文件系统"><span class="nav-number">1.4.0.2.0.1.</span> <span class="nav-text">（一）、文件系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、NTFS文件系统的新功能"><span class="nav-number">1.4.0.2.0.2.</span> <span class="nav-text">（二）、NTFS文件系统的新功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地安全策略"><span class="nav-number">1.5.</span> <span class="nav-text">本地安全策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-4"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#账户策略的配置"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">账户策略的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制"><span class="nav-number">1.5.0.2.0.1.</span> <span class="nav-text">（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、打开本地安全策略管理控制台："><span class="nav-number">1.5.0.2.0.2.</span> <span class="nav-text">（二）、打开本地安全策略管理控制台：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、账户策略"><span class="nav-number">1.5.0.2.0.3.</span> <span class="nav-text">（三）、账户策略</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、密码策略"><span class="nav-number">1.5.0.2.0.4.</span> <span class="nav-text">（四）、密码策略</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（五）、账户锁定策略"><span class="nav-number">1.5.0.2.0.5.</span> <span class="nav-text">（五）、账户锁定策略</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、本地策略"><span class="nav-number">1.5.0.3.</span> <span class="nav-text">二、本地策略</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、三部分内容"><span class="nav-number">1.5.0.3.0.1.</span> <span class="nav-text">（一）、三部分内容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、审核策略"><span class="nav-number">1.5.0.3.0.2.</span> <span class="nav-text">（二）、审核策略</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、用户权限分配"><span class="nav-number">1.5.0.3.0.3.</span> <span class="nav-text">（三）、用户权限分配</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、安全选项"><span class="nav-number">1.5.0.3.0.4.</span> <span class="nav-text">（三）、安全选项</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、本地组策略-（一组策略的集合，在工作组环境没有在域环境应用广泛）"><span class="nav-number">1.5.0.3.0.5.</span> <span class="nav-text">（四）、本地组策略   （一组策略的集合，在工作组环境没有在域环境应用广泛）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-磁盘管理"><span class="nav-number">1.6.</span> <span class="nav-text">Windows 磁盘管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-5"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、磁盘管理概述"><span class="nav-number">1.6.0.2.</span> <span class="nav-text">一、磁盘管理概述</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、分区方式"><span class="nav-number">1.6.0.2.0.1.</span> <span class="nav-text">（一）、分区方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、基本磁盘"><span class="nav-number">1.6.0.2.0.2.</span> <span class="nav-text">（二）、基本磁盘</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、动态磁盘"><span class="nav-number">1.6.0.2.0.3.</span> <span class="nav-text">（三）、动态磁盘</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二、Windows-动态磁盘卷管理"><span class="nav-number">1.6.0.2.0.4.</span> <span class="nav-text">二、Windows 动态磁盘卷管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#总结："><span class="nav-number">1.6.0.2.0.5.</span> <span class="nav-text">总结：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、管理卷"><span class="nav-number">1.6.0.2.0.6.</span> <span class="nav-text">（四）、管理卷</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署DHCP服务"><span class="nav-number">1.7.</span> <span class="nav-text">部署DHCP服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FTP服务"><span class="nav-number">1.8.</span> <span class="nav-text">FTP服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-6"><span class="nav-number">1.8.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-1"><span class="nav-number">1.8.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、FTP客户端"><span class="nav-number">1.8.0.3.</span> <span class="nav-text">一、FTP客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、FTP定义"><span class="nav-number">1.8.0.3.0.1.</span> <span class="nav-text">（一）、FTP定义</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、常见的FTP客户端"><span class="nav-number">1.8.0.3.0.2.</span> <span class="nav-text">（二）、常见的FTP客户端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、FTP服务器"><span class="nav-number">1.8.0.4.</span> <span class="nav-text">二、FTP服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、在Windows-Server2008上搭建FTP服务器"><span class="nav-number">1.8.0.4.0.1.</span> <span class="nav-text">（一）、在Windows  Server2008上搭建FTP服务器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、Serv-U"><span class="nav-number">1.8.0.4.0.2.</span> <span class="nav-text">（二）、Serv-U</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、常见的FTP服务端"><span class="nav-number">1.8.0.4.0.3.</span> <span class="nav-text">（三）、常见的FTP服务端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署web服务"><span class="nav-number">1.9.</span> <span class="nav-text">部署web服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署DNS服务"><span class="nav-number">1.10.</span> <span class="nav-text">部署DNS服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IIS"><span class="nav-number">1.11.</span> <span class="nav-text">IIS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WWW服务"><span class="nav-number">1.11.0.1.</span> <span class="nav-text">WWW服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IIS7-5"><span class="nav-number">1.11.0.2.</span> <span class="nav-text">IIS7.5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WEB站点的配置"><span class="nav-number">1.11.0.3.</span> <span class="nav-text">WEB站点的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-配置站点的IP和端口号"><span class="nav-number">1.11.0.3.0.1.</span> <span class="nav-text">1.配置站点的IP和端口号</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-配置站点的物理路径和连接限制"><span class="nav-number">1.11.0.3.0.2.</span> <span class="nav-text">2.配置站点的物理路径和连接限制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-默认文档"><span class="nav-number">1.11.0.3.0.3.</span> <span class="nav-text">3.默认文档</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟目录"><span class="nav-number">1.11.0.4.</span> <span class="nav-text">虚拟目录</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一、概念："><span class="nav-number">1.11.0.4.0.1.</span> <span class="nav-text">一、概念：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二、虚拟目录优点："><span class="nav-number">1.11.0.4.0.2.</span> <span class="nav-text">二、虚拟目录优点：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三、创建虚拟目录—"><span class="nav-number">1.11.0.4.0.3.</span> <span class="nav-text">三、创建虚拟目录—</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#四、配置虚拟目录"><span class="nav-number">1.11.0.4.0.4.</span> <span class="nav-text">四、配置虚拟目录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#一、实现虚拟主机的方式："><span class="nav-number">1.11.0.4.0.5.</span> <span class="nav-text">一、实现虚拟主机的方式：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-Server-2008R2-的安装与网络配置"><span class="nav-number">1.12.</span> <span class="nav-text">Windows  Server  2008R2 的安装与网络配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-7"><span class="nav-number">1.12.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-2"><span class="nav-number">1.12.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、Windows-Server-2008的版本及安装"><span class="nav-number">1.12.0.3.</span> <span class="nav-text">一、Windows Server 2008的版本及安装</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、Windows-Server-2008R2-的改进"><span class="nav-number">1.12.0.3.0.1.</span> <span class="nav-text">（一）、Windows  Server  2008R2 的改进</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、家族成员"><span class="nav-number">1.12.0.3.0.2.</span> <span class="nav-text">（二）、家族成员</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、安装企业版最低的硬件要求"><span class="nav-number">1.12.0.3.0.3.</span> <span class="nav-text">（三）、安装企业版最低的硬件要求</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、安装方式"><span class="nav-number">1.12.0.3.0.4.</span> <span class="nav-text">（四）、安装方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、基本配置"><span class="nav-number">1.12.0.4.</span> <span class="nav-text">二、基本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、给接口配置IP地址"><span class="nav-number">1.12.0.4.0.1.</span> <span class="nav-text">（一）、给接口配置IP地址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、自动专用IP地址"><span class="nav-number">1.12.0.4.0.2.</span> <span class="nav-text">（二）、自动专用IP地址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、配置DNS服务器地址"><span class="nav-number">1.12.0.4.0.3.</span> <span class="nav-text">（三）、配置DNS服务器地址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、计算机名"><span class="nav-number">1.12.0.4.0.4.</span> <span class="nav-text">（四）、计算机名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（五）、工作组"><span class="nav-number">1.12.0.4.0.5.</span> <span class="nav-text">（五）、工作组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署Windows-域环境"><span class="nav-number">1.13.</span> <span class="nav-text">部署Windows  域环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-8"><span class="nav-number">1.13.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-3"><span class="nav-number">1.13.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、域、活动目录的相关概念"><span class="nav-number">1.13.0.3.</span> <span class="nav-text">一、域、活动目录的相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、工作组"><span class="nav-number">1.13.0.3.0.1.</span> <span class="nav-text">（一）、工作组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、域环境"><span class="nav-number">1.13.0.3.0.2.</span> <span class="nav-text">（二）、域环境</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、域的结构"><span class="nav-number">1.13.0.3.0.3.</span> <span class="nav-text">（三）、域的结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、部署Windows-域环境"><span class="nav-number">1.13.0.4.</span> <span class="nav-text">二、部署Windows 域环境</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、部署域控制器"><span class="nav-number">1.13.0.4.0.1.</span> <span class="nav-text">（一）、部署域控制器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、部署成员计算机"><span class="nav-number">1.13.0.4.0.2.</span> <span class="nav-text">（二）、部署成员计算机</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、域中用户、组-、OU的管理"><span class="nav-number">1.13.0.5.</span> <span class="nav-text">三、域中用户、组 、OU的管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、用户"><span class="nav-number">1.13.0.5.0.1.</span> <span class="nav-text">（一）、用户</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、组"><span class="nav-number">1.13.0.5.0.2.</span> <span class="nav-text">（二）、组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、OU的管理"><span class="nav-number">1.13.0.5.0.3.</span> <span class="nav-text">（三）、OU的管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域控管理"><span class="nav-number">1.14.</span> <span class="nav-text">域控管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-9"><span class="nav-number">1.14.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-4"><span class="nav-number">1.14.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、回顾Windows-域"><span class="nav-number">1.14.0.3.</span> <span class="nav-text">一、回顾Windows 域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、添加额外域控及管理"><span class="nav-number">1.14.0.4.</span> <span class="nav-text">二、添加额外域控及管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、为什么要有额外域控？"><span class="nav-number">1.14.0.4.0.1.</span> <span class="nav-text">（一）、为什么要有额外域控？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、安装额外域控的条件"><span class="nav-number">1.14.0.4.0.2.</span> <span class="nav-text">（二）、安装额外域控的条件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、卸载域控制器"><span class="nav-number">1.14.0.5.</span> <span class="nav-text">三、卸载域控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、注意事项"><span class="nav-number">1.14.0.5.0.1.</span> <span class="nav-text">（一）、注意事项</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、卸载命令-：-dcpromo"><span class="nav-number">1.14.0.5.0.2.</span> <span class="nav-text">（二）、卸载命令 ： dcpromo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组策略的应用"><span class="nav-number">1.15.</span> <span class="nav-text">组策略的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-10"><span class="nav-number">1.15.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-5"><span class="nav-number">1.15.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、组策略的相关概念"><span class="nav-number">1.15.0.3.</span> <span class="nav-text">一、组策略的相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、作用："><span class="nav-number">1.15.0.3.0.1.</span> <span class="nav-text">（一）、作用：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、好处："><span class="nav-number">1.15.0.3.0.2.</span> <span class="nav-text">（二）、好处：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、GPO"><span class="nav-number">1.15.0.3.0.3.</span> <span class="nav-text">（三）、GPO</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、组策略的内容"><span class="nav-number">1.15.0.3.0.4.</span> <span class="nav-text">（四）、组策略的内容</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、组策略的应用"><span class="nav-number">1.15.0.4.</span> <span class="nav-text">二、组策略的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、应用规则"><span class="nav-number">1.15.0.4.0.1.</span> <span class="nav-text">（一）、应用规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-备份和灾难恢复"><span class="nav-number">1.16.</span> <span class="nav-text">Windows 备份和灾难恢复</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-11"><span class="nav-number">1.16.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-6"><span class="nav-number">1.16.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、备份工具"><span class="nav-number">1.16.0.3.</span> <span class="nav-text">一、备份工具</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、备份："><span class="nav-number">1.16.0.3.0.1.</span> <span class="nav-text">（一）、备份：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、还原："><span class="nav-number">1.16.0.3.0.2.</span> <span class="nav-text">（二）、还原：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、Windows-Server-Backup"><span class="nav-number">1.16.0.3.0.3.</span> <span class="nav-text">（三）、Windows  Server  Backup</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、数据备份"><span class="nav-number">1.16.0.4.</span> <span class="nav-text">二、数据备份</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、备份方式"><span class="nav-number">1.16.0.4.0.1.</span> <span class="nav-text">（一）、备份方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、一次性备份的操作"><span class="nav-number">1.16.0.4.0.2.</span> <span class="nav-text">（二）、一次性备份的操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、一次性备份的恢复"><span class="nav-number">1.16.0.4.0.3.</span> <span class="nav-text">（三）、一次性备份的恢复</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、计划备份的操作-（准备一块单独硬盘）"><span class="nav-number">1.16.0.4.0.4.</span> <span class="nav-text">（四）、计划备份的操作   （准备一块单独硬盘）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（五）、备份配置"><span class="nav-number">1.16.0.4.0.5.</span> <span class="nav-text">（五）、备份配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#活动目录备份和灾难恢复"><span class="nav-number">1.17.</span> <span class="nav-text">活动目录备份和灾难恢复</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-12"><span class="nav-number">1.17.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-7"><span class="nav-number">1.17.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、AD备份还原简介"><span class="nav-number">1.17.0.3.</span> <span class="nav-text">一、AD备份还原简介</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、为什么要进行活动目录备份？-（p105）"><span class="nav-number">1.17.0.3.0.1.</span> <span class="nav-text">（一）、为什么要进行活动目录备份？    （p105）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、注意：如果要备份AD，只能当成系统状态的一部分完成"><span class="nav-number">1.17.0.3.0.2.</span> <span class="nav-text">（二）、注意：如果要备份AD，只能当成系统状态的一部分完成</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、备份系统状态的注意事项"><span class="nav-number">1.17.0.3.0.3.</span> <span class="nav-text">（三）、备份系统状态的注意事项</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、两种还原方式及区别"><span class="nav-number">1.17.0.3.0.4.</span> <span class="nav-text">（四）、两种还原方式及区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、备份-还原操作"><span class="nav-number">1.17.0.4.</span> <span class="nav-text">二、备份\还原操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、单域控备份，非授权还原"><span class="nav-number">1.17.0.4.0.1.</span> <span class="nav-text">（一）、单域控备份，非授权还原</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、多域控，授权还原"><span class="nav-number">1.17.0.4.0.2.</span> <span class="nav-text">（二）、多域控，授权还原</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作主机"><span class="nav-number">1.18.</span> <span class="nav-text">操作主机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-13"><span class="nav-number">1.18.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-8"><span class="nav-number">1.18.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、操作主机概念"><span class="nav-number">1.18.0.3.</span> <span class="nav-text">一、操作主机概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、单主复制"><span class="nav-number">1.18.0.3.0.1.</span> <span class="nav-text">（一）、单主复制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、多主复制"><span class="nav-number">1.18.0.3.0.2.</span> <span class="nav-text">（二）、多主复制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、操作主机"><span class="nav-number">1.18.0.3.0.3.</span> <span class="nav-text">（三）、操作主机</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、五种操作主机角色"><span class="nav-number">1.18.0.3.0.4.</span> <span class="nav-text">（四）、五种操作主机角色</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、转移和占用"><span class="nav-number">1.18.0.4.</span> <span class="nav-text">二、转移和占用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、为什么要转移和占用？-（P130"><span class="nav-number">1.18.0.4.0.1.</span> <span class="nav-text">（一）、为什么要转移和占用？     （P130)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、转移-正常的角色转换-（担任角色的主机和目标主机需要联机）"><span class="nav-number">1.18.0.4.0.2.</span> <span class="nav-text">（二）、转移     正常的角色转换   （担任角色的主机和目标主机需要联机）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、占用-强制手段转移操作主机角色"><span class="nav-number">1.18.0.4.0.3.</span> <span class="nav-text">（三）、占用     强制手段转移操作主机角色</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、将Windows-Server-2003的AD升级到Windows-Server-2008AD"><span class="nav-number">1.18.0.5.</span> <span class="nav-text">三、将Windows  Server 2003的AD升级到Windows  Server 2008AD</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、网络环境"><span class="nav-number">1.18.0.5.0.1.</span> <span class="nav-text">（一）、网络环境</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、目标"><span class="nav-number">1.18.0.5.0.2.</span> <span class="nav-text">（二）、目标</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、具体步骤"><span class="nav-number">1.18.0.5.0.3.</span> <span class="nav-text">（三）、具体步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AD常见故障排查"><span class="nav-number">1.19.</span> <span class="nav-text">AD常见故障排查</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-14"><span class="nav-number">1.19.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-9"><span class="nav-number">1.19.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、常见故障及排障思路"><span class="nav-number">1.19.0.3.</span> <span class="nav-text">一、常见故障及排障思路</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、常见故障"><span class="nav-number">1.19.0.3.0.1.</span> <span class="nav-text">（一）、常见故障</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、排障思路"><span class="nav-number">1.19.0.3.0.2.</span> <span class="nav-text">（二）、排障思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、常见故障举例"><span class="nav-number">1.19.0.4.</span> <span class="nav-text">二、常见故障举例</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、客户机无法加入域"><span class="nav-number">1.19.0.4.0.1.</span> <span class="nav-text">（一）、客户机无法加入域</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、用户无法登录"><span class="nav-number">1.19.0.4.0.2.</span> <span class="nav-text">（二）、用户无法登录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（三）、部分用户登录缓慢"><span class="nav-number">1.19.0.4.0.3.</span> <span class="nav-text">（三）、部分用户登录缓慢</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（四）、组策略不生效的问题"><span class="nav-number">1.19.0.4.0.4.</span> <span class="nav-text">（四）、组策略不生效的问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（五）、DC间复制数据失败"><span class="nav-number">1.19.0.4.0.5.</span> <span class="nav-text">（五）、DC间复制数据失败</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多域间访问"><span class="nav-number">1.20.</span> <span class="nav-text">多域间访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本章结构-15"><span class="nav-number">1.20.0.1.</span> <span class="nav-text">本章结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体知识点-10"><span class="nav-number">1.20.0.2.</span> <span class="nav-text">具体知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、林内信任关系"><span class="nav-number">1.20.0.3.</span> <span class="nav-text">一、林内信任关系</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、林根域、子域、树根域的概念"><span class="nav-number">1.20.0.3.0.1.</span> <span class="nav-text">（一）、林根域、子域、树根域的概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、林内的信任关系"><span class="nav-number">1.20.0.3.0.2.</span> <span class="nav-text">（二）、林内的信任关系</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、林间信任"><span class="nav-number">1.20.0.4.</span> <span class="nav-text">二、林间信任</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（一）、外部信任"><span class="nav-number">1.20.0.4.0.1.</span> <span class="nav-text">（一）、外部信任</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（二）、林信任"><span class="nav-number">1.20.0.4.0.2.</span> <span class="nav-text">（二）、林信任</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级域和林功能级别"><span class="nav-number">1.21.</span> <span class="nav-text">升级域和林功能级别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#考试"><span class="nav-number">2.</span> <span class="nav-text">考试</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">申子昊</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

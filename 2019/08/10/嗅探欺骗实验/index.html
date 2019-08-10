@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="漏洞复现,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="嗅探欺骗实验FTP连接与密码明文抓取一【实验目标】l TCP、UDP协议解析(端口，各标志字段，固定首部长度)l IP协议解析(源、目的网络地址，各标志字段，分片标识，固定首部长度)l Ethernet帧结构解析(源、目的MAC地址，帧长)l 利用FTP明文传输特性，捕获用户名/密码 二【实验环境】l 实验机环境：windows xp操作系统l 实验拓扑：如下图所示 三【实验原理】FTP协议在网络">
+<meta name="keywords" content="漏洞复现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嗅探欺骗实验">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/10/嗅探欺骗实验/index.html">
+<meta property="og:site_name" content="changyouB-log">
+<meta property="og:description" content="嗅探欺骗实验FTP连接与密码明文抓取一【实验目标】l TCP、UDP协议解析(端口，各标志字段，固定首部长度)l IP协议解析(源、目的网络地址，各标志字段，分片标识，固定首部长度)l Ethernet帧结构解析(源、目的MAC地址，帧长)l 利用FTP明文传输特性，捕获用户名/密码 二【实验环境】l 实验机环境：windows xp操作系统l 实验拓扑：如下图所示 三【实验原理】FTP协议在网络">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-10T03:47:03.350Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="嗅探欺骗实验">
+<meta name="twitter:description" content="嗅探欺骗实验FTP连接与密码明文抓取一【实验目标】l TCP、UDP协议解析(端口，各标志字段，固定首部长度)l IP协议解析(源、目的网络地址，各标志字段，分片标识，固定首部长度)l Ethernet帧结构解析(源、目的MAC地址，帧长)l 利用FTP明文传输特性，捕获用户名/密码 二【实验环境】l 实验机环境：windows xp操作系统l 实验拓扑：如下图所示 三【实验原理】FTP协议在网络">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/10/嗅探欺骗实验/">
+
+
+
+
+
+  <title>嗅探欺骗实验 | changyouB-log</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">changyouB-log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">网络安全</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/嗅探欺骗实验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">嗅探欺骗实验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T11:15:58+08:00">
+                2019-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="嗅探欺骗实验"><a href="#嗅探欺骗实验" class="headerlink" title="嗅探欺骗实验"></a>嗅探欺骗实验</h1><h2 id="FTP连接与密码明文抓取"><a href="#FTP连接与密码明文抓取" class="headerlink" title="FTP连接与密码明文抓取"></a>FTP连接与密码明文抓取</h2><h4 id="一【实验目标】"><a href="#一【实验目标】" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l TCP、UDP协议解析(端口，各标志字段，固定首部长度)<br>l IP协议解析(源、目的网络地址，各标志字段，分片标识，固定首部长度)<br>l Ethernet帧结构解析(源、目的MAC地址，帧长)<br>l 利用FTP明文传输特性，捕获用户名/密码</p>
+<h4 id="二【实验环境】"><a href="#二【实验环境】" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>l 实验机环境：windows xp操作系统<br>l 实验拓扑：如下图所示</p>
+<h4 id="三【实验原理】"><a href="#三【实验原理】" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>FTP协议在网络传输中采取明文的形式传输用户名和密码。攻击者利用该特性就可获得被攻击者的敏感信息，并进行进一步的攻击。</p>
+<h4 id="四【实验步骤】"><a href="#四【实验步骤】" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><ol>
+<li><p>本机地址为192.168.8.161，我们选择一个外网FTP服务器202.101.47.169</p>
+</li>
+<li><p>设置抓包参数：运行Wireshark.exe程序，设置接口网络适配器及过滤器。设置完毕，即可开始捕获网络数据包。</p>
+</li>
+<li><p>四层网络结构，每层都有不同的功能，由不同的协议组成。</p>
+</li>
+</ol>
+<p>EthernetII的帧结构为目的MAC地址+源MAC地址+上层协议类型+数据字段+校验。</p>
+<p>第一行为WireShark添加、该帧的相关统计信息。包括捕获时间、编号、帧长度、帧中所含有的协议等，如图所示。</p>
+<p>第二行为链路层信息，包括目的MAC地址、源MAC地址、上层协议类型，如下图。</p>
+<p> 第三行为网络层信息，如此处为IP协议。细节包括版本、头部长度、总长度、标志位、源/目的IP地址、上层协议等。</p>
+<p>第四行为传输层信息，包括源/目的端口、序列号、期望的下个序列号、确认号、头部长度、标志位、窗口长度、校验和等。</p>
+<ol start="4">
+<li>在本主机的Firefox地址栏输入<a href="ftp://202.101.47.169请求与服务器建立连接；在地址栏输入地址回车后，弹出输入用户名密码窗口，正确输入后即可访问。如下图所示。" target="_blank" rel="noopener">ftp://202.101.47.169请求与服务器建立连接；在地址栏输入地址回车后，弹出输入用户名密码窗口，正确输入后即可访问。如下图所示。</a></li>
+</ol>
+<p>我们使用用户名：e5yusimin-s，密码：password<br>客户端为192.168.8.161(本地)，目的服务器为202.101.47.169，发送连接建立请求。条件设置为“TCP”，可观察到下图所示的内容（查看第一个数据包的内容）。</p>
+<p>TCP标志位仅SYN置0，设置(相对)序列号为0(此处的序列号并不是真正的数据流字节号，只表示在此次连接过程中的序号)，请求与FTP服务器建立连接。本地的源端口号为62243，目的端口号为21(默认的FTP服务端口)，等待确认。服务器202.101.47.169收到请求数据包后，若同意请求，则向客户端做出确认应答。可以看到下图所示的内容。</p>
+<p>服务器的响应报文中，ACK、SYN标志位置1，序列号为0(理由同上)，确认号为1(是请求报文的相对序列号加1)。相应端口为：源21，目的62243。客户端收到确认报文后，通知上层应用进程，连接已经建立。<br> 客户端收到服务器的确认后，向服务器给出确认。可以看到如下图所示内容。</p>
+<p>客户端的确认报文中，标志位仅ACK置1，相对序列号为1(请求报文序列号加1)，确认号为1(对服务器确认报文相对序列号加1)。服务器收到客户端的确认报文后，也通知其上层应用进程，连接已经建立。至此，客户端与服务器之间完成了“三次握手”过程，连接建立。</p>
+<p>​      通过WireShark，我们能够了解到数据包中的全部明文信息，而且WireShark还能通过序列号及确认号做出分析，判断该帧属于连接过程中的哪一阶段。</p>
+<ol start="5">
+<li><p>捕获用户名密码：传输建立后，服务器的FTP进程做出响应，如下图所示。</p>
+<p>220：表示“服务就绪”。后面为服务器返回的欢迎信息。</p>
+</li>
+</ol>
+<p>服务器的响应报文中ACK、PSH标志位置1，PSH位置1表示服务器希望尽快得到客户端的响应。客户端接收到此报文后会尽快将此报文交付应用进程，而不是等到缓存堆满后交付。<br>      本地FTP提示用户输入用户名，报文内容为向服务器发送用户名请求</p>
+<p>331：表示用户名正确，需要口令。<br>客户端收到交给本地FTP处理，用户键入口令，客户端向服务器发送请求</p>
+<p>请求的内容为口令PASS，消息为password，此时，用户名、密码均已嗅探得到了。<br>用户已登录，如下图所示</p>
+<p>230：表示用户已登录</p>
+<h4 id="五【实验思考】"><a href="#五【实验思考】" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>l 以所抓网络数据包为例，分析数据封装的过程<br>l 根据抓获的网络数据包，实际分析FTP交互的过程，标出捕获的用户名/密码对</p>
+<hr>
+<h2 id="wireshark进行网络监听"><a href="#wireshark进行网络监听" class="headerlink" title="wireshark进行网络监听"></a>wireshark进行网络监听</h2><h4 id="一【实验目标】-1"><a href="#一【实验目标】-1" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l 掌握使用CCProxy配置代理服务器<br>l 掌握使用wireshark抓取数据包<br>l 能够对数据包进行简单的分析</p>
+<h4 id="二【实验环境】-1"><a href="#二【实验环境】-1" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>l 实验机环境：Windows XP系统<br>l 目标机环境：Windows2003系统<br>l 实验拓扑：如下图所示。</p>
+<h4 id="三【实验原理】-1"><a href="#三【实验原理】-1" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>​      1）网络监听是一种监视网络状态、数据流程以及网络上信息传输的管理工具，它可以将网络界面设定成监听模式，并且可以截获网络上所传输的信息。也就是说，当黑客登录网络主机并取得超级用户权限后，若要登录其它主机，使用网络监听便可以有效地截获网络上的数据，这是黑客使用最好的方法。但是网络监听只能应用于连接同一网段的主机，通常被用来获取用户密码等。<br>​       2）以太网协议的工作方式是将要发送的数据包发往连接在一起的所有主机。在包头中包括有应该接收数据包的主机的正确地址，因为只有与数据包中目标地址一致的那台主机才能接收到信息包，但是当主机工作在监听模式下的话，不管数据包中的目标物理地址是什么，主机都将可以接收到。许多局域网内有十几台甚至上百台主机是通过一个电缆、一个集线器连接在一起的，在协议的高层或者用户来看，当同一网络中的两台主机通信的时候，源主机将写有目的的主机地址的数据包直接发向目的主机。<br>​       3）代理服务器：代理服务器英文全称是Proxy Server，其功能就是代理网络用户去取得网络信息。形象的说：它是网络信息的中转站。<br>​       4）中间人攻击（Man-in-the-Middle Attack, MITM）是一种由来已久的网络入侵手段，并且在今天仍然有着广泛的发展空间，如SMB会话劫持、DNS欺骗等攻击都是典型的MITM攻击。简而言之，所谓的MITM攻击就是通过拦截正常的网络通信数据，并进行数据篡改和嗅探，而通信的双方却毫不知情。</p>
+<h4 id="四【实验步骤】-1"><a href="#四【实验步骤】-1" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><p>1 配置代理服务器，实验机作为代理服务器，单击桌面上的CCProxy图标启动CCProxy，如下图所示：</p>
+<p>代理服务器的地址：</p>
+<p>2 在目标机设置IIS WEB服务器以支持ASP</p>
+<p>3 在目标机打开IE浏览器，设置代理服务器：</p>
+<p>4 登录<a href="http://192.168.8.237" target="_blank" rel="noopener">http://192.168.8.237</a></p>
+<p>5 在实验机打开桌面的wireshark，进行监听。<br>6 设置过滤规则，在“Filter”中填写“http”并回车，只过滤HTTP协议，选择网卡后，单击开始，进入抓包模式。</p>
+<p>7 切换到目标机，点击“管理留言”，输入用户名与密码进入管理界面。</p>
+<p>8 对wireshark捕获的数据进行分析，查看捕获到的数据。</p>
+<p>得到被监听用户的账号密码（皆为admin）</p>
+<h4 id="五【实验思考】-1"><a href="#五【实验思考】-1" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>l 如果你是用户，设置某代理服务器后，什么样的信息会面临监听风险？在被此状态下，一切明文信息都有被监听的风险。<br>l 有哪些方法可以避免监听？将在传输中的信息进行加密。此外，登录系统应保存用户密码的hash散列值而不是密码本身，用户在本机登录过程中，发送的信息应该是用户输入的密码的散列值以跟服务器内的散列值匹配而不是发送密码。这样即使被监听到，中间人也无法恢复原密码或找到碰撞匹配。</p>
+<hr>
+<h2 id="Winpcap编程实现ARP欺骗"><a href="#Winpcap编程实现ARP欺骗" class="headerlink" title="Winpcap编程实现ARP欺骗"></a>Winpcap编程实现ARP欺骗</h2><h4 id="一【实验目标】-2"><a href="#一【实验目标】-2" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l 掌握Winpcap的编程方法；<br>l 理解ARP欺骗的原理</p>
+<h4 id="二【实验环境】-2"><a href="#二【实验环境】-2" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>l 实验机环境：Windows XP系统</p>
+<h4 id="三【实验原理】-2"><a href="#三【实验原理】-2" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>ARP（Address Resolution Protocol）是地址解析协议，是一种将IP地址转化成物理地址的协议。从IP地址到物理地址的映射有两种方式：表格方式和非表格方式。ARP具体说来就是将网络层（也就是相当于OSI的第三层）地址解析为数据链路层（也就是相当于OSI的第二层）的物理地址。<br>ARP协议并不只在发送了ARP请求才接受ARP应答。当计算机接收到ARP应答数据包的时候，就会对本地的ARP缓存进行更新，将应答中的IP和MAC地址存储在ARP缓存表中。因此，当局域网中的某台机器B向A发送一个自己伪造的ARP应答，而如果这个应答是B冒充C伪造来的，即IP地址为C的IP,而MAC地址是伪造的，则当A接收到B伪造的ARP应答后，就会更新本地的ARP缓存，这样A看来C的IP地址没有变，而它的MAC地址已经不是原来那个了。</p>
+<h4 id="四【实验步骤】-2"><a href="#四【实验步骤】-2" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><p>1、  准备工作<br>从影响网络连接通畅的方式来看，ARP欺骗分为二种，一种是对路由器ARP表的欺骗；另一种是对内网PC的网关欺骗。第一种ARP欺骗的原理是——截获网关数据。它通知路由器一系列错误的内网MAC地址，并按照一定的频率不断进行，使真实的地址信息无法通过更新保存在路由器中，结果路由器的所有数据只能发送给错误的MAC地址，造成正常PC无法收到信息。第二种ARP欺骗的原理是——伪造网关。它的原理是建立假网关，让被它欺骗的PC向假网关发数据，而不是通过正常的路由器途径上网。在PC看来，就是上不了网了。<br>2、 ARP数据包格式<br>要进行ARP欺骗攻击，就必须熟悉ARP数据包的格式，以便构造ARP数据包进行欺骗攻击。</p>
+<p>  设计代码的主要思想就是通过发送自己构造的ARP数据包，不断地发送给被攻击者，使ip地址和真实的mac地址无法对应。接下来为实验过程。<br>3、 查看未被攻击前的ARP表</p>
+<p>  192.168.8.1是局域网的网关，上网必须通过此网关进行数据交换，此时真实的mac地址为00-06-f6-43-44-4a。<br>4、 运行程序</p>
+<p>5、 原理解释<br>该程序为每隔0.5秒给被攻击者发送一个数据回复包。从虚拟机的wireshark中可以抓到该ARP欺骗包，分析ARP数据包的格式可以发现与自己构造的数据包一样，即表示攻击成功。</p>
+<p>6、 再次查看ARP缓存表<br>发现已经被虚假的mac地址给替换了。</p>
+<p>由于192.168.8.1为网关的IP地址，所以其mac地址一旦被篡改，则无法进行联网，即进行了”禁止上网”攻击。</p>
+<h4 id="五【实验思考】-2"><a href="#五【实验思考】-2" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>l 面对ARP欺骗我们应该如何应对</p>
+<hr>
+<h2 id="cain进行ARP-DNS欺骗实验"><a href="#cain进行ARP-DNS欺骗实验" class="headerlink" title="cain进行ARP_DNS欺骗实验"></a>cain进行ARP_DNS欺骗实验</h2><h4 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h4><p>虚拟机windows 2012 x64 位（开机密码：1qaz2wsx!）<br>CainAbel</p>
+<h4 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h4><p>ARP欺骗是黑客常用的攻击手段之一，ARP欺骗分为二种，一种是对路由器ARP表的欺骗；另一种是对内网PC的网关欺骗。<br>第一种ARP欺骗的原理是——截获网关数据。它通知路由器一系列错误的内网MAC地址，并按照一定的频率不断进行，使真实的地址信息无法通过更新保存在路由器中，结果路由器的所有数据只能发送给错误的MAC地址，造成正常PC无法收到信息。第二种ARP欺骗的原理是——伪造网关。它的原理是建立假网关，让被它欺骗的PC向假网关发数据，而不是通过正常的路由器途径上网。在PC看来，就是上不了网了，“网络掉线了”。<br>ARP表是IP地址和MAC地址的映射关系表，任何实现了IP协议栈的设备，一般情况下都通过该表维护IP地址和MAC地址的对应关系，这是为了避免ARP解析而造成的广播数据报文对网络造成冲击。ARP表的建立一般情况下是通过二个途径：</p>
+<p>主动解析<br>如果一台计算机想与另外一台不知道MAC地址的计算机通信，则该计算机主动发ARP请求，通过ARP协议建立(前提是这两台计算机位于同一个IP子网上)。<br>被动请求<br>如果一台计算机接收到了一台计算机的ARP请求，则首先在本地建立请求计算机的IP地址和MAC地址的对应表。<br>因此，针对ARP表项，一个可能的攻击就是误导计算机建立正确的ARP表。根据ARP协议，如果一台计算机接收到了一个ARP请求报文，在满足下列两个条件的情况下，该计算机会用ARP请求报文中的源IP地址和源物理地址更新</p>
+<p>自己的ARP缓存：<br>如果发起该ARP请求的IP地址在自己本地的ARP缓存中；<br>请求的目标IP地址不是自己的。<br>可以举一个例子说明这个过程，假设有三台计算机A，B，C，其中B已经正确建立了A和C计算机的ARP表项。假设A是攻击者，此时，A发出一个ARP请求报文，该ARP请求报文这样构造：<br>源IP地址是C的IP地址，源物理地址是A的MAC地址；<br>请求的目标IP地址是B的IP地址。<br>这样计算机B在收到这个ARP请求报文后(ARP请求是广播报文，网络上所有设备都能收到)，发现B的ARP表项已经在自己的缓存中，但MAC地址与收到的请求的源物理地址不符，于是根据ARP协议，使用ARP请求的源物理地址(即A的MAC地址)更新自己的ARP表。<br>这样B的ARP缓存中就存在这样的错误ARP表项：C的IP地址跟A的MAC地址对应。这样的结果是，B发给C的数据都被计算机A接收到。</p>
+<p>DNS欺骗原理<br>在DNS的缓存还没有过期之前,如果在DNS的缓存中已经存在的记录,一旦有客户查询,DNS服务器将会直接返回缓存中的记录. </p>
+<p>下面我们来看一个例子:<br>一台运行着unix的Internet主机,并且提供rlogin服务,它的IP地址为123.45.67.89,它使用的DNS服务器(即/etc/resolv.conf中指向的DNS服务器)的IP地址为98.76.54.32,某个客户端(IP地址为38.222.74.2)试图连接到unix主机的rlogin端口,假设unix主机的/etc/hosts.equiv文件中使用的是dns名称来允许目标主机的访问,那么unix主机会向IP为98.76.54.32的DNS服务器发出一个PTR记录的查询: </p>
+<p>123.45.67.89 -&gt; 98.76.54.32 [Query]<br>NQY: 1 NAN: 0 NNS: 0 NAD: 0<br>QY: 2.74.222.38.in-addr.arpa PTR </p>
+<p>IP为98.76.54.32的DNS服务器中没有这个反向查询域的信息,经过一番查询,这个DNS服务器找到38.222.74.2和38.222.74.10为74.222.38.in-addr.arpa.的权威DNS服务器,所以它会向38.222.74.2发出PTR查询: </p>
+<p>98.76.54.32 -&gt; 38.222.74.2 [Query]<br>NQY: 1 NAN: 0 NNS: 0 NAD: 0<br>QY: 2.74.222.38.in-addr.arpa PTR </p>
+<p>请注意,38.222.74.2是我们的客户端IP,也就是说这台机子是完全掌握在我们手中的.我们可以更改它的DNS记录,让它返回我们所需要的结果: </p>
+<p>38.222.74.2 -&gt; 98.76.54.32 [Answer]<br>NQY: 1 NAN: 2 NNS: 2 NAD: 2<br>QY: 2.74.222.38.in-addr.arpa PTR<br>AN: 2.74.222.38.in-addr.arpa PTR trusted.host.com<br>AN: trusted.host.com A 38.222.74.2<br>NS: 74.222.38.in-addr.arpa NS ns.sventech.com<br>NS: 74.222.38.in-addr.arpa NS ns1.sventech.com<br>AD: ns.sventech.com A 38.222.74.2<br>AD: ns1.sventech.com A 38.222.74.10 </p>
+<p>当98.76.54.32的DNS服务器收到这个应答后,会把结果转发给123.45.67.98,就是那台有rlogin服务的unix主机(也是我们的目标 :) ),并且98.76.54.32这台DNS服务器会把这次的查询结果缓存起来. </p>
+<p>这时unix主机就认为IP地址为38.222.74.2的主机名为trusted.host.com,然后unix主机查询本地的/etc/hosts.equiv文件,看这台主机是否被允许使用rlogin服务,很显然,我们的欺骗达到了. </p>
+<p>在unix的环境中,有另外一种技术来防止这种欺骗的发生,就是查询PTR记录后,也查询PTR返回的主机名的A记录,然后比较两个IP地址是否相同: </p>
+<p>123.45.67.89 -&gt; 98.76.54.32 [Query]<br>NQY: 1 NAN: 0 NNS: 0 NAD: 0<br>QY: trusted.host.com A </p>
+<p>很不幸,在98.76.54.32的DNS服务器不会去查询这个记录,而会直接返回在查询2.74.222.38.in-addr.arpa时得到的并且存在缓存中的信息: </p>
+<p>98.76.54.32 -&gt; 123.45.67.89 [Query]<br>NQY: 1 NAN: 1 NNS: 2 NAD: 2<br>QY: trusted.host.com A<br>AN: trusted.host.com A 38.222.74.2<br>NS: 74.222.38.in-addr.arpa NS ns.sventech.com<br>NS: 74.222.38.in-addr.arpa NS ns1.sventech.com<br>AD: ns.sventech.com A 38.222.74.2<br>AD: ns1.sventech.com A 38.222.74.10 </p>
+<p>那么现在unix主机就认为38.222.74.2就是真正的trusted.host.com了,我们的目的达到了!</p>
+<p>ARP欺骗和DNS欺骗的异同点<br>ARP是局域网，DNS是internet攻击<br>ARP欺骗是黑客常用的攻击手段之一，ARP欺骗分为二种，一种是对路由器ARP表的欺骗；另一种是对内网PC的网关欺骗。 第一种ARP欺骗的原理是——截获网关数据。它通知路由器一系列错误的内网MAC地址，并按照一定的频率不断进行，使真实的地址信息无法通过更新保存在路由器中，结果路由器的所有数据只能发送给错误的MAC地址，造成正常PC无法收到信息。第二种ARP欺骗的原理是——伪造网关。它的原理是建立假网关，让被它欺骗的PC向假网关发数据，而不是通过正常的路由器途径上网。在PC看来，就是上不了网了，“网络掉线了”。 一般来说，ARP欺骗攻击的后果非常严重，大多数情况下会造成大面积掉线。有些网管员对此不甚了解，出现故障时，认为PC没有问题，交换机没掉线的“本事”，电信也不承认宽带故障。而且如果第一种ARP欺骗发生时，只要重启路由器，网络就能全面恢复，那问题一定是在路由器了。为此，宽带路由器背了不少“黑锅”。<br>其实效果都差不多，ARP病毒您自己去百度一下，有很详细的资料，您看看应该就明白了。DNS攻击是阻塞服务器网络，使服务器瘫痪</p>
+<h4 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h4><p>对Cain进行配置<br>打开Cain（在C:\课程\网络欺骗技术\CainAbel-v4.9.53.zip压缩包中）<br>解压出来是个安装包，默认安装。然后打开软件。</p>
+<p>单击configure选项，然后在标签中选择ARP(Arp Poison Routeing)对话框中进行配置</p>
+<p>其中192.168.242.155为伪造的IP地址。（根据实际子网情况选择同一自网段的伪造IP地址）<br>选择功能栏的嗅探器sniffer，然后在选择下面的主机Hosts，在扫描前需要先激活嗅探器，点击上面的 ，然后再空白处右键单击，如图所示</p>
+<p>选择Scan MAC Addresses进行扫描</p>
+<p>点击下面的 ，然后在右边的空白处单击</p>
+<p>然后点上面的“加号”，会出现一个New ARP Poison Routing对话框，在框的左边选取局域网的网关，在框的右边选取被欺骗的IP地址</p>
+<p>点击 ARP-DNS选项，然后在点击上面的“加号”，并进行配置</p>
+<p>然后点击第三个黄色图标开始欺骗 。</p>
+<p>用192.168.242.128这台主机访问<a href="http://www.baidu.com进入的不是百度的首页而是211.71.233.40这个网站" target="_blank" rel="noopener">www.baidu.com进入的不是百度的首页而是211.71.233.40这个网站</a></p>
+<h4 id="实验完成"><a href="#实验完成" class="headerlink" title="实验完成"></a>实验完成</h4><p>在对ARP_DNS进行欺骗时，选择欺骗的网关应怎样设置?<br>任意选择<br>在框的左边选取<br>在框的右边选取<br>同时选取<br>答案【B】</p>
+<hr>
+<h2 id="利用网络协议编辑软件实现ARP欺骗实验"><a href="#利用网络协议编辑软件实现ARP欺骗实验" class="headerlink" title="利用网络协议编辑软件实现ARP欺骗实验"></a>利用网络协议编辑软件实现ARP欺骗实验</h2><h4 id="一【实验目标】-3"><a href="#一【实验目标】-3" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l 理解实现ARP地址欺骗过程<br>l 了解防范ARP地址欺骗</p>
+<h4 id="二【实验环境】-3"><a href="#二【实验环境】-3" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>l 实验机环境：windows xp操作系统<br>l 目标机1环境：windows xp操作系统（作为网关）<br>l 目标机2环境：windows xp操作系统<br>l 实验拓扑：如下图所示。</p>
+<h4 id="三【实验原理】-3"><a href="#三【实验原理】-3" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>ARP欺骗是黑客常用的攻击手段之一，ARP欺骗分为二种，一种是对路由器ARP表的欺骗；另一种是对内网PC的网关欺骗。<br>第一种ARP欺骗的原理是——截获网关数据。它通知路由器一系列错误的内网MAC地址，并按照一定的频率不断进行，使真实的地址信息无法通过更新保存在路由器中，结果路由器的所有数据只能发送给错误的MAC地址，造成正常PC无法收到信息。第二种ARP欺骗的原理是——伪造网关。它的原理是建立假网关，让被它欺骗的PC向假网关发数据，而不是通过正常的路由器途径上网。在PC看来，就是上不了网了，“网络掉线了”。<br>ARP表是IP地址和MAC地址的映射关系表，任何实现了IP协议栈的设备，一般情况下都通过该表维护IP地址和MAC地址的对应关系，这是为了避免ARP解析而造成的广播数据报文对网络造成冲击。ARP表的建立一般情况下是通过二个途径：<br>(1)主动解析<br>如果一台计算机想与另外一台不知道MAC地址的计算机通信，则该计算机主动发ARP请求，通过ARP协议建立(前提是这两台计算机位于同一个IP子网上)。<br>(2)被动请求<br>如果一台计算机接收到了一台计算机的ARP请求，则首先在本地建立请求计算机的IP地址和MAC地址的对应表。<br>因此，针对ARP表项，一个可能的攻击就是误导计算机建立正确的ARP表。根据ARP协议，如果一台计算机接收到了一个ARP请求报文，在满足下列两个条件的情况下，该计算机会用ARP请求报文中的源IP地址和源物理地址更新自己的ARP缓存：<br>(1)如果发起该ARP请求的IP地址在自己本地的ARP缓存中；<br>(2)请求的目标IP地址不是自己的。<br>可以举一个例子说明这个过程，假设有三台计算机A，B，C，其中B已经正确建立了A和C计算机的ARP表项。假设A是攻击者，此时，A发出一个ARP请求报文，该ARP请求报文这样构造：<br>(1)源IP地址是C的IP地址，源物理地址是A的MAC地址；<br>(2)请求的目标IP地址是B的IP地址。<br>这样计算机B在收到这个ARP请求报文后(ARP请求是广播报文，网络上所有设备都能收到)，发现B的ARP表项已经在自己的缓存中，但MAC地址与收到的请求的源物理地址不符，于是根据ARP协议，使用ARP请求的源物理地址(即A的MAC地址)更新自己的ARP表。<br>这样B的ARP缓存中就存在这样的错误ARP表项：C的IP地址跟A的MAC地址对应。这样的结果是，B发给C的数据都被计算机A接收到。</p>
+<h4 id="四【实验步骤】-3"><a href="#四【实验步骤】-3" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><p>(1) 启动windows实验台，Ping 网关。</p>
+<p>(2) 在目标机2为192.168.8.184（ip地址是自动分配，具体ip请看实际情况）的主机上使用arp –a命令查看网关的arp的列表，如图所示。 </p>
+<p>(3) 从工具箱中下载工具，编辑ARP数据包，模拟网关路由器发送ARP更新信息，改变目标机2的arp列表。首先打开协议编辑软件，点击菜单栏“添加”。 </p>
+<p>(4) 添加一个ARP协议模板，将时间差设置为3毫秒，点击确认添加。 </p>
+<p>(5) 修改协议模板的每个值</p>
+<p>(6) 编辑完成并经过校验的数据包。<br>(7) 编辑并校验完成后，点击 发送 按钮。 </p>
+<p>(8) 在目标机2上使用命令arp –a命令来查看arp表项。 </p>
+<p>此时，所有向外发送的数据包，都会被转发到攻击者的主机上，从而获得敏感信息。<br>用命令arp–d 命令来清空ip，以便后续实验的进行。</p>
+<h4 id="五【实验思考】-3"><a href="#五【实验思考】-3" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>l 如何防止ARP欺骗。<br>l 如果受到了ARP欺骗如何破解这种欺骗并保持正常网络环境。</p>
+<hr>
+<h2 id="利用TCPDUMP进行网络嗅探"><a href="#利用TCPDUMP进行网络嗅探" class="headerlink" title="利用TCPDUMP进行网络嗅探"></a>利用TCPDUMP进行网络嗅探</h2><p>l 实验机环境：KALI 2.0操作系统<br>l 目标机环境：WINDOWS 2003系统</p>
+<h4 id="实验原理-1"><a href="#实验原理-1" class="headerlink" title="实验原理"></a>实验原理</h4><p>网络嗅探是指一个能够监视网络数据的软件程序或硬件设备。它可以通过复制数据的方法测试网站连通状况，不会修改数据。使用网络嗅探器，可以了解网站都有些什么信息。网络嗅探器既可以帮助网络工程师解决网络问题，但它同时也可以实现具有恶意的目标。如果网络数据未经加密，而且计算机之间的连接是使用集线器，那网络通信信息，例如用户名和密码、邮件内容等信息，都将很容易被捕获。幸运的是，如果组网使用的是交换机，那么问题会复杂一些，但仍可以捕获信息。</p>
+<h4 id="实验步骤-1"><a href="#实验步骤-1" class="headerlink" title="实验步骤"></a>实验步骤</h4><ol>
+<li>打开实验机，点击终端进入命令行模式，然后输入tcpdump –h查看工具使用方法 </li>
+</ol>
+<ol start="2">
+<li><p>tpcdump可以不加任何参数，会默认监视第一个网络接口上所有流过的数据包</p>
+</li>
+<li><p>在目标机上打开命令提示符，输入ipconfig进行目标机ip地址的查询</p>
+</li>
+</ol>
+<ol start="4">
+<li><p>得知目标机ip地址之后，在实验机终端上输入tcpdump host 192.168.122.33来监视目标机的数据包</p>
+</li>
+<li><p>在目标机上的命令提示符中输入ping 192.168.122.98 (实验机ip地址)，并查看实验机上的结果</p>
+</li>
+</ol>
+<ol start="6">
+<li>监视主机的指定端口信息，tcpdump也可以做到，命令为：tcpdump udp port 53，然后打开kali自带的浏览器，并刷新。该端口是用来进行DNS查询的，而且用的是UPD协议</li>
+</ol>
+<ol start="7">
+<li>另外还可以监视TCP协议，命令为：tcpdump tcp port 80，</li>
+</ol>
+<ol start="8">
+<li>打开自带的浏览器，随意输入域名</li>
+</ol>
+<ol start="9">
+<li><p>再查看终端tcpdump界面，就会看到数据包信息</p>
+<hr>
+<p>使用Ettercap工具实现中间人攻击<br>l  实验机环境：KALI 2.0操作系统<br>l  目标机环境：windows7系统</p>
+<p>Ettercap是Linux下一个强大的欺骗工具，用户能使用该工具快速的创建伪造的包，实现从网络适配器到应用软件各种级别的包，绑定监听数据到一个本地端口等。用户通过使用ettercap工具实施中间人攻击，从而捕获到目标系统的信息，帮助用户创建密码字典。<br>ARP欺骗并不是使网络无法正常通信，而是通过冒充网关或其它主机使得到达网关或主机的数据流通过攻击主机进行转发。通过转发流量可以对流量进行控制和查看，从而控制流量或得到机密信息。<br>实现中间人攻击分为两个阶段。第一是通过某种手段去攻击一台计算机；第二是欺骗主机。第一阶段：主机B（攻击者）通过ARP注入攻击的方法以实现ARP欺骗，通过ARP欺骗的方法控制主机A（被攻击者）与其它主机间的流量及机密信息。第二阶段：在第一阶段攻击成功后，主机B就可以在这个网络中使用中间人的身份，转发或查看主机A和其它主机间的数据流。</p>
+<p>实验步骤<br>1、如果是第一次进行中间人攻击操作，需要对Ettercap的配置文件etter.conf进行编辑。<br>2、首先使用locate命令查找该文件位置，如图：（由输出信息可知配置文件etter.conf保存在/etc/ettercap/中）<br>3、输入命令 vi /etc/ettercap/etter.conf，使用Vim编辑器对该配置文件进行编辑。回车后如下图：（部分截图）</p>
+</li>
+</ol>
+<p>   按a 进入编辑模式，将该文件中的ec_uid和ec_gid<br>   配置项值改为0。（该部分输入结果较多，此处只列出了要修改的部分。）</p>
+<p>   修改前：privs</p>
+<p>   ​               ec_uid = 65534</p>
+<p>   ​               ec_uid = 65534</p>
+<p>   修改后：privs</p>
+<p>   ​               ec_uid = 0</p>
+<p>   ​               ec_uid = 0</p>
+<p>   将Linux部分附近iptables行的注释去掉。</p>
+<p>   5、编辑完成后按esc键再输 :wq 保存并退出。<br>   6、输入命令 ettercap –G，打开Ettercap图形界面。</p>
+<p>   7、进行如下操作：</p>
+<p>   点击Unified sniffing，后，显示如下界面：</p>
+<p>   8、选择eth0，并“确定”，启动该接口。</p>
+<p>   9、进行如下操作，点击Scan for hosts后，扫描所有的主机。</p>
+<p>   10、选择Hosts list，将会显示扫描到的主机的IP和MAC地址，如下图：</p>
+<p>   11、在目标机中，打开“开始”菜单，输入cmd打开命令界面，输入命令ipconfig查看本机的IP。</p>
+<p>   12、返回Ettercap界面，选择192.168.122.175主机，然后单击Add to Target1按钮，添加目标系统。</p>
+<p>   13、进行如下操作，单击Start sniffing启动嗅探。</p>
+<p>   之后选择ARP poisoning，启动ARP注入攻击 </p>
+<p>   选择Sniff remote connections。</p>
+<p>   14、此时使用主机192.168.122.175时，它的敏感信息会被传递给攻击者。</p>
+<p>   15、选择Stop sniffing，停止嗅探。</p>
+<p>   选择Stop mitm attack(s)，停止中间人攻击。</p>
+<hr>
+<h2 id="网络监听的防范"><a href="#网络监听的防范" class="headerlink" title="网络监听的防范"></a>网络监听的防范</h2><h4 id="一【实验目标】-4"><a href="#一【实验目标】-4" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>   l掌握防范网络监听的主要原理和技术手段</p>
+<h4 id="二【实验环境】-4"><a href="#二【实验环境】-4" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>   lSSH客户端环境：Windows XP系统，SSH客户端<br>   lSSH服务端环境：Kali2系统，SSH服务器<br>   l实验拓扑：如下图所示</p>
+<h4 id="三【实验原理】-4"><a href="#三【实验原理】-4" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>   对网络监听的防范措施主要包括以下几个。<br>   1、从逻辑或物理上对网络分段<br>   网络分段通常被认为是控制网络广播风暴的一种基本手段，但其实也是保证网络安全的一向措施。其目的是将非法用户与敏感的网络资源相互隔离，从而防止可能的非法监听。<br>   2、以交换式集线器代替共享式集线器<br>   对局域网的中心交换机进行网络分段后，局域网监听的危险任然存在。这是因为网络最终用户的接入往往是通过分支集线器而不是中心交换机，而使用最广泛的分支集线器通常是共享式集线器。这样，当用户与主机进行数据通信时，两台机器之间的数据包（称为单播包Unicase Packet）还是会被同一台集线器上的其他用户所监听。<br>   因此，应该以交换式集线器代替共享式集线器，使单播包仅在两个节点之间传送，从而防止非法监听。当然，交换式集线器只能控制单播包而无法控制广播包（Broadcase Packet）和多播报（Multicase Packet）。但广播包和多播包内的关键信息，要远远少于单播包。<br>   3、使用加密技术<br>   数据经过加密后，通过监听仍然可以得到传送的信息，但显示的是乱码。使用加密技术的缺点是影响数据传输速度以及使用一个弱加密术比较容易被攻破。系统管理员和用户需要在网络速度和安全性上进行折中。<br>   4、划分VLAN<br>   运用VLAN（虚拟局域网）技术，将以太网通信变为点到点通信，可以防止大部分基于网络监听的入侵。<br>   这里主要讨论加密技术来防止网络监听。传统的网络服务程序，如FTP、POP和Telnet在传输机制和实现原理上是没有考虑安全机制的，其本质上都是不安全的；因为他们在网络上用明文传送数据。用户账号和用户口令，别有用心的人通过窃听等网络攻击手段非常容易的就可以截获这些数据、用户账号和用户口令。SSH是英文Secure Shell的简写形式，通过使用SSH可以把所有传输的数据进行加密，这样就能够防止网络监听，也能够防止DNS欺骗和IP欺骗。使用SSH，还有一个额外的好处就是传输的数据是经过压缩的，所以可以加快传输的速度。SSH有很多功能，它既可以代替Telnet，又可以为FTP、POP，甚至PPP提供一个安全的“通道”。</p>
+<h4 id="四【实验步骤】-4"><a href="#四【实验步骤】-4" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><p>   1、打开SSH服务器机器，在终端输入 service ssh start以启动SSH服务端程序。输入service ssh status以检查SSH服务是否开启成功。如图2</p>
+<p>   2、打开Windows XP SSH客户端机器，点击快速链接按钮，出现“Connect to Romote Host”对话框。在“Host Name”里面填入SSH服务端主机的IP地址，在“User Name”内填入用户名“test”，Authentication选择Password，最后点击“Connect”按钮。如图3</p>
+<p>   在这一步，不要企图以root用户身份链接，因为在默认情况下，Linux不允许以root身份远程连接；所示应该建立非root用户连接，然后使用su命令获取root权限。如果有必要，应该事先创建一个非root账户。<br>   紧接着我们输入密码123456点击“OK”</p>
+<p>   已经成功连接到SSH服务端。完成上述步骤后，就获得了服务器端的公钥，并且建立了认证关系</p>
+<p>   4、打开Edit菜单，选择Setting，在弹出的对话中左侧的树状结构中选择Keys节点，应该看到从服务器端传输过来的公钥。在这一步，还可以通过选择不同的按钮导入（Import）、导出（Export）、删除（Delete）主机公钥文件（注意与用户公钥文件的区别）。如图6<br>   打开Sniffer Pro，开始捕获数据包，注意所捕到的数据包为加密包，可见通过SSH建立了安全连接。<br>   同时建立到该机器的Telnet会话和SSH会话，注意Sniffer Pro所捕获的数据包的差异性：即Telnet连接信息时可见的、不加密的，而SSH会话连接会对相关信息进行数据加密，从而保障了通信安全。</p>
+<p>   5、通过SSH在FTP方式下安全的传输文件。打开F-Secure SSH FTP点击“Quick Connect”，在弹出的“Connect to Remote Host”对话中输入SSH服务端机器的IP地址，用户名输入“test”，点击“Connect”按钮。</p>
+<p>   输入密码，1234568</p>
+<p>   6、通过上述步骤，SSH客户将通过认证建立起一个安全的FTP连接。如图9</p>
+<p>   7、上传一个简单的文件到FTP站点。使用Sniffer Pro捕获数据包，查看数据包的内容。<br>   打开命令行提示窗口，使用命令连接，使用get命令将刚才的文件下载，注意观察下载过程中Sniffer Pro所捕捉到的数据包，对比两次的捕获结果。<br>   在Edit菜单中选择Settings，打开Settings对话框如图10.在这一步，可以对有关参数进行详细配置，以满足当前网络的不同需求，例如，可以通过选择File Transfer节点进行编辑。</p>
+<h4 id="五【实验思考】-4"><a href="#五【实验思考】-4" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>   l除使用SSH外还可以使用哪些技术类防范网络监听？请对比这些技术的优缺点。</p>
+<p>​    </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/漏洞复现/" rel="tag"># 漏洞复现</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/日志清除实验/" rel="next" title="日志清除实验">
+                <i class="fa fa-chevron-left"></i> 日志清除实验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/10/权限维持实验/" rel="prev" title="权限维持实验">
+                权限维持实验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="申子昊">
+            
+              <p class="site-author-name" itemprop="name">申子昊</p>
+              <p class="site-description motion-element" itemprop="description">多一份网络防护技能,多一份信息安全保证</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Flash1201" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shenzihao76@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://tcp123.cn" target="_blank" title="友情链接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>友情链接</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#嗅探欺骗实验"><span class="nav-number">1.</span> <span class="nav-text">嗅探欺骗实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FTP连接与密码明文抓取"><span class="nav-number">1.1.</span> <span class="nav-text">FTP连接与密码明文抓取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一【实验目标】"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">一【实验目标】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二【实验环境】"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">二【实验环境】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三【实验原理】"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">三【实验原理】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四【实验步骤】"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">四【实验步骤】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五【实验思考】"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">五【实验思考】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wireshark进行网络监听"><span class="nav-number">1.2.</span> <span class="nav-text">wireshark进行网络监听</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一【实验目标】-1"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">一【实验目标】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二【实验环境】-1"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">二【实验环境】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三【实验原理】-1"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">三【实验原理】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四【实验步骤】-1"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">四【实验步骤】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五【实验思考】-1"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">五【实验思考】</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Winpcap编程实现ARP欺骗"><span class="nav-number">1.3.</span> <span class="nav-text">Winpcap编程实现ARP欺骗</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一【实验目标】-2"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">一【实验目标】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二【实验环境】-2"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">二【实验环境】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三【实验原理】-2"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">三【实验原理】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四【实验步骤】-2"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">四【实验步骤】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五【实验思考】-2"><span class="nav-number">1.3.0.5.</span> <span class="nav-text">五【实验思考】</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cain进行ARP-DNS欺骗实验"><span class="nav-number">1.4.</span> <span class="nav-text">cain进行ARP_DNS欺骗实验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实验环境"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实验原理"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">实验原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实验步骤"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实验完成"><span class="nav-number">1.4.0.4.</span> <span class="nav-text">实验完成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用网络协议编辑软件实现ARP欺骗实验"><span class="nav-number">1.5.</span> <span class="nav-text">利用网络协议编辑软件实现ARP欺骗实验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一【实验目标】-3"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">一【实验目标】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二【实验环境】-3"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">二【实验环境】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三【实验原理】-3"><span class="nav-number">1.5.0.3.</span> <span class="nav-text">三【实验原理】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四【实验步骤】-3"><span class="nav-number">1.5.0.4.</span> <span class="nav-text">四【实验步骤】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五【实验思考】-3"><span class="nav-number">1.5.0.5.</span> <span class="nav-text">五【实验思考】</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用TCPDUMP进行网络嗅探"><span class="nav-number">1.6.</span> <span class="nav-text">利用TCPDUMP进行网络嗅探</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实验原理-1"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">实验原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实验步骤-1"><span class="nav-number">1.6.0.2.</span> <span class="nav-text">实验步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络监听的防范"><span class="nav-number">1.7.</span> <span class="nav-text">网络监听的防范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一【实验目标】-4"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">一【实验目标】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二【实验环境】-4"><span class="nav-number">1.7.0.2.</span> <span class="nav-text">二【实验环境】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三【实验原理】-4"><span class="nav-number">1.7.0.3.</span> <span class="nav-text">三【实验原理】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四【实验步骤】-4"><span class="nav-number">1.7.0.4.</span> <span class="nav-text">四【实验步骤】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五【实验思考】-4"><span class="nav-number">1.7.0.5.</span> <span class="nav-text">五【实验思考】</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">申子昊</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
