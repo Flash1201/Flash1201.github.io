@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="日志清除实验Windows上的IIS日志手动清除实验实验环境Windows7操作系统,IIS服务器实验目的手动清除本机上的IIS日志实验原理 IIS日志中记录以下信息： 请求发生在什么时刻， 哪个客户端IP访问了服务端IP的哪个端口， 客户端工具是什么类型，什么版本， 请求的URL以及查询字符串参数是什么， 请求的方式是GET还是POST， 请求的处理结果是什么样的：HTTP状态码，以及操作系统底">
+<meta name="description" content="日志清除实验Windows上的IIS日志手动清除实验实验环境Windows7操作系统,IIS服务器实验目的手动清除本机上的IIS日志实验原理">
 <meta name="keywords" content="漏洞复现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日志清除实验">
 <meta property="og:url" content="blog.shenzihao.top/2019/08/10/日志清除实验/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="日志清除实验Windows上的IIS日志手动清除实验实验环境Windows7操作系统,IIS服务器实验目的手动清除本机上的IIS日志实验原理 IIS日志中记录以下信息： 请求发生在什么时刻， 哪个客户端IP访问了服务端IP的哪个端口， 客户端工具是什么类型，什么版本， 请求的URL以及查询字符串参数是什么， 请求的方式是GET还是POST， 请求的处理结果是什么样的：HTTP状态码，以及操作系统底">
+<meta property="og:description" content="日志清除实验Windows上的IIS日志手动清除实验实验环境Windows7操作系统,IIS服务器实验目的手动清除本机上的IIS日志实验原理">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T03:15:13.307Z">
+<meta property="og:updated_time" content="2019-08-11T05:59:00.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日志清除实验">
-<meta name="twitter:description" content="日志清除实验Windows上的IIS日志手动清除实验实验环境Windows7操作系统,IIS服务器实验目的手动清除本机上的IIS日志实验原理 IIS日志中记录以下信息： 请求发生在什么时刻， 哪个客户端IP访问了服务端IP的哪个端口， 客户端工具是什么类型，什么版本， 请求的URL以及查询字符串参数是什么， 请求的方式是GET还是POST， 请求的处理结果是什么样的：HTTP状态码，以及操作系统底">
+<meta name="twitter:description" content="日志清除实验Windows上的IIS日志手动清除实验实验环境Windows7操作系统,IIS服务器实验目的手动清除本机上的IIS日志实验原理">
 
 
 
@@ -181,6 +181,36 @@
     <ul id="menu" class="menu">
       
         
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -231,6 +261,15 @@
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     2.4k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     8 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -279,6 +318,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  8
+                </span>
+              
+            </div>
+          
 
           
 
@@ -296,6 +366,8 @@
 
       
         <h1 id="日志清除实验"><a href="#日志清除实验" class="headerlink" title="日志清除实验"></a>日志清除实验</h1><h2 id="Windows上的IIS日志手动清除实验"><a href="#Windows上的IIS日志手动清除实验" class="headerlink" title="Windows上的IIS日志手动清除实验"></a>Windows上的IIS日志手动清除实验</h2><p>实验环境<br>Windows7操作系统,IIS服务器<br>实验目的<br>手动清除本机上的IIS日志<br>实验原理</p>
+<a id="more"></a>
+
 <h5 id="IIS日志中记录以下信息："><a href="#IIS日志中记录以下信息：" class="headerlink" title="IIS日志中记录以下信息："></a>IIS日志中记录以下信息：</h5><ol>
 <li>请求发生在什么时刻，</li>
 <li>哪个客户端IP访问了服务端IP的哪个端口，</li>
@@ -545,10 +617,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -637,7 +709,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">47.4k</span>
   
 </div>
 

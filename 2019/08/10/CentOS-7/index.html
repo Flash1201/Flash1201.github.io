@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Linux(CentOS 7)命令行模式安装VMware Tools 详解本例中为在Linux（以CentOS 7为例）安装VMware Tools。1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。 2.在命令行输入“ls /dev”查看。 3.输入“mkdir">
+<meta name="description" content="Linux(CentOS 7)命令行模式安装VMware Tools 详解本例中为在Linux（以CentOS 7为例）安装VMware Tools。">
 <meta name="keywords" content="基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 7">
 <meta property="og:url" content="blog.shenzihao.top/2019/08/10/CentOS-7/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="Linux(CentOS 7)命令行模式安装VMware Tools 详解本例中为在Linux（以CentOS 7为例）安装VMware Tools。1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。 2.在命令行输入“ls /dev”查看。 3.输入“mkdir">
+<meta property="og:description" content="Linux(CentOS 7)命令行模式安装VMware Tools 详解本例中为在Linux（以CentOS 7为例）安装VMware Tools。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T03:47:12.750Z">
+<meta property="og:updated_time" content="2019-08-11T05:58:52.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 7">
-<meta name="twitter:description" content="Linux(CentOS 7)命令行模式安装VMware Tools 详解本例中为在Linux（以CentOS 7为例）安装VMware Tools。1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。 2.在命令行输入“ls /dev”查看。 3.输入“mkdir">
+<meta name="twitter:description" content="Linux(CentOS 7)命令行模式安装VMware Tools 详解本例中为在Linux（以CentOS 7为例）安装VMware Tools。">
 
 
 
@@ -181,6 +181,36 @@
     <ul id="menu" class="menu">
       
         
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -231,6 +261,15 @@
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     603 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     2 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -279,6 +318,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  603
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
 
           
 
@@ -295,7 +365,11 @@
       
 
       
-        <h1 id="Linux-CentOS-7-命令行模式安装VMware-Tools-详解"><a href="#Linux-CentOS-7-命令行模式安装VMware-Tools-详解" class="headerlink" title="Linux(CentOS 7)命令行模式安装VMware Tools 详解"></a>Linux(CentOS 7)命令行模式安装VMware Tools 详解</h1><p>本例中为在Linux（以CentOS 7为例）安装VMware Tools。<br>1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。</p>
+        <h1 id="Linux-CentOS-7-命令行模式安装VMware-Tools-详解"><a href="#Linux-CentOS-7-命令行模式安装VMware-Tools-详解" class="headerlink" title="Linux(CentOS 7)命令行模式安装VMware Tools 详解"></a>Linux(CentOS 7)命令行模式安装VMware Tools 详解</h1><p>本例中为在Linux（以CentOS 7为例）安装VMware Tools。</p>
+<a id="more"></a>
+
+<p>这是全文</p>
+<p>1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。</p>
 <p>2.在命令行输入“ls /dev”查看。</p>
 <p>3.输入“mkdir /mnt/cdrom”在/mnt目录下新建一个名为cdrom的文件夹。</p>
 <p>4.输入“mount -t iso9660 /dev/cdrom /mnt/cdrom”将光盘挂载到/mnt/cdrom目录下。</p>
@@ -447,10 +521,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -539,7 +613,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">47.4k</span>
   
 </div>
 

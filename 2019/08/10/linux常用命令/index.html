@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="changyouB-log">
 <meta property="og:description" content="Linux常用基本命令:(1)网络测试命令: ping   192.168.1.1     //不会自动停,要Ctrl+C停止. Ctrl+l    清屏远程登录的方式:远程桌面/Telnet/SSH/;Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.Telnet在传输过程中数据不加密—-明文传输;SSH在传输过程中对数据进行加密—-密文传输;ifconfig    //查看所有网">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T03:46:29.962Z">
+<meta property="og:updated_time" content="2019-08-11T05:59:15.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="Linux常用基本命令:(1)网络测试命令: ping   192.168.1.1     //不会自动停,要Ctrl+C停止. Ctrl+l    清屏远程登录的方式:远程桌面/Telnet/SSH/;Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.Telnet在传输过程中数据不加密—-明文传输;SSH在传输过程中对数据进行加密—-密文传输;ifconfig    //查看所有网">
@@ -181,6 +181,36 @@
     <ul id="menu" class="menu">
       
         
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -231,6 +261,15 @@
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     8.7k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     36 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -279,6 +318,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  8.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  36
+                </span>
+              
+            </div>
+          
 
           
 
@@ -296,6 +366,8 @@
 
       
         <h1 id="Linux常用基本命令"><a href="#Linux常用基本命令" class="headerlink" title="Linux常用基本命令:"></a>Linux常用基本命令:</h1><h4 id="1-网络测试命令"><a href="#1-网络测试命令" class="headerlink" title="(1)网络测试命令:"></a>(1)网络测试命令:</h4><p> ping   192.168.1.1     //不会自动停,要Ctrl+C停止.<br> Ctrl+l    清屏<br>远程登录的方式:远程桌面/Telnet/SSH/;<br>Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.<br>Telnet在传输过程中数据不加密—-明文传输;<br>SSH在传输过程中对数据进行加密—-密文传输;<br>ifconfig    //查看所有网卡的信息<br>ifconfig ens32    //只查看某一个网卡的信息<br>vim  是linux中的一个编辑器,类似于windows中的记事本.    </p>
+<a id="more"></a>
+
 <h5 id="第一步-给Linux配置IP-并生效"><a href="#第一步-给Linux配置IP-并生效" class="headerlink" title="第一步:给Linux配置IP,并生效"></a>第一步:给Linux配置IP,并生效</h5><p>vim /etc/sysconfig/network-scripts/ifcfg-ens32    //编辑网卡配置文件<br>vim   —–&gt;  i  可以进行编辑,编辑完成后—-&gt;Esc退出编辑—–&gt;保存:wq<br>BOOTPROTO=static   //获取IP的方式改为static静态<br>IPADDR=192.168.100.1   //配置IP<br>NETMASK=255.255.255.0    //配置子网掩码<br>GATEWAY=192.168.100.254    //配置网关<br>DNS=114.114.114.114<br>ONBOOT=yes //启用网卡</p>
 <h5 id="第二步-重启-使配置生效"><a href="#第二步-重启-使配置生效" class="headerlink" title="第二步:重启,使配置生效"></a>第二步:重启,使配置生效</h5><p>service network restart    //重新加载配置文件,生效<br>ifconfig ens32   //检查网卡信息<br>inet 192.168.100.1  netmask 255.255.255.0  broadcast 192.168.100.255   //第二行的IP信息,有才正常.</p>
 <h5 id="第三步-关闭Linux中的防火墙"><a href="#第三步-关闭Linux中的防火墙" class="headerlink" title="第三步:关闭Linux中的防火墙"></a>第三步:关闭Linux中的防火墙</h5><p>systemctl status firewalld           //关闭防火墙1<br>setenforce 0        //关闭selinux<br>getenforce       //查看selinux的状态</p>
@@ -327,14 +399,8 @@ ifconfig ens32   //检查网卡信息
 第三步:关闭Linux中的防火墙
 systemctl status firewalld           //关闭防火墙1
 setenforce 0        //关闭selinux
-getenforce       //查看selinux的状态</code></pre><p>​<br>    第四步:编辑vmware中NAT网卡的配置<br>    编辑—虚拟网卡编辑器—-修改网段为Linux中的网段—-NAT配置,修改网关为Linux中的网关.</p>
-<pre><code>第五步:在真机中开启VMNET8,并配置为相同网段的IP,例如:192.168.100.100
-ping  192.168.100.1   测试网络连通性
-在真机安装可以远程管理的软件:putty/Xshell/SecureCRT
-
-注意:修改网卡配置需要管理员权限,切换用户的命令.    su - root    //su  -  用来切换用户,后边加用户名.
-
-第六步:如果想上网,就要能DNS解析
+getenforce       //查看selinux的状态</code></pre><p>​<br>​    第四步:编辑vmware中NAT网卡的配置<br>​    编辑—虚拟网卡编辑器—-修改网段为Linux中的网段—-NAT配置,修改网关为Linux中的网关.<br>​<br>​    第五步:在真机中开启VMNET8,并配置为相同网段的IP,例如:192.168.100.100<br>​    ping  192.168.100.1   测试网络连通性<br>​    在真机安装可以远程管理的软件:putty/Xshell/SecureCRT<br>​<br>    注意:修改网卡配置需要管理员权限,切换用户的命令.    su - root    //su  -  用来切换用户,后边加用户名.</p>
+<pre><code>第六步:如果想上网,就要能DNS解析
 vim /etc/resolv.conf</code></pre><h4 id="3-基础命令"><a href="#3-基础命令" class="headerlink" title="3.基础命令:"></a>3.基础命令:</h4><h5 id="1-系统类查看命令"><a href="#1-系统类查看命令" class="headerlink" title="(1)系统类查看命令:"></a>(1)系统类查看命令:</h5><p>  [root@localhost ~]# uname  -r   //查看内核版本<br>    3.10.0-862.el7.x86_64      其中3是主版本号,除非内核发生结构性变化,一般不会修改<br>                                10是次版本号,<br>                                0代表对次版本的修改次数;<br>                                862是对系统的修订次数.<br>  [root@localhost ~]# uname -m         //查看系统位数<br>    x86_64<br>  [root@localhost ~]# uname -a       //查看内核详细信息,包括主机名/系统版本号/时间等</p>
 <p>  [root@localhost ~]# cat /etc/redhat-release   //查看系统版本<br>    CentOS Linux release 7.5.1804 (Core) </p>
 <p>  [root@localhost <del>]# pwd    //root表示当前的用户名,localhost表示主机名, ~ 表示家目录.<br>    /root<br>  [haha@localhost ~]$ pwd   //</del>表示家目录,如果是普通用户,那么家目录在/home/用户名<br>    /home/haha</p>
@@ -860,10 +926,10 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -952,7 +1018,7 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">47.4k</span>
   
 </div>
 

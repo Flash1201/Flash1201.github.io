@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="权限维持实验利用注册表隐藏建立管理员账号实验环境实验机环境：Windows 7目标机环境：Windows 7实验目的了解注册表的权限设置实验原理在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “https://www.baidu.com/s?wd=">
+<meta name="description" content="权限维持实验利用注册表隐藏建立管理员账号实验环境实验机环境：Windows 7目标机环境：Windows 7实验目的了解注册表的权限设置实验原理">
 <meta name="keywords" content="漏洞复现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="权限维持实验">
 <meta property="og:url" content="blog.shenzihao.top/2019/08/10/权限维持实验/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="权限维持实验利用注册表隐藏建立管理员账号实验环境实验机环境：Windows 7目标机环境：Windows 7实验目的了解注册表的权限设置实验原理在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “https://www.baidu.com/s?wd=">
+<meta property="og:description" content="权限维持实验利用注册表隐藏建立管理员账号实验环境实验机环境：Windows 7目标机环境：Windows 7实验目的了解注册表的权限设置实验原理">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T03:38:45.905Z">
+<meta property="og:updated_time" content="2019-08-11T05:58:40.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="权限维持实验">
-<meta name="twitter:description" content="权限维持实验利用注册表隐藏建立管理员账号实验环境实验机环境：Windows 7目标机环境：Windows 7实验目的了解注册表的权限设置实验原理在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “https://www.baidu.com/s?wd=">
+<meta name="twitter:description" content="权限维持实验利用注册表隐藏建立管理员账号实验环境实验机环境：Windows 7目标机环境：Windows 7实验目的了解注册表的权限设置实验原理">
 
 
 
@@ -181,6 +181,36 @@
     <ul id="menu" class="menu">
       
         
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -231,6 +261,15 @@
       <meta itemprop="image" content="/images/1.jpg">
     </span>
 
+     <span title="Words count in article">
+     1.9k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     7 分钟
+     </span>
+
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="changyouB-log">
     </span>
@@ -279,6 +318,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  7
+                </span>
+              
+            </div>
+          
 
           
 
@@ -295,7 +365,10 @@
       
 
       
-        <h1 id="权限维持实验"><a href="#权限维持实验" class="headerlink" title="权限维持实验"></a>权限维持实验</h1><h2 id="利用注册表隐藏建立管理员账号"><a href="#利用注册表隐藏建立管理员账号" class="headerlink" title="利用注册表隐藏建立管理员账号"></a>利用注册表隐藏建立管理员账号</h2><p>实验环境<br>实验机环境：Windows 7<br>目标机环境：Windows 7<br>实验目的<br>了解注册表的权限设置<br>实验原理<br>在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项文件 (.reg) 的导入和导出。Regedit.exe 是 16 位 Windows 操作系统的注册编辑器，它用于修改 Windows 的注册数据库，是16位应用程序。Regedt32.exe 是 Windows NT的配置编辑器。它用于修改 Windows NT 配置数据库或 Windows NT 注册表。此编辑器允许您查看或修改 Windows NT 注册表。它提供了表示注册表各个部分（叫做配置单元）的窗口视图。每个窗口显示两部分：左侧是表示HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项的文件夹。右侧是与所选HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项关联的值。Regedt32 是一个功能强大的工具。使用它修改注册表值时必须格外小心。注册表中的值丢失或不正确将导致安装的 Windows NT 无法使用。<br>实验步骤<br>本实验中实验机为黑客机，目标机为被黑掉的主机，且实验前提为：实验机已经获得目标机的Administrator用户账号及口令，可以远程控制目标机。</p>
+        <h1 id="权限维持实验"><a href="#权限维持实验" class="headerlink" title="权限维持实验"></a>权限维持实验</h1><h2 id="利用注册表隐藏建立管理员账号"><a href="#利用注册表隐藏建立管理员账号" class="headerlink" title="利用注册表隐藏建立管理员账号"></a>利用注册表隐藏建立管理员账号</h2><p>实验环境<br>实验机环境：Windows 7<br>目标机环境：Windows 7<br>实验目的<br>了解注册表的权限设置<br>实验原理</p>
+<a id="more"></a>
+
+<p>在Windows里面有两个注册表工具，一个是regedit.exe，一个是regedt32.exe，Regedit.exe是我们熟知的注册表工具，而Regedt32.exe 不支持HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项文件 (.reg) 的导入和导出。Regedit.exe 是 16 位 Windows 操作系统的注册编辑器，它用于修改 Windows 的注册数据库，是16位应用程序。Regedt32.exe 是 Windows NT的配置编辑器。它用于修改 Windows NT 配置数据库或 Windows NT 注册表。此编辑器允许您查看或修改 Windows NT 注册表。它提供了表示注册表各个部分（叫做配置单元）的窗口视图。每个窗口显示两部分：左侧是表示HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项的文件夹。右侧是与所选HYPERLINK “<a href="https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?wd=%E6%B3%A8%E5%86%8C%E8%A1%A8%E9%A1%B9&amp;tn=44039180_cpr&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4m19buAu9PW9WujcLuymk0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHTdPWT4PHRLrHRdPHf3rjfY&quot;</a> \t “_blank”注册表项关联的值。Regedt32 是一个功能强大的工具。使用它修改注册表值时必须格外小心。注册表中的值丢失或不正确将导致安装的 Windows NT 无法使用。<br>实验步骤<br>本实验中实验机为黑客机，目标机为被黑掉的主机，且实验前提为：实验机已经获得目标机的Administrator用户账号及口令，可以远程控制目标机。</p>
 <p>在实验机中，通过前几节介绍的知识，以远程桌面方式登陆到目标机上。在本次实验中，以下操作要以Administrator身份进行（ylitech账户即管理员账户）。<br>可跳过上面一步，直接在目标机中进行以下操作。<br>2.点击开始，输入框中输入cmd，右键以管理员身份运行命令提示符窗口，输入命令net user hacker$ 123456 /add（注意/add前有空格），添加hacker$用户账号，密码为123456。</p>
 <p>如果是第一次运行，会提示命令成功完成。</p>
 <p>3、继续在cmd中运行regedt32命令，打开注册表编辑器，在HKEY_LOCAL_MACHINE\SAM\SAM下右击—&gt;权限，点击Administrator，并将其权限设置为完全控制，点击应用-确定，再关闭注册表窗口。</p>
@@ -454,10 +527,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -546,7 +619,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">47.4k</span>
   
 </div>
 
