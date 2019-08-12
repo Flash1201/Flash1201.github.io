@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="OWASP TOP10,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="OWASP TOP10OWASP的安全威胁OWASP(开放Web软体安全项目- Open Web Application Security Project) 是一个开源的、非盈利的全球性安全组织，致力于应用软件的安全研究。其使命是使应用软件更加安全，使企业和组织能够对应用安全风险作出更清晰的决策。目前OWASP全球拥有130个分会近万名会员，共同推动了安全标准、安全测试工具、安全指导手册等应用安全">
+<meta name="keywords" content="OWASP TOP10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OWASP TOP10">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/12/OWASP-TOP10/index.html">
+<meta property="og:site_name" content="changyouB-log">
+<meta property="og:description" content="OWASP TOP10OWASP的安全威胁OWASP(开放Web软体安全项目- Open Web Application Security Project) 是一个开源的、非盈利的全球性安全组织，致力于应用软件的安全研究。其使命是使应用软件更加安全，使企业和组织能够对应用安全风险作出更清晰的决策。目前OWASP全球拥有130个分会近万名会员，共同推动了安全标准、安全测试工具、安全指导手册等应用安全">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-12T06:05:00.123Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OWASP TOP10">
+<meta name="twitter:description" content="OWASP TOP10OWASP的安全威胁OWASP(开放Web软体安全项目- Open Web Application Security Project) 是一个开源的、非盈利的全球性安全组织，致力于应用软件的安全研究。其使命是使应用软件更加安全，使企业和组织能够对应用安全风险作出更清晰的决策。目前OWASP全球拥有130个分会近万名会员，共同推动了安全标准、安全测试工具、安全指导手册等应用安全">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/12/OWASP-TOP10/">
+
+
+
+
+
+  <title>OWASP TOP10 | changyouB-log</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">changyouB-log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">网络安全</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/12/OWASP-TOP10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+     <span title="Words count in article">
+     6.1k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     21 分钟
+     </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OWASP TOP10</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-12T08:39:37+08:00">
+                2019-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  6.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  21
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="OWASP-TOP10"><a href="#OWASP-TOP10" class="headerlink" title="OWASP TOP10"></a><strong>OWASP TOP10</strong></h1><h5 id="OWASP的安全威胁"><a href="#OWASP的安全威胁" class="headerlink" title="OWASP的安全威胁"></a>OWASP的安全威胁</h5><p>OWASP(开放Web软体安全项目- Open Web Application Security Project) 是一个开源的、非盈利的全球性安全组织，致力于应用软件的安全研究。其使命是使应用软件更加安全，使企业和组织能够对应用安全风险作出更清晰的决策。目前OWASP全球拥有130个分会近万名会员，共同推动了安全标准、安全测试工具、安全指导手册等应用安全技术的发展。</p>
+<hr>
+<h2 id="OWASP-Top-10十大风险-–-10个最重大的Web应用风险与攻防"><a href="#OWASP-Top-10十大风险-–-10个最重大的Web应用风险与攻防" class="headerlink" title="OWASP Top 10十大风险 – 10个最重大的Web应用风险与攻防"></a>OWASP Top 10十大风险 – 10个最重大的Web应用风险与攻防</h2><h5 id="OWASP-TOP10-1"><a href="#OWASP-TOP10-1" class="headerlink" title="OWASP TOP10"></a>OWASP TOP10</h5><p>1：Injection  注入  2：失效的身份认证和会话管理   3.跨站  4.不安全的对象的直接引用  5.伪造跨站请求 </p>
+<p>6.安全误配置  7：限制URL访问失败  8：未验证的重定向和转发  9.应用已知脆弱性的组件  10：敏感数据暴露</p>
+<hr>
+<a id="more"></a>
+
+<h5 id="TOP1-Injection-注入"><a href="#TOP1-Injection-注入" class="headerlink" title="TOP1-Injection  注入"></a>TOP1-Injection  注入</h5><p>介绍：简单来说，注入往往是应用程序缺少对输入进行安全性检查所引起的，攻击者把一些包含指令的数据发给解释器。解释器会把收到的数据转换成指令执行常见的注入包括SQL注入，OS shell，LDAP，Xpath，Hibernate等等，而其中SQL注入尤为常见。这种攻击所造成的后果往往很大    ，一般整个数据库的信息都能读取或篡改，通过SQL注入，攻击者甚至能够获得更多地包括管理员的权限。</p>
+<p>危害：注入能导致数据丢失或数据破坏、缺乏可审计性或是拒绝服务。注入漏洞有时甚至能导致完全接管主机。</p>
+<hr>
+<h5 id="TOP1-注入的示例"><a href="#TOP1-注入的示例" class="headerlink" title="TOP1-注入的示例"></a>TOP1-注入的示例</h5><p>案例1.应用程序在下面存在漏洞的SQL语句的构造中使用不可信数据：</p>
+<p>String querry = “SELLECT * FROM accounts WHERE cutID =”+request.getParameter(“ID”)+”‘“ “；</p>
+<p>案例2.同样的，框架应用的盲目信任，仍然可能导致查询语句的漏洞。（例如：Hibernate查询语言（HQL））:</p>
+<p>Query HQLQuery = session.createQuery(“FROM accounts WHERE custID=’’’+request.getParameter(“id”)+“’”);</p>
+<p>在这两个案例中，攻击者在浏览器中将“id”参数的修改成’or’1’=1’</p>
+<h5 id="TOP1-注入的防范"><a href="#TOP1-注入的防范" class="headerlink" title="TOP1-注入的防范"></a>TOP1-注入的防范</h5><p>1.使用安全的API，避免使用解释器或提供参数化的接口（prepared statements，or stored procedures）</p>
+<p>2.使用白名单来规范化的输入验证方法</p>
+<p>3.对输入的特殊字符进行Escape转义处理</p>
+<p>4.权限最小化，减轻被注入的影响</p>
+<p>使用ESAPI（<a href="https://github.com/ESAPI/esapi-java-legacy）" target="_blank" rel="noopener">https://github.com/ESAPI/esapi-java-legacy）</a></p>
+<p>ESAPI:简单来说就是为编写更加安全的代码设计出来的一些API，方便使用者调用，从而方便的编写安全代码。</p>
+<hr>
+<h5 id="TOP2-失效的身份认证和会话管理"><a href="#TOP2-失效的身份认证和会话管理" class="headerlink" title="TOP2-失效的身份认证和会话管理"></a>TOP2-失效的身份认证和会话管理</h5><p>介绍：与认证和会话管理相关的应用程序功能往往得不到正确措施，这就导致攻击者破坏密码、密钥、会话令牌或利用实施漏洞冒充其他用户身份</p>
+<p>危害：这些漏洞可能导致部分甚至全部账户遭受攻击。一旦攻击成功，攻击者能执行合法用户的任意操作。因此特权账户会造成更大的危害。</p>
+<p>防范：防范：使用强大的认证和会话管理控制-OWASP的应用安全验证标准。</p>
+<p>1.使用简单集中标准化的认证方式；</p>
+<p>2.确保SSL在任何时候都会保护会话；</p>
+<p>3.使用会话管理功能；</p>
+<p>会话管理：当用户不操作时，系统必须自动终止超时会话，必须有时间限制；必须提供退出功能，允许用户强制退出会话；会话标识足够随机，防止攻击者猜测到标识；用户登录后必须分配新的会话标识，不使用用户未登录前所使用的标识，防止会话攻击。</p>
+<hr>
+<h5 id="TOP3-跨站"><a href="#TOP3-跨站" class="headerlink" title="TOP3-跨站"></a>TOP3-跨站</h5><p>介绍：跨站脚本是普遍的WEB应用安全漏洞。当应用程序在发送给浏览器的页面中包含用户提供的数据，但没有经过适当的验证或转译，就会导致跨站脚本。</p>
+<p>危害：攻击者能在受害者浏览器执行脚本以劫持用户会话、迫害网站、插入恶意内容、重定向用户、使用恶意软件劫持用户浏览器等等。</p>
+<p>种类：已知有三种著名的跨站漏洞：1.存储式 2.反射式 3.基于DOM</p>
+<p>反射式跨站脚本通过测试或代码分析很容易找到</p>
+<h5 id="TOP3-防范"><a href="#TOP3-防范" class="headerlink" title="TOP3-防范"></a>TOP3-防范</h5><p>验证输入</p>
+<p>验证输入很简单-检查每个输入的有效性。这可能意味着很多的东西，但在典型的和简单的情况下，这意味着检查输入类型和数据的长度。例如，如果你是从一个文本框接受一个一个标准的邮政编码，你会知道，唯一有效的的类型都是一个数字（0-9），而长度应该是6，不能多也不能少。并非所有的案件都如此简单，但很多是相似的。</p>
+<p>编码输出</p>
+<p>对验证输入的另一面就是编码输出。编码输出，是用来确保字符被视为数据，而不是作为HTML元字符被浏览器解析。这些技术定义一些特殊的“转义“字符。没有正确转义的数据它仍然会在浏览器中正确解析。编码输出，只是让 浏览器知道数据是不是要被解析，    达到攻击无法实现的目的。</p>
+<p>1.对所有不可信的输入数据进行恰当的转义escape</p>
+<p>2.使用白名单的具有恰当的规范化解码功能的输入验证方法</p>
+<p>3.使用内容安全策略(CSP)来抵御整个站点的攻击</p>
+<h5 id="TOP3-复杂的-HTML-代码提交，如何处理？"><a href="#TOP3-复杂的-HTML-代码提交，如何处理？" class="headerlink" title="TOP3-复杂的 HTML 代码提交，如何处理？"></a>TOP3-复杂的 HTML 代码提交，如何处理？</h5><p>使用sanitizer防护</p>
+<p>允许title全部可用</p>
+<p>允许herf只能在<a>标签中使用</a></p>
+<p>指定lang align属性的格式</p>
+<p>确定使用的标签列表</p>
+<h5 id="TOP4-不安全的对象直接引用"><a href="#TOP4-不安全的对象直接引用" class="headerlink" title="TOP4-不安全的对象直接引用"></a>TOP4-不安全的对象直接引用</h5><p>介绍：</p>
+<p> 所谓”不安全的对象直接引用”,即Insecure direct object references ,意指一个已经授权的用户,通过更改访问时的一个参数，从而访问到原本其并没有得到授权的对象。Web应用往往在生成Web页面时会用它的真实名字,且并不会对所有的目对象访问时来检查用户权限, 所以这就造成不安全的对象直接引用的漏洞。</p>
+<p>我们看如下的一个示例,也许这样就更容易理解什么是不安全的对象直接引用。<br>1.攻击者发现他自己的参数是6065 ,即?acct=6065 ;<br>2.他可以直接更改参数为6066 ,即?acct=6066;<br>3.这样他就可以直接看到6066用户的账户信息。</p>
+<p>危害：</p>
+<p> 这种漏洞能损害参数所弓|用的所有数据。除非名字空间很稀疏,否则攻击者很容易访问该类型的所有数据。</p>
+<h5 id="TOP4-防范"><a href="#TOP4-防范" class="headerlink" title="TOP4-防范"></a>TOP4-防范</h5><p>使用基于用户或会话的间接对象访问，这样能防止攻击者直接攻击未授权资源<br>访问检查:对任何来自不受信源所使用的所有直接对象弓用都进行访问控制检测,这样才能<br>确保用户对要求的对象有访问权限<br>避免在URL或网页中直接引|用内部文件名或数据库关键字。<br>可使用自定义的映射名称来取代直接对象名<br>锁定网站服务 器上的所有目录和文件夹,设置访问权限。<br>验证用户输入和URL请求,拒绝包含/或./的请求。</p>
+<hr>
+<h5 id="TOP5-伪造跨站请求（CSRF）"><a href="#TOP5-伪造跨站请求（CSRF）" class="headerlink" title="TOP5-伪造跨站请求（CSRF）"></a>TOP5-伪造跨站请求（CSRF）</h5><p>介绍：</p>
+<p>跨站请求伪造CSRF ,是利用了网站允许攻击者预测特定操作的所有细节这一特点。由于浏览器自动发送会话cookie等认证凭证,导致攻击者能够创建恶意的web页面来产生伪造请求。这些伪造的请求很难和合法的请求区分开。</p>
+<p>CSRF听起来像跨站脚本( XSS) , 但它与XSS不同,并且攻击方式几乎相左。XSS利用站点内的信任用户,而CSRF则通过伪装来自受信任用户的请求来利用受信任的网站。</p>
+<p>危害：</p>
+<p>攻击者能够让受害用户修改任何允许修改的数据,执行任何用户允许的操作。例如修改密码、登陆注销等。</p>
+<h5 id="TOP5-案例"><a href="#TOP5-案例" class="headerlink" title="TOP5-案例"></a>TOP5-案例</h5><p>应用程序允许用户提交不包含任何保密字段的状态改变请求，如:<br><a href="http://example.com/app/transferFunds?amount=1500&amp;destinationAccount=4673243243" target="_blank" rel="noopener">http://example.com/app/transferFunds?amount=1500&amp;destinationAccount=4673243243</a><br>因此，攻击者构建一个请求，用于将受害用户账户中的现,金转移到自己账户。然后攻击者在其控制的多个网站的图片请求或iframe中嵌入这种攻击</p>
+<p>imgsrc=”<a href="http://example.com/app/transferFunds?amount=" target="_blank" rel="noopener">http://example.com/app/transferFunds?amount=</a> 1500&amp;destinationAccount=attackersAcct#”width=”0” height=”0” /<br> 如果受害用户通过example.com认证后访问任何-一个攻击者的网站，伪造的请求将自动包含用户的会话信息，授权执行攻击者的请求。</p>
+<h5 id="TOP5-防范"><a href="#TOP5-防范" class="headerlink" title="TOP5-防范"></a>TOP5-防范</h5><p>通用防范<br>给每个HTTP请求添加一 个不可预测的令牌,并保证该令牌对每个用户会话来说是唯一性。最好的办法是将独有的令牌包含在隐藏字段中,通过HTTP请求发送,避免在URL中暴露出来。<br>要求用户重新认证或者判断他们是一个真实的用户。</p>
+<hr>
+<h5 id="TOP6-安全误配置"><a href="#TOP6-安全误配置" class="headerlink" title="TOP6-安全误配置"></a>TOP6-安全误配置</h5><p>介绍<br>安全配置错误可以发生在一个应用程序堆栈的任何层面,包括平台、Web服务器、应用服务器、数据库、架构和自定义代码。攻击者通过访问默认账户、未使用的网页、未安装补丁的漏洞、未被保护的文件和目录等,以获得对系统未授权的访问。</p>
+<p>危害<br>系统可能在未知的情况下被完全攻破,用户数据可能随着时间推移而被全部盗走或者篡改。甚至有时,会导致整个系统被破坏。</p>
+<h5 id="TOP6-案例"><a href="#TOP6-案例" class="headerlink" title="TOP6-案例"></a>TOP6-案例</h5><p>案例#1:应用程序服务器管理员控制台自动安装后没有被删除。而默认帐户也没有被改变。攻击者在你的服务器上发现了标准的管理员页面，通过默认密码登录，从而接管了你的服务器。<br>案例#2:目录列表在你的服务器上未被禁用。攻击者发现只需列出目录，她就可以找到你服务器上的任意文件。攻击者找到并下载所有已编译的Java类，她通过反编译获得了所有你的自定义代码。然后，她在你的应用程序中找到一个访问控制的严重漏洞。log. csdin. het/<br>案例#3:应用服务器配置允许堆栈跟踪返回给用户，这样就暴露了潜在的漏洞。攻击者热衷于收集错误消息里提供的额外信息。<br>案例#4:应用服务器自带的示例应用程序没有从您的生产服务器中删除。该示例应用有已知安全漏洞，攻击者可以利用这些漏洞破坏您的服务器。</p>
+<h5 id="TOP6-防范"><a href="#TOP6-防范" class="headerlink" title="TOP6-防范"></a>TOP6-防范</h5><p>自动化安装部署,保证开发、QA、产品环境的配置尽量相同,减少部署一 个新安全环境的耗费。<br>及时了解并部署每个环境的软件更新和补丁信息<br>使用提供有效分离和安全性强大的应用程序架构<br>实施漏洞扫描和安全审计,以帮助检查错误的配置或者未安装的补丁<br>现代JavaEE应用程序和框架如Struts , Spring都有很多的安全配置,当使用这些框架一定要确保这些配置是正确的。比如:<br>在开发Web应用程序时一定要当心security-constraint 里的http-method标签，该标签的意思是security-constraint只作用于标签里面列出的方法,黑客可以利用这个使用列表以外的方法如: HEAD和PUT进行攻击,从而越过安全限制。大多数情况下开发者应该删掉web.xml里面的http-method标签。</p>
+<hr>
+<h5 id="TOP7-限制URL访问失败（缺少功能级访问控制）"><a href="#TOP7-限制URL访问失败（缺少功能级访问控制）" class="headerlink" title="TOP7-限制URL访问失败（缺少功能级访问控制）"></a>TOP7-限制URL访问失败（缺少功能级访问控制）</h5><p>介绍：</p>
+<p>这个漏洞事实上地是与认证相关的,与我们前面提到的Top4不安全的直接对象引用也是类似的,不同在于这个漏洞是说系统已经对URL的访问做了限制,但这种限制却实际并没有生效。常见的错误是,我们在用户认证后只显示给用户认证过的页面和菜单选项,而实际上这些仅仅是表示层的访问控制而不能真正生效,攻击者能够很容易的就伪造请求直接访问未被授权的页面。</p>
+<p>危害：</p>
+<p>攻击者很容易就把网址改成享有特权的网页,这样就可以使用匿名或普通用户访问未受保护的私人页面,从而提升未授权功能和相关数据信息。</p>
+<h5 id="TOP7-案例"><a href="#TOP7-案例" class="headerlink" title="TOP7-案例"></a>TOP7-案例</h5><p>案例1#:攻击者仅仅直接浏览目标网址。例如下面的两个网址都需要身份验证。同时访问“admin getapplnfo” 页面还需要管理员权限。<br><a href="http://example.com/app/" target="_blank" rel="noopener">http://example.com/app/</a> getapplnfo<br><a href="http://example.com/app/admin" target="_blank" rel="noopener">http://example.com/app/admin</a>_ getapplnfo<br>如果未认证的用户可以访问上述任一页面，这就是漏洞。如果通过验证的非管理员用户也能允许访问<br>“admin_ getappInfo”页面， 这同样是个漏洞。这个漏洞可能会将攻击者引向更多保护不当的管理页面。<br>案例2#: - 一个页面提供了“action”参数给某个特定的功能调用，并且不同的操作需要不同的角色。如果没有进行角色检查，这也是漏洞。</p>
+<h5 id="TOP7-防范"><a href="#TOP7-防范" class="headerlink" title="TOP7-防范"></a>TOP7-防范</h5><p>防范手段<br>检查管理权限的过程并确保能够容易进行升级和审计,切忌硬编码。<br>默认缺省情况下,应该拒绝所有访问的执行权限。s对于每个功能的访问,需要明确的角色授权。<br>检查每个功能分配的权限合理有效。</p>
+<hr>
+<h5 id="TOP8-未验证的重定向"><a href="#TOP8-未验证的重定向" class="headerlink" title="TOP8-未验证的重定向"></a>TOP8-未验证的重定向</h5><p>介绍：</p>
+<p>在Web应用中重定向是极为普遍的,并且通常重定向所弓向的目的是带有用户输入参数的目的URL ,而如果这些重定向末被验证,那么攻击者就可以引导用户访问他们所要用户访问的站点。<br>同样,转发也是极为普遍的,本质上转发是在同-个应用中对一个新页面发送请求,并且有时是用参数来定义目标页面的。同样,如果参数末被验证,那么攻击者就可以利用其来绕过认证或是授权检查。</p>
+<p>危害：</p>
+<p>攻击者通过重定向可以试图安装恶意软件或者诱使受害人泄露密码等敏感信息,通过转发可以绕过访问控制。</p>
+<h5 id="TOP8-案例"><a href="#TOP8-案例" class="headerlink" title="TOP8-案例"></a>TOP8-案例</h5><p>案例#1:应用程序有一个名为“redirect.jsp” 的页面，该;页面有一个参数名是“url”。 攻击者精心制作-一个恶意URL将用户重定向到一个恶意网站，执行钓鱼攻击并安装恶意程序。<br><a href="http://www.example.com/redirect.jsp?url=evil.com" target="_blank" rel="noopener">http://www.example.com/redirect.jsp?url=evil.com</a><br>案例#2: 应用程序使用转 发在网站的不同 部分之间发送请求。为了帮助实现这一功能，如果一个交易成功了的话，- -些网页就会发送一个参数给用户，用于指定用户的下一个页面。在这种情况下,攻击者制作一个URL,用于绕过应用程序的访问控制检查,并将他转发给–个他通常不能访问的管理功能。<br><a href="http://www.example.com/" target="_blank" rel="noopener">http://www.example.com/</a> boring.jsp?fwd=admin.jsp</p>
+<h5 id="TOP8-测试与防范"><a href="#TOP8-测试与防范" class="headerlink" title="TOP8-测试与防范"></a>TOP8-测试与防范</h5><p>1如果有代码:浏览代码中含有重定向和转发的内容,看目的urI中是否包含用户输入的参数,如果包含，观察目标参数是否在白名单之内,如果涉及到一些安全问题隐私等，需要重新定 义目的URL。<br>2通过点击操作网站,观察是否产生重定向( HTTP响应代码300-307 , 通常是302) , 观察在重定向之前用户输入的参数有没有出现在某一个URL或者很多URL中,如果是这种情况,需要改变URL的目标。3.如果测试中没有代码，检查所有 参数,测试那些看起来像是重定向或者转发的页面。举例:<br>对于上例:<br>登陆url : <a href="http://www.example.com/member/logi.html在ur后加参数如下" target="_blank" rel="noopener">http://www.example.com/member/logi.html在ur后加参数如下</a>:<br><a href="http://www.example" target="_blank" rel="noopener">http://www.example</a>. com/memberlogin.jhtmlredirecturit<a href="http://www.google.cn若跳转至Google就是没有做跳转的限制。" target="_blank" rel="noopener">http://www.google.cn若跳转至Google就是没有做跳转的限制。</a><br>防范<br>避免使用重定向和转发<br>如果使用了重定向和转发,则不要在确定目标时涉及到用户参数。<br>如果无法避免使用目标参数,则应确保目标参数值对于当前用户是有效的并已授权。<br>你可以用request获得之前的页面路径: Reguest.getHeader( ‘ Referer”);然后你可以判断一下,这个是 字符串类型的。<br>如果是需要登录的 ,你可以session中获取登录信息,然后判断<br>你可以通过上一个页面传参，本页面判断 ,如果不匹配就处理，参数可以放在session当中或者使用 request.setAttribute0;这个方法,不要URL传参</p>
+<hr>
+<h5 id="TOP9-应用已知脆弱性的组件"><a href="#TOP9-应用已知脆弱性的组件" class="headerlink" title="TOP9-应用已知脆弱性的组件"></a>TOP9-应用已知脆弱性的组件</h5><p>介绍<br>组件,比如:库文件、框架和其他软件模块,几乎总是以全部的权限运行。如果一个带 有漏洞的组件被利用，这种攻击可以造成更为严重的数据丢失或服务器接管。应用程序使用带有已知漏洞的组件会破坏应用程序防御系统,并使一系列可能的攻击和影响成为可能。<br>防范<br>1.识别正在使用的组件和版本,包括所有的依赖。( 例如,插件的版本)。<br>2.监控这些在公共数据库中、项目的邮件列表、以及安全邮件列表的组件的安全性,并保持他们更新到最新。<br>3.建立安全策略来管理组件的使用,如需要一定的软件开发实践 ,通过安全测试,和可接受的许可证。</p>
+<hr>
+<h5 id="TOP10-敏感信息暴露"><a href="#TOP10-敏感信息暴露" class="headerlink" title="TOP10-敏感信息暴露"></a>TOP10-敏感信息暴露</h5><p>介绍<br>许多Web应用程序没有正确保护敏感数据,如信用卡、税务ID和身份验证凭据。攻击者可能会窃取或篡改这些弱保护的数据以进行信用卡诈骗、身份窃取或其他犯罪。敏感数据值需额外的保护,比如在存放或在传输过程中的加密,以及在与浏览器交换时进行特殊的预措施。<br>比如说:<br>个人信息,如姓名,身份证ID,电话号码，银行账户,驾驶证号码,社保卡号,护照号码等都是敏感数据;<br>网站登录的用户名、密码, SSL证书,会话ID ,加密使用的密钥等都属于敏感信息,这些信息一旦泄露,攻击者就可以以合法用户的身份访问Web系统,随意进行各种攻击操作;<br>Web服务器的OS类型, 版本信息, Web容器的名称，版本号,数据库类型,版本号,应用软件使用开源软件信息都属于敏感信息,因为攻击者知道这些软件信息,就会利用这些软件存在的公开漏洞进行专门攻击,提升了系统被攻破的可能性。</p>
+<h5 id="TOP10-防范"><a href="#TOP10-防范" class="headerlink" title="TOP10-防范"></a>TOP10-防范</h5><p>防范<br>   针对个人数据,必须加密存储,且要使用安全的加密算法,具体可以这么区分,针对本地存储且需要密文明文转换的使用AES128及以上的安全加密算法,对于使用于认证场景的不需要可逆的可以采用SHA256及以上的安全HASH算法，如PBKDF2等,需要加盐值(采用安全随机数,防止彩虹表攻击) , 而对于夸信任网络传输的敏感数据,需要使用非对称加密算法,公钥加密,私钥解密,如RSA2048及以上算法,特别强调,常见的MD5、DES , SHA1 ,甚至不能算假面的BSAE64位编码都是不安全的做法，针对加解密这块,大家看不明白也没关系,后续做专题来讲解吧,到时候会附上Java的实现。<br>   针对敏感数据传输，需要采用SSL加密通道，每一 个请求都应该使用SSL加密通道,因为每个请求里面都带有会话D，会话ID就是敏感信息 ,所以并不是只有涉及认证的请求才存在敏感数据,针对SSL通道，需要使用安全的TSL版本如TSL1.1和TSL1.2 ,其余SSL版本和TSL1.0已经被证明是不安全的。同时要使用安全的加密套件,也就是说SSL协商过程中协商的通道加密算法也要是安全的,否则加密数据还是可以被轻易破解,具体配置是在Web容器里面的,大家可以百度轻易获取,后续针对Web容器加固方面也会进行说明。<br>   应用程字运行出错容易造成敏感信息的泄露,如有的网站的程序堆栈信息直接显示在页面上,暴露Web容器的名称和版本信息,这些都是不安全的做法,解决方法就是定制统一出错页面,杜绝显示此类敏感信息到Web客户端。<br>   敏感信息禁止明文传递到Web客户端,能不传递就不要传递,禁止将敏感信息打印到堆栈或者日志中,禁止明文存储在文件或数据库中,同时保存敏感信息的文件要严格控制访问权限。</p>
+<hr>
+<h5 id="补充资料-DDOS（分布式拒绝攻击）"><a href="#补充资料-DDOS（分布式拒绝攻击）" class="headerlink" title="补充资料-DDOS（分布式拒绝攻击）"></a>补充资料-DDOS（分布式拒绝攻击）</h5><p>  分布式拒绝服务攻击使用与普通的拒绝服务攻击<br>同样的方法,但是发起攻击的源是多个。通常攻击者使用下载的工具渗透无保护的主机,当获得该主机的适当的访问权限后，攻击者在主机中安装软件的服务或进程(以下简称代理)。这些代理保持睡眠状态,直到从它们的主控端得到指令。主控端命令代理对指定的目标发起拒绝服务攻击。<br>分布式拒绝服务攻击是指主控端理由僵尸机器同时对一个目标发起几千个攻击。单个的拒绝服务攻击的威力也许对带宽较宽的站点没有影响,而分布于全球的几千个攻击将会产生致命的效果。</p>
+<hr>
+<h5 id="补充资料-DDOS攻击步骤"><a href="#补充资料-DDOS攻击步骤" class="headerlink" title="补充资料-DDOS攻击步骤"></a>补充资料-DDOS攻击步骤</h5><p>1.攻击者使用扫描工具探测扫描大量主机以寻找潜在入侵目标</p>
+<p>2.黑客设法入侵有安全漏洞的主机并获取控制权，这些主机将被用于放置后门、sniffer或守护程序甚至是客户程序。</p>
+<p>3.黑客在得到入侵计算机清单后，从中选出满足建立网络所需要的主机，放置已编译好的守护程序，并对被控制的计算机发出指令。</p>
+<p>4.Using Client program</p>
+<p>黑客发送指令给主机，准备启动对目标主机的攻击。</p>
+<p>5.主机发送攻击信号给被控制机开始对目标机系统发起攻击。</p>
+<p>6.目标系统被无数伪造的请求所淹没，从而无法    对合法用户进行响应，DDOS攻击成功。</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OWASP-TOP10/" rel="tag"># OWASP TOP10</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/11/XSS-简介/" rel="next" title="XSS简介">
+                <i class="fa fa-chevron-left"></i> XSS简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="申子昊">
+            
+              <p class="site-author-name" itemprop="name">申子昊</p>
+              <p class="site-description motion-element" itemprop="description">多一份网络防护技能,多一份信息安全保证</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Flash1201" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shenzihao76@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://tcp123.cn" target="_blank" title="友情链接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>友情链接</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OWASP-TOP10"><span class="nav-number">1.</span> <span class="nav-text">OWASP TOP10</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#OWASP的安全威胁"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">OWASP的安全威胁</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#OWASP-Top-10十大风险-–-10个最重大的Web应用风险与攻防"><span class="nav-number">1.1.</span> <span class="nav-text">OWASP Top 10十大风险 – 10个最重大的Web应用风险与攻防</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#OWASP-TOP10-1"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">OWASP TOP10</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP1-Injection-注入"><span class="nav-number">1.1.0.0.2.</span> <span class="nav-text">TOP1-Injection  注入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP1-注入的示例"><span class="nav-number">1.1.0.0.3.</span> <span class="nav-text">TOP1-注入的示例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP1-注入的防范"><span class="nav-number">1.1.0.0.4.</span> <span class="nav-text">TOP1-注入的防范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP2-失效的身份认证和会话管理"><span class="nav-number">1.1.0.0.5.</span> <span class="nav-text">TOP2-失效的身份认证和会话管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP3-跨站"><span class="nav-number">1.1.0.0.6.</span> <span class="nav-text">TOP3-跨站</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP3-防范"><span class="nav-number">1.1.0.0.7.</span> <span class="nav-text">TOP3-防范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP3-复杂的-HTML-代码提交，如何处理？"><span class="nav-number">1.1.0.0.8.</span> <span class="nav-text">TOP3-复杂的 HTML 代码提交，如何处理？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP4-不安全的对象直接引用"><span class="nav-number">1.1.0.0.9.</span> <span class="nav-text">TOP4-不安全的对象直接引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP4-防范"><span class="nav-number">1.1.0.0.10.</span> <span class="nav-text">TOP4-防范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP5-伪造跨站请求（CSRF）"><span class="nav-number">1.1.0.0.11.</span> <span class="nav-text">TOP5-伪造跨站请求（CSRF）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP5-案例"><span class="nav-number">1.1.0.0.12.</span> <span class="nav-text">TOP5-案例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP5-防范"><span class="nav-number">1.1.0.0.13.</span> <span class="nav-text">TOP5-防范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP6-安全误配置"><span class="nav-number">1.1.0.0.14.</span> <span class="nav-text">TOP6-安全误配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP6-案例"><span class="nav-number">1.1.0.0.15.</span> <span class="nav-text">TOP6-案例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP6-防范"><span class="nav-number">1.1.0.0.16.</span> <span class="nav-text">TOP6-防范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP7-限制URL访问失败（缺少功能级访问控制）"><span class="nav-number">1.1.0.0.17.</span> <span class="nav-text">TOP7-限制URL访问失败（缺少功能级访问控制）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP7-案例"><span class="nav-number">1.1.0.0.18.</span> <span class="nav-text">TOP7-案例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP7-防范"><span class="nav-number">1.1.0.0.19.</span> <span class="nav-text">TOP7-防范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP8-未验证的重定向"><span class="nav-number">1.1.0.0.20.</span> <span class="nav-text">TOP8-未验证的重定向</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP8-案例"><span class="nav-number">1.1.0.0.21.</span> <span class="nav-text">TOP8-案例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP8-测试与防范"><span class="nav-number">1.1.0.0.22.</span> <span class="nav-text">TOP8-测试与防范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP9-应用已知脆弱性的组件"><span class="nav-number">1.1.0.0.23.</span> <span class="nav-text">TOP9-应用已知脆弱性的组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP10-敏感信息暴露"><span class="nav-number">1.1.0.0.24.</span> <span class="nav-text">TOP10-敏感信息暴露</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TOP10-防范"><span class="nav-number">1.1.0.0.25.</span> <span class="nav-text">TOP10-防范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#补充资料-DDOS（分布式拒绝攻击）"><span class="nav-number">1.1.0.0.26.</span> <span class="nav-text">补充资料-DDOS（分布式拒绝攻击）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#补充资料-DDOS攻击步骤"><span class="nav-number">1.1.0.0.27.</span> <span class="nav-text">补充资料-DDOS攻击步骤</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">申子昊</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">54.6k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
