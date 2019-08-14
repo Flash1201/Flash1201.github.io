@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="linux汇总(二)用户管理和文件权限1.用户管理:(1)超级用户:拥有操作系统的最高权限,可以进行任何操作.默认是root.它的Uid,gid都是0 (2)普通用户:是有管理员创建的用户,权限有限,只对自己的家目录拥有完整权限 Centos 7的Uid是从1000开始. (3)虚拟用户:(程序用户===&amp;gt;植物人),一般用来运行服务时候指定的用户,不能登录操作系统.     系统的默认用户:">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux汇总">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/14/linux汇总2/index.html">
+<meta property="og:site_name" content="changyouB-log">
+<meta property="og:description" content="linux汇总(二)用户管理和文件权限1.用户管理:(1)超级用户:拥有操作系统的最高权限,可以进行任何操作.默认是root.它的Uid,gid都是0 (2)普通用户:是有管理员创建的用户,权限有限,只对自己的家目录拥有完整权限 Centos 7的Uid是从1000开始. (3)虚拟用户:(程序用户===&amp;gt;植物人),一般用来运行服务时候指定的用户,不能登录操作系统.     系统的默认用户:">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-14T09:33:23.497Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux汇总">
+<meta name="twitter:description" content="linux汇总(二)用户管理和文件权限1.用户管理:(1)超级用户:拥有操作系统的最高权限,可以进行任何操作.默认是root.它的Uid,gid都是0 (2)普通用户:是有管理员创建的用户,权限有限,只对自己的家目录拥有完整权限 Centos 7的Uid是从1000开始. (3)虚拟用户:(程序用户===&amp;gt;植物人),一般用来运行服务时候指定的用户,不能登录操作系统.     系统的默认用户:">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/14/linux汇总2/">
+
+
+
+
+
+  <title>linux汇总 | changyouB-log</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">changyouB-log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">网络安全</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/14/linux汇总2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+     <span title="Words count in article">
+     2.2k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     8 分钟
+     </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux汇总</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-14T16:12:58+08:00">
+                2019-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="linux汇总-二"><a href="#linux汇总-二" class="headerlink" title="linux汇总(二)"></a>linux汇总(二)</h1><h3 id="用户管理和文件权限"><a href="#用户管理和文件权限" class="headerlink" title="用户管理和文件权限"></a>用户管理和文件权限</h3><h5 id="1-用户管理"><a href="#1-用户管理" class="headerlink" title="1.用户管理:"></a>1.用户管理:</h5><h6 id="1-超级用户"><a href="#1-超级用户" class="headerlink" title="(1)超级用户:"></a>(1)超级用户:</h6><p>拥有操作系统的最高权限,可以进行任何操作.默认是root.它的Uid,gid都是0</p>
+<h6 id="2-普通用户"><a href="#2-普通用户" class="headerlink" title="(2)普通用户:"></a>(2)普通用户:</h6><p>是有管理员创建的用户,权限有限,只对自己的家目录拥有完整权限 Centos 7的Uid是从1000开始.</p>
+<h6 id="3-虚拟用户"><a href="#3-虚拟用户" class="headerlink" title="(3)虚拟用户:"></a>(3)虚拟用户:</h6><p>(程序用户===&gt;植物人),一般用来运行服务时候指定的用户,不能登录操作系统.<br>     系统的默认用户:<br>     Centos6之前是1—499;<br>     Centos7开始是1—999;</p>
+<a id="more"></a>
+
+<h5 id="2-用户和组管理的重要文件"><a href="#2-用户和组管理的重要文件" class="headerlink" title="2.用户和组管理的重要文件"></a>2.用户和组管理的重要文件</h5><h6 id="1-用户管理配置文件"><a href="#1-用户管理配置文件" class="headerlink" title="(1)用户管理配置文件:"></a>(1)用户管理配置文件:</h6><p>/etc/passwd<br>  haha        :x:1000:1000:haha:/home/haha:/bin/bash<br>  dhcpd        :x:177:177:DHCP server:/:/sbin/nologin<br>  第一列:用户名;<br>  第二列:密码占位符<br>  第三列:uid(user id用户唯一标识)<br>  第四列:gid (group id)<br>  第五列:全名<br>  第六列:用户家目录<br>  第七列:是否允许登录操作系统./bin/bash允许登录系统;/sbin/nologin不允许登录系统.</p>
+<h6 id="2-用户的密码文件"><a href="#2-用户的密码文件" class="headerlink" title="(2)用户的密码文件:"></a>(2)用户的密码文件:</h6><p>/etc/shadow<br>haha:$6$gBMaK.xDoFH6LksE$DHtW/IrzjAIS.fyoSg.jaiQId.lviYrHH8aU5mGiOJur7ksEQgCQxD1CKI8gsZakw6sDwmzVk1oWnzF9NYoAh.:18116:0:99999:7:::</p>
+<p>  第一列:用户名<br>  第二列:用户加密后的密码,用SHA加密<br>  第三列:密码的修改时间,距离1970-01-01的时间<br>  第四列:密码的最短有效期,如果为0,表示无限制<br>  第五列;密码的最长有效期<br>  第六列:提前7天提醒<br>  第七列:账号的失效时间<br>  第八列:未定义</p>
+<h6 id="3-组相关"><a href="#3-组相关" class="headerlink" title="(3)组相关:"></a>(3)组相关:</h6><p>/etc/group<br>  jishubu:x:2000:<br>  第一列:组名<br>  第二列:组密码占位符<br>  第三列:gid(组ID)<br>  第四列:组成员</p>
+<h5 id="3-用户管理的命令"><a href="#3-用户管理的命令" class="headerlink" title="3.用户管理的命令:"></a>3.用户管理的命令:</h5><p>useradd/usermod </p>
+<h6 id="1-命令的基本格式"><a href="#1-命令的基本格式" class="headerlink" title="(1)命令的基本格式:"></a>(1)命令的基本格式:</h6><p>  useradd   [参数-G/-g/-d/-s/-u]   [参数的值]   操作的用户username  </p>
+<p>  举例:<br>    useradd xiaoming             //创建一个用户,默认会创建一个同名的组,这个用户就属于同名组.<br>    id xiaoming                 //检查用户的uid/gid和基本组信息<br>    usermod -G heihei xiaoming    //-G是给一个用户指定一个”附加组”;<br>    id xiaoming<br>    uid=1002(xiaoming) gid=1002(xiaoming) 组=1002(xiaoming),1001(heihei)   //xiaoming是基本组,heihei是附加组</p>
+<pre><code>useradd xiaohua
+id xiaohua
+usermod -g heihei xiaohua   //-g是指定用户的基本组,把xiaohua的基本组设置为heihei
+
+useradd -d /admin -g jishubu -G root admin  //创建一个用户admin,-d指定家目录,-g指定基本组;-G指定附加组
+
+groupadd -g 2001 caiwubu     //创建一个组叫caiwubu,同时指定gidWie2001
+useradd -u 2001 -g 2001 -d /testbbb bbb   //创建一个用户bbb,同时指定uid=gid=2001,指定(同时会创建)家目录为/testbbb;
+        默认普通用户的家目录在/home/用户名
+useradd -s /sbin/nologin -M  www    //创建一个虚拟用户(植物人),用户名叫www,-M是不指定家目录;
+                                    -s  指定用户登录的shell./sbin/nologin表示不允许登录系统.</code></pre><h6 id="2-passwd给用户设置密码"><a href="#2-passwd给用户设置密码" class="headerlink" title="(2)passwd给用户设置密码"></a>(2)passwd给用户设置密码</h6><p>​    passwd   xiaoming    //给小明设置密码<br>​    Passwd -d aa  ——-清空aa用户的密码<br>​    passwd -l xiaoming   //锁定xiaoming<br>​    passwd -u xiaoming   //给xiaoming解锁<br>​    passwd -S xiaoming   //查看小明的状态<br>​    </p>
+<h6 id="3-批量创建用户举例"><a href="#3-批量创建用户举例" class="headerlink" title="(3)批量创建用户举例:"></a>(3)批量创建用户举例:</h6><p>  for n in {1..20};do useradd user$n;done     //基本格式:for  ;do 执行的命令;done</p>
+<h6 id="4-删除用户和家目录"><a href="#4-删除用户和家目录" class="headerlink" title="(4)删除用户和家目录"></a>(4)删除用户和家目录</h6><p>  userdel   aaa         //删除用户,家目录还在<br>  userdel   -r   aaa   //删除用户的同时,删除家目录</p>
+<h6 id="5-组管理的命令"><a href="#5-组管理的命令" class="headerlink" title="(5)组管理的命令:"></a>(5)组管理的命令:</h6><p>  groupadd   xiaoshoubu        //创建一个组,叫xiaoshoubu<br>  groupadd -g 2001 caiwubu     //创建一个组叫caiwubu,同时指定gidWie2001</p>
+<p>  groups    xiaoming        //查看xiaoming这个用户,属于的组<br>  gpasswd -d szy szy       //把szy这个用户,从szy这个组里-d移除<br>  groupdel  szy        //删除szy这个组<br>  说明:如果有某个用户把这个组作为基本组,那么这个组就无法删除.—–&gt;要么直接把用户删除;要么直接把用户走.</p>
+<hr>
+<p>课堂练习:<br>1.创建组叫 jishubu  caiwubu<br>2.创建用户aaa,指定用户的uid=gid=2000;<br>3.创建用户xiaoming,xiaohua<br>4.把xiaoming加入附加组到jishubu;把xiaohua加入到附加组caiwubu;<br>5.批量创建20个用户叫user1,user2,user3…..命名;并查看/etc/passwd检查结果;<br>6.删除20个用户和他们的家目录<br>7.创建shichangbu的组<br>8.创建用户aaa,bbb,ccc;把多个用户都加入到shichangbu这个组中.<br>9.创建用户ddd,把ddd加入到shichangbu这个附加组里;<br>10.创建user这个组,再删除.给出命令</p>
+<hr>
+<p>修改为英文字符集:<br>[root@cent7 /]# cat /etc/locale.conf   //编辑”字符集”配置文件</p>
+<p>#LANG=”zh_CN.UTF-8”<br>LANG=”en_US.UTF-8”<br>[root@cent7 /]# source /etc/locale.conf     //重新加载配置文件<br>[root@cent7 /]# echo $LANG     //查看字符集的环境变量<br>en_US.UTF-8</p>
+<hr>
+<p>今日单词:<br>username  用户名<br>Password  密码<br>locked    锁定<br>remove    移除<br>directory  目录<br>cd=change  directory   //切换目录</p>
+<hr>
+<p> cd /etc<br>groupadd -g 1010 actor<br>tail -1 group<br>         actor:x:2000:<br>useradd -u 2000 -s /sbin/nologin -g 1010 daniel<br>tail -1 passwd<br>daniel:x:1024:1010::/home/aaa</p>
+<hr>
+<p>添加一个用户后,useradd命令会在该用户的宿主目录中建立一些初始配置文件,这些文件都是隐藏的.<br>文件包括三个:<br>    1. .bash_logout —-文件中的命令将会在每次退出登录时执行<br>    2. .bash_profile  —–文件中的命令将会在用户每次登录时被执行<br>    3. .bash_bashrc   —–文件中的命令将会在每次加载bash时候执行</p>
+<pre><code>alias kaobei=&apos;cp -i&apos; 
+kaobei user1.txt user2.txt
+/etc目录下也有bashrc这个文件,这里面的文件是面对所有用户(全局配置)</code></pre><hr>
+<h3 id="Part2-文件属性"><a href="#Part2-文件属性" class="headerlink" title="Part2:文件属性"></a>Part2:文件属性</h3><h5 id="1-查看文件属性"><a href="#1-查看文件属性" class="headerlink" title="1.查看文件属性;"></a>1.查看文件属性;</h5><p>[root@cent7 test]# ls -lhi            //-l是以长格式显示;-h是以人们易读的方式显示;-i是inode节点号.<br>操作系统为了读取效率更高,会给每个文件创建一个inode节点号.<br>total 196K<br>102353779 -rw-r–r– 1 root root   11 Aug 12 09:40 date.txt<br>  1478308 -rw-r–r– 1 root root 5.1K Aug 12 15:38 eee.txt</p>
+<p>ln -s aaaaaaaaaaaaaaaaa.txt a.txt    //给aaaaaaaaaaaaaaaaa.txt源文件,创建一个软连接(之前不能存在)<br>ln  aaaaaaaaaaaaaaaaa.txt a.txt    //给aaaaaaaaaaaaaaaaa.txt源文件,创建一个硬连接<br>ln  直接创建的叫做硬链接文件,硬链接文件是源文件的另外一个入口.和源文件是同一个文件.<br>特别说明:ln   -s  参数是创建一个软连接,软连接和源文件不是同一个文件.<br>如果删除源文件,软连接会无法访问;但是硬链接还正常.</p>
+<p>第一列:inode节点号;<br>第二列:第一个位表示文件类型;<br>        -     普通文件;<br>        d     目录文件;<br>        l     连接文件;</p>
+<pre><code>后边的9位表示文件的权限信息,每3位分为一组,分别代表:属主user/属组group/其他other
+权限分为:r(read,读取;权限用4表示)
+         w(write,写入,权限用2表示)
+         x(excute,执行,权限用1表示):前提是一个可执行文件.用./文件名来执行.
+默认在Linux中,目录的权限是755,文件权限默认是644.</code></pre><p>第三列:1表示的是文件的硬链接数.每创建一个硬链接,数值会加1.<br>第四列:属主<br>第五列:属组<br>第六列:文件大小<br>第七列—第九列:表示时间</p>
+<p>第十列:文件名 </p>
+<hr>
+<h5 id="2-修改文件权限"><a href="#2-修改文件权限" class="headerlink" title="2.修改文件权限:"></a>2.修改文件权限:</h5><p>  方式一:使用英文字母的方式修改权限<br>        chmod  [u/g/o][+/-/=][rwx]   文件名<br>        chmod   a+x      aa.txt     //给aa.txt的所有人添加可执行权限<br>        chmod   u+x      aa.txt      //给aa.txt的属主添加可执行权限<br>        chmod   u=rwx    aa.txt      //给aa.txt的属主赋予”读,写,执行权限”<br>  方式二:直接使用数字方式来修改权限<br>        chmod   700      aa.txt     //给aa.txt的属主所有权限;属组和其他人没有任何权限<br>        chmod   755      aa.txt     //给aa.txt的属主所有权限,属组和其他人有”读取和执行的权限”</p>
+<pre><code>常用参数:chmod -R 644 nload-0.7.4   //针对nload目录,-R递归修改权限为644.</code></pre><p>3.修改文件的属主和属组:<br>chown root.root nload-0.7.4/*    //把nload-0.7.4下的所有文件的属主和属组都修改为root<br>chown root.root nload-0.7.4      //把nload-0.7.4目录的属主和属组都修改为root<br>      属主:属组<br>ls -l     //检查权限是否修改成功</p>
+<hr>
+<p>练习:<br>(1)在/test目录下创建一个文件aaaaaaaa.txt ;并写入内容为This  is  test  for  aaaaa.txt.<br>(2)给aaaaaaaa.txt这个文件创建软连接为a.txt;<br>(3)给aaaaaaaa.txt文件创建硬链接文件hard.txt;<br>(4)使用ls -lhi    来查看3个文件的inode节点号的区别;<br>(5)删除源文件aaaaaaaa.txt,看a.txt和hard.txt是否还能正常访问;<br>(6)在/test/下创建一个可执行文件,叫ls.txt ,写入内容:</p>
+<p>   #!/bin/bash    #声明脚本的解释器<br>   ifconfig  ens33<br>   echo   123456  &gt; ls.txt<br>   echo   678910  &gt;&gt;  ls.txt<br>(7)给这个文件赋予可执行权限,并查看结果.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/13/linux汇总/" rel="next" title="linux汇总">
+                <i class="fa fa-chevron-left"></i> linux汇总
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="申子昊">
+            
+              <p class="site-author-name" itemprop="name">申子昊</p>
+              <p class="site-description motion-element" itemprop="description">多一份网络防护技能,多一份信息安全保证</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Flash1201" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shenzihao76@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://tcp123.cn" target="_blank" title="友情链接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>友情链接</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://ibbs.tcp123.cn/index.php?c=thread&fid=25" target="_blank" title="论坛连接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>论坛连接</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux汇总-二"><span class="nav-number">1.</span> <span class="nav-text">linux汇总(二)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理和文件权限"><span class="nav-number">1.0.1.</span> <span class="nav-text">用户管理和文件权限</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-用户管理"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">1.用户管理:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-超级用户"><span class="nav-number">1.0.1.0.1.1.</span> <span class="nav-text">(1)超级用户:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-普通用户"><span class="nav-number">1.0.1.0.1.2.</span> <span class="nav-text">(2)普通用户:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-虚拟用户"><span class="nav-number">1.0.1.0.1.3.</span> <span class="nav-text">(3)虚拟用户:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-用户和组管理的重要文件"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">2.用户和组管理的重要文件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-用户管理配置文件"><span class="nav-number">1.0.1.0.2.1.</span> <span class="nav-text">(1)用户管理配置文件:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-用户的密码文件"><span class="nav-number">1.0.1.0.2.2.</span> <span class="nav-text">(2)用户的密码文件:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-组相关"><span class="nav-number">1.0.1.0.2.3.</span> <span class="nav-text">(3)组相关:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-用户管理的命令"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text">3.用户管理的命令:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-命令的基本格式"><span class="nav-number">1.0.1.0.3.1.</span> <span class="nav-text">(1)命令的基本格式:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-passwd给用户设置密码"><span class="nav-number">1.0.1.0.3.2.</span> <span class="nav-text">(2)passwd给用户设置密码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-批量创建用户举例"><span class="nav-number">1.0.1.0.3.3.</span> <span class="nav-text">(3)批量创建用户举例:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-删除用户和家目录"><span class="nav-number">1.0.1.0.3.4.</span> <span class="nav-text">(4)删除用户和家目录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-组管理的命令"><span class="nav-number">1.0.1.0.3.5.</span> <span class="nav-text">(5)组管理的命令:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part2-文件属性"><span class="nav-number">1.0.2.</span> <span class="nav-text">Part2:文件属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-查看文件属性"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">1.查看文件属性;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-修改文件权限"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">2.修改文件权限:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">申子昊</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">62.8k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
