@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="linux汇总(三)磁盘和文件系统管理一、磁盘管理及分区1．  检测并确认新磁盘​       fdisk -l                    查看系统中硬盘设备及分区情况 A:部分展示的是sda 系统的第一个磁盘以及分区情况B部分展示的是sdb 系统的第二个磁盘及分区情况C部分展示的是lvm磁盘分区情况解析: :磁盘总容量为42949672960bytes  1k=1024b :磁盘总共">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux汇总">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/15/linux汇总3/index.html">
+<meta property="og:site_name" content="changyouB-log">
+<meta property="og:description" content="linux汇总(三)磁盘和文件系统管理一、磁盘管理及分区1．  检测并确认新磁盘​       fdisk -l                    查看系统中硬盘设备及分区情况 A:部分展示的是sda 系统的第一个磁盘以及分区情况B部分展示的是sdb 系统的第二个磁盘及分区情况C部分展示的是lvm磁盘分区情况解析: :磁盘总容量为42949672960bytes  1k=1024b :磁盘总共">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-15T08:11:29.554Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux汇总">
+<meta name="twitter:description" content="linux汇总(三)磁盘和文件系统管理一、磁盘管理及分区1．  检测并确认新磁盘​       fdisk -l                    查看系统中硬盘设备及分区情况 A:部分展示的是sda 系统的第一个磁盘以及分区情况B部分展示的是sdb 系统的第二个磁盘及分区情况C部分展示的是lvm磁盘分区情况解析: :磁盘总容量为42949672960bytes  1k=1024b :磁盘总共">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/15/linux汇总3/">
+
+
+
+
+
+  <title>linux汇总 | changyouB-log</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">changyouB-log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">网络安全</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/15/linux汇总3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+     <span title="Words count in article">
+     4.1k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     15 分钟
+     </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux汇总</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-15T15:46:07+08:00">
+                2019-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  4.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="linux汇总-三"><a href="#linux汇总-三" class="headerlink" title="linux汇总(三)"></a>linux汇总(三)</h1><h3 id="磁盘和文件系统管理"><a href="#磁盘和文件系统管理" class="headerlink" title="磁盘和文件系统管理"></a>磁盘和文件系统管理</h3><h5 id="一、磁盘管理及分区"><a href="#一、磁盘管理及分区" class="headerlink" title="一、磁盘管理及分区"></a>一、磁盘管理及分区</h5><h6 id="1．-检测并确认新磁盘"><a href="#1．-检测并确认新磁盘" class="headerlink" title="1．  检测并确认新磁盘"></a>1．  检测并确认新磁盘</h6><p>​       <strong>fdisk -l</strong>                    查看系统中硬盘设备及分区情况</p>
+<p>A:部分展示的是sda 系统的第一个磁盘以及分区情况<br>B部分展示的是sdb 系统的第二个磁盘及分区情况<br>C部分展示的是lvm磁盘分区情况<br>解析:<br> :磁盘总容量为42949672960bytes  1k=1024b<br> :磁盘总共划分的扇区数量<br> :磁盘划分的每个扇区大小为512b </p>
+<a id="more"></a>
+
+<hr>
+<h6 id="磁盘相关概念"><a href="#磁盘相关概念" class="headerlink" title="磁盘相关概念:"></a>磁盘相关概念:</h6><p>磁盘 片面和磁头<br>硬盘中一般会有多个盘片组成，每个盘片包含两个面，每个盘面都对应地有一个读/写磁头。受到硬盘整体体积和生产成本的限制，盘片数量都受到限制，一般都在5片以内。盘片的编号自下向上从0开始，如最下边的盘片有0面和1面，再上一个盘片就编号为2面和3面。</p>
+<hr>
+<h5 id="磁盘的数据单位"><a href="#磁盘的数据单位" class="headerlink" title="磁盘的数据单位:"></a>磁盘的数据单位:</h5><ol>
+<li><h6 id="磁道-track"><a href="#磁道-track" class="headerlink" title="磁道(track)"></a>磁道(track)</h6><p>下图显示的是一个盘面，盘面中一圈圈灰色同心圆为一条条磁道，从圆心向外画直线，可以将磁道划分为若干个弧段，每个磁道上一个弧段被称之为一个扇区（图践绿色部分）。扇区是磁盘的最小组成单元，通常是512字节。（由于不断提高磁盘的大小，部分厂商设定每个扇区的大小是4096字节）</p>
+</li>
+</ol>
+<h6 id="磁盘容量计算"><a href="#磁盘容量计算" class="headerlink" title="磁盘容量计算"></a>磁盘容量计算</h6><p>存储容量 ＝ 磁头数 × 磁道(柱面)数 × 每道扇区数 × 每扇区字节数<br>图3中磁盘是一个 3个圆盘6个磁头，7个柱面（每个盘片7个磁道） 的磁盘，图3中每条磁道有12个扇区，所以此磁盘的容量为：<br>存储容量 6 * 7 * 12 * 512 = 258048<br>每个磁道的扇区数一样是说的老的硬盘，外圈的密度小，内圈的密度大，每圈可存储的数据量是一样的。新的硬盘数据的密度都一致，这样磁道的周长越长，扇区就越多，存储的数据量就越大。</p>
+<ol start="2">
+<li><h6 id="柱面-cylinder"><a href="#柱面-cylinder" class="headerlink" title="柱面(cylinder)"></a>柱面(cylinder)</h6><p>绕马达旋转轴旋转的多个磁盘，每个磁盘有两个盘面（片），每个盘面里有多个磁道（Track）。多个磁盘上相同大小的磁道在竖直空间上构成了一个柱面，类似于相同大小的一堆呼啦圈（磁道）从脚套到头，视觉上构成了一个空心筒（柱面）硬盘通常由重叠的一组盘片构成，每个盘面都被划分为数目相等的磁道，并从外缘的“0”开始编号，具有相同编号的磁道形成一个圆柱，称之为磁盘的柱面。磁盘的柱面数与一个盘面上的磁道数是相等的。由于每个盘面都有自己的磁头，因此，盘面数等于总的磁头数。 如下图</p>
+</li>
+<li><h6 id="磁头"><a href="#磁头" class="headerlink" title="磁头"></a>磁头</h6><p>磁头的质量影响整个磁盘的性能,只有精密的磁头才能在高转速和高密度磁盘工作的情况下高效正确的读写数据</p>
+</li>
+<li><h6 id="扇区"><a href="#扇区" class="headerlink" title="扇区"></a>扇区</h6><p>事实上仅把数据分为磁道，还不能达到细分数据区的目的（一个磁道中的数据容量还是相当大，即使是最内圈最小的磁道也是一样），因此我们再把磁道分为许多的扇区。由于内圈磁道的数据容量较少，因此内圈磁道所分割出来的扇区数码会比外圈磁道要少。扇区是磁盘上能读取数据的最小单位，大小为 512Bytes，也就是说 1 个 Byte 的文件，无论如何都要占据一个扇区的大小，无论这个扇区的数据量是 2KB 还是 16KB 都是一样。每个扇区内部的数据被视为连续的数据，因此实际存取时，需要再指定扇区中数据的地址，就可以找到所需要的数据</p>
+<h6 id="补充"><a href="#补充" class="headerlink" title="补充:"></a>补充:</h6><h6 id="硬盘在Linux中的表示"><a href="#硬盘在Linux中的表示" class="headerlink" title="硬盘在Linux中的表示"></a>硬盘在Linux中的表示</h6><p>Linux 的所有设备都被抽象为一个文件，保存在 /dev 目录下。<br>根据接口可以分为：IDE、SATA、SAS、SCSI、USB。<br>硬盘名称一般为：设备类型 + [a-z]，其中 [a-z] 表示第几块硬盘。<br>IDE 硬盘的名称一般是：hd[a-z]。SATA 硬盘、SAS 硬盘、SCSI 硬盘和 USB 硬盘的名称一般为：sd[a-z]。例如，第一块 SATA 硬盘名为 /dev/sda，第二块 SATA 硬盘名为 /dev/sdb，以此类推…</p>
+<h5 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h5><p>把一块硬盘的磁盘逻辑地分为几个区，每个区当作独立磁盘，以方便使用管理。<br>不同的分区用：“设备名 + 分区号”来表示，如第一块 SATA 硬盘的两个分区 sda1，sda2。<br>主流的分区机制有 MBR 和 GPT。<br>MBR（Master Boot Record，主引导记录）<br>MBR 是传统的分区机制，应用于绝大多数使用 BIOS 引导的 PC 设备（苹果使用EFI的方式）<br>MBR 支持 32 位和 64 位的操作系统 MBR 支持的分区数量有限 MBR 支持不超过 2T 的硬盘，超过 2T 的硬盘只能使用 2T 空间（有第三方解决办法），因为MBR的寻址空间只有 32 位长 MBR 结构：<br>占用硬盘最开头的 512 字节，即 0 柱面 0 磁道 1 扇区。前 446 字节是引导代码，不同操作系统的引导代码不一样。然后是 4 个 16 字节的主分区表信息。最后 2 个字节 55 AA，是操作系统的启动标识。</p>
+<h5 id="MBR-分区："><a href="#MBR-分区：" class="headerlink" title="MBR 分区："></a>MBR 分区：</h5><p><strong>主分区</strong>：最多只能创建 4 个主分区。<br><strong>扩展分区</strong>：一个扩展分区占用一个主分区位置。<br><strong>逻辑分区</strong>：逻辑分区是基于扩展分区创建出来的。Linux 最多支持 63 个 IDE 分区和 15 个 SCSI 分区。<br><strong>GPT</strong>（GUID Partition Table，全局唯一标识分区表）<br>GPT 是一个较新的分区机制，解决了 MBR 的很多缺点。<br>GPT 支持超过 2T 的硬盘 GPT 向后兼容 MBR GPT 分区必须使用 64 位的系统 Mac、Linux 系统都支持 GPT 分区 Windows7 64位、WindowsServer2008 64位支持 GPT 分区</p>
+</li>
+</ol>
+<p>Device    Boot    Start    End    Blocks    ID    system<br>分区设备文件名称    是否是引导分区<br>*代表是引导分区    该分区在硬盘中开始柱面位置    该分区在硬盘中结束柱面位置    块,最小的存储单位,默认每个块大小为1024字节<br>这里指该分区总共划分了多少个块</p>
+<h6 id="分区对应的文件系统ID"><a href="#分区对应的文件系统ID" class="headerlink" title="分区对应的文件系统ID"></a>分区对应的文件系统ID</h6><p><strong>83:XFS系统</strong><br><strong>8E:表示lvm逻辑卷</strong><br><strong>82:表示swap</strong><br><strong>86:表示ntfs    分区类型</strong></p>
+<p>磁盘块/簇（虚拟出来的）。 块是操作系统中最小的逻辑存储单位。操作系统与磁盘打交道的最小单位是磁盘块。<br>通俗的来讲，在Windows下如NTFS等文件系统中叫做簇；在Linux下如Ext4等文件系统中叫做块（block）。每个簇或者块可以包括2、4、8、16、32、64…2的n次方个扇区。</p>
+<h6 id="为什么存在磁盘块？"><a href="#为什么存在磁盘块？" class="headerlink" title="为什么存在磁盘块？"></a>为什么存在磁盘块？</h6><p>读取方便：由于扇区的数量比较小，数目众多在寻址时比较困难，所以操作系统就将相邻的扇区组合在一起，形成一个块，再对块进行整体的操作。<br>分离对底层的依赖：操作系统忽略对底层物理存储结构的设计。通过虚拟出来磁盘块的概念，在系统中认为块是最小的单位。</p>
+<ol>
+<li>扇区： 硬盘的最小读写单元</li>
+<li>块/簇： 是操作系统针对硬盘读写的最小单元</li>
+</ol>
+<h6 id="2．规划磁盘中的分区"><a href="#2．规划磁盘中的分区" class="headerlink" title="2．规划磁盘中的分区"></a>2．规划磁盘中的分区</h6><p><strong>Fdisk /dev/sda   ————-对指定硬盘分区</strong><br>进入”交互式分区管理”界面:<br>交互操作指令如下:<br><strong>P:列出磁盘中的分区情况</strong></p>
+<p><strong>n:新建分区</strong><br><strong>分区包括:主分区\扩展分区\逻辑分区(主分区+扩展分区&lt;=4个)</strong><br>选择分区类型:<br><strong>——p:主分区</strong></p>
+<p><strong>—–e:扩展分区</strong></p>
+<p><strong>——l:创建逻辑分区</strong> (注意:只有在有扩展分区的情况下,才会出现l选项,创建逻辑分区)</p>
+<p><strong>d:删除分区</strong></p>
+<p><strong>w和q   ———fdisk分区工具</strong><br><strong>W:保存写入</strong><br><strong>q:退出分区工具</strong><br>当磁盘的分区发生变化后,最<strong>好是重启或是执行partprobe /dev/sdb</strong><br><strong>Partprobe:使操作系统重新检测分区变化,如果不执行,可能会出现格式化时损坏数据,严重导致系统崩溃.</strong></p>
+<hr>
+<h5 id="管理文件系统"><a href="#管理文件系统" class="headerlink" title="管理文件系统"></a>管理文件系统</h5><h6 id="一-创建文件系统"><a href="#一-创建文件系统" class="headerlink" title="一 创建文件系统"></a>一 创建文件系统</h6><ol>
+<li><strong>mkfs</strong><br>mkfs是一个前端工具,自动加载不同的程序来创建的各种不同的文件系统.<br>mkfs后端包括很多的相关命令,命令程序位于/sbin/目录中<br>ls /sbin/mkfs.*</li>
+</ol>
+<p><strong>mkfs命令的使用格式:mkfs -t 文件系统类型 分区设备</strong><br>系统文件对比:<br>    文件系统类型    优点    缺点<br><strong>Ext3:第三代扩展文件系统</strong><br><strong>Ext4:第四代扩展文件系统</strong><br>1EB=1024PB<br>1PB=1024TB    Ext3(linux 5默认系统文件)    带有fsck 效率低 慢<br>支持32000个目录<br>    Ext4(linux6默认系统文件)    相对3 带有fsck 效率高 快<br>对目录的支持无限制<br>最大支持文件系统容量为1EB,文件容量为16TB<br><strong>Xfs:高性能日志文件系统    Xfs(linux7默认系统文件)    最大支持8EB文件系统容量</strong>    </p>
+<h6 id="1-创建xfs文件系统"><a href="#1-创建xfs文件系统" class="headerlink" title="(1)    创建xfs文件系统"></a>(1)    创建xfs文件系统</h6><p><strong>mkfs -t xfs /dev/sdb1</strong>   ———将sdb1分区格式化为xfs文件系统<br>或<strong>mkfs.xfs /dev/sdb1</strong></p>
+<h6 id="2-创建Ext4文件系统"><a href="#2-创建Ext4文件系统" class="headerlink" title="(2)    创建Ext4文件系统"></a>(2)    创建Ext4文件系统</h6><p><strong>Msfs -t ext4 /dev/sdb2</strong><br>或<strong>mkfs.ext4 /dev/sdb2</strong></p>
+<h6 id="3-创建fat32文件系统"><a href="#3-创建fat32文件系统" class="headerlink" title="(3)    创建fat32文件系统"></a>(3)    创建fat32文件系统</h6><p><strong>mkfs -t vfat -F 32 /dev/sdb7</strong><br>或<strong>mkfs.vfat -F 32 /dev/sdb7</strong></p>
+<ol start="2">
+<li><h6 id="mkswap"><a href="#mkswap" class="headerlink" title="mkswap"></a>mkswap</h6><p><strong>将/dev/sdb8创建swap文件系统</strong><br>(1) <strong>mkswap /dev/sdb8</strong> —–创建swap交换分区<br>(2) <strong>Swapon /dev/sdb8</strong>  —–启用swap分区<br><strong>Swapoff /dev/sdb8</strong>   ——关闭swap分区<br>注释:swap分区大小应该是物理内存的1.5-2倍  现在内存足够可以不使用交换分区</p>
+</li>
+</ol>
+<hr>
+<h5 id="二-挂在卸载文件系统"><a href="#二-挂在卸载文件系统" class="headerlink" title="二 挂在卸载文件系统"></a>二 挂在卸载文件系统</h5><h6 id="临时挂载"><a href="#临时挂载" class="headerlink" title="临时挂载"></a>临时挂载</h6><ol>
+<li><h6 id="挂在文件系统"><a href="#挂在文件系统" class="headerlink" title="挂在文件系统"></a>挂在文件系统</h6></li>
+</ol>
+<h6 id="1-mount-t-文件系统-设备名称"><a href="#1-mount-t-文件系统-设备名称" class="headerlink" title="(1)    mount (-t 文件系统)  设备名称"></a>(1)    mount (-t 文件系统)  设备名称</h6><p>挂载<strong>mount命令的使用格式,文件系统可省</strong><br>    例如: <strong>mount /dev/sr0 /media</strong>  ——–将光驱挂载到/media (sr0 和 cdrom都代表光驱)<br> <strong>=mount /dev/cdrom /media</strong></p>
+<pre><code>###### (2)    挂载.iso文件,可以直接查看.iso压缩文件的内容
+
+**mount -o loop /dev/CentOS-7.5-x86_64-DVD-1804.iso /media**
+**-o loop:iso**文件视为一种特属的回环文件系统</code></pre><ol start="2">
+<li><h6 id="卸载文件系统"><a href="#卸载文件系统" class="headerlink" title="卸载文件系统"></a>卸载文件系统</h6></li>
+</ol>
+<p>Umount 挂载点或是设备名称   ——-卸载挂载点的命令格式<br>例如<strong>:umount /dev/sr0</strong> ————-卸载掉光盘的挂载点<br><strong>=umount /dev/media</strong><br>    <strong>=umount /dev/sr0 /media</strong><br>      Mount 查看挂载情况</p>
+<p><strong>永久挂载  ——-通过修改mount配置文件的方式永久挂载</strong></p>
+<ol start="3">
+<li><h6 id="设置文件系统的自动挂在"><a href="#设置文件系统的自动挂在" class="headerlink" title="设置文件系统的自动挂在"></a>设置文件系统的自动挂在</h6></li>
+</ol>
+<p><strong>/etc/fstab</strong>  ———-(mount的配置文件)永久挂载的配置文件<br>    <strong>Vim /etc/fstab文件格式</strong><br>    <strong>/dev/sdb1    /media    Xfs    Defaults    0    0</strong><br><strong>设备名    挂载点    文件系统类型(如:xfs swap)    挂载参数</strong><br>    (是否在-o)    文件系统是否dump备份 1表示需要 0表示不需要    系统启动时检查磁盘的顺序<br>0:不检查<br>1:检查(根分区)<br>    2:其次检查(其他分区)    </p>
+<ol start="4">
+<li><h6 id="查看磁盘的使用情况"><a href="#查看磁盘的使用情况" class="headerlink" title="查看磁盘的使用情况"></a>查看磁盘的使用情况</h6><p><strong>df -Th</strong>  ——查看磁盘的使用情况<br><strong>-T</strong>:显示文件系统类型<br><strong>-h</strong>:以友好的显示单位来显示</p>
+</li>
+</ol>
+<hr>
+<h2 id="LVM逻辑卷和磁盘配额"><a href="#LVM逻辑卷和磁盘配额" class="headerlink" title="LVM逻辑卷和磁盘配额"></a>LVM逻辑卷和磁盘配额</h2><h5 id="LVM逻辑卷"><a href="#LVM逻辑卷" class="headerlink" title="LVM逻辑卷"></a>LVM逻辑卷</h5><h6 id="一、LVM概述"><a href="#一、LVM概述" class="headerlink" title="一、LVM概述"></a>一、LVM概述</h6><p>1．LVM是linux操作系统下一种逻辑管理磁盘分区的机制,可以在保持现有数据不变的情况下动态调整磁盘的容量.<br>2．LVM的基本术语</p>
+<h6 id="（1）PV-physical-volume物理卷"><a href="#（1）PV-physical-volume物理卷" class="headerlink" title="（1）PV(physical volume物理卷)"></a>（1）PV(physical volume物理卷)</h6><p>①　物理卷是LVM的基本存储设备.<br>②　创建物理卷时会在分区或是磁盘的头部创建一个保留区块,用于记录LVM的属性,       并把存储空间逻辑分割成默认4MB大小的基本单元(PE)从而构成物理卷<br>③　将普通分区/dev/sdb1转成物理卷是需要先将分区类型ID改为8e</p>
+<hr>
+<h6 id="（2）VG-volume-group-卷组"><a href="#（2）VG-volume-group-卷组" class="headerlink" title="（2）VG(volume group 卷组)"></a>（2）VG(volume group 卷组)</h6><p>①卷组是一个或多个物理卷的集合<br>②在卷组内可以动态添加或是删除物理卷<br>③卷组的名字可以自定义</p>
+<hr>
+<h6 id="（3）LV-logical-volume-逻辑卷"><a href="#（3）LV-logical-volume-逻辑卷" class="headerlink" title="（3）LV(logical volume 逻辑卷)"></a>（3）LV(logical volume 逻辑卷)</h6><p>①逻辑卷是在卷组上逻辑划分的卷,与物理卷没有关系<br>②将逻辑卷的空间安装文件系统,挂载到挂载点就可以使用,相当于普通分区<br>③普通分区和逻辑分区的创建使用过程对比:</p>
+<hr>
+<h5 id="二、LVM管理命令"><a href="#二、LVM管理命令" class="headerlink" title="二、LVM管理命令"></a>二、LVM管理命令</h5><h6 id="命令总结"><a href="#命令总结" class="headerlink" title="命令总结:"></a>命令总结:</h6><p>功能                             物理卷管理                   卷组管理                     逻辑卷管理<br>Scan 扫描                       pvscan                        vgscan                            lvscan<br>Create 建立                    pvcreate                     vgcreate                         lvcreate<br>Display 显示                   pvdisplay                   vgdisplay                        lvdisplay<br>Remove 删除                  pvremove                  vgremove                       lvremove<br>Extend 扩展                    vgextend                   lvextend<br>Reduce 减少                   vgreduce                   lvreduce</p>
+<hr>
+<h5 id="1-物理卷管理"><a href="#1-物理卷管理" class="headerlink" title="(1)    物理卷管理"></a>(1)    物理卷管理</h5><p>①    <strong>pvsan</strong>  ——-扫面所有的物理卷</p>
+<p>功能                             物理卷管理                   卷组管理                     逻辑卷管理<br>Scan 扫描                       pvscan                        vgscan                            lvscan<br>Create 建立                    pvcreate                     vgcreate                         lvcreate<br>Display 显示                   pvdisplay                   vgdisplay                        lvdisplay<br>Remove 删除                  pvremove                  vgremove                       lvremove<br>Extend 扩展                    vgextend                   lvextend<br>Reduce 减少                   vgreduce                   lvreduce</p>
+<hr>
+<h5 id="1-物理卷管理-1"><a href="#1-物理卷管理-1" class="headerlink" title="(1)    物理卷管理"></a>(1)    物理卷管理</h5><h6 id="①-pvsan-——-扫面所有的物理卷"><a href="#①-pvsan-——-扫面所有的物理卷" class="headerlink" title="①    pvsan  ——-扫面所有的物理卷"></a>①    pvsan  ——-扫面所有的物理卷</h6><p>解析:/dev/sda2普通分区已经转为PV  属于centos 这个VG组  总空间是39G<br>     总共1个PV  有1个PV正在使用    有0个PV不属于VG组</p>
+<h6 id="②-pvcreate-—–将分区或是整个硬盘转为物理卷"><a href="#②-pvcreate-—–将分区或是整个硬盘转为物理卷" class="headerlink" title="②    pvcreate  —–将分区或是整个硬盘转为物理卷"></a>②    pvcreate  —–将分区或是整个硬盘转为物理卷</h6><p>Pvcreate /dev/sdb1 sdb2 sdb5  ——-将这三个分区转为PV,为创建VG做准备</p>
+<p>解析:提示已经成功将这三个普通分区转为PV物理卷</p>
+<h6 id="③-pvdisplay-—–显示物理卷的详细信息"><a href="#③-pvdisplay-—–显示物理卷的详细信息" class="headerlink" title="③    pvdisplay   —–显示物理卷的详细信息"></a>③    pvdisplay   —–显示物理卷的详细信息</h6><p>pvdisplay</p>
+<p>解析:三个分区已经转为PV,待用PV空间pvsize为分区的物理空间</p>
+<h6 id="④-pvremove-—–将物理卷还原为普通分区"><a href="#④-pvremove-—–将物理卷还原为普通分区" class="headerlink" title="④    pvremove  —–将物理卷还原为普通分区"></a>④    pvremove  —–将物理卷还原为普通分区</h6><p>Pvremove /dev/sdb5   ——将/dev/sdb5转为普通分区</p>
+<hr>
+<h5 id="2-卷组管理"><a href="#2-卷组管理" class="headerlink" title="(2)    卷组管理"></a>(2)    卷组管理</h5><h6 id="①-vgscan-—-扫描系统中已经建立的lvm卷组"><a href="#①-vgscan-—-扫描系统中已经建立的lvm卷组" class="headerlink" title="①    vgscan  —-扫描系统中已经建立的lvm卷组"></a>①    vgscan  —-扫描系统中已经建立的lvm卷组</h6><h6 id="②-vgcreate-—-将一个或是多个已存在的物理卷创建为一个卷组"><a href="#②-vgcreate-—-将一个或是多个已存在的物理卷创建为一个卷组" class="headerlink" title="②    vgcreate —-将一个或是多个已存在的物理卷创建为一个卷组"></a>②    vgcreate —-将一个或是多个已存在的物理卷创建为一个卷组</h6><hr>
+<h6 id="解析"><a href="#解析" class="headerlink" title="解析:"></a>解析:</h6><p>1.先<strong>扫描</strong>有哪些<strong>PV  pvscan</strong>命令<br>2.创建<strong>VG组</strong>名为:<strong>new_vgzu</strong> 并把<strong>sdb1,2,5</strong>三个<strong>PV</strong>加入到<strong>VG</strong>组内(V<strong>G组的空间=三个PV的总空间</strong>)</p>
+<p>3.<strong>Vgcreat -s 16M vgzu /dev/sdb{1,2,5</strong>} —-创建vgzu(vg组的组名)并将sdb1 sdb2 sdb5三个pv加入VG组 并指定大小为16MB}</p>
+<hr>
+<h6 id="③-vgdisplay-—–查看系统中卷组的详细信息"><a href="#③-vgdisplay-—–查看系统中卷组的详细信息" class="headerlink" title="③    vgdisplay    —–查看系统中卷组的详细信息"></a>③    vgdisplay    —–查看系统中卷组的详细信息</h6><h6 id="④-Vgremove-—-删除指定卷组"><a href="#④-Vgremove-—-删除指定卷组" class="headerlink" title="④    Vgremove   —-删除指定卷组"></a>④    Vgremove   —-删除指定卷组</h6><p><strong>Vgremove new_vgzu</strong>   ——-删除名为new_vgzu这个VG组</p>
+<h6 id="⑤-Vgextend-—–扩展卷组的磁盘空间–扩展卷组的空间的方式就是往里添加PV"><a href="#⑤-Vgextend-—–扩展卷组的磁盘空间–扩展卷组的空间的方式就是往里添加PV" class="headerlink" title="⑤    Vgextend —–扩展卷组的磁盘空间–扩展卷组的空间的方式就是往里添加PV"></a>⑤    Vgextend —–扩展卷组的磁盘空间–扩展卷组的空间的方式就是往里添加PV</h6><p><strong>Vgextend 组名 PV设备名</strong>  </p>
+<h6 id="6-vgreduce-—–删除vg组中的指定PV"><a href="#6-vgreduce-—–删除vg组中的指定PV" class="headerlink" title="6  vgreduce  —–删除vg组中的指定PV"></a>6  vgreduce  —–删除vg组中的指定PV</h6><p><strong>Vgreduce 组名 PV设备名</strong><br>例如: <strong>vgextend new_vgzu /dev/sdb6</strong> ——将/sdb6这个PV扩展到已存在的VG组new_vgzu</p>
+<hr>
+<h5 id="3-逻辑卷管理"><a href="#3-逻辑卷管理" class="headerlink" title="(3)    逻辑卷管理"></a>(3)    逻辑卷管理</h5><p> <strong>VG组是把多个PV空间汇总到VG组,然后将VG组划分成LV,才可以创建文件系统,挂载使用</strong>.<br><strong>从VG组分割LV:</strong></p>
+<h6 id="①-Lvscan-———扫描已存在的LV逻辑卷"><a href="#①-Lvscan-———扫描已存在的LV逻辑卷" class="headerlink" title="①　Lvscan   ———扫描已存在的LV逻辑卷"></a>①　Lvscan   ———扫描已存在的LV逻辑卷</h6><h6 id="②-Lvcreate-——从VG组创建LV"><a href="#②-Lvcreate-——从VG组创建LV" class="headerlink" title="②　Lvcreate  ——从VG组创建LV"></a>②　Lvcreate  ——从VG组创建LV</h6><p>1)    格式<strong>:lvcreate -L</strong> 空间 -n 名称 VG组名<br>例如:<strong>lvcreate -L 10G -n games new_vgzu</strong>  —–从new_vgzu中创建一个10G空间的名叫games的LV逻辑卷(也就是分区)</p>
+<h6 id="③-Lvdisplay——显示逻辑卷的详细信息"><a href="#③-Lvdisplay——显示逻辑卷的详细信息" class="headerlink" title="③　Lvdisplay——显示逻辑卷的详细信息"></a>③　Lvdisplay——显示逻辑卷的详细信息</h6><p>Lvdisplay</p>
+<h6 id="④-Lvextend—–用于在不损坏数据的情况-动态扩展逻辑卷的空间"><a href="#④-Lvextend—–用于在不损坏数据的情况-动态扩展逻辑卷的空间" class="headerlink" title="④　Lvextend—–用于在不损坏数据的情况,动态扩展逻辑卷的空间."></a>④　Lvextend—–用于在不损坏数据的情况,动态扩展逻辑卷的空间.</h6><p><strong>lvextend -L +空间 /dev/vg组/逻辑卷</strong><br>例如:<strong>lvextend -L +1G /dev/new_vgzu/games</strong> –给games从VG组内增加1G空间<br>例如<strong>:lvresize -L -1G -f /dev/new_vgzu/games</strong>  —–减掉games1G 的空间<br>         <strong>=lvreduce -L -1G -f /dev/new_vgzu/games</strong></p>
+<h6 id="⑤-Lvremove"><a href="#⑤-Lvremove" class="headerlink" title="⑤　Lvremove"></a>⑤　Lvremove</h6><p><strong>LVremove /dev/new_vgzu/games —–删除games这个LV</strong></p>
+<hr>
+<h5 id="三、LVM-的应用"><a href="#三、LVM-的应用" class="headerlink" title="三、LVM 的应用"></a>三、LVM 的应用</h5><p>公司准备在Internet中搭建FTP服务器（CentOS 7.3平台），面向全国各地的员工及部分VIP客户提供资料上传下载的空间。考虑动态扩容的需要，计划增加两块40G的SCSI硬盘并构建LVM逻辑卷（用xfs文件系统挂载到/date目录下）专门用于存放邮件数据<br>(1)    关闭服务器,增加两块硬盘<br>(2)    开启服务器,执行fdisk -l查看是否识别到新加的两块磁盘(sdb sdc)<br>(3)    创建普通分区 /dev/sdb1 /dev/sdc1,(fdisk )并查看是否已经创建成功.(fdisk -l /dev/sdb /dev/sdc)<br>(4)    将普通分区转换为PV(pvcreate 分区名)<br>(5)    将两个物理卷整合为VG组名为ftp_vg (vgcreat 组名 pv)<br>(6)    在ftp_vg组创建为ftp的LV (lvcreate -L 空间 -n lv名称 vg组名)<br>(7)    将ftp逻辑卷格式化(mkfs.xfs lv全名)<br>(8)    创建/date目录<br>(9)    将ftp逻辑卷(lv)挂载到/date  (vim fstab或是mount)<br>(10)    查看结果 df -Th </p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/14/git常用命令/" rel="next" title="git常用命令">
+                <i class="fa fa-chevron-left"></i> git常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="申子昊">
+            
+              <p class="site-author-name" itemprop="name">申子昊</p>
+              <p class="site-description motion-element" itemprop="description">多一份网络防护技能,多一份信息安全保证</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Flash1201" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shenzihao76@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://tcp123.cn" target="_blank" title="友情链接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>友情链接</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://ibbs.tcp123.cn/index.php?c=thread&fid=25" target="_blank" title="论坛连接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>论坛连接</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux汇总-三"><span class="nav-number">1.</span> <span class="nav-text">linux汇总(三)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#磁盘和文件系统管理"><span class="nav-number">1.0.1.</span> <span class="nav-text">磁盘和文件系统管理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、磁盘管理及分区"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">一、磁盘管理及分区</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1．-检测并确认新磁盘"><span class="nav-number">1.0.1.0.1.1.</span> <span class="nav-text">1．  检测并确认新磁盘</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#磁盘相关概念"><span class="nav-number">1.0.1.0.1.2.</span> <span class="nav-text">磁盘相关概念:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#磁盘的数据单位"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">磁盘的数据单位:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#磁道-track"><span class="nav-number">1.0.1.0.2.1.</span> <span class="nav-text">磁道(track)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#磁盘容量计算"><span class="nav-number">1.0.1.0.2.2.</span> <span class="nav-text">磁盘容量计算</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#柱面-cylinder"><span class="nav-number">1.0.1.0.2.3.</span> <span class="nav-text">柱面(cylinder)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#磁头"><span class="nav-number">1.0.1.0.2.4.</span> <span class="nav-text">磁头</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#扇区"><span class="nav-number">1.0.1.0.2.5.</span> <span class="nav-text">扇区</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#补充"><span class="nav-number">1.0.1.0.2.6.</span> <span class="nav-text">补充:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#硬盘在Linux中的表示"><span class="nav-number">1.0.1.0.2.7.</span> <span class="nav-text">硬盘在Linux中的表示</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分区"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text">分区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MBR-分区："><span class="nav-number">1.0.1.0.4.</span> <span class="nav-text">MBR 分区：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#分区对应的文件系统ID"><span class="nav-number">1.0.1.0.4.1.</span> <span class="nav-text">分区对应的文件系统ID</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#为什么存在磁盘块？"><span class="nav-number">1.0.1.0.4.2.</span> <span class="nav-text">为什么存在磁盘块？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2．规划磁盘中的分区"><span class="nav-number">1.0.1.0.4.3.</span> <span class="nav-text">2．规划磁盘中的分区</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#管理文件系统"><span class="nav-number">1.0.1.0.5.</span> <span class="nav-text">管理文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一-创建文件系统"><span class="nav-number">1.0.1.0.5.1.</span> <span class="nav-text">一 创建文件系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-创建xfs文件系统"><span class="nav-number">1.0.1.0.5.2.</span> <span class="nav-text">(1)    创建xfs文件系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-创建Ext4文件系统"><span class="nav-number">1.0.1.0.5.3.</span> <span class="nav-text">(2)    创建Ext4文件系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-创建fat32文件系统"><span class="nav-number">1.0.1.0.5.4.</span> <span class="nav-text">(3)    创建fat32文件系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#mkswap"><span class="nav-number">1.0.1.0.5.5.</span> <span class="nav-text">mkswap</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二-挂在卸载文件系统"><span class="nav-number">1.0.1.0.6.</span> <span class="nav-text">二 挂在卸载文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#临时挂载"><span class="nav-number">1.0.1.0.6.1.</span> <span class="nav-text">临时挂载</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#挂在文件系统"><span class="nav-number">1.0.1.0.6.2.</span> <span class="nav-text">挂在文件系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-mount-t-文件系统-设备名称"><span class="nav-number">1.0.1.0.6.3.</span> <span class="nav-text">(1)    mount (-t 文件系统)  设备名称</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#卸载文件系统"><span class="nav-number">1.0.1.0.6.4.</span> <span class="nav-text">卸载文件系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#设置文件系统的自动挂在"><span class="nav-number">1.0.1.0.6.5.</span> <span class="nav-text">设置文件系统的自动挂在</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查看磁盘的使用情况"><span class="nav-number">1.0.1.0.6.6.</span> <span class="nav-text">查看磁盘的使用情况</span></a></li></ol></li></ol></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#LVM逻辑卷和磁盘配额"><span class="nav-number">1.1.</span> <span class="nav-text">LVM逻辑卷和磁盘配额</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#LVM逻辑卷"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">LVM逻辑卷</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一、LVM概述"><span class="nav-number">1.1.0.0.1.1.</span> <span class="nav-text">一、LVM概述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（1）PV-physical-volume物理卷"><span class="nav-number">1.1.0.0.1.2.</span> <span class="nav-text">（1）PV(physical volume物理卷)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（2）VG-volume-group-卷组"><span class="nav-number">1.1.0.0.1.3.</span> <span class="nav-text">（2）VG(volume group 卷组)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（3）LV-logical-volume-逻辑卷"><span class="nav-number">1.1.0.0.1.4.</span> <span class="nav-text">（3）LV(logical volume 逻辑卷)</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、LVM管理命令"><span class="nav-number">1.1.0.0.2.</span> <span class="nav-text">二、LVM管理命令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#命令总结"><span class="nav-number">1.1.0.0.2.1.</span> <span class="nav-text">命令总结:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-物理卷管理"><span class="nav-number">1.1.0.0.3.</span> <span class="nav-text">(1)    物理卷管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-物理卷管理-1"><span class="nav-number">1.1.0.0.4.</span> <span class="nav-text">(1)    物理卷管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#①-pvsan-——-扫面所有的物理卷"><span class="nav-number">1.1.0.0.4.1.</span> <span class="nav-text">①    pvsan  ——-扫面所有的物理卷</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#②-pvcreate-—–将分区或是整个硬盘转为物理卷"><span class="nav-number">1.1.0.0.4.2.</span> <span class="nav-text">②    pvcreate  —–将分区或是整个硬盘转为物理卷</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#③-pvdisplay-—–显示物理卷的详细信息"><span class="nav-number">1.1.0.0.4.3.</span> <span class="nav-text">③    pvdisplay   —–显示物理卷的详细信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#④-pvremove-—–将物理卷还原为普通分区"><span class="nav-number">1.1.0.0.4.4.</span> <span class="nav-text">④    pvremove  —–将物理卷还原为普通分区</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-卷组管理"><span class="nav-number">1.1.0.0.5.</span> <span class="nav-text">(2)    卷组管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#①-vgscan-—-扫描系统中已经建立的lvm卷组"><span class="nav-number">1.1.0.0.5.1.</span> <span class="nav-text">①    vgscan  —-扫描系统中已经建立的lvm卷组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#②-vgcreate-—-将一个或是多个已存在的物理卷创建为一个卷组"><span class="nav-number">1.1.0.0.5.2.</span> <span class="nav-text">②    vgcreate —-将一个或是多个已存在的物理卷创建为一个卷组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#解析"><span class="nav-number">1.1.0.0.5.3.</span> <span class="nav-text">解析:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#③-vgdisplay-—–查看系统中卷组的详细信息"><span class="nav-number">1.1.0.0.5.4.</span> <span class="nav-text">③    vgdisplay    —–查看系统中卷组的详细信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#④-Vgremove-—-删除指定卷组"><span class="nav-number">1.1.0.0.5.5.</span> <span class="nav-text">④    Vgremove   —-删除指定卷组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#⑤-Vgextend-—–扩展卷组的磁盘空间–扩展卷组的空间的方式就是往里添加PV"><span class="nav-number">1.1.0.0.5.6.</span> <span class="nav-text">⑤    Vgextend —–扩展卷组的磁盘空间–扩展卷组的空间的方式就是往里添加PV</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-vgreduce-—–删除vg组中的指定PV"><span class="nav-number">1.1.0.0.5.7.</span> <span class="nav-text">6  vgreduce  —–删除vg组中的指定PV</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-逻辑卷管理"><span class="nav-number">1.1.0.0.6.</span> <span class="nav-text">(3)    逻辑卷管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#①-Lvscan-———扫描已存在的LV逻辑卷"><span class="nav-number">1.1.0.0.6.1.</span> <span class="nav-text">①　Lvscan   ———扫描已存在的LV逻辑卷</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#②-Lvcreate-——从VG组创建LV"><span class="nav-number">1.1.0.0.6.2.</span> <span class="nav-text">②　Lvcreate  ——从VG组创建LV</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#③-Lvdisplay——显示逻辑卷的详细信息"><span class="nav-number">1.1.0.0.6.3.</span> <span class="nav-text">③　Lvdisplay——显示逻辑卷的详细信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#④-Lvextend—–用于在不损坏数据的情况-动态扩展逻辑卷的空间"><span class="nav-number">1.1.0.0.6.4.</span> <span class="nav-text">④　Lvextend—–用于在不损坏数据的情况,动态扩展逻辑卷的空间.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#⑤-Lvremove"><span class="nav-number">1.1.0.0.6.5.</span> <span class="nav-text">⑤　Lvremove</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、LVM-的应用"><span class="nav-number">1.1.0.0.7.</span> <span class="nav-text">三、LVM 的应用</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">申子昊</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">67.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
