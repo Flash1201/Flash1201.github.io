@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="解释/etc/sdb5和/dev/sdb2分别是什么意思答：/etc/sdb5 表示第二块硬盘的第一个逻辑分区/etc/sdb2 表示第二块硬盘的第二个主分区  linux操作系统的启动过程答：：Linux操作系统的启动过程一般分为四个阶段，分别为BLOS启动引导阶段、GRUB启动引导阶段、内核阶段、int初始化阶段">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux内侧">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/17/Linux内侧/index.html">
+<meta property="og:site_name" content="changyouB-log">
+<meta property="og:description" content="解释/etc/sdb5和/dev/sdb2分别是什么意思答：/etc/sdb5 表示第二块硬盘的第一个逻辑分区/etc/sdb2 表示第二块硬盘的第二个主分区  linux操作系统的启动过程答：：Linux操作系统的启动过程一般分为四个阶段，分别为BLOS启动引导阶段、GRUB启动引导阶段、内核阶段、int初始化阶段">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-17T09:24:14.371Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux内侧">
+<meta name="twitter:description" content="解释/etc/sdb5和/dev/sdb2分别是什么意思答：/etc/sdb5 表示第二块硬盘的第一个逻辑分区/etc/sdb2 表示第二块硬盘的第二个主分区  linux操作系统的启动过程答：：Linux操作系统的启动过程一般分为四个阶段，分别为BLOS启动引导阶段、GRUB启动引导阶段、内核阶段、int初始化阶段">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/17/Linux内侧/">
+
+
+
+
+
+  <title>Linux内侧 | changyouB-log</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">changyouB-log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">网络安全</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/17/Linux内侧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+     <span title="Words count in article">
+     2.9k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     11 分钟
+     </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux内侧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-17T17:19:52+08:00">
+                2019-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li><h6 id="解释-etc-sdb5和-dev-sdb2分别是什么意思"><a href="#解释-etc-sdb5和-dev-sdb2分别是什么意思" class="headerlink" title="解释/etc/sdb5和/dev/sdb2分别是什么意思"></a>解释/etc/sdb5和/dev/sdb2分别是什么意思</h6><p>答：/etc/sdb5 表示第二块硬盘的第一个逻辑分区<br>/etc/sdb2 表示第二块硬盘的第二个主分区</p>
+</li>
+<li><h6 id="linux操作系统的启动过程"><a href="#linux操作系统的启动过程" class="headerlink" title="linux操作系统的启动过程"></a>linux操作系统的启动过程</h6><p>答：：Linux操作系统的启动过程一般分为四个阶段，分别为BLOS启动引导阶段、GRUB启动引导阶段、内核阶段、int初始化阶段</p>
+<a id="more"></a>
+</li>
+<li><h6 id="Linux的运行级别分别代表什么意思"><a href="#Linux的运行级别分别代表什么意思" class="headerlink" title="Linux的运行级别分别代表什么意思?"></a>Linux的运行级别分别代表什么意思?</h6><p>答：Linux运行级别：<br>0： 关机<br>1： 单用户<br>2： 无网络的多用户<br>3： 命令行模式<br>4： 未用<br>5： GUI（图形桌面 模式）<br>6 ： 重启<br>运行级别的切换：init 想要切换的运行级别</p>
+</li>
+<li><h6 id="将hpptd服务设置为开机自启动和开机自动关闭的命令"><a href="#将hpptd服务设置为开机自启动和开机自动关闭的命令" class="headerlink" title="将hpptd服务设置为开机自启动和开机自动关闭的命令"></a>将hpptd服务设置为开机自启动和开机自动关闭的命令</h6><p>答：chkconfig –add httpd 添加httpd服务的开机自动启动功能<br>chkconfig –del httpd 删除httpd服务的开机自动启动功能</p>
+</li>
+<li><p>写出以下命令:</p>
+</li>
+</ol>
+<h6 id="1-长格式友好显示home目录的详细属性信息"><a href="#1-长格式友好显示home目录的详细属性信息" class="headerlink" title="(1)    长格式友好显示home目录的详细属性信息"></a>(1)    长格式友好显示home目录的详细属性信息</h6><p>答：ls –lh /home</p>
+<h6 id="2-查看指定目录的所占空间"><a href="#2-查看指定目录的所占空间" class="headerlink" title="(2)    查看指定目录的所占空间"></a>(2)    查看指定目录的所占空间</h6><p>答：du指定目录</p>
+<h6 id="3-一次性创建嵌套多层目录"><a href="#3-一次性创建嵌套多层目录" class="headerlink" title="(3)    一次性创建嵌套多层目录"></a>(3)    一次性创建嵌套多层目录</h6><p>答：mkdir –p 创建目录层次</p>
+<h6 id="4-给源文件xx-txt创建一个软连接-名为-aa-txt"><a href="#4-给源文件xx-txt创建一个软连接-名为-aa-txt" class="headerlink" title="(4)    给源文件xx.txt创建一个软连接,名为/aa.txt"></a>(4)    给源文件xx.txt创建一个软连接,名为/aa.txt</h6><p>答：ln –s xx.txt /aa.txt</p>
+<pre><code>###### (5)    将/home/hack目录内的所有内容(包括子目录)复制到/hack/
+
+答：cp /home/hack /hack/
+
+###### (6)    将文件重命名
+
+答：mv 原文件名 修改后的文件名
+
+###### (7)    在系统中查找所有A字母大头的txt文件
+
+答：ls –l A*.txt
+
+###### (8)    查看/etc/passwd文件的最后三行和前三行(两条命令)
+
+答：hard -3 /etc/passwd 查看/etc/passwd文件的前三行
+tail -3 /etc/passwd 查看/etc/passwd文件的最后三行
+
+###### (9)    一次性创建aa ab ac ad四个文件
+
+答：touch file {aa，ab，ac,ad}
+
+###### (10)    统计/etc/shadow文件总共有多少行
+
+答：wc –l /etc/shadow
+
+###### (11)    过滤掉/etc/yum.conf文件中#号开头的行和空行
+
+答：grep –v “#” etc/yum.conf | grep “^$”
+
+###### (12)    将/etc/tpm/* 压缩归档问xx.tar/gz
+
+答：tar zxfv xx.tar/gz /etc/tpm/*
+
+###### (13)    将xx.tar.gz这个文件解压到/test/
+
+答：tar –xf xx.tar.gz /test/
+
+###### (14)    再次执行最近v开头的命令
+
+答：!v</code></pre><ol start="6">
+<li><h6 id="写出vi编辑器的模式以及相关指令分别是什么意思"><a href="#写出vi编辑器的模式以及相关指令分别是什么意思" class="headerlink" title="写出vi编辑器的模式以及相关指令分别是什么意思"></a>写出vi编辑器的模式以及相关指令分别是什么意思</h6><p>答：vi编辑器存在三种模式，分别是命令模式、输入模式、末行模式。<br>在命令模式输入i、o、a进入输入模式<br>从输入模式按esc键进入命令模式<br>从命令魔兽按：进入末行模式，在末行模式输入wq保存退出，按q！强制退出</p>
+</li>
+<li><h6 id="临时关闭防火墙和selinux以及永久关闭的命令"><a href="#临时关闭防火墙和selinux以及永久关闭的命令" class="headerlink" title="临时关闭防火墙和selinux以及永久关闭的命令"></a>临时关闭防火墙和selinux以及永久关闭的命令</h6><p>答：systemctl stop firewalld 临时关闭防火墙<br>Vim /etc/sysconfig/selinux 将其中的SELINUX=enforcing改为disabled 重启reboot 即可永久关闭selinux</p>
+</li>
+<li><h6 id="查看postfix软件包的配置文件位置"><a href="#查看postfix软件包的配置文件位置" class="headerlink" title="查看postfix软件包的配置文件位置?"></a>查看postfix软件包的配置文件位置?</h6><p>答：cat etc/postfix</p>
+</li>
+<li><h6 id="查看是否安装了elinks软件包"><a href="#查看是否安装了elinks软件包" class="headerlink" title="查看是否安装了elinks软件包"></a>查看是否安装了elinks软件包</h6><p>答：1、rpm包安装的，可以用rpm -qa看到，如果要查找某软件包是否安装，用 rpm -qa | grep “软件或者包的名字”。<br>2、以deb包安装的，可以用dpkg -l能看到。如果是查找指定软件包，用dpkg -l | grep “软件或者包的名字”；<br>3、yum方法安装的，可以用yum list installed查找，如果是查找指定包，命令后加 | grep “软件名或者包名”；<br>4、如果是以源码包自己编译安装的，例如.tar.gz或者tar.bz2形式的，这个只能看可执行文件是否存在了，<br>上面两种方法都看不到这种源码形式安装的包。如果是以root用户安装的，可执行程序通常都在/sbin:/usr/bin目录下。</p>
+</li>
+<li><h6 id="从所有rpm安装的包中过滤出samba"><a href="#从所有rpm安装的包中过滤出samba" class="headerlink" title="从所有rpm安装的包中过滤出samba"></a>从所有rpm安装的包中过滤出samba</h6><p>答：rpm ql |grep samba</p>
+</li>
+<li><h6 id="如何从光盘安装lynx-2-8-8-0-3-dev15-el7-x86-64-rpm包"><a href="#如何从光盘安装lynx-2-8-8-0-3-dev15-el7-x86-64-rpm包" class="headerlink" title="如何从光盘安装lynx-2-8.8-0.3.dev15.el7.x86_64.rpm包"></a>如何从光盘安装lynx-2-8.8-0.3.dev15.el7.x86_64.rpm包</h6><p>答： 1、挂载光盘：mount /dev/sr0 挂载点<br>2、进入挂载点，cd Paskage<br>3、安装 rpm-ivh lynx-2-8.8-0.3.dev15.el7.x86_64.rpm</p>
+</li>
+<li><h6 id="编译安装的过程-四个步骤"><a href="#编译安装的过程-四个步骤" class="headerlink" title="编译安装的过程(四个步骤)"></a>编译安装的过程(四个步骤)</h6><p>答： 1、获取源码包并解压<br> 2、进入解压目录<br>3、make 编译二进制文件<br>4、make install 软件安装</p>
+</li>
+<li><h6 id="与用户账户相关的两个文件分别是-写出文件的绝对路径"><a href="#与用户账户相关的两个文件分别是-写出文件的绝对路径" class="headerlink" title="与用户账户相关的两个文件分别是?(写出文件的绝对路径)"></a>与用户账户相关的两个文件分别是?(写出文件的绝对路径)</h6><p>答：用户账号文件： /etc/passwd<br>影子文件（密码和账号信息）： /etc/shadow</p>
+</li>
+<li><h6 id="创建用户aa-指定家目录-aa-指定基本组为jishubu-附加组为bj"><a href="#创建用户aa-指定家目录-aa-指定基本组为jishubu-附加组为bj" class="headerlink" title="创建用户aa 指定家目录/aa 指定基本组为jishubu 附加组为bj"></a>创建用户aa 指定家目录/aa 指定基本组为jishubu 附加组为bj</h6><p>答：useradd aa –d /aa –g jishubu –G bj</p>
+</li>
+<li><h6 id="给aa用户设置密码"><a href="#给aa用户设置密码" class="headerlink" title="给aa用户设置密码"></a>给aa用户设置密码</h6><p>答：passwd aa 新密码</p>
+</li>
+<li><h6 id="写出锁定用户aa-查看用户aa是否锁定-解锁用户aa的命令"><a href="#写出锁定用户aa-查看用户aa是否锁定-解锁用户aa的命令" class="headerlink" title="写出锁定用户aa 查看用户aa是否锁定 解锁用户aa的命令"></a>写出锁定用户aa 查看用户aa是否锁定 解锁用户aa的命令</h6><p>答：锁定用户：passwd –l aa<br>查看aa是否被锁定：passwd –S aa<br>解锁用户aa：passwd –u aa</p>
+</li>
+<li><h6 id="删除用户aa以及家目录"><a href="#删除用户aa以及家目录" class="headerlink" title="删除用户aa以及家目录"></a>删除用户aa以及家目录</h6><p>答：userdel –r aa</p>
+</li>
+<li><h6 id="给ls-l设置别名为ck"><a href="#给ls-l设置别名为ck" class="headerlink" title="给ls -l设置别名为ck"></a>给ls -l设置别名为ck</h6><p>答：alias ck =“ls -l”</p>
+</li>
+<li><h6 id="将aa-bb-用户加入root组"><a href="#将aa-bb-用户加入root组" class="headerlink" title="将aa bb 用户加入root组"></a>将aa bb 用户加入root组</h6><p>答：Gpasswd –a aa，bb root</p>
+</li>
+<li><h6 id="将hanmeimei加入jishubu组"><a href="#将hanmeimei加入jishubu组" class="headerlink" title="将hanmeimei加入jishubu组"></a>将hanmeimei加入jishubu组</h6><p>答：Gpasswd –a hanmeimei jishubu</p>
+</li>
+<li><h6 id="将jishubu组删除"><a href="#将jishubu组删除" class="headerlink" title="将jishubu组删除"></a>将jishubu组删除</h6><p>答：groupdel jishubu</p>
+</li>
+<li><h6 id="查询hanmeimei用户都属于那些组"><a href="#查询hanmeimei用户都属于那些组" class="headerlink" title="查询hanmeimei用户都属于那些组"></a>查询hanmeimei用户都属于那些组</h6><p>答：Groups hanmeimei</p>
+</li>
+<li><h6 id="查询root用户的UID和GID信息"><a href="#查询root用户的UID和GID信息" class="headerlink" title="查询root用户的UID和GID信息"></a>查询root用户的UID和GID信息</h6><p>答：id root</p>
+</li>
+<li><h6 id="查询当前主机登录用户情况"><a href="#查询当前主机登录用户情况" class="headerlink" title="查询当前主机登录用户情况"></a>查询当前主机登录用户情况</h6><p>答：who</p>
+</li>
+<li><h6 id="将-test目录的属组权限增加写入权限-属组去掉读取权限-其他用户增加执行权限"><a href="#将-test目录的属组权限增加写入权限-属组去掉读取权限-其他用户增加执行权限" class="headerlink" title="将/test目录的属组权限增加写入权限,属组去掉读取权限,其他用户增加执行权限."></a>将/test目录的属组权限增加写入权限,属组去掉读取权限,其他用户增加执行权限.</h6><p>答：chmod g+w,g-r,o+x /test</p>
+</li>
+<li><h6 id="写出755代表什么意思-将-test-aa-txt文档的文件设置为755的命令"><a href="#写出755代表什么意思-将-test-aa-txt文档的文件设置为755的命令" class="headerlink" title="写出755代表什么意思 将/test/aa.txt文档的文件设置为755的命令"></a>写出755代表什么意思 将/test/aa.txt文档的文件设置为755的命令</h6><p>答：755表示属主可以读取写入执行，属组可以读取和执行，其他人可以读取和执行<br>Chmod 755 /test/aa.txt</p>
+</li>
+<li><h6 id="将-test目录属主设置为aa-属组设置为jishusbu"><a href="#将-test目录属主设置为aa-属组设置为jishusbu" class="headerlink" title="将/test目录属主设置为aa 属组设置为jishusbu"></a>将/test目录属主设置为aa 属组设置为jishusbu</h6><p>答：chown aa：jishubu /test</p>
+</li>
+<li><h6 id="将-test目录的权限设置为-属主-读写执行-属组-读写执行-其他人-读取执行"><a href="#将-test目录的权限设置为-属主-读写执行-属组-读写执行-其他人-读取执行" class="headerlink" title="将/test目录的权限设置为:属主-读写执行/属组-读写执行/其他人-读取执行"></a>将/test目录的权限设置为:属主-读写执行/属组-读写执行/其他人-读取执行</h6><p>答：chmod 775 /test</p>
+</li>
+<li><h6 id="写出新添加的一块硬盘-dev-sdb分区并能正常使用的整个流程以及相关关键命令"><a href="#写出新添加的一块硬盘-dev-sdb分区并能正常使用的整个流程以及相关关键命令" class="headerlink" title="写出新添加的一块硬盘/dev/sdb分区并能正常使用的整个流程以及相关关键命令"></a>写出新添加的一块硬盘/dev/sdb分区并能正常使用的整个流程以及相关关键命令</h6><p>答：1、fidsk-l 查看硬盘状态<br>2、fidsk /dev/sdb 进入磁盘管理页面进行分区<br>3、mkfs.xfs /dev/sdb 对分区格式化制作文件系统</p>
+</li>
+<li><h6 id="写出动态查看-静态查看-查看指定程序-查看指定用户的常用命令组合"><a href="#写出动态查看-静态查看-查看指定程序-查看指定用户的常用命令组合" class="headerlink" title="写出动态查看  静态查看   查看指定程序 查看指定用户的常用命令组合"></a>写出动态查看  静态查看   查看指定程序 查看指定用户的常用命令组合</h6><p>答： 动态查看指定程序：top 程序名<br>动态查看指定用户：top 用户名<br>静态查看指定程序：ps 程序名<br>静态查看指定用户：who</p>
+</li>
+<li><h6 id="写出你知道的结束进程的相关命令、"><a href="#写出你知道的结束进程的相关命令、" class="headerlink" title="写出你知道的结束进程的相关命令、"></a>写出你知道的结束进程的相关命令、</h6><p>答; killPID 结束指定PID的进程<br>Pkill进程名 结束指定进程名的进程<br>Xkill 在图形化页面点杀进程</p>
+</li>
+<li><h6 id="写出一次性计划任务和周期性计划任务的关键命令流程"><a href="#写出一次性计划任务和周期性计划任务的关键命令流程" class="headerlink" title="写出一次性计划任务和周期性计划任务的关键命令流程"></a>写出一次性计划任务和周期性计划任务的关键命令流程</h6><p>答：一次性计划任务; 在指定的日期、时间点自动的执行预先设置的一些命令操作，属于一次性计划任务<br>系统服务的名称：/etc/init.d/atd<br>设置格式：at [HH:MM] [yyyy-mm-dd]<br>atq命令：查询当前设置的at任务列表    同  at -l<br>atrm命令：删除指定任务编号的at任务  atrm 编号       同 at -d<br>at -c 任务号 查看计划任务的具体内容（和at计划任务文件/var/spool/at/以a开头的文件内容相同）<br>at任务结束，文件消失<br>   周期性计划任务; 按照预先设置的时间周期（分钟、小时、天…）重复执行用户执行的命令操作，这属于周期计划任务<br>服务名称：/etc/init.d/crond<br>主要设置文件：用户定义的设置，位于文件/etc/spool/cron/用户名<br>cron服务配置文件：/etc/crontab(包含三部分：注释、环境变量、cron命令)<br>注意：crond计划任务里的命令有时可能不被执行，因为cron的环境变量PATH 跟系统的PATH 不太一样，它的PATH 路径默认值为：PATH=/sbin:/bin:/usr/sbin:/usr/bin，所以这就造成很多命令不能使用，解决办法：1、自己设置cron的PATH环境变量 2、用命令的绝对路径，如ls我们可以使用： /bin/ls<br>cron服务日志文件：/var/log/cron<br>管理cron计划任务：<br>编辑计划任务：crontab -e [-u 用户名]<br>查看计划任务：crontab -l [-u 用户名]<br>删除计划任务：crontab -r [-u 用户名 ]</p>
+</li>
+<li><h6 id="写出网卡配置文件的绝对路径以及文件中关键信息"><a href="#写出网卡配置文件的绝对路径以及文件中关键信息" class="headerlink" title="写出网卡配置文件的绝对路径以及文件中关键信息"></a>写出网卡配置文件的绝对路径以及文件中关键信息</h6><p>答：绝对路径：/etc/sysconfig/network-scripts/网卡号<br>关键信息：ONBOOT=yes<br>BOOTPROTO=static<br>IPADDR=静态ip地址<br>NETMASK=255.255.255.0<br>DNS=DNSIP<br>GATEWAY=网关IP</p>
+</li>
+<li><h6 id="写出临时配置ip-和永久生效的命令及流程"><a href="#写出临时配置ip-和永久生效的命令及流程" class="headerlink" title="写出临时配置ip 和永久生效的命令及流程"></a>写出临时配置ip 和永久生效的命令及流程</h6></li>
+</ol>
+<p>答： 临时配置ip：ifconfig eth0 192.168.1.33  netmask  255.255.255.0 up<br>     永久配置ip：vim /etc/sysconfig/network-scripts/ifcfg-网卡号 修改添加以下内容：<br>       ONBOOT=yes<br>BOOTPROTO=static<br>IPADDR=静态ip地址<br>NETMASK=255.255.255.0<br>DNS=DNSIP<br>     GATEWAY=网关IP<br>            保存退出后，systemctl network restart 重启配置</p>
+<ol start="35">
+<li><h6 id="配置网关和DNS的命令-两种"><a href="#配置网关和DNS的命令-两种" class="headerlink" title="配置网关和DNS的命令(两种)"></a>配置网关和DNS的命令(两种)</h6><p>答：答：临时配置网关：route add default gw 网关ip<br>永久配置网关：vim etc/sysconfig/network-scripts/ifcfg-网卡号 添加GATEWAY=网关ip<br>DNS:vim etc/sysconfig/network-scripts/ifcfg-网卡号 添加DNS=DNSip<br>vim etc/resolv.conf 添加nameserver DNSip<br>（注意：当通过第一种方式添加DNS时，会同步到resolv.conf中）</p>
+</li>
+<li><h6 id="写出配置DHCP服务的流程以及位置文件的相关信息"><a href="#写出配置DHCP服务的流程以及位置文件的相关信息" class="headerlink" title="写出配置DHCP服务的流程以及位置文件的相关信息"></a>写出配置DHCP服务的流程以及位置文件的相关信息</h6><p>答：1.安装dncp服务（安装方式不限）<br>2.打开 vim/etc/dhcp/dhcp,conf<br>3.cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example  /etc/dhcp/dhcpd.conf<br>4.vim /etc/dhcp/dhcpd.conf 对其中内容进行编辑<br>5.systectl start dhcpd 启动dhcp服务<br>（注意：以上操作都是在关闭selinux和linux防火墙的情况下配置，且linux系统拥有静态IP）</p>
+</li>
+<li><h6 id="分别写出如何解决mbr损坏-grub引导程序损坏-grub-cfg引导文件丢失-忘记密码-grub加密的方法以及流程"><a href="#分别写出如何解决mbr损坏-grub引导程序损坏-grub-cfg引导文件丢失-忘记密码-grub加密的方法以及流程" class="headerlink" title="分别写出如何解决mbr损坏 grub引导程序损坏 grub.cfg引导文件丢失  忘记密码 grub加密的方法以及流程"></a>分别写出如何解决mbr损坏 grub引导程序损坏 grub.cfg引导文件丢失  忘记密码 grub加密的方法以及流程</h6><p>答：MBR损坏：<br>1.备份MBR:dd if=/dev/sda of=/root/mbr.txt count=1 bs=512<br>2.损坏MBR:dd if=/dev/zero of=/dev/sda  count=1 bs=200<br>3.reboot<br>4.用光盘修复：VMware设置从光盘启动<br>5.进入启动界面：boot：linux rescue（输入）并回车<br>6.进入系统：输入命令grub进入grub界面：<br>   grub&gt;root （hd1,0) #有可能是（hd0,0）或者其它<br>   grub&gt;setup (hd1）<br>   grub&gt;quit<br>7.sync;reboot<br>grub.cfg引导文件丢失：<br>1.mv /boot/grub/grub.conf /root #将此文件移走<br>2.reboot系统会直接进入grub界面<br>3.grub&gt;find (hd0,0)/  按Tab键，尝试找到系统所在分区<br>grub&gt;root (hd0,0)<br>grub&gt;kernel /vmlinuz-   #按Tab键补全<br>grub&gt;initrd /initrd-    #按Tab键补全<br>grub&gt;boot<br>4.顺利进入系统并修复grub.conf 文件<br>忘记密码：<br>1、在启动页面按e进入内核编辑模式<br>2、找到 Linux16 这一段，在末尾处添加 rd.break，按下组合键CTRL+X运行内核程序进入紧急救援模式<br>3、在这个模式下依次输入以下命令<br>mount -o remount,rw /sysroot<br>chroot /sysroot<br>passwd  # 注意：到这里的时候会提示输入两次需要重置的密码，输入完成之后回车即可<br>touch /.autorelabel<br>exit<br>reboot<br>4、重新进入系统输入刚刚重置的密码即可登陆root账户<br>grub加密：<br>1、查看内核版本 uname –r<br>2、生成加密密码 grub-md5-crypt 还有密码<br>3、在/boot/grub/grub.conf里面添加加密密码 vim /boot/grub/grub.conf 在title的上一行添加 passward –-<br>4、重启服务器 reboot</p>
+</li>
+<li><h6 id="分别写出压缩归档和解压缩归档的命令"><a href="#分别写出压缩归档和解压缩归档的命令" class="headerlink" title="分别写出压缩归档和解压缩归档的命令"></a>分别写出压缩归档和解压缩归档的命令</h6><p>答：<br>压缩归档:<br>Tar zcvf 自定义压缩后的文件名.tar.gz 压缩的对象<br>Tar jcvf 自定义压缩后的文件名.tar.bzip2 压缩的对象<br>解压缩归档<br>Tar zxfv 压缩文件.tar.gz  -C 解压后存放的目录<br>Tar jxvf 压缩文件.tar.b 2 -C 解压后存放的目录</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/17/Linux搭建DHCP服务/" rel="next" title="Linux搭建DHCP服务">
+                <i class="fa fa-chevron-left"></i> Linux搭建DHCP服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="申子昊">
+            
+              <p class="site-author-name" itemprop="name">申子昊</p>
+              <p class="site-description motion-element" itemprop="description">多一份网络防护技能,多一份信息安全保证</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Flash1201" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shenzihao76@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://tcp123.cn" target="_blank" title="友情链接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>友情链接</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://ibbs.tcp123.cn/index.php?c=thread&fid=25" target="_blank" title="论坛连接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>论坛连接</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#解释-etc-sdb5和-dev-sdb2分别是什么意思"><span class="nav-number">1.</span> <span class="nav-text">解释/etc/sdb5和/dev/sdb2分别是什么意思</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#linux操作系统的启动过程"><span class="nav-number">2.</span> <span class="nav-text">linux操作系统的启动过程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Linux的运行级别分别代表什么意思"><span class="nav-number">3.</span> <span class="nav-text">Linux的运行级别分别代表什么意思?</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将hpptd服务设置为开机自启动和开机自动关闭的命令"><span class="nav-number">4.</span> <span class="nav-text">将hpptd服务设置为开机自启动和开机自动关闭的命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-长格式友好显示home目录的详细属性信息"><span class="nav-number">5.</span> <span class="nav-text">(1)    长格式友好显示home目录的详细属性信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-查看指定目录的所占空间"><span class="nav-number">6.</span> <span class="nav-text">(2)    查看指定目录的所占空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-一次性创建嵌套多层目录"><span class="nav-number">7.</span> <span class="nav-text">(3)    一次性创建嵌套多层目录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-给源文件xx-txt创建一个软连接-名为-aa-txt"><span class="nav-number">8.</span> <span class="nav-text">(4)    给源文件xx.txt创建一个软连接,名为/aa.txt</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出vi编辑器的模式以及相关指令分别是什么意思"><span class="nav-number">9.</span> <span class="nav-text">写出vi编辑器的模式以及相关指令分别是什么意思</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#临时关闭防火墙和selinux以及永久关闭的命令"><span class="nav-number">10.</span> <span class="nav-text">临时关闭防火墙和selinux以及永久关闭的命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查看postfix软件包的配置文件位置"><span class="nav-number">11.</span> <span class="nav-text">查看postfix软件包的配置文件位置?</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查看是否安装了elinks软件包"><span class="nav-number">12.</span> <span class="nav-text">查看是否安装了elinks软件包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#从所有rpm安装的包中过滤出samba"><span class="nav-number">13.</span> <span class="nav-text">从所有rpm安装的包中过滤出samba</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#如何从光盘安装lynx-2-8-8-0-3-dev15-el7-x86-64-rpm包"><span class="nav-number">14.</span> <span class="nav-text">如何从光盘安装lynx-2-8.8-0.3.dev15.el7.x86_64.rpm包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编译安装的过程-四个步骤"><span class="nav-number">15.</span> <span class="nav-text">编译安装的过程(四个步骤)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#与用户账户相关的两个文件分别是-写出文件的绝对路径"><span class="nav-number">16.</span> <span class="nav-text">与用户账户相关的两个文件分别是?(写出文件的绝对路径)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#创建用户aa-指定家目录-aa-指定基本组为jishubu-附加组为bj"><span class="nav-number">17.</span> <span class="nav-text">创建用户aa 指定家目录/aa 指定基本组为jishubu 附加组为bj</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#给aa用户设置密码"><span class="nav-number">18.</span> <span class="nav-text">给aa用户设置密码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出锁定用户aa-查看用户aa是否锁定-解锁用户aa的命令"><span class="nav-number">19.</span> <span class="nav-text">写出锁定用户aa 查看用户aa是否锁定 解锁用户aa的命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#删除用户aa以及家目录"><span class="nav-number">20.</span> <span class="nav-text">删除用户aa以及家目录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#给ls-l设置别名为ck"><span class="nav-number">21.</span> <span class="nav-text">给ls -l设置别名为ck</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将aa-bb-用户加入root组"><span class="nav-number">22.</span> <span class="nav-text">将aa bb 用户加入root组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将hanmeimei加入jishubu组"><span class="nav-number">23.</span> <span class="nav-text">将hanmeimei加入jishubu组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将jishubu组删除"><span class="nav-number">24.</span> <span class="nav-text">将jishubu组删除</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询hanmeimei用户都属于那些组"><span class="nav-number">25.</span> <span class="nav-text">查询hanmeimei用户都属于那些组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询root用户的UID和GID信息"><span class="nav-number">26.</span> <span class="nav-text">查询root用户的UID和GID信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询当前主机登录用户情况"><span class="nav-number">27.</span> <span class="nav-text">查询当前主机登录用户情况</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将-test目录的属组权限增加写入权限-属组去掉读取权限-其他用户增加执行权限"><span class="nav-number">28.</span> <span class="nav-text">将/test目录的属组权限增加写入权限,属组去掉读取权限,其他用户增加执行权限.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出755代表什么意思-将-test-aa-txt文档的文件设置为755的命令"><span class="nav-number">29.</span> <span class="nav-text">写出755代表什么意思 将/test/aa.txt文档的文件设置为755的命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将-test目录属主设置为aa-属组设置为jishusbu"><span class="nav-number">30.</span> <span class="nav-text">将/test目录属主设置为aa 属组设置为jishusbu</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#将-test目录的权限设置为-属主-读写执行-属组-读写执行-其他人-读取执行"><span class="nav-number">31.</span> <span class="nav-text">将/test目录的权限设置为:属主-读写执行/属组-读写执行/其他人-读取执行</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出新添加的一块硬盘-dev-sdb分区并能正常使用的整个流程以及相关关键命令"><span class="nav-number">32.</span> <span class="nav-text">写出新添加的一块硬盘/dev/sdb分区并能正常使用的整个流程以及相关关键命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出动态查看-静态查看-查看指定程序-查看指定用户的常用命令组合"><span class="nav-number">33.</span> <span class="nav-text">写出动态查看  静态查看   查看指定程序 查看指定用户的常用命令组合</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出你知道的结束进程的相关命令、"><span class="nav-number">34.</span> <span class="nav-text">写出你知道的结束进程的相关命令、</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出一次性计划任务和周期性计划任务的关键命令流程"><span class="nav-number">35.</span> <span class="nav-text">写出一次性计划任务和周期性计划任务的关键命令流程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出网卡配置文件的绝对路径以及文件中关键信息"><span class="nav-number">36.</span> <span class="nav-text">写出网卡配置文件的绝对路径以及文件中关键信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出临时配置ip-和永久生效的命令及流程"><span class="nav-number">37.</span> <span class="nav-text">写出临时配置ip 和永久生效的命令及流程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配置网关和DNS的命令-两种"><span class="nav-number">38.</span> <span class="nav-text">配置网关和DNS的命令(两种)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#写出配置DHCP服务的流程以及位置文件的相关信息"><span class="nav-number">39.</span> <span class="nav-text">写出配置DHCP服务的流程以及位置文件的相关信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#分别写出如何解决mbr损坏-grub引导程序损坏-grub-cfg引导文件丢失-忘记密码-grub加密的方法以及流程"><span class="nav-number">40.</span> <span class="nav-text">分别写出如何解决mbr损坏 grub引导程序损坏 grub.cfg引导文件丢失  忘记密码 grub加密的方法以及流程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#分别写出压缩归档和解压缩归档的命令"><span class="nav-number">41.</span> <span class="nav-text">分别写出压缩归档和解压缩归档的命令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">申子昊</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">71.4k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
