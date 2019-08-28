@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="网络基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="网络（五）1.路由协议：静态路由协议和动态路由协议。  （1）静态路由的基本格式：ip   route  目标网段  目标子网  下一跳   （2）默认路由：一般配置在出口路由器（边缘路由器：一边连接的LAN，一边连接WAN），所有不知道的数据包都交给“互联网中的下一跳”。       ip   route   0.0.0.0   0.0.0.0   下一跳">
+<meta name="keywords" content="网络基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络五">
+<meta property="og:url" content="blog.shenzihao.top/2019/08/28/网络五/index.html">
+<meta property="og:site_name" content="changyouB-log">
+<meta property="og:description" content="网络（五）1.路由协议：静态路由协议和动态路由协议。  （1）静态路由的基本格式：ip   route  目标网段  目标子网  下一跳   （2）默认路由：一般配置在出口路由器（边缘路由器：一边连接的LAN，一边连接WAN），所有不知道的数据包都交给“互联网中的下一跳”。       ip   route   0.0.0.0   0.0.0.0   下一跳">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-28T11:45:14.252Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络五">
+<meta name="twitter:description" content="网络（五）1.路由协议：静态路由协议和动态路由协议。  （1）静态路由的基本格式：ip   route  目标网段  目标子网  下一跳   （2）默认路由：一般配置在出口路由器（边缘路由器：一边连接的LAN，一边连接WAN），所有不知道的数据包都交给“互联网中的下一跳”。       ip   route   0.0.0.0   0.0.0.0   下一跳">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="blog.shenzihao.top/2019/08/28/网络五/">
+
+
+
+
+
+  <title>网络五 | changyouB-log</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">changyouB-log</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">网络安全</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/28/网络五/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="申子昊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+     <span title="Words count in article">
+     2.9k 字
+     </span>
+
+        ...
+     <span title="Reading time">
+     12 分钟
+     </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="changyouB-log">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">网络五</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-28T19:39:39+08:00">
+                2019-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time </span>
+                
+                <span title="Reading time">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="网络（五）"><a href="#网络（五）" class="headerlink" title="网络（五）"></a>网络（五）</h1><p><strong>1.路由协议</strong>：静态路由协议和动态路由协议。<br>  （1）<strong>静态路由的基本格式</strong>：ip   route  目标网段  目标子网  下一跳</p>
+<p>  （2）<strong>默认路由</strong>：一般配置在出口路由器（边缘路由器：一边连接的LAN，一边连接WAN），所有不知道的数据包都交给“互联网中的下一跳”。<br>       ip   route   0.0.0.0   0.0.0.0   下一跳 </p>
+<a id="more"></a>
+
+<p>  （3）<strong>路由的冗余问题</strong>：增加多链路<br>       负载均衡：多条链路同时进行数据传输，没有主备链路之分；如果一条down掉，另外一条还有“冗余”的功能。<br>       配置举例：<br>        R2(config)#ip route  192.168.2.0 255.255.255.0 13.0.0.2<br>        R2(config)#ip route  192.168.2.0 255.255.255.0 14.0.0.2<br>        R2(config)#do show ip route<br>        S    192.168.2.0/24 [1/0] via 13.0.0.2<br>                            [1/0] via 14.0.0.2<br>       <strong>浮动路由</strong>：多条链路中只有一条是主链路，其他都是备份链路；只有主链路发生故障，备份链路才会被启用。<br>         通过修改静态路由的优先级（管理距离），来决定哪条链路是主链路。<br>         优先级的范围是1——255，越小越优先。默认是1.</p>
+<pre><code>R1(config)#ip route 0.0.0.0 0.0.0.0 192.168.3.2             //默认的优先级为1，默认是主链路
+R1(config)#ip route 0.0.0.0 0.0.0.0 192.168.30.2  10        //修改路由的优先级为10，成为备份链路
+
+R1#show ip route 
+S*   0.0.0.0/0 [10/0] via 192.168.30.2         //默认情况下，只有一条链路负责转发数据；
+
+在路由表中，静态路由分为明细路由和默认路由；默认路由的优先级是最低的（其他所有的明细路由都没有匹配的时候，才会匹配默认路由）。</code></pre><p>  （5）在路由器上，开启回环口模拟PC，一般用来做测试。<br>        int   lo0<br>        ip    add   192.168.1.1   255.255.255.0<br>        no    sh<br>2.<strong>路由器的工作原理</strong>：mac地址是一个二层的概念，不能跨网段。<br>  ========》源目Ip地址不变，源目mac地址被重写。《=============</p>
+<p>3<strong>.传输层</strong>：把数据包转换为数据段，为数据提供可靠或不可靠的传输；为应用程序提供端到端的服务。<br>  （1）可靠指TCP协议；不可靠指的是UDP协议。<br>  （2）端是指端口（后门）<br>       netstat  -an    //查看本地开放的端口号和TCP的状态信息<br>         协议   本地地址               外部地址                  状态<br>         TCP    0.0.0.0:135            0.0.0.0:0              LISTENING     //监听状态，端口处于开放状态<br>         TCP    192.168.120.171:50093  23.46.220.16:443       ESTABLISHED   //表示TCP三次握手已经建立完成。</p>
+<pre><code>LISTENING（listening）
+ESTABLISHED （三次握手建立完成）</code></pre><p>  （3）数据段：4层协议（TCp/UDP+端口号）+Data<br>  （4）PDU（Protocol  Data Unit）：协议数据单元，数据在每一层传输的基本单位<br>  （5）端口号的范围：0——65535，1——1024是知名端口<br>          TCP23————Telnet，明文传输<br>        TCP22————SSH，加密传输<br>        TCP3389————远程桌面RDP服务<br>        TCP 21/20——————FTP（21是用来建立连接的，20是用来传输数据的）<br>        TCP80——————web服务器（http协议）；https（TCP443）<br>        TCP445————Windows的共享<br>        TCP25——————SMTP（简单邮件传输协议），用来发送邮件<br>        TCP110————POP3（邮局协议版本3），用来接收邮件<br>        TCP3306————MySQL服务</p>
+<pre><code>UDP53——————DNS服务（如果是客户端请求服务器来解析的话，使用的是UDP-53；如果是DNS主备服务器之间做数据同步，使用的是TCP-53）
+UDP67,68————DHCP服务
+UDP123————NTP（网络时间协议），是Linux中用于同步时间的。</code></pre><p>​<br>4.<strong>TCP</strong>：是可靠的传输方式；所有的web页面都是基于TCP的。<br>  （1）TCP传输数据之前，先建立连接的；<br>  （2）TCP传输数据的时候，会给每个数据做一个编号（sequence 序列号），以保障数据的可靠性。<br>  （3）TCP是全双工的协议，同一时间可以上传和下载。<br>5.<strong>TCP的报文结构：</strong><br>  （1）第一列：源目端口号<br>  （2）第二列：序列号（发送端给每个数据进行编号）<br>  （3）第三列：确认号（用来对发送端的数据做确认）=====》保障数据传输的可靠性<br>  （4）第四列：包含Flag位（标志位），用来描述这个报文的功能。<br>​       SYN=1，表示想建立连接。<br>​       ACK=1，表示报文是用来回复的。<br>​       FIN=1，表示想拆除连接。</p>
+<p>6.<strong>基于TCP三次握手的攻击</strong><br>  （1）SYN攻击：攻击者向服务器发送大量的“伪造请求报文”，服务器会向“假的请求者”去建立邻居关系；<br>                但实际上，这些“主机”根本没有请求服务器建立连接，导致服务器一直处于半连接状态。<br>                如果连接的数量过多，会导致服务器资源消耗严重，甚至死机。<br>  （2）LAND攻击：攻击者伪造报文，让服务器自己和自己建立连接，导致服务器资源消耗严重。</p>
+<p>7.UDP（User Datagram Protocol ）：用户数据报协议；是一种不可靠的传输协议。</p>
+<hr>
+<p>1.<strong>为什么要进行VLAN划分</strong><br>  过大的广播域，造成带宽的浪费；<br>  mac地址表过大，造成转发效率低；<br>  不够安全；</p>
+<p>  一个VLAN=一个网段=一个广播域<br>2.V<strong>LAN如何来进行划分？</strong><br>  （1）静态划分：基于端口<br>  （2）动态划分：基于mac地址</p>
+<p>3<strong>.VLAN的范围</strong>：0——4095<br>  其中0和4095是保留vlan。<br>  交换机的默认所有端口都属于vlan1，vlan1不能被修改或者删除。<br>  常用的vlan：2——1001（扩展vlan 1025——4094）</p>
+<p>4.<strong>VLAN的划分命令</strong><br>  （1）第一步：创建vlan<br>    SW1(config)#vlan 10         //创建vlan10<br>    SW1(config-vlan)#name xiaoshou        //命名为xiaoshou<br>    SW1(config-vlan)#exit<br>    SW1(config)#vlan 20<br>    SW1(config-vlan)#name caiwubu<br>    SW1(config-vlan)#exit<br>  （2）第二步：把接口加入到vlan中<br>    SW1(config)#int range f0/3 - 4          //进入接口，多个接口同时操作可以用range<br>    SW1(config-if-range)#switchport mode access            //接口模式为access<br>    SW1(config-if-range)#switchport access vlan 20            //把接口加入到相应的vlan20中<br>  （3）第三步：检查vlan的命令<br>    SW1#show vlan brief    </p>
+<p>5.<strong>Trunk链路</strong>（中继链路）：在一条物理链路上，可以承载多个vlan。<br>  应用：设备之间（交换机之间；交换机和路由器之间）</p>
+<p>（1）trunk的原理：把原始的数据帧加入了新的标签，破坏了原来的“帧格式”。——在trunk链路上传输的不是原始的数据帧。<br>（2）trunk链路标记vlan的方式：ISL（Cisco的私有协议，在帧的外边插入了30Byte）；<br>    IEEE 802.1 q（在数据帧的内部插入了4Byte；工业标准）。<br> （3）配置：<br> SW1(config)#int f0/5<br> SW1(config-if)#switchport mode trunk         #把接口加入到trunk<br> SW1(config-if)#switchport trunk allowed vlan all    #允许所有vlan通过<br> （4）查询命令：<br> SW4#show interfaces trunk    #查看trunk链路<br> （5）对vlan进行过滤的命令：<br>    SW1(config)#int f0/5<br>    SW1(config-if)#switchport trunk allowed vlan ?<br>      WORD    VLAN IDs of the allowed VLANs when this port is in trunking mode</p>
+<pre><code>all     all VLANs                           //允许所有vlan通过（白名单）
+remove  remove VLANs from the current list   //从当前列表中移除某个vlan
+except  all VLANs except the following      //从允许的列表中排除某个vlan（不允许通过）
+
+none    no VLANs                           //拒绝所有vlan通过（黑名单）
+add     add VLANs to the current list      //这个列表的vlan允许通过</code></pre><p>6.<strong>Native Vlan（本征vlan）</strong>：在交换机中默认就是vlan1.<br>  （1）交换机收到一个来自Native vlan的数据，会不打标签发送（原始数据帧）；<br>  （2）如果交换机收到一个原始数据帧，会把数据帧广播到Native vlan 的端口；</p>
+<p>7.<strong>DTP协议</strong>（Dynamic Trunk Protocol）：动态trunk协议，用来协商链路是否要成为trunk。<br>  DTP协议的配置；<br>  SW1(config-if)#switchport mode dynamic ?<br>  auto       Set trunking mode dynamic negotiation parameter to AUTO    //自动协商<br>  desirable  Set trunking mode dynamic negotiation parameter to DESIRABLE  //期望成为trunk</p>
+<p>  在协商过程中，trunk可以和trunk/desirable/auto<br>  desirable和desirable/auto<br>  access和任何一种也不能协商为trunk链路；两个auto也不能协商为trunk。</p>
+<p>8.<strong>EtherChannel （以太通道）</strong>：解决交换机之间链路的冗余问题，可以提高网络的高可用性；还可以增加带宽。<br>  interface  range  FastEthernet0/4  - 5<br>     channel-group 1 mode on        //把多个链路进行捆绑，编号为1<br>     switchport mode trunk           //设置为trunk链路<br>  SW2#show etherchannel summary     //检查以太通道的命令，SU标准二层以太通道链路正常。</p>
+<hr>
+<p>1<strong>.以太通道和vlan划分的排查命令</strong>：<br>  SW3#show vlan brief      //检查vlan和接口是否对应（access链路）<br>  SW3#show int   trunk         //检查trunk链路<br>  SW3#show etherchannel summary   //检查以太通道（SU表示正常；如果是其他状态，就进入接口先shutdown ，再no shutdown）</p>
+<p>  （1）以太通道的协商方式：<br>  使用的两个协议：<br>  Link Aggregation Control Protocol ， LACP ：IEEE 定义的标准协议。<br>  Port Aggregation Protocol：是Cisco的专有协议。</p>
+<p>  SW2(config)#int range f0/6 - 8<br>  SW2(config-if-range)#channel-group 1 mode ?<br>  active     Enable LACP unconditionally            //主动模式<br>  passive    Enable LACP only if a LACP device is detected     //被动模式</p>
+<p>  auto       Enable PAgP only if a PAgP device is detected        //被动模式，自动协商<br>  desirable  Enable PAgP unconditionally        //期望，主动模式</p>
+<p>  on         Enable Etherchannel only    //表示手工指定为on；对端必须是on才能协商成功。</p>
+<hr>
+<p>1<strong>.单臂路由</strong>：实现不同vlan的通信。<br>  (1)基本配置：<br>  int   f0/0<br>  no    shut<br>  int   f0/0.10    //创建一个子接口<br>  encapsulation   dot1q   10     //设置数据帧的封装格式为dot1q，对应的vlanID是10<br>  ip   add    192.168.10.254   255.255.255.0<br>  <strong>(2)工作原理</strong>：<br>  源目IP地址不变，二层mac地址被重写，实现标签置换。</p>
+<p><strong>2.实验步骤</strong>：先实现内网通信；再实现外网通信。<br>  （1）第一步：先配置PC和网关<br>  （2）第二步：配置二层交换机————划分vlan，配置trunk<br>        Switch(config-if)#int f0/2<br>        Switch(config-if)#sw mode acc<br>        Switch(config-if)#sw acc vlan 20<br>        Switch(config-if)#int f0/3<br>        Switch(config-if)#switchport access vlan 30<br>        Switch(config-if)#int f0/4<br>        Switch(config-if)#switchport mode trunk<br>   （3）第三步：在出口路由器的内接口，配置单臂路由，实现内网不同vlan的通信<br>         interface FastEthernet0/0<br>         no shutdown<br>        interface FastEthernet0/0.10<br>         encapsulation dot1Q 10<br>         ip address 192.168.10.254 255.255.255.0<br>   （4）第四步：内网通了以后，实现外网通信。<br>        检查IP的命令：<br>        R2(config-if)#do show ip int bri<br>        R2(config-if)#do show ip route    //检查路由表</p>
+<hr>
+<p><strong>1.VTP（Vlan Trunking  Protocol）</strong>：vlan中继协议，用来管理vlan的创建、删除和修改。<br>  VTP的前提条件：交换机之间必须是Trunk链路；必须都在相同的域名中。</p>
+<p><strong>2.VTP的三种模式：</strong><br>    （1）服务器模式（Server）<br>    可以创建、删除和修改VLAN<br>    学习、转发相同域名的VTP通告<br>    （2）客户机模式（Client）<br>    学习、转发相同域名的VTP通告<br>    不可以创建、删除和修改VLAN<br>    （3）透明模式（Transparent）<br>    可以创建、删除和修改VLAN，但只在本地有效<br>    转发但不学习VTP通告<br><strong>3.VTP的基本配置；</strong><br>   vtp   domain   test        //配置vtp的域名<br>   vtp   mode     server/client/transparent        //服务端、客户端、透明模式<br>   vtp   version  2            //指定VTP的版本号<br>   vtp   password  123456    //加入域中的密码</p>
+<p>   show   vtp  status      //检查vtp的状态</p>
+<p>   说明：<br>   （1）为了防止其他设备先同步vlan信息，尽量先配VTP，再起trunk。<br>   （2）服务端和客户端的vlan信息存放在flash:/vlan.dat中；<br>        即使清掉域信息，flash里还是有vlan信息，所以只能删掉数据库文件，重启才能真正清除信息。<br>        Server#delete flash:/vlan.dat    //清空配置时，要先删除vlan.dat<br>        Server#erase  startup-config     //清除配置<br>        Server#reload                    //重启<br>  （3）透明模式的VTP配置会出现在show  run里</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络基础/" rel="tag"># 网络基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/25/渗透简介/" rel="next" title="渗透简介">
+                <i class="fa fa-chevron-left"></i> 渗透简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="申子昊">
+            
+              <p class="site-author-name" itemprop="name">申子昊</p>
+              <p class="site-description motion-element" itemprop="description">多一份网络防护技能,多一份信息安全保证</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Flash1201" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shenzihao76@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://tcp123.cn" target="_blank" title="友情链接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>友情链接</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://ibbs.tcp123.cn/index.php?c=thread&fid=25" target="_blank" title="论坛连接">
+                      
+                        <i class="fa fa-fw fa-globe"></i>论坛连接</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络（五）"><span class="nav-number">1.</span> <span class="nav-text">网络（五）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">申子昊</span>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">91.8k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
