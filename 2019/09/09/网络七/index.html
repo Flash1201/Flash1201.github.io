@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="网络（四）1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。  网络层的设备：路由器  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。 2.路由器的作用：    （1）实现不同网段的通信；    （2）隔离广播域；          路由器的每个接口=一个网段=一个广播域    （3）为数据包寻找一条最优路径。">
+<meta name="description" content="网络（七）ACL和子网划分1.配置思路  第一步：配置PC  第二步：配置二层交换机，划分vlan  第三步：三层交换机配置SVI（交互虚接口），下联链路是2层，上联链路是3层；          实现不同vlan通信：          路由器====》单臂路由          三层交换机===》交换虚接口   第四步：三层交换机开启路由器功能，解决路由问题  第五步：出口路由器配置IP和路由">
 <meta name="keywords" content="网络基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络四">
-<meta property="og:url" content="blog.shenzihao.top/2019/08/24/网络四/index.html">
+<meta property="og:title" content="网络七">
+<meta property="og:url" content="blog.shenzihao.top/2019/09/09/网络七/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="网络（四）1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。  网络层的设备：路由器  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。 2.路由器的作用：    （1）实现不同网段的通信；    （2）隔离广播域；          路由器的每个接口=一个网段=一个广播域    （3）为数据包寻找一条最优路径。">
+<meta property="og:description" content="网络（七）ACL和子网划分1.配置思路  第一步：配置PC  第二步：配置二层交换机，划分vlan  第三步：三层交换机配置SVI（交互虚接口），下联链路是2层，上联链路是3层；          实现不同vlan通信：          路由器====》单臂路由          三层交换机===》交换虚接口   第四步：三层交换机开启路由器功能，解决路由问题  第五步：出口路由器配置IP和路由">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-24T07:05:31.244Z">
+<meta property="og:updated_time" content="2019-09-09T11:57:14.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网络四">
-<meta name="twitter:description" content="网络（四）1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。  网络层的设备：路由器  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。 2.路由器的作用：    （1）实现不同网段的通信；    （2）隔离广播域；          路由器的每个接口=一个网段=一个广播域    （3）为数据包寻找一条最优路径。">
+<meta name="twitter:title" content="网络七">
+<meta name="twitter:description" content="网络（七）ACL和子网划分1.配置思路  第一步：配置PC  第二步：配置二层交换机，划分vlan  第三步：三层交换机配置SVI（交互虚接口），下联链路是2层，上联链路是3层；          实现不同vlan通信：          路由器====》单臂路由          三层交换机===》交换虚接口   第四步：三层交换机开启路由器功能，解决路由问题  第五步：出口路由器配置IP和路由">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="blog.shenzihao.top/2019/08/24/网络四/">
+  <link rel="canonical" href="blog.shenzihao.top/2019/09/09/网络七/">
 
 
 
 
 
-  <title>网络四 | changyouB-log</title>
+  <title>网络七 | changyouB-log</title>
   
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/24/网络四/">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/09/09/网络七/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="申子昊">
@@ -294,12 +294,12 @@
     </span>
 
      <span title="Words count in article">
-     934 字
+     4.1k 字
      </span>
 
         ...
      <span title="Reading time">
-     3 分钟
+     18 分钟
      </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">网络四</h1>
+          <h1 class="post-title" itemprop="name headline">网络七</h1>
         
 
         <div class="post-meta">
@@ -323,8 +323,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-24T10:42:26+08:00">
-                2019-08-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-09T19:51:07+08:00">
+                2019-09-09
               </time>
             
 
@@ -360,7 +360,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  934
+                  4.1k
                 </span>
               
 
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">Reading time </span>
                 
                 <span title="Reading time">
-                  3
+                  18
                 </span>
               
             </div>
@@ -397,40 +397,101 @@
       
 
       
-        <h1 id="网络（四）"><a href="#网络（四）" class="headerlink" title="网络（四）"></a>网络（四）</h1><p><strong>1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。</strong><br>  网络层的设备：路由器<br>  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。</p>
-<p><strong>2.路由器的作用：</strong><br>    （1）实现不同网段的通信；<br>    （2）隔离广播域；<br>          路由器的每个接口=一个网段=一个广播域<br>    （3）为数据包寻找一条最优路径。</p>
+        <h1 id="网络（七）"><a href="#网络（七）" class="headerlink" title="网络（七）"></a>网络（七）</h1><h4 id="ACL和子网划分"><a href="#ACL和子网划分" class="headerlink" title="ACL和子网划分"></a>ACL和子网划分</h4><p>1.配置思路<br>  第一步：配置PC<br>  第二步：配置二层交换机，划分vlan<br>  第三步：三层交换机配置SVI（交互虚接口），下联链路是2层，上联链路是3层；<br>          实现不同vlan通信：<br>          路由器====》单臂路由<br>          三层交换机===》交换虚接口</p>
+<p>  第四步：三层交换机开启路由器功能，解决路由问题<br>  第五步：出口路由器配置IP和路由</p>
+<p>2.ACL（Access Control List）访问控制列表：可以基于3层、4层的数据做过滤。<br>  ACL的工作原理（匹配规则）：<br>  按照从上到下依次匹配；<br>  如果有一条一旦匹配完成，就不再进行后续报文的匹配；<br>  隐含的一条是拒绝所有；<br>  ACL中最少要有一条允许的条目，否则没有意义；</p>
 <a id="more"></a>
 
-<hr>
-<p><strong>3.路由器的工作原理：源目IP地址不变，源目mac地址被重写。</strong><br>   注意：mac地址（全球唯一性）是二层的概念，是不能跨网段的。<br>   <strong>当PC1（192.168.1.1）—-PC3（192.168.2.1）通信的时候</strong><br>  <strong>（1）PC1先查看自己的ARP表；如果有就直接发送；如果没有，就需要进行判断。PC1先判断目标主机和自己是否在相同的网段：如果在同一个网段，直接发送ARP请求（广播）；如果没有在相同的网段，就要把数据包发送给网关；</strong><br>        Source源：         192.168.1.1    PC1的mac地址<br>        Destination目标：192.168.2.1    PC1网关的mac地址<br>  <strong>（2）路由器：根据目标mac地址判断是不是找我的，是找我的我就回复；不是找我的，我就丢弃。如果是找我的，我就把数据帧还原成数据包，根据目标IP地址查看“路由表”，做转发。</strong><br>        路由器把到达192.168.2.1的数据包从f0/1接口发送出去。<br>        Source：        192.168.1.1        PC3网关的mac<br>        Destination：    192.168.2.1     PC3的mac地址<br>  <strong>（3）PC3的反应；给PC1回复数据包。</strong><br>        Source：           192.168.2.1    PC3的mac地址<br>        Destination目标：192.168.1.1    PC3的网关mac<br>  <strong>（4）路由器：目标Mac是找我的，我就“拆包”，看到里边的目标Ip；根据目标IP进行路由表的查找，从相应接口发送出去。</strong><br>        Source：           192.168.2.1    PC1的网关mac<br>        Destination目标：192.168.1.1    PC1的mac地址  </p>
-<hr>
-<p><strong>4.常用配置：</strong><br>   <strong>（1）交换机的远程登录配置：</strong><br>    第一步：配置IP<br>    SW1(config)#int vlan 1<br>    SW1(config-if)#ip add 192.168.1.100 255.255.255.0<br>    SW1(config-if)#no sh<br>    SW1(config-if)#exit<br>    <strong>第二步：配置telnet</strong><br>    SW1(config)#line vty 0 4<br>    SW1(config-line)#pass<br>    SW1(config-line)#password 123456<br>    SW1(config-line)#login<br>    SW1(config-line)#exit<br>    <strong>第三步：配置特权模式的密码</strong><br>    SW1(config)#enable password 123456<br>    SW1(config)#no ip domain lookup    //关闭域名解析<br>    SW2(config)#ip default-gateway 192.168.2.254    //给交换机配置网关，实现跨网段通信</p>
-<hr>
-<p><strong>常用排错命令：</strong><br>    R1(config)#do show ip int bri     //查看接口状态和IP<br>    R1(config)#do show ip route     //查看路由表<br>    R1(config)#do show run        //查看当前配置</p>
-<hr>
-<pre><code>（2）路由器的telnet配置：
-第一步：给路由器接口配置IP
-R1(config)#int f0/0
-R1(config-if)#ip add 192.168.1.254 255.255.255.0
-R1(config-if)#no sh
-第二步：配置telnet
-R1(config)#line vty 0 4
-R1(config-line)#password 123456
-R1(config-line)#login
-R1(config-line)#exit
-R1(config)#enable password 123456
+<p>3.ACL的分类：标准ACL和扩展ACL<br>  （1）标准访问控制列表<br>       基于源IP地址过滤数据包<br>       标准访问控制列表的访问控制列表号是1～99<br>  （2）扩展访问控制列表<br>       基于源IP地址、目的IP地址、指定协议、端口和标志来过滤数据包<br>       扩展访问控制列表的访问控制列表号是100～199</p>
+<p>4.标准ACL的配置：<br>  （1）基本格式：<br>      Router(config)#access-list 编号  { permit允许| deny拒绝 } source 通配符掩码<br>      通配符掩码：是用来对Ip地址进行匹配的，用0表示精确匹配（必须匹配），用“1”表示模糊匹配（可以不匹配）<br>      access-list  1  permit   192.168.1.0   0.0.0.255    ====&gt;匹配流量：192.168.1.0/24<br>      access-list  1  permit   192.168.2.2   0.0.0.0    ====&gt;匹配流量是一个主机：192.168.2.2<br>      access-list  1  permit   host   192.168.2.2       =====&gt;匹配一个主机的流量<br>      access-list  1  deny     0.0.0.0 255.255.255.255 ====&gt;access-list 1  deny  any  拒绝所有流量</p>
+<pre><code>access-list  10  permit   192.168.1.1  0.0.0.0           //允许192.168.1.1主机地址（1）
+access-list  10  deny     192.168.1.0  0.0.0.255        //拒绝192.168.1.0/24这个网段（2）
+access-list  10  permit   172.16.0.0   0.0.255.255    //允许172.16.0.0/16这个网段（3）
+access-list  10  deny     host  192.168.2.3            //拒绝主机192.168.2.3（4）
+access-list  10  permit   10.0.0.0  0.0.0.255            //允许10.0.0.0/24这个网段（5）
+access-list  10  deny     192.168.0.0  0.0.255.255    //拒绝192.168.0.0/16这个网段（6）
 
-（3）路由器接口是三层接口，可以直接配置IP；
-Router(config)#int f0/1
-Router(config-if)#ip add 192.168.2.254 255.255.255.0
-Router(config-if)#no sh
-（4）查看路由表：
-Router(config-if)#do show ip route 
-C  表示connected，直连路由，成立的条件只要接口处于up状态，路由器就会自动把直连路由加载到路由表里。
-（5）清空配置：
-erase  startup-config     //清空当前配置
-reload       //重启后才生效</code></pre><p><strong>5.路由协议：路由器之间交流使用的语言</strong>。<br>  路由协议分为动态路由协议和静态路由协议（由管理员来配置）。<br>  基本格式：  ip  route   目标网段   目的子网    下一跳（直连链路的对端地址）</p>
+192.168.1.1/24====》允许===》1
+192.168.2.3/24====》拒绝===》4
+192.168.2.2/24====》拒绝===》6
+192.168.10.10/24===》拒绝===》6
+192.168.30.20/24===》拒绝===》6
+200.1.1.1/24=======》拒绝===》隐含的一条拒绝所有
+101.1.1.1/24=======》拒绝===》隐含的一条拒绝所有
+10.5.5.5/24========》拒绝===》隐含的一条拒绝所有
+10.3.3.3/16========》拒绝===》隐含的一条拒绝所有
+10.6.6.6/8=========》拒绝===》隐含的一条拒绝所有
+10.0.0.1/24========》允许===》5
+34.1.1.1/24========》拒绝===》隐含的一条拒绝所有</code></pre><p>  （2）ACL的配置步骤：ACL的书写规则就是让范围小的条目尽量靠前。<br>      第一步：定义ACL<br>      第二步：应用到接口——————尽量应用到入接口。</p>
+<pre><code>特别说明：ACL只有应用到接口，才会生效。
+int  f0/1
+ip   access-group   编号  in/out    
+第三步；检查ACL的匹配情况
+Router#show access-lists     //match表示匹配了该条目
+  Standard IP access list 10
+  10 permit host 192.168.1.1 (4 match(es))</code></pre><p>​<br>​<br>====================================子网划分===============================<br>1.IP基础：<br>  网络位：在Ip地址中，与子网掩码“1”对应的位是网络位。<br>  主机位：在IP地址中，与子网掩码“0”对应的位是主机位。<br>  网络地址：在IP地址中，如果主机位全为0表示网络地址。<br>  广播地址：在IP地址中，如果主机位全为1,表示广播地址。<br>  A、B、C类的划分————————有类地址<br>  A:1——126，子网：255.0.0.0<br>  B：128——191，子网：255.255.0.0<br>  C：192——223，子网：255.255.255.0</p>
+<p>  12.1.1.0/24————无类地址</p>
+<p>  私网地址：<br>    A类：10.0.0.0<del>10.255.255.255         10.0.0.0/8<br>    B类：172.16.0.0</del>172.31.255.255         172.16.0.0/16————172.31.0.0/16<br>    C类：192.168.0.0~192.168.255.255     192.168.0.0/24————192.168.255.0/24</p>
+<p>2.常见的二进制转十进制<br>  10000000=<br>  11000000=<br>  11100000=<br>  11110000=<br>  11111000=<br>  11111100=<br>  11111110=<br>  11111111=<br>  2的1次方=<br>  2的2次方=<br>  2的3次方=<br>  2的4次方=<br>  2的5次方=<br>  2的6次方=<br>  2的7次方=<br>  2的8次方=<br>  2的9次方=<br>  2的10次方=</p>
+<p>3.IP地址是由32位的二进制数组成，地址空间是42亿多，且在2012年已经分配完毕（在IANA）。<br>  如何来解决IP地址不够用的问题？——VLSM（变长子网掩码）<br>  （1）计算可容纳的主机数  ：2的m次方-2（m代表的是子网掩码中“0”的个数）<br>    A类：10.0.0.0/8  （255.0.0.0）            2的24次方-2<br>    B类：172.16.1.0/16     （255.255.0.0）    2的16次方-2<br>    C类：200.1.1.0/24      （255.255.255.0）      2的8次方-2</p>
+<p>  （2）计算可以划分的网段数：2的n次方（n代表网络位向主机位借的”1”的个数）<br>    C类：192.168.1.0/24</p>
+<p>  (3)求变化范围：256-X（X表示子网掩码中非255的数）</p>
+<p>3.应用场景：一个公司有4个部门（市场部、后勤部、财务部、销售部），每个部门有35台主机，<br>  要使用192.168.1.0/24来做地址划分，不同的部门之间不能通信，<br>  给出每个部门的IP范围和子网、各个部门的网络地址和广播地址。</p>
+<p>  192.168.1  .0<br>  第一步：求n<br>  255.255.255.0 ======&gt;  255.255.255.11  000000<br>  2的n次方&gt;=4   ======&gt;   n&gt;=2<br>  第二步：求新的子网掩码<br>  新的子网掩码：255.255.255.192<br>  第三步：求变化范围<br>  256-X=256-192=64</p>
+<p>  写出新的网段<br>  网络地址            广播地址<br>  市场部：192.168.1.0————192.168.1.63/255.255.255.192<br>  后勤部：192.168.1.64————192.168.1.127<br>  财务部：192.168.1.128————192.168.1.191<br>  销售部：192.168.1.192————192.168.1.255</p>
+<p>  如果用C类：192.168.1.0/24   192.168.2.0/24  192.168.3.0/24  192.168.4.0/24   (254-35=219  * 4  )</p>
+<p>4.举例：某运营商拿到一个地址段为128.16.0.0/16，给全国每个省进行划分，已知全国有34个省，<br>  请给出每个省市分配的网络地址，广播地址，子网掩码。</p>
+<p>  第一步：求n<br>  2的n次方&gt;=34   ====&gt;  n&gt;=6<br>  原来子网：255.255.0.0<br>  第二步：新的子网掩码<br>  新的子网：255.255.111111   00.00000000   ===》255.255.252.0<br>  第三步：求范围<br>  256-X=256-252=4<br>  网络地址        广播地址<br>  128.16.0.0————128.16.3.255<br>  128.16.4.0————128.16.7.255<br>  128.16.8.0————128.16.11.255<br>  ……<br>  128.16.248.0————128.16.251.255<br>  128.16.252.0————128.16.255.255</p>
+<p>练习：<br>1.把100.0.0.0/8划分50个网段，写出新的子网掩码、写出网络地址，广播地址。<br>  2的n次方&gt;=50    n&gt;=6<br>  求新的子网：255.111111  00.0.0  ====》255.252.0.0<br>  求范围：256-X=256-252=4<br>  100.0.0.0————100.3.255.255<br>  100.4.0.0————100.7.255.255<br>  100.8.0.0————100.11.255.255<br>  ……<br>  100.248.0.0————100.251.255.255<br>  100.252.0.0————100.255.255.255</p>
+<p>2.11.0.0.0/16划分100个网段<br>  2的n次方&gt;=100  n&gt;=7<br>  新的子网：255.255.1111111 0.0====》255.255.254.0<br>  求范围：256-254=2<br>  11.0.0.0/23——————11.0.1.255<br>  11.0.2.0/23——————11.0.3.255<br>  11.0.4.0/23——————11.0.5.255<br>  ……<br>  11.0.252.0/23——————11.0.253.255<br>  11.0.254.0/23——————11.0.255.255</p>
+<p>3.把200.0.0.0/24划分10个网段，求新的子网掩码、写出网络地址、广播地址。<br>  2的n次方&gt;=10   n&gt;=4<br>  新的子网：255.255.255.1111 0000 ====》 255.255.255.240<br>  求范围：256-240=16<br>  200.0.0.0————200.0.0.15<br>  200.0.0.16————200.0.0.31<br>  200.0.0.32————200.0.0.47<br>  ……<br>  200.0.0.224————200.0.0.239<br>  200.0.0.240————200.0.0.255</p>
 <hr>
+<p> 找出以下IP地址的网络地址和广播地址<br>（1）111.243.77.191/11<br>     方式1：（第一段的111是十进制）<br>     111.243.77.191  ====》111.111  10011‬.77.191   ====&gt;111.111  00000.0.0(111.224.0.0网络地址)   ====&gt;111.111  11111.11111111.11111111 （广播地址：111.255.255.255）<br>     255.224.0.0     ====》255.111  00000.0.0</p>
+<pre><code>方式2：
+已知的子网：255.111 00000.0.0 ===》255.224.0.0
+求范围：256-224=32
+找到变化的位是第二段，让这个数值，除以求出来的范围：243/32=7……19  ====》因为网络地址肯定是变化范围的整数倍，舍去余数。 
+32*7=224
+111.224.0.0——————111.255.255.255</code></pre><p>​<br>（2）151.17.183.251/21              </p>
+<p>（3）222.16.35.247/20</p>
+<p>（4）200.66.55.11/21  写出网络地址和广播地址</p>
+<hr>
+<h4 id="ACL和NAT"><a href="#ACL和NAT" class="headerlink" title="ACL和NAT"></a>ACL和NAT</h4><p>1.子网划分：<br>  使用200.1.1.0/24在一条链路上，只使用2个IP，最佳的方案是怎么做？<br>  2的m次方-2  &gt;=2    =====&gt; m&gt;=2（子网中0的个数）<br>  255.255.255.111111  00  ====&gt;  255.255.255.252<br>  （1）以太网链路上的二层封装：EthernetII和802.3<br>       在以太链路上，子网掩码最多是30位。<br>  （2）在公网上的二层封装是PPP（支持认证，标准协议），很多家庭用户接入使用的都是PPPOE拨号上网，只有用户名和密码都匹配完成才能上网。<br>       如果在Serial串口链路上，子网最多可以是31位。<br>       在串行链路上，分为DCE和DTE<br>       DCE是data communicate equipment的意思，即数据通信设备,是ISP端，负责给客户端分配带宽。<br>       DTE是data terminal equipment的意思，即数据终端设备，是客户端。</p>
+<pre><code>ISP端，需要给客户端分配带宽
+int  s0/2/0
+encapsulation  ppp     //设置接口封装格式为PPP
+ip  add  200.1.1.2   255.255.255.252    //配置接口IP
+clock  rate  2000000    //给客户端指定带宽是2M
+no  sh
+
+客户端：
+interface Serial0/3/0
+ ip address 200.1.1.1 255.255.255.252
+ encapsulation ppp
+ no sh   </code></pre><p>  （3）如果是回还口做测试，子网掩码最多是32位。</p>
+<hr>
+<p>1.扩展ACL：可以基于源目Ip、源目端口、协议来对数据流量做过滤。<br>    举例1；定义一个ACL，编号为101，拒绝192.168.1.0/24 到达 192.168.2.2 的FTP服务<br>    Router(config)# access-list 101 deny tcp 192.168.1.0 0.0.0.255 host 192.168.2.2 eq 21<br>    举例2：定义ACL101，拒绝192.168.1.0/24访问192.168.2.2的ICMP服务<br>    access-list  101  deny  icmp  192.168.1.0  0.0.0.255  host  192.168.2.2<br>    举例3：允许或拒绝所有流量<br>    access-list 101 permit ip any any   //第一个any是源，第二个any是目标<br>2.实验举例：<br>    R2(config)#access-list 100 permit tcp host 192.168.1.1 host 192.168.2.3 eq 80<br>    R2(config)#access-list 100 deny   ip host  192.168.1.1 host 192.168.2.3<br>    R2(config)#access-list 100 permit icmp host 192.168.1.1 host 192.168.2.1<br>    R2(config)#access-list 100 deny   icmp host 192.168.1.1 host 192.168.2.2<br>    R2(config)#access-list 100 permit tcp host 192.168.1.2 host 12.1.1.2 eq telnet<br>    interface Serial0/2/0<br>     ip address 12.1.1.2 255.255.255.252        //配置IP<br>     encapsulation ppp            //设置封装格式<br>     ip access-group 100 in    //应用到接口<br>     clock rate 4000000           //设置时钟频率，给客户端分配的带宽</p>
+<pre><code>检查命令：show   access-lists   </code></pre><p>​<br>​    如果删除某条ACL，就要使用命名ACL的规则：<br>​    R2(config)#ip access-list extended 100   //extended表示修改扩展ACL，编号为100<br>​    R2(config-ext-nacl)#no 80            //删除ACL条目编号为80</p>
+<p>​<br>​    补充特殊的ACL：FTP的被动模式<br>​    access-list 100 permit tcp host 192.168.1.2 host 192.168.2.3 eq ftp   //放行192.168.1.2到192.168.2.3的TCP-21，FTP控制连接<br>​    access-list 100 permit tcp host 192.168.1.2 host 192.168.2.3 range 1024 65535        //放行数据连接，目标端口号为大于1024的范围<br>​<br>    远程登录配置：<br>    R2(config)#line vty 0 4<br>    R2(config)#password 123456<br>    R2(config)#login<br>    R2(config)#enable password 123456</p>
+<p>3.常见服务和端口的对应关系<br>  UDP服务：DHCP（udp-67,68）、DNS（udp-53）、NTP（udp-123，用于linux中的时间同步）<br>           TFTP（udp-69）<br>  TCP服务：<br>    FTP(tcp-21和20)<br>    http（tcp-80）；https（tcp-443）<br>    远程桌面RDP（tcp-3389）<br>    Telnet（tcp-23）<br>    MySQL（tcp-3306）<br>    ssh（tcp-22）<br>    SMTP（tcp-25）<br>    POP3（tcp-110）<br>    共享（tcp-445）</p>
+<hr>
+<p>1.NAT(Network  Address  Translation)：网络地址转换，用来把私网地址转换为公网地址。<br>  NAT的作用：实现地址转换；实现内外网隔离；节约了IP地址；把IPV4转换为IPv6.</p>
+<p>2.NAT的工作原理：</p>
+<p>3.NAT的配置步骤；<br>  第一步：先定义内外网接口。<br>    R1(config)#int f0/0<br>    R1(config-if)#ip nat inside<br>    R1(config-if)#int f0/1<br>    R1(config-if)#ip nat outside<br>  第二步：定义上网的网段<br>    R1(config)#access-list 10 permit 192.168.1.0 0.0.0.255<br>  第三步：把私网地址转换为公网地址<br>    R1(config)#ip nat inside source list 10 interface f0/1 overload<br>  检查命令：<br>    R1#show ip nat translations<br>    协议     公网地址          私网地址            公网的目标地址<br>    Pro      Inside global     Inside local       Outside local      Outside global<br>    icmp     12.1.1.1:33       192.168.1.1:33     34.1.1.2:33        34.1.1.2:33<br>Destination host unreachable   //目标主机不可达，一般是路由问题；</p>
+<hr>
+<h4 id="NAT详解"><a href="#NAT详解" class="headerlink" title="NAT详解"></a>NAT详解</h4><p>1.NAT的用途分为：<br>  源SNAT：当内网访问外网的时候，经过路由器，会把源地址中的私网地址转换为公有地址，SNAT。<br>            目的：实现上网。<br>  目的DNAT：当外网访问内网服务器的时候，经过（服务器端的）路由器的时候，会把目标公网地址转换为服务器的真实私网IP，DNAT。<br>            目的：服务器发布，可以通过公网来访问，对外开放一些常用端口（web-tcp80;dns-udp53）。<br>            发布服务器的两种方案：<br>            方案一：直接重新申请一个公网IP给服务器使用。===》静态NAT<br>            方法二：在路由器的公网口的Ip上，开放某个端口，作为服务器的端口映射。===》端口映射</p>
+<p>2.按照NAT的实现方式；<br>  （1）静态NAT：一对一，一个私网ip对应一个公网ip。<br>                应用；当某一个服务器需要对外发布的时候。<br>  （2）动态NAT：多对多，多个私网Ip对应多个公网ip。<br>                应用；服务器集群使用。<br>  （3）PAT（端口多路复用）：多对一，多个私网IP对应一个公网ip。<br>                应用：常见的家庭网、企业网、园区网等用的比较多。</p>
+<p>3.PAT配置举例：<br>    R1(config)#int f0/1<br>    R1(config-if)#ip nat outside<br>    R1(config-if)#int f0/0<br>    R1(config-if)#ip nat inside<br>    R1(config-if)#exit<br>    R1(config)#access-list 10 permit host 192.168.1.1<br>    R1(config)#access-list 10 permit host 192.168.1.2<br>    R1(config)#ip nat inside source list 10 interface f0/1 overload                 </p>
+<p>4.静态NAT：一对一 ；始终存在。<br>    R1(config)#int f0/1<br>    R1(config-if)#ip nat outside<br>    R1(config-if)#int f0/0<br>    R1(config-if)#ip nat inside<br>    R1(config-if)#exit<br>    R1(config)#ip nat inside source static 192.168.1.3 12.1.1.10</p>
+<p>5.动态NAT：多对多<br>    第一步：声明内网网接口<br>    R1(config)#int f0/1<br>    R1(config-if)#ip nat outside<br>    R1(config-if)#int f0/0<br>    R1(config-if)#ip nat inside<br>    R1(config-if)#exit<br>    第二步：定义需要做动态转换的服务器私网Ip<br>    R4(config)#access-list 20 permit host 192.168.2.3<br>    R4(config)#access-list 20 permit host 192.168.2.4<br>    R4(config)#access-list 20 permit host 192.168.2.5<br>    R4(config)#access-list 20 permit host 192.168.2.6<br>    第三步：定义一个公网地址池，名字叫Server，开启IP是34.1.1.10，结束ip是34.1.1.13，子网掩码是255.255.255.0<br>    R4(config)#ip nat pool Server 34.1.1.10 34.1.1.13 netmask 255.255.255.0<br>    第四步：把定义的NAT转换到公网地址池Server中<br>    R4(config)#ip nat inside source list 20 pool Server </p>
+<p>6.目的NAT的实现方式；让外网的客户端能访问内网服务器。</p>
+<pre><code>方案一：直接重新申请一个公网IP给服务器使用。===》静态NAT
+方法二：在路由器的公网口的Ip上，开放某个端口，作为服务器的端口映射。===》端口映射
+    配置端口映射：内网IP是192.168.1.3的TCP-80（web服务）到公网接口的12.1.1.1:80
+    R1(config)#ip nat inside source static tcp 192.168.1.3 80 12.1.1.1 80    
+    配置端口映射：内网ip是192.168.1.3的DNS服务器（udp-53），映射后的公网 ip12.1.1.1:53
+    R1(config)#ip nat inside source static udp 192.168.1.3 53 12.1.1.1 53</code></pre><hr>
+<p>​<br>​<br>​    </p>
 
       
     </div>
@@ -461,8 +522,8 @@ reload       //重启后才生效</code></pre><p><strong>5.路由协议：路由
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/24/网络三/" rel="next" title="网络三">
-                <i class="fa fa-chevron-left"></i> 网络三
+              <a href="/2019/09/09/网络六/" rel="next" title="网络六">
+                <i class="fa fa-chevron-left"></i> 网络六
               </a>
             
           </div>
@@ -471,8 +532,8 @@ reload       //重启后才生效</code></pre><p><strong>5.路由协议：路由
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/24/Off-Path-TCP-Exploit/" rel="prev" title="Off-Path TCP Exploit">
-                Off-Path TCP Exploit <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/09/网络八/" rel="prev" title="网络八">
+                网络八 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -626,7 +687,7 @@ reload       //重启后才生效</code></pre><p><strong>5.路由协议：路由
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络（四）"><span class="nav-number">1.</span> <span class="nav-text">网络（四）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络（七）"><span class="nav-number">1.</span> <span class="nav-text">网络（七）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ACL和子网划分"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">ACL和子网划分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ACL和NAT"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">ACL和NAT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAT详解"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">NAT详解</span></a></li></ol></li></ol></div>
             
 
           </div>

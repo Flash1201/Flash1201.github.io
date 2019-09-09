@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="网络（四）1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。  网络层的设备：路由器  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。 2.路由器的作用：    （1）实现不同网段的通信；    （2）隔离广播域；          路由器的每个接口=一个网段=一个广播域    （3）为数据包寻找一条最优路径。">
+<meta name="description" content="网络（六）单臂路由1.以太通道和vlan划分的排查命令：  SW3#show vlan brief      //检查vlan和接口是否对应（access链路）  SW3#show int   trunk         //检查trunk链路  SW3#show etherchannel summary   //检查以太通道（SU表示正常；如果是其他状态，就进入接口先shutdown ，再no">
 <meta name="keywords" content="网络基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络四">
-<meta property="og:url" content="blog.shenzihao.top/2019/08/24/网络四/index.html">
+<meta property="og:title" content="网络六">
+<meta property="og:url" content="blog.shenzihao.top/2019/09/09/网络六/index.html">
 <meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="网络（四）1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。  网络层的设备：路由器  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。 2.路由器的作用：    （1）实现不同网段的通信；    （2）隔离广播域；          路由器的每个接口=一个网段=一个广播域    （3）为数据包寻找一条最优路径。">
+<meta property="og:description" content="网络（六）单臂路由1.以太通道和vlan划分的排查命令：  SW3#show vlan brief      //检查vlan和接口是否对应（access链路）  SW3#show int   trunk         //检查trunk链路  SW3#show etherchannel summary   //检查以太通道（SU表示正常；如果是其他状态，就进入接口先shutdown ，再no">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-24T07:05:31.244Z">
+<meta property="og:updated_time" content="2019-09-09T11:57:02.154Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网络四">
-<meta name="twitter:description" content="网络（四）1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。  网络层的设备：路由器  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。 2.路由器的作用：    （1）实现不同网段的通信；    （2）隔离广播域；          路由器的每个接口=一个网段=一个广播域    （3）为数据包寻找一条最优路径。">
+<meta name="twitter:title" content="网络六">
+<meta name="twitter:description" content="网络（六）单臂路由1.以太通道和vlan划分的排查命令：  SW3#show vlan brief      //检查vlan和接口是否对应（access链路）  SW3#show int   trunk         //检查trunk链路  SW3#show etherchannel summary   //检查以太通道（SU表示正常；如果是其他状态，就进入接口先shutdown ，再no">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="blog.shenzihao.top/2019/08/24/网络四/">
+  <link rel="canonical" href="blog.shenzihao.top/2019/09/09/网络六/">
 
 
 
 
 
-  <title>网络四 | changyouB-log</title>
+  <title>网络六 | changyouB-log</title>
   
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/24/网络四/">
+    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/09/09/网络六/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="申子昊">
@@ -294,12 +294,12 @@
     </span>
 
      <span title="Words count in article">
-     934 字
+     4.4k 字
      </span>
 
         ...
      <span title="Reading time">
-     3 分钟
+     18 分钟
      </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">网络四</h1>
+          <h1 class="post-title" itemprop="name headline">网络六</h1>
         
 
         <div class="post-meta">
@@ -323,8 +323,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-24T10:42:26+08:00">
-                2019-08-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-09T19:20:21+08:00">
+                2019-09-09
               </time>
             
 
@@ -360,7 +360,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  934
+                  4.4k
                 </span>
               
 
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">Reading time </span>
                 
                 <span title="Reading time">
-                  3
+                  18
                 </span>
               
             </div>
@@ -397,40 +397,82 @@
       
 
       
-        <h1 id="网络（四）"><a href="#网络（四）" class="headerlink" title="网络（四）"></a>网络（四）</h1><p><strong>1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。</strong><br>  网络层的设备：路由器<br>  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。</p>
-<p><strong>2.路由器的作用：</strong><br>    （1）实现不同网段的通信；<br>    （2）隔离广播域；<br>          路由器的每个接口=一个网段=一个广播域<br>    （3）为数据包寻找一条最优路径。</p>
+        <h1 id="网络（六）"><a href="#网络（六）" class="headerlink" title="网络（六）"></a>网络（六）</h1><h4 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h4><p>1.以太通道和vlan划分的排查命令：<br>  SW3#show vlan brief      //检查vlan和接口是否对应（access链路）<br>  SW3#show int   trunk         //检查trunk链路<br>  SW3#show etherchannel summary   //检查以太通道（SU表示正常；如果是其他状态，就进入接口先shutdown ，再no shutdown）</p>
+<p>  （1）以太通道的协商方式：<br>  使用的两个协议：<br>  Link Aggregation Control Protocol ， LACP ：IEEE 定义的标准协议。<br>  Port Aggregation Protocol：是Cisco的专有协议。</p>
+<p>  SW2(config)#int range f0/6 - 8<br>  SW2(config-if-range)#channel-group 1 mode ?<br>  active     Enable LACP unconditionally            //主动模式<br>  passive    Enable LACP only if a LACP device is detected     //被动模式</p>
+<p>  auto       Enable PAgP only if a PAgP device is detected        //被动模式，自动协商<br>  desirable  Enable PAgP unconditionally        //期望，主动模式</p>
+<p>  on         Enable Etherchannel only    //表示手工指定为on；对端必须是on才能协商成功。</p>
 <a id="more"></a>
 
 <hr>
-<p><strong>3.路由器的工作原理：源目IP地址不变，源目mac地址被重写。</strong><br>   注意：mac地址（全球唯一性）是二层的概念，是不能跨网段的。<br>   <strong>当PC1（192.168.1.1）—-PC3（192.168.2.1）通信的时候</strong><br>  <strong>（1）PC1先查看自己的ARP表；如果有就直接发送；如果没有，就需要进行判断。PC1先判断目标主机和自己是否在相同的网段：如果在同一个网段，直接发送ARP请求（广播）；如果没有在相同的网段，就要把数据包发送给网关；</strong><br>        Source源：         192.168.1.1    PC1的mac地址<br>        Destination目标：192.168.2.1    PC1网关的mac地址<br>  <strong>（2）路由器：根据目标mac地址判断是不是找我的，是找我的我就回复；不是找我的，我就丢弃。如果是找我的，我就把数据帧还原成数据包，根据目标IP地址查看“路由表”，做转发。</strong><br>        路由器把到达192.168.2.1的数据包从f0/1接口发送出去。<br>        Source：        192.168.1.1        PC3网关的mac<br>        Destination：    192.168.2.1     PC3的mac地址<br>  <strong>（3）PC3的反应；给PC1回复数据包。</strong><br>        Source：           192.168.2.1    PC3的mac地址<br>        Destination目标：192.168.1.1    PC3的网关mac<br>  <strong>（4）路由器：目标Mac是找我的，我就“拆包”，看到里边的目标Ip；根据目标IP进行路由表的查找，从相应接口发送出去。</strong><br>        Source：           192.168.2.1    PC1的网关mac<br>        Destination目标：192.168.1.1    PC1的mac地址  </p>
+<p>1.单臂路由：实现不同vlan的通信。<br>  (1)基本配置：<br>  int   f0/0<br>  no    shut<br>  int   f0/0.10    //创建一个子接口<br>  encapsulation   dot1q   10     //设置数据帧的封装格式为dot1q，对应的vlanID是10<br>  ip   add    192.168.10.254   255.255.255.0<br>  (2)工作原理：<br>  源目IP地址不变，二层mac地址被重写，实现标签置换。</p>
+<p>2.实验步骤：先实现内网通信；再实现外网通信。<br>  （1）第一步：先配置PC和网关<br>  （2）第二步：配置二层交换机————划分vlan，配置trunk<br>        Switch(config-if)#int f0/2<br>        Switch(config-if)#sw mode acc<br>        Switch(config-if)#sw acc vlan 20<br>        Switch(config-if)#int f0/3<br>        Switch(config-if)#switchport access vlan 30<br>        Switch(config-if)#int f0/4<br>        Switch(config-if)#switchport mode trunk<br>   （3）第三步：在出口路由器的内接口，配置单臂路由，实现内网不同vlan的通信<br>         interface FastEthernet0/0<br>         no shutdown<br>        interface FastEthernet0/0.10<br>         encapsulation dot1Q 10<br>         ip address 192.168.10.254 255.255.255.0<br>   （4）第四步：内网通了以后，实现外网通信。<br>        检查IP的命令：<br>        R2(config-if)#do show ip int bri<br>        R2(config-if)#do show ip route    //检查路由表</p>
 <hr>
-<p><strong>4.常用配置：</strong><br>   <strong>（1）交换机的远程登录配置：</strong><br>    第一步：配置IP<br>    SW1(config)#int vlan 1<br>    SW1(config-if)#ip add 192.168.1.100 255.255.255.0<br>    SW1(config-if)#no sh<br>    SW1(config-if)#exit<br>    <strong>第二步：配置telnet</strong><br>    SW1(config)#line vty 0 4<br>    SW1(config-line)#pass<br>    SW1(config-line)#password 123456<br>    SW1(config-line)#login<br>    SW1(config-line)#exit<br>    <strong>第三步：配置特权模式的密码</strong><br>    SW1(config)#enable password 123456<br>    SW1(config)#no ip domain lookup    //关闭域名解析<br>    SW2(config)#ip default-gateway 192.168.2.254    //给交换机配置网关，实现跨网段通信</p>
+<p>1.VTP（Vlan Trunking  Protocol）：vlan中继协议，用来管理vlan的创建、删除和修改。<br>  VTP的前提条件：交换机之间必须是Trunk链路；必须都在相同的域名中。</p>
+<p>2.VTP的三种模式：<br>    （1）服务器模式（Server）<br>    可以创建、删除和修改VLAN<br>    学习、转发相同域名的VTP通告<br>    （2）客户机模式（Client）<br>    学习、转发相同域名的VTP通告<br>    不可以创建、删除和修改VLAN<br>    （3）透明模式（Transparent）<br>    可以创建、删除和修改VLAN，但只在本地有效<br>    转发但不学习VTP通告<br>3.VTP的基本配置；<br>   vtp   domain   test        //配置vtp的域名<br>   vtp   mode     server/client/transparent        //服务端、客户端、透明模式<br>   vtp   version  2            //指定VTP的版本号<br>   vtp   password  123456    //加入域中的密码</p>
+<p>   show   vtp  status      //检查vtp的状态</p>
+<p>   说明：<br>   （1）为了防止其他设备先同步vlan信息，尽量先配VTP，再起trunk。<br>   （2）服务端和客户端的vlan信息存放在flash:/vlan.dat中；<br>        即使清掉域信息，flash里还是有vlan信息，所以只能删掉数据库文件，重启才能真正清除信息。<br>        Server#delete flash:/vlan.dat    //清空配置时，要先删除vlan.dat<br>        Server#erase  startup-config     //清除配置<br>        Server#reload                    //重启<br>  （3）透明模式的VTP配置会出现在show  run里</p>
 <hr>
-<p><strong>常用排错命令：</strong><br>    R1(config)#do show ip int bri     //查看接口状态和IP<br>    R1(config)#do show ip route     //查看路由表<br>    R1(config)#do show run        //查看当前配置</p>
+<h4 id="三层交换机和DHCP"><a href="#三层交换机和DHCP" class="headerlink" title="三层交换机和DHCP"></a>三层交换机和DHCP</h4><p>1.交换机的工作原理是广播————&gt;划分广播域：vlan划分——————&gt;access和trunk————&gt;不同vlan之间的通信——————&gt;单臂路由<br>  单臂路由：源目IP地址不变，mac地址被重写；实现标签置换。<br>  trunk链路的工作原理：发送的时候会给数据帧打上相应vlan的标签（802.1q数据帧）；接收的时候根据标签里的vlanID来识别来自哪个vlan。<br>       在出交换机的时候，去掉标签，还原成原始数据帧。</p>
+<p>2.单臂路由带来的问题：<br>    “单臂”为网络骨干链路，容易形成网络瓶颈<br>    子接口依然依托于物理接口，应用不灵活<br>    VLAN间转发需要查看路由表，严重浪费设备资源<br>3.常见的数据包交换方式：<br>    （1）包交换：每个数据包在经过路由器的时候，都要查找路由表（通过CPU）。<br>    （2）三层交换技术；<br>         基于数据流来进行路由表的查找；<br>         查找完了以后，会在本地的ASIC芯片上做缓存，后续报文不再需要查路由表，直接查找缓存信息。</p>
+<pre><code>     五元组：源目IP、源目端口、协议。如果多个数据包的五元组一样，我们把他们都称为同一个“数据流”
+     七元组：源IP地址、目的IP地址、协议号、源端口、目的端口，服务类型以及接口索引
+（3）CEF转发：基于拓扑的模型
+     FIB:转发信息表，路由表的download（复制了一份）
+     邻接关系表：ARP表。</code></pre><p>​<br>4.三层交换机的工作原理：一次路由，多次交换。<br>  基本配置：<br>  （1）支持开启路由功能：ip  routing<br>  （2）把二层接口转换为3层接口，直接配置IP<br>​       int  f0/1<br>​       no   switchport       //关闭二层功能，转换为三层接口<br>​       ip   address   192.168.10.254  255.255.255.0<br>​       no   sh<br>  （3）支持SVI（Switch  Virtual  Interface）交换虚接口<br>​       int  vlan  10<br>​       ip    add 192.168.10.254   255.255.255.0<br>​       no    sh<br>​<br>5.实验说明：<br>  （1）配置PC<br>  （2）配置二层交换机：划分vlan和trunk<br>  （3）配置三层交换机：<br>​        第一步：把内网接口配置为trunk链路，并设置封格式为dot1q<br>​        interface FastEthernet0/1<br>​         switchport trunk encapsulation dot1q<br>​         switchport mode trunk<br>​        第二步：在交换虚接口里配置PC的网关<br>​        3L-1(config)#vlan  10<br>​        3L-1(config)#int vlan 10<br>​        3L-1(config-if)#ip add 192.168.10.254 255.255.255.0<br>​        3L-1(config-if)#no sh<br>​<br>​        第三步：配置外网接口<br>​        3L-1(config)#int f0/2<br>​        3L-1(config-if)#no switchport<br>​        3L-1(config-if)#ip add 12.1.1.1 255.255.255.0<br>​        3L-1(config-if)#no sh<br>​<br>        第四步：开启路由功能<br>        ip  routing   </p>
 <hr>
-<pre><code>（2）路由器的telnet配置：
-第一步：给路由器接口配置IP
-R1(config)#int f0/0
-R1(config-if)#ip add 192.168.1.254 255.255.255.0
-R1(config-if)#no sh
-第二步：配置telnet
-R1(config)#line vty 0 4
-R1(config-line)#password 123456
-R1(config-line)#login
-R1(config-line)#exit
-R1(config)#enable password 123456
+<p>1.DHCP(Dynamic Host  Configuration Protocol)动态主机配置协议，用来给客户端分配IP、子网、网关、DNS等。<br>  DHCP使用的是UDP 67,68端口。<br>  作用域：给客户端分配的网段。192.168.1.0/24<br>  地址池：给客户端分配IP的范围。192.168.1.1——192.168.1.50<br>  保留地址：让某一个客户端总是获取相同的Ip。<br>  排除地址：不给客户端分配的IP</p>
+<p>2.DHCP的配置：<br>  R1(config)#do show run | s dhcp<br>    ip dhcp excluded-address 192.168.10.254         //排除网关IP<br>    ip dhcp excluded-address 192.168.10.1 192.168.10.9   //排除一个范围<br>    ip dhcp pool vlan10                //启用地址池，名字叫vlan10<br>     network 192.168.10.0 255.255.255.0        //配置作用域为192.168.10.0/24<br>     default-router 192.168.10.254             //给客户端使用的默认网关<br>                    //给客户端使用的DNS</p>
+<p>3.DHCP的4种常见报文：客户端找服务器的时候是2个广播报文；服务器回复的时候是2个单播报文。<br> （1）Discover：发现报文，用来寻找网络中的DHCP服务器。<br>      Source :        0.0.0.0                PC的mac地址为源<br>      Destination:  255.255.255.255     全FFFF<br> （2）Offer：提供报文，是DHCP从自己的地址池中选择一个IP地址，分配给客户端。<br> （3）Request：请求报文，告诉网络中的其他DHCP服务器“不用再给我分配IP了”；防止IP地址冲突。<br> （4）Ack：确认报文，确认客户端的Ip地址等信息，确认租约时间。</p>
+<p>4.当DHCP和客户端不在同一个网段的时候，需要配置DHCP中继代理。<br>  PC找DHCP的时候，是通过广播报文，应该在网关接口配置DHCP中继代理。<br>  int  vlan  10<br>  ip    add 192.168.10.254  255.255.255.0<br>  ip    helper-address   192.168.50.1     //告诉网关，谁是DHCP服务器</p>
+<hr>
+<h4 id="STP"><a href="#STP" class="headerlink" title="STP"></a>STP</h4><p>1.DHCP的中继代理配置步骤：先解决内网的通信问题。<br>  （1）在三层交换机的下行接口上划分vlan<br>  （2）在三层交换机的上行接口上启用三层接口，并配置Ip<br>  （3）在三层交换机上给PC配置网关<br>        vlan  10<br>        vlan  20<br>        int   vlan 10<br>        ip   address  192.168.10.254  255.255.255.0<br>        no   sh<br>        ip   helper-address    192.168.50.1     //配置DHCP中继代理，告诉客户端，谁是DHCP服务器</p>
+<pre><code>ip  routing  
 
-（3）路由器接口是三层接口，可以直接配置IP；
-Router(config)#int f0/1
-Router(config-if)#ip add 192.168.2.254 255.255.255.0
-Router(config-if)#no sh
-（4）查看路由表：
-Router(config-if)#do show ip route 
-C  表示connected，直连路由，成立的条件只要接口处于up状态，路由器就会自动把直连路由加载到路由表里。
-（5）清空配置：
-erase  startup-config     //清空当前配置
-reload       //重启后才生效</code></pre><p><strong>5.路由协议：路由器之间交流使用的语言</strong>。<br>  路由协议分为动态路由协议和静态路由协议（由管理员来配置）。<br>  基本格式：  ip  route   目标网段   目的子网    下一跳（直连链路的对端地址）</p>
+ip  route  0.0.0.0 0.0.0.0  192.168.50.1</code></pre><p>  （4）在出口路由器配置<br>        第一步：配置接口IP<br>        第二步：配置DHCP地址池<br>        第三步：配置到达内网vlan的路由    </p>
 <hr>
+<p>1.STP的作用和版本<br>  （1）作用：二层的防环机制<br>  （2）版本：<br>       STP：生成树协议，只有1棵树——————&gt;PVST（每vlan每生成树，Cisco私有协议）<br>       RSTP：快速生成树协议，只有1棵树——————&gt;Rapid PVST（快速每vlan每生成树，Cisco的私有协议）<br>       MST：多实例生成树，可以基于实例（组）对根桥进行选举。</p>
+<p>2.STP的三步选举：比较小的。<br>  （1）第一步：选举根桥（Root Bridge：皇帝）<br>  （2）第二步：选举根端口（Root port：知府）<br>  （3）第三步：选举指定端口（Designated Port：钦差）</p>
+<p>3.第一步选举：在所有的交换机中选举一个根桥<br>   选举依据：网桥ID=2Byte（优先级）+6Byte（mac地址）<br>   一般会通过优先级来控制根桥的选举。</p>
+<p>4.第二步选举：在每个非根桥上选举一个根端口（Root Port）<br>  选择根端口的依据：<br>    到根网桥最低的根路径成本（开销，到达根桥最近）<br>    直连的网桥ID最小(发送者)<br>    端口ID最小（发送者）</p>
+<p>5.第三步选举：在每条链路上选举一个指定端口（DP）<br>  根桥上的所有接口都是指定端口。</p>
+<p>  非根桥上的指定端口，选择顺序：<br>    端口所在交换机到达根路径成本较低<br>    本端交换机网桥ID较小<br>    本端的端口ID的值较小</p>
+<hr>
+<p>6.STP的其他知识<br>  （1）STP通过BPDU（桥协议数据单元）来交互报文信息。<br>        BPDU分为两大类：一类是“配置BPDU”用来完成STP的选举；另一种是拓扑变更TCP的BPDU，当拓扑发生改变的时候交互信息。</p>
+<p>  （2）STP中的几种状态：<br>       Disabled：禁用状态<br>       Blocking：阻塞状态，不能收发用户数据，只能接收BPDU（时刻监听网络的状态）<br>       Listening：用来选举<br>       Learning：用于学习mac地址<br>       Forwarding：收发用户数据</p>
+<p>  （3）STP中的状态切换时间<br>       Listening——————&gt;learning——————&gt;Forwarding 经过了30s：PC接入网络的时间<br>       Blocking————&gt;Listening——————&gt;learning——————&gt;Forwarding 经过50s</p>
+<hr>
+<p>7.STP的相关命令<br>  show  spanning-tree     //查看生成树的收敛结果<br>  3L-1#  show spanning-tree vlan 10      //查看STP的接口状态命令</p>
+<p>  spanning-tree   vlan 10 root primary    //让本交换机成为vlan10的主根桥<br>  spanning-tree   vlan 20 root secondary //让本交换机成为vlan20的备份根桥<br>  spanning-tree   vlan  10   priority   4096   //调整交换机在vlan10里的优先级为4096，值必须是4096的倍数</p>
+<p>  spanning-tree vlan 10,20,30 priority 24576   //如果一个交换机设置为root  primary会自动降低8192；<br>  spanning-tree vlan 40,50,60 priority 28672   //如果一个交换机设置为root  secondary会降低4096</p>
+<p>  Switch(config)#int   f0/1              //默认情况下，PC接入网络中需要等待30s的延迟（STP的收敛），为了加快时间的收敛，启用portfast。<br>  Switch(config-if)#spanning-tree portfast    //启用portfast以后，接口不再等待30s的STP报文交互，直接进入到Forwarding状态</p>
+<hr>
+<p>8.基础命令<br>  （1）配置vlan命令</p>
+<pre><code>interface FastEthernet0/3        //把接口加入到vlan30
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/4        //把接口设置为trunk
+ switchport mode trunk</code></pre><p>​<br>​    show  vlan   brief     //检查接口和vlan是否对应<br>​    show  int   trunk     //检查trunk链路是否正常<br>  （2）三层交换机上下联接口使用trunk<br>​      interface range  FastEthernet0/1 - 3<br>​     switchport trunk encapsulation dot1q<br>​     switchport mode trunk</p>
+<pre><code>3L-1(config)#spanning-tree vlan 10,20,30 root primary       //交换机做vlan10/20/30的主根桥
+3L-1(config)#spanning-tree vlan 40,50,60 root secondary    //交换机做vlan40/50/60备份根桥</code></pre><p>​<br>​    3L-2(config)#spanning-tree vlan 40,50,60 root primary<br>​    3L-2(config)#spanning-tree vlan 10,20,30 root secondary </p>
+<p>​<br>  （3）三层交换机上配置PC的网关<br>​    3L-2(config-if)#exit<br>​    3L-2(config)#int vlan 50<br>​    3L-2(config-if)#ip add 192.168.50.254 255.255.255.0<br>​    3L-2(config-if)#no sh</p>
+<pre><code>3L-2(config)#ip  routing   </code></pre><p>  （4）配置回还口：<br>  interface Loopback0<br> ip address 11.1.1.1 255.255.255.0  特别说明：做实验的时候，先把内网做通！！！  三层交换机上要有默认路由到出口路由器；出口路由器要有到达内网的路由</p>
+<hr>
+<h4 id="HSRP"><a href="#HSRP" class="headerlink" title="HSRP"></a>HSRP</h4><p>1.HSRP（Hot Standby Routing  Protocol）：热备份路由协议，解决的是网关的冗余问题。</p>
+<p>  HSRP是Cisco的私有协议，公有协议是VRRP。</p>
+<p>2.HSRP中的路由器角色<br>  （1）Active：主路由器，第一个功能是负责转发客户端的流量；第二个功能是定期向外发送hello包。<br>  （2）Standby：备份路由器，如果主路由器发生故障，要接替主路由器的工作，负责转发用户的数据。<br>                作用：监听主路由器的状态；定期向外发送hello。<br>  （3）Virtual Router 虚拟路由器:真实路由器逻辑上模拟出来的路由器，使用IP作为客户端的网关。<br>  （4）其他路由器:当备份顶替主路由器时，顶替备份路由器来工作  </p>
+<p>3.HSRP中的角色选举依据；先比优先级大的，优先级相同再比ip地址大的）<br>   （1）优先级可以人工干预设置，默认优先级是100，取值范围是0-255<br>   （2）优先级相同，比较IP</p>
+<p>4.HSRP的工作原理：<br>  （1）所有路由器中选举一个Active，负责转发用户流量；并向外发送hello<br>  （2）当活跃路由器故障后，备份路由器监听不到活跃路由器的hello消息后会成为活跃路由器，承担活跃路由器转发到虚拟路由器的数据包；<br>  （3）然后其他路由器收不到备份路由器的hello消息，他们会从其他路由器中选举出一个新的备份路由器。</p>
+<p>5.HSRP的mac地址说明：<br>  0000.0c07.ac2f  其中0000.0c表示厂商信息，07.ac是众所周期的mac；2f表示HSRP的组号</p>
+<p>6.HSRP的基本配置：<br>  主路由器的配置；<br>  interface FastEthernet0/0<br>     ip address 192.168.1.100 255.255.255.0    //物理接口的IP<br>     standby version 2            //HSRP的版本号，默认是版本2；默认不需要配置<br>     standby 1 ip 192.168.1.254        //配置虚拟的网关Ip<br>     standby 1 priority 105            //调整接口的优先级为105，默认优先级为100.<br>     standby 1 preempt                //开启抢占，主发生故障再恢复以后，把状态抢回来。<br>     standby 1 track FastEthernet0/0        //设置接口追踪<br>     standby 1 track FastEthernet0/1<br>  备份路由器的配置：<br>  interface FastEthernet0/0<br>     ip address 192.168.1.200 255.255.255.0<br>     standby version 2<br>     standby 1 ip 192.168.1.254<br>     standby 1 track FastEthernet0/1<br>     standby 1 track FastEthernet0/0</p>
+<p>  检查命令：<br>  R2#show standby brief   //查看HSRP的简要信息<br>    Interface   Grp  Pri P State    Active          Standby         Virtual IP<br>    Fa0/0       1    90    Standby  192.168.1.100   local           192.168.1.254 </p>
+<pre><code>本地启用HSRP的接口；Group表示组；State 表示本地的状态；Active表示活跃路由器的IP；Virtual Ip是虚拟的客户端的网关</code></pre><p>  R2#show standby<br>    FastEthernet0/0 - Group 1 (version 2)    //启用HSRP的接口是f0/0，组号为1，版本号为2<br>      State is Standby            //本地的状态为Standby<br>        9 state changes, last state change 00:49:15<br>      Virtual IP address is 192.168.1.254   //虚拟的网关Ip<br>      Active virtual MAC address is 0000.0C9F.F001            //虚拟的网关mac<br>        Local virtual MAC address is 0000.0C9F.F001 (v2 default)<br>      Hello time 3 sec, hold time 10 sec          //hello时间<br>        Next hello sent in 2.011 secs<br>      Preemption disabled                //抢占是关闭<br>      Active router is 192.168.1.100, priority 90 (expires in 6 sec)        //活跃路由器的IP是192.168.1.100，优先级为90<br>        MAC address is 0000.0C9F.F001     //活跃路由器的mac地址<br>      Standby router is local            //本地是standby<br>      Priority 90 (default 100)            //本地的优先级为90，默认是100<br>        Track interface FastEthernet0/1 state Up decrement 10        //默认追踪接口故障，“罚值”是10，如果接口故障，优先级降低10.<br>        Track interface FastEthernet0/0 state Up decrement 10<br>      Group name is hsrp-Fa0/0-1 (default)        </p>
+<p>7.配置思路：<br>  （1）配置PC的ip和网关<br>  （2）给交换机划分vlan<br>       int  f0/1<br>       swi  mode  access<br>       swi  acc vlan  10<br>       int  f0/5<br>       sw   mode  trunk<br>       sw   trunk  allow vlan all<br>  （3）在网关路由器上配置子接口，有几个vlan就开启几个子接口。<br>        interface FastEthernet0/0.10             //让这个路由器的子接口成为vlan10的Active<br>         encapsulation dot1Q 10<br>         ip address 192.168.10.100 255.255.255.0<br>         standby version 2<br>         standby 10 ip 192.168.10.254<br>         standby 10 priority 105<br>         standby 10 preempt<br>         standby 10 track FastEthernet0/0<br>         standby 10 track FastEthernet0/1<br>        !<br>        interface FastEthernet0/0.20        //让这个路由器的子接口成为vlan20的Standby<br>         encapsulation dot1Q 20<br>         ip address 192.168.20.100 255.255.255.0<br>         standby version 2<br>         standby 20 ip 192.168.20.254<br>         standby 20 preempt<br>         standby 20 track FastEthernet0/0<br>         standby 20 track FastEthernet0/1</p>
+<p>  （3）在网关路由器上的子接口上配置HSRP协议，虚拟出来不同vlan的网关。</p>
+<p>  （4）在网关路由器上配置其他接口的IP和路由问题<br>        ip route 0.0.0.0 0.0.0.0 192.168.100.1<br>        ip route 0.0.0.0 0.0.0.0 192.168.150.2<br>  （5）在出口路由器配置Ip，解决2个路由问题————一个是到达内网的路由问题；一个是到达外网的路由问题。<br>        ip route 192.168.10.0 255.255.255.0 192.168.100.2<br>        ip route 192.168.20.0 255.255.255.0 192.168.100.2<br>        ip route 192.168.10.0 255.255.255.0 192.168.200.2<br>        ip route 192.168.20.0 255.255.255.0 192.168.200.2<br>        ip route 0.0.0.0 0.0.0.0 12.1.1.2 </p>
+<hr>
+<p>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​    </p>
 
       
     </div>
@@ -461,8 +503,8 @@ reload       //重启后才生效</code></pre><p><strong>5.路由协议：路由
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/24/网络三/" rel="next" title="网络三">
-                <i class="fa fa-chevron-left"></i> 网络三
+              <a href="/2019/09/04/密码学基本概念/" rel="next" title="密码学基本概念">
+                <i class="fa fa-chevron-left"></i> 密码学基本概念
               </a>
             
           </div>
@@ -471,8 +513,8 @@ reload       //重启后才生效</code></pre><p><strong>5.路由协议：路由
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/24/Off-Path-TCP-Exploit/" rel="prev" title="Off-Path TCP Exploit">
-                Off-Path TCP Exploit <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/09/网络七/" rel="prev" title="网络七">
+                网络七 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -626,7 +668,7 @@ reload       //重启后才生效</code></pre><p><strong>5.路由协议：路由
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络（四）"><span class="nav-number">1.</span> <span class="nav-text">网络（四）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络（六）"><span class="nav-number">1.</span> <span class="nav-text">网络（六）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单臂路由"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">单臂路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三层交换机和DHCP"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">三层交换机和DHCP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STP"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">STP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HSRP"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">HSRP</span></a></li></ol></li></ol></div>
             
 
           </div>
