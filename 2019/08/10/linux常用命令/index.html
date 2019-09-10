@@ -1,393 +1,407 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
+    <!-- title -->
 
 
 
-  
+
+<!-- keywords -->
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="基础,">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="Linux常用基本命令:(1)网络测试命令: ping   192.168.1.1     //不会自动停,要Ctrl+C停止. Ctrl+l    清屏远程登录的方式:远程桌面/Telnet/SSH/;Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.Telnet在传输过程中数据不加密—-明文传输;SSH在传输过程中对数据进行加密—-密文传输;ifconfig    //查看所有网">
-<meta name="keywords" content="基础">
-<meta property="og:type" content="article">
-<meta property="og:title" content="linux常用命令">
-<meta property="og:url" content="blog.shenzihao.top/2019/08/10/linux常用命令/index.html">
-<meta property="og:site_name" content="changyouB-log">
-<meta property="og:description" content="Linux常用基本命令:(1)网络测试命令: ping   192.168.1.1     //不会自动停,要Ctrl+C停止. Ctrl+l    清屏远程登录的方式:远程桌面/Telnet/SSH/;Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.Telnet在传输过程中数据不加密—-明文传输;SSH在传输过程中对数据进行加密—-密文传输;ifconfig    //查看所有网">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-11T05:59:15.348Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux常用命令">
-<meta name="twitter:description" content="Linux常用基本命令:(1)网络测试命令: ping   192.168.1.1     //不会自动停,要Ctrl+C停止. Ctrl+l    清屏远程登录的方式:远程桌面/Telnet/SSH/;Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.Telnet在传输过程中数据不加密—-明文传输;SSH在传输过程中对数据进行加密—-密文传输;ifconfig    //查看所有网">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="申子昊">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="申子昊">
+    
+    <meta name="keywords" content=",,">
+    
+    <meta name="description" content="多一份网络防护技能,多一份信息安全保证">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>linux常用命令 · Changyou-Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
     }
-  };
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
 </script>
 
-
-
-  <link rel="canonical" href="blog.shenzihao.top/2019/08/10/linux常用命令/">
-
-
-
-
-
-  <title>linux常用命令 | changyouB-log</title>
-  
-
-
-
-
-
-
-
-
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
     
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+        <body class="post-body">
     
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">changyouB-log</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">网络安全</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
+<header class="header">
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="blog.shenzihao.top/2019/08/10/linux常用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="申子昊">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-     <span title="Words count in article">
-     8.7k 字
-     </span>
-
-        ...
-     <span title="Reading time">
-     36 分钟
-     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="changyouB-log">
-    </span>
-
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">linux常用命令</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T10:19:23+08:00">
-                2019-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  8.7k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time </span>
-                
-                <span title="Reading time">
-                  36
-                </span>
-              
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Changyou-Blog</a>
             </div>
-          
-
-          
-
-        </div>
-      </header>
+            <div class="post-title">
+                <a href="#" class="post-name">linux常用命令</a>
+            </div>
+    </div>
     
+    <a class="home-link" href=/>Changyou-Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
 
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
     
     
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/beijing.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            linux常用命令
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
     
-    <div class="post-body" itemprop="articleBody">
+        <a class="post-tag" href="javascript:void(0);" data-tags = "基础">基础</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">8.7k</span>阅读时长: <span class="post-count reading-time">36 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/08/10</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
 
-      
-      
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
 
-      
-        <h1 id="Linux常用基本命令"><a href="#Linux常用基本命令" class="headerlink" title="Linux常用基本命令:"></a>Linux常用基本命令:</h1><h4 id="1-网络测试命令"><a href="#1-网络测试命令" class="headerlink" title="(1)网络测试命令:"></a>(1)网络测试命令:</h4><p> ping   192.168.1.1     //不会自动停,要Ctrl+C停止.<br> Ctrl+l    清屏<br>远程登录的方式:远程桌面/Telnet/SSH/;<br>Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.<br>Telnet在传输过程中数据不加密—-明文传输;<br>SSH在传输过程中对数据进行加密—-密文传输;<br>ifconfig    //查看所有网卡的信息<br>ifconfig ens32    //只查看某一个网卡的信息<br>vim  是linux中的一个编辑器,类似于windows中的记事本.    </p>
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="1-网络测试命令"><a href="#1-网络测试命令" class="headerlink" title="(1)网络测试命令:"></a>(1)网络测试命令:</h4><p> ping   192.168.1.1     //不会自动停,要Ctrl+C停止.<br> Ctrl+l    清屏<br>远程登录的方式:远程桌面/Telnet/SSH/;<br>Telnet和SSH最大的区别是:传输数据包的时候是否进行加密.<br>Telnet在传输过程中数据不加密—-明文传输;<br>SSH在传输过程中对数据进行加密—-密文传输;<br>ifconfig    //查看所有网卡的信息<br>ifconfig ens32    //只查看某一个网卡的信息<br>vim  是linux中的一个编辑器,类似于windows中的记事本.    </p>
 <a id="more"></a>
 
 <h5 id="第一步-给Linux配置IP-并生效"><a href="#第一步-给Linux配置IP-并生效" class="headerlink" title="第一步:给Linux配置IP,并生效"></a>第一步:给Linux配置IP,并生效</h5><p>vim /etc/sysconfig/network-scripts/ifcfg-ens32    //编辑网卡配置文件<br>vim   —–&gt;  i  可以进行编辑,编辑完成后—-&gt;Esc退出编辑—–&gt;保存:wq<br>BOOTPROTO=static   //获取IP的方式改为static静态<br>IPADDR=192.168.100.1   //配置IP<br>NETMASK=255.255.255.0    //配置子网掩码<br>GATEWAY=192.168.100.254    //配置网关<br>DNS=114.114.114.114<br>ONBOOT=yes //启用网卡</p>
@@ -421,9 +435,8 @@ ifconfig ens32   //检查网卡信息
 第三步:关闭Linux中的防火墙
 systemctl status firewalld           //关闭防火墙1
 setenforce 0        //关闭selinux
-getenforce       //查看selinux的状态</code></pre><p>​<br>​    第四步:编辑vmware中NAT网卡的配置<br>​    编辑—虚拟网卡编辑器—-修改网段为Linux中的网段—-NAT配置,修改网关为Linux中的网关.<br>​<br>​    第五步:在真机中开启VMNET8,并配置为相同网段的IP,例如:192.168.100.100<br>​    ping  192.168.100.1   测试网络连通性<br>​    在真机安装可以远程管理的软件:putty/Xshell/SecureCRT<br>​<br>    注意:修改网卡配置需要管理员权限,切换用户的命令.    su - root    //su  -  用来切换用户,后边加用户名.</p>
-<pre><code>第六步:如果想上网,就要能DNS解析
-vim /etc/resolv.conf</code></pre><h4 id="3-基础命令"><a href="#3-基础命令" class="headerlink" title="3.基础命令:"></a>3.基础命令:</h4><h5 id="1-系统类查看命令"><a href="#1-系统类查看命令" class="headerlink" title="(1)系统类查看命令:"></a>(1)系统类查看命令:</h5><p>  [root@localhost ~]# uname  -r   //查看内核版本<br>    3.10.0-862.el7.x86_64      其中3是主版本号,除非内核发生结构性变化,一般不会修改<br>                                10是次版本号,<br>                                0代表对次版本的修改次数;<br>                                862是对系统的修订次数.<br>  [root@localhost ~]# uname -m         //查看系统位数<br>    x86_64<br>  [root@localhost ~]# uname -a       //查看内核详细信息,包括主机名/系统版本号/时间等</p>
+getenforce       //查看selinux的状态</code></pre><p>​<br>​    第四步:编辑vmware中NAT网卡的配置<br>​    编辑—虚拟网卡编辑器—-修改网段为Linux中的网段—-NAT配置,修改网关为Linux中的网关.<br>​<br>​    第五步:在真机中开启VMNET8,并配置为相同网段的IP,例如:192.168.100.100<br>​    ping  192.168.100.1   测试网络连通性<br>​    在真机安装可以远程管理的软件:putty/Xshell/SecureCRT<br>​<br>​    注意:修改网卡配置需要管理员权限,切换用户的命令.    su - root    //su  -  用来切换用户,后边加用户名.<br>​<br>    第六步:如果想上网,就要能DNS解析<br>    vim /etc/resolv.conf</p>
+<h4 id="3-基础命令"><a href="#3-基础命令" class="headerlink" title="3.基础命令:"></a>3.基础命令:</h4><h5 id="1-系统类查看命令"><a href="#1-系统类查看命令" class="headerlink" title="(1)系统类查看命令:"></a>(1)系统类查看命令:</h5><p>  [root@localhost ~]# uname  -r   //查看内核版本<br>    3.10.0-862.el7.x86_64      其中3是主版本号,除非内核发生结构性变化,一般不会修改<br>                                10是次版本号,<br>                                0代表对次版本的修改次数;<br>                                862是对系统的修订次数.<br>  [root@localhost ~]# uname -m         //查看系统位数<br>    x86_64<br>  [root@localhost ~]# uname -a       //查看内核详细信息,包括主机名/系统版本号/时间等</p>
 <p>  [root@localhost ~]# cat /etc/redhat-release   //查看系统版本<br>    CentOS Linux release 7.5.1804 (Core) </p>
 <p>  [root@localhost <del>]# pwd    //root表示当前的用户名,localhost表示主机名, ~ 表示家目录.<br>    /root<br>  [haha@localhost ~]$ pwd   //</del>表示家目录,如果是普通用户,那么家目录在/home/用户名<br>    /home/haha</p>
 <h5 id="2-开关机-重启的命令"><a href="#2-开关机-重启的命令" class="headerlink" title="(2)开关机,重启的命令"></a>(2)开关机,重启的命令</h5><p>  重启:reboot  ==  init 6 ==shutdown -r<br>  关闭:poweroff  ==  shutdown  -P    //关闭系统并关闭电源.</p>
@@ -816,774 +829,897 @@ ls --help | less     //查看ls的帮助信息,并分页显示(less更智能,可
 <p>前提是远程服务器提供jstatd服务）</p>
 <p>注：jps命令有个地方很不好，似乎只能显示当前用户的java进程，要显示其他用户的还是只能用unix/linux的ps命令。输入正文</p>
 
-      
-    </div>
+    </article>
+    <!-- license  -->
     
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/基础/" rel="tag"># 基础</a>
-          
+        <div class="license-wrapper">
+            <p>原文作者：<a href="blog.shenzihao.top">申子昊</a>
+            <p>原文链接：<a href="blog.shenzihao.top/2019/08/10/linux常用命令/">blog.shenzihao.top/2019/08/10/linux常用命令/</a>
+            <p>发表日期：<a href="blog.shenzihao.top/2019/08/10/linux常用命令/">八月 10日 2019, 10:19:23 上午</a>
+            <p>更新日期：<a href="blog.shenzihao.top/2019/08/10/linux常用命令/">September 10th 2019, 4:05:12 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
             
-              <a href="/2019/08/10/CentOS-7/" rel="next" title="CentOS 7">
-                <i class="fa fa-chevron-left"></i> CentOS 7
-              </a>
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/08/10/windows-server-2008基础/" title= "windows server 2008基础内容">
+                    <div class="nextTitle">windows server 2008基础内容</div>
+                </a>
             
-          </div>
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/08/10/CentOS-7/" title= "CentOS 7">
+                    <div class="prevTitle">CentOS 7</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
 
-          <span class="post-nav-divider"></span>
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
 
-          <div class="post-nav-prev post-nav-item">
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
-              <a href="/2019/08/10/windows-server-2008基础/" rel="prev" title="windows server 2008基础内容">
-                windows server 2008基础内容 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
         </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
     
-    <div class="sidebar-inner">
+        
+            
+                <a href="mailto:951331714@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/Flash1201" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <a href="https://weibo.com/3176926602/profile?topnav=1&wvr=6" class="iconfont-archer weibo" target="_blank" title=weibo></a>
+            
+        
+    
 
-      
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-网络测试命令"><span class="toc-number">1.</span> <span class="toc-text">(1)网络测试命令:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#第一步-给Linux配置IP-并生效"><span class="toc-number">1.1.</span> <span class="toc-text">第一步:给Linux配置IP,并生效</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第二步-重启-使配置生效"><span class="toc-number">1.2.</span> <span class="toc-text">第二步:重启,使配置生效</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第三步-关闭Linux中的防火墙"><span class="toc-number">1.3.</span> <span class="toc-text">第三步:关闭Linux中的防火墙</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第四步-编辑vmware中NAT网卡的配置"><span class="toc-number">1.4.</span> <span class="toc-text">第四步:编辑vmware中NAT网卡的配置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-操作系统-内核-kernel-和外壳-shell"><span class="toc-number">2.</span> <span class="toc-text">1.操作系统:内核(kernel)和外壳(shell)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Linux基本命令"><span class="toc-number">3.</span> <span class="toc-text">2.Linux基本命令:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-网络测试命令-1"><span class="toc-number">3.1.</span> <span class="toc-text">(1)网络测试命令:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-基础命令"><span class="toc-number">4.</span> <span class="toc-text">3.基础命令:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-系统类查看命令"><span class="toc-number">4.1.</span> <span class="toc-text">(1)系统类查看命令:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-开关机-重启的命令"><span class="toc-number">4.2.</span> <span class="toc-text">(2)开关机,重启的命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-时间相关"><span class="toc-number">4.3.</span> <span class="toc-text">(3)时间相关:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-查看当前登录用户"><span class="toc-number">4.4.</span> <span class="toc-text">(4)查看当前登录用户:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-系统文件路径相关问题"><span class="toc-number">4.5.</span> <span class="toc-text">4.系统文件路径相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-关于路径"><span class="toc-number">4.5.1.</span> <span class="toc-text">(1)关于路径;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-Linux中的系统路径-在Linux中-一切皆文件-包括目录和文件"><span class="toc-number">4.5.2.</span> <span class="toc-text">(2)Linux中的系统路径:在Linux中,一切皆文件(包括目录和文件).</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-关于路径"><span class="toc-number">4.5.3.</span> <span class="toc-text">(2)关于路径;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-目录的相关操作"><span class="toc-number">4.5.4.</span> <span class="toc-text">(3)目录的相关操作:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-文件相关操作"><span class="toc-number">4.5.5.</span> <span class="toc-text">(4)文件相关操作:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-ls-列出当前路径的文件"><span class="toc-number">4.5.6.</span> <span class="toc-text">(5)ls  列出当前路径的文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关机-系统的关机、重启以及登出"><span class="toc-number">5.</span> <span class="toc-text">关机 (系统的关机、重启以及登出 )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件和目录"><span class="toc-number">6.</span> <span class="toc-text">文件和目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件搜索"><span class="toc-number">7.</span> <span class="toc-text">文件搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#挂载一个文件系统"><span class="toc-number">8.</span> <span class="toc-text">挂载一个文件系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#磁盘空间"><span class="toc-number">9.</span> <span class="toc-text">磁盘空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用户和群组"><span class="toc-number">10.</span> <span class="toc-text">用户和群组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件的权限-使用-“-”-设置权限，使用-“-“-用于取消"><span class="toc-number">11.</span> <span class="toc-text">文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件的特殊属性-使用-“-”-设置权限，使用-“-“-用于取消"><span class="toc-number">12.</span> <span class="toc-text">文件的特殊属性 - 使用 “+” 设置权限，使用 “-“ 用于取消</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打包和压缩文件"><span class="toc-number">13.</span> <span class="toc-text">打包和压缩文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RPM-包-（Fedora-Redhat及类似系统）"><span class="toc-number">14.</span> <span class="toc-text">RPM 包 - （Fedora, Redhat及类似系统）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YUM-软件包升级器-（Fedora-RedHat及类似系统）"><span class="toc-number">15.</span> <span class="toc-text">YUM 软件包升级器 - （Fedora, RedHat及类似系统）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DEB-包-Debian-Ubuntu-以及类似系统"><span class="toc-number">16.</span> <span class="toc-text">DEB 包 (Debian, Ubuntu 以及类似系统)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#APT-软件工具-Debian-Ubuntu-以及类似系统"><span class="toc-number">17.</span> <span class="toc-text">APT 软件工具 (Debian, Ubuntu 以及类似系统)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看文件内容"><span class="toc-number">18.</span> <span class="toc-text">查看文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文本处理"><span class="toc-number">19.</span> <span class="toc-text">文本处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符设置和文件格式转换"><span class="toc-number">20.</span> <span class="toc-text">字符设置和文件格式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统分析"><span class="toc-number">21.</span> <span class="toc-text">文件系统分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化一个文件系统"><span class="toc-number">22.</span> <span class="toc-text">初始化一个文件系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SWAP文件系统"><span class="toc-number">23.</span> <span class="toc-text">SWAP文件系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#备份"><span class="toc-number">24.</span> <span class="toc-text">备份</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#光盘"><span class="toc-number">25.</span> <span class="toc-text">光盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网络-（以太网和WIFI无线）"><span class="toc-number">26.</span> <span class="toc-text">网络 - （以太网和WIFI无线）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JPS工具"><span class="toc-number">27.</span> <span class="toc-text">JPS工具</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#比较常用的参数："><span class="toc-number">27.1.</span> <span class="toc-text">比较常用的参数：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#m-输出传递给main-方法的参数，在嵌入式jvm上可能是null"><span class="toc-number">27.2.</span> <span class="toc-text">-m 输出传递给main 方法的参数，在嵌入式jvm上可能是null</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#l-输出应用程序main-class的完整package名-或者-应用程序的jar文件完整路径名"><span class="toc-number">27.3.</span> <span class="toc-text">-l 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#v-输出传递给JVM的参数"><span class="toc-number">27.4.</span> <span class="toc-text">-v 输出传递给JVM的参数</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 34
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络八/" >网络八</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络六/" >网络六</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/04</span><a class="archive-post-title" href= "/2019/09/04/密码学基本概念/" >密码学基本概念</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/04</span><a class="archive-post-title" href= "/2019/09/04/密码学发展历史/" >密码学发展历史</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2019/08/31/COOKIE/" >COOKIE</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2019/08/31/爬虫开发基础/" >爬虫开发基础</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/28</span><a class="archive-post-title" href= "/2019/08/28/网络五/" >网络五</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/25</span><a class="archive-post-title" href= "/2019/08/25/渗透简介/" >渗透简介</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/Off-Path-TCP-Exploit/" >Off-Path TCP Exploit</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络四/" >网络四</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络二/" >网络二</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络一/" >网络一</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href= "/2019/08/20/双杀Oday复现/" >CVE20188174-双杀0day漏洞复现</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2019/08/17/Linux内侧/" >Linux内侧</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/17</span><a class="archive-post-title" href= "/2019/08/17/Linux搭建DHCP服务/" >Linux搭建DHCP服务</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2019/08/15/linux汇总3/" >linux汇总</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/git常用命令/" >git常用命令</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span><a class="archive-post-title" href= "/2019/08/14/linux汇总2/" >linux汇总</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/13</span><a class="archive-post-title" href= "/2019/08/13/linux汇总/" >linux汇总</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/12</span><a class="archive-post-title" href= "/2019/08/12/OWASP-TOP10/" >OWASP TOP10</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/11</span><a class="archive-post-title" href= "/2019/08/11/XSS-简介/" >XSS简介</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/xss实战/" >xss实战</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/日志清除实验/" >日志清除实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/MSF实验/" >MSF实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/CentOS-7/" >CentOS 7</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/linux常用命令/" >linux常用命令</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/windows-server-2008基础/" >windows server 2008基础内容</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/09</span><a class="archive-post-title" href= "/2019/08/09/SRC/" >SRC</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/08</span><a class="archive-post-title" href= "/2019/08/08/hello-world/" >签名</a>
+        </li>
+    
+    
+    
+    
+    
         </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="申子昊">
-            
-              <p class="site-author-name" itemprop="name">申子昊</p>
-              <p class="site-description motion-element" itemprop="description">多一份网络防护技能,多一份信息安全保证</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">34</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/Flash1201" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:shenzihao76@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="http://tcp123.cn" target="_blank" title="友情链接">
-                      
-                        <i class="fa fa-fw fa-globe"></i>友情链接</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="http://ibbs.tcp123.cn/index.php?c=thread&fid=25" target="_blank" title="论坛连接">
-                      
-                        <i class="fa fa-fw fa-globe"></i>论坛连接</a>
-                  </span>
-                
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux常用基本命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用基本命令:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-网络测试命令"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">(1)网络测试命令:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步-给Linux配置IP-并生效"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">第一步:给Linux配置IP,并生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步-重启-使配置生效"><span class="nav-number">1.0.0.1.2.</span> <span class="nav-text">第二步:重启,使配置生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步-关闭Linux中的防火墙"><span class="nav-number">1.0.0.1.3.</span> <span class="nav-text">第三步:关闭Linux中的防火墙</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第四步-编辑vmware中NAT网卡的配置"><span class="nav-number">1.0.0.1.4.</span> <span class="nav-text">第四步:编辑vmware中NAT网卡的配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-操作系统-内核-kernel-和外壳-shell"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">1.操作系统:内核(kernel)和外壳(shell)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Linux基本命令"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">2.Linux基本命令:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-网络测试命令-1"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text">(1)网络测试命令:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-基础命令"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">3.基础命令:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-系统类查看命令"><span class="nav-number">1.0.0.4.1.</span> <span class="nav-text">(1)系统类查看命令:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-开关机-重启的命令"><span class="nav-number">1.0.0.4.2.</span> <span class="nav-text">(2)开关机,重启的命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-时间相关"><span class="nav-number">1.0.0.4.3.</span> <span class="nav-text">(3)时间相关:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-查看当前登录用户"><span class="nav-number">1.0.0.4.4.</span> <span class="nav-text">(4)查看当前登录用户:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-系统文件路径相关问题"><span class="nav-number">1.0.0.4.5.</span> <span class="nav-text">4.系统文件路径相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-关于路径"><span class="nav-number">1.0.0.4.5.1.</span> <span class="nav-text">(1)关于路径;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-Linux中的系统路径-在Linux中-一切皆文件-包括目录和文件"><span class="nav-number">1.0.0.4.5.2.</span> <span class="nav-text">(2)Linux中的系统路径:在Linux中,一切皆文件(包括目录和文件).</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-关于路径"><span class="nav-number">1.0.0.4.5.3.</span> <span class="nav-text">(2)关于路径;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-目录的相关操作"><span class="nav-number">1.0.0.4.5.4.</span> <span class="nav-text">(3)目录的相关操作:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-文件相关操作"><span class="nav-number">1.0.0.4.5.5.</span> <span class="nav-text">(4)文件相关操作:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-ls-列出当前路径的文件"><span class="nav-number">1.0.0.4.5.6.</span> <span class="nav-text">(5)ls  列出当前路径的文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关机-系统的关机、重启以及登出"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">关机 (系统的关机、重启以及登出 )</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件和目录"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">文件和目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件搜索"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">文件搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挂载一个文件系统"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">挂载一个文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#磁盘空间"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">磁盘空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户和群组"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">用户和群组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件的权限-使用-“-”-设置权限，使用-“-“-用于取消"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件的特殊属性-使用-“-”-设置权限，使用-“-“-用于取消"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">文件的特殊属性 - 使用 “+” 设置权限，使用 “-“ 用于取消</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包和压缩文件"><span class="nav-number">1.0.0.13.</span> <span class="nav-text">打包和压缩文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RPM-包-（Fedora-Redhat及类似系统）"><span class="nav-number">1.0.0.14.</span> <span class="nav-text">RPM 包 - （Fedora, Redhat及类似系统）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YUM-软件包升级器-（Fedora-RedHat及类似系统）"><span class="nav-number">1.0.0.15.</span> <span class="nav-text">YUM 软件包升级器 - （Fedora, RedHat及类似系统）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DEB-包-Debian-Ubuntu-以及类似系统"><span class="nav-number">1.0.0.16.</span> <span class="nav-text">DEB 包 (Debian, Ubuntu 以及类似系统)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#APT-软件工具-Debian-Ubuntu-以及类似系统"><span class="nav-number">1.0.0.17.</span> <span class="nav-text">APT 软件工具 (Debian, Ubuntu 以及类似系统)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看文件内容"><span class="nav-number">1.0.0.18.</span> <span class="nav-text">查看文件内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本处理"><span class="nav-number">1.0.0.19.</span> <span class="nav-text">文本处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符设置和文件格式转换"><span class="nav-number">1.0.0.20.</span> <span class="nav-text">字符设置和文件格式转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件系统分析"><span class="nav-number">1.0.0.21.</span> <span class="nav-text">文件系统分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化一个文件系统"><span class="nav-number">1.0.0.22.</span> <span class="nav-text">初始化一个文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SWAP文件系统"><span class="nav-number">1.0.0.23.</span> <span class="nav-text">SWAP文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#备份"><span class="nav-number">1.0.0.24.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#光盘"><span class="nav-number">1.0.0.25.</span> <span class="nav-text">光盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络-（以太网和WIFI无线）"><span class="nav-number">1.0.0.26.</span> <span class="nav-text">网络 - （以太网和WIFI无线）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JPS工具"><span class="nav-number">1.0.0.27.</span> <span class="nav-text">JPS工具</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#比较常用的参数："><span class="nav-number">1.0.0.27.1.</span> <span class="nav-text">比较常用的参数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#m-输出传递给main-方法的参数，在嵌入式jvm上可能是null"><span class="nav-number">1.0.0.27.2.</span> <span class="nav-text">-m 输出传递给main 方法的参数，在嵌入式jvm上可能是null</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#l-输出应用程序main-class的完整package名-或者-应用程序的jar文件完整路径名"><span class="nav-number">1.0.0.27.3.</span> <span class="nav-text">-l 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#v-输出传递给JVM的参数"><span class="nav-number">1.0.0.27.4.</span> <span class="nav-text">-v 输出传递给JVM的参数</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/08/09/metasploit/" >metasploit之后门的生成</a>
+        </li>
+    
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">申子昊</span>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Site words total count&#58;</span>
-    
-    <span title="Site words total count">107.9k</span>
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-
-
-
-<div class="BbeiAn-info">
-京ICP备 -
-<a target="_blank" href="http://www.miitbeian.gov.cn/">19038423号</a>
-
-</div>
-
-
-
-
-
-        
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      访客数
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人
-    </span>
-  
-
-  
-    <span class="site-pv">
-      总访问量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      次
-    </span>
-  
-</div>
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
   </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="基础"><span class="iconfont-archer">&#xe606;</span>基础</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="漏洞复现"><span class="iconfont-archer">&#xe606;</span>漏洞复现</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="漏洞"><span class="iconfont-archer">&#xe606;</span>漏洞</span>
+    
+        <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="后门"><span class="iconfont-archer">&#xe606;</span>后门</span>
+    
+        <span class="sidebar-tag-name" data-tags="密码学"><span class="iconfont-archer">&#xe606;</span>密码学</span>
+    
+        <span class="sidebar-tag-name" data-tags="网络基础"><span class="iconfont-archer">&#xe606;</span>网络基础</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="OWASP TOP10"><span class="iconfont-archer">&#xe606;</span>OWASP TOP10</span>
+    
+        <span class="sidebar-tag-name" data-tags="渗透测试"><span class="iconfont-archer">&#xe606;</span>渗透测试</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "申子昊"
+    }
 </script>
-
-
-
-
-
-
-
-
-
-  
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
         }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-  
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
+
+
