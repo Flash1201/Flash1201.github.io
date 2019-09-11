@@ -22,7 +22,7 @@
     <meta name="description" content="多一份网络防护技能,多一份信息安全保证">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>xss实战 · Changyou-Blog</title>
+    <title>网络十 · Changyou-Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Changyou-Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">xss实战</a>
+                <a href="#" class="post-name">网络十</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            xss实战
+            网络十
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "XSS">XSS</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">168</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/08/10</span>
+                    <span class="post-intro-time">2019/09/11</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,40 +401,24 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>记录发现的XSS漏洞</p>
-<h1 id="xss实战"><a href="#xss实战" class="headerlink" title="xss实战"></a>xss实战</h1><a id="more"></a>
-
-<p> <a href="http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00" target="_blank" rel="noopener">http://www.baihe.com/betatest/betatest_newlandpage.html?policy=1&amp;Channel=baidu&amp;Code=ppcbh00</a></p>
-<hr>
-<p><a href="http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=c%3Cscript%3Ealert(/xss/)%3C/script%3E" target="_blank" rel="noopener">http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=c%3Cscript%3Ealert(/xss/)%3C/script%3E</a></p>
-<hr>
-<p><a href="http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=calert(/xss/)" target="_blank" rel="noopener">http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=calert(/xss/)</a></p>
-<hr>
-<p><a href="http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E" target="_blank" rel="noopener">http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(/1/)%3C/script%3E</a></p>
-<hr>
-<p><a href="http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E" target="_blank" rel="noopener">http://u.baihe.com/index/getJYadvs?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E</a></p>
-<hr>
-<p> <a href="http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E" target="_blank" rel="noopener">http://sns.hunli.baihe.com/H5/notice/ajaxGetList?jsonCallBack=%3Cscript%3Ealert(%0ddocument%0a.%09cookie);%3C/script%3E</a></p>
-<hr>
-<p><a href="https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C%2Fscript%3E" target="_blank" rel="noopener">https://hk.trip.com/travel-guide/search/?keyword=%3Cscript%3Ealert(%2Fxss%2F)%3C%2Fscript%3E</a></p>
-<hr>
-<p><a href="https://yz.esf.fang.com/map/" target="_blank" rel="noopener">https://yz.esf.fang.com/map/</a></p>
-<hr>
-<p><a href="https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y" target="_blank" rel="noopener">https://b2c.csair.com/portal/minPrice/queryMinPriceInAirLines?jsoncallback=%3Cscript%3Ealert(/xss/)%3C/script%3E&amp;inter=Y</a></p>
-<hr>
-<p><a href="https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E" target="_blank" rel="noopener">https://www.zhuego.com/index.php?m=search&amp;a=product&amp;key=%3Cscript%3Ealert%28%2Fxss%2F%29%3C%2Fscript%3E</a></p>
-<hr>
-<p><a href="http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor" target="_blank" rel="noopener">http://www.ruigushop.com/Channel/index.html?search=PHNjcmlwdD5hbGVydCgveHNzLyk8L3NjcmlwdD4=#sAnchor</a></p>
-<hr>
+        <h3 id="防火墙Firewall"><a href="#防火墙Firewall" class="headerlink" title="防火墙Firewall"></a>防火墙Firewall</h3><h4 id="1-常见的安全设备；"><a href="#1-常见的安全设备；" class="headerlink" title="1.常见的安全设备；"></a>1.常见的安全设备；</h4><p>  （1）防火墙Firewall：实现区域隔离，实现对流量的控制<br>  （2）上网行为管理：对用户的上网行为进行控制和管理；<br>  （3）IDS：入侵检测系统，对进入内网的可疑流量进行检测和报警。==》门卫<br>  （4）IPS：入侵防御系统，一旦发现可疑流量就会立即进行阻断，并记录日志。===》警察。<br>  （5）WAF：Web Application Firewall，为服务器做攻击防护。</p>
+<h4 id="2-防火墙基本概念"><a href="#2-防火墙基本概念" class="headerlink" title="2.防火墙基本概念"></a>2.防火墙基本概念</h4><p>​    吞吐量：在不丢包的情况下单位时间内通过的数据包数量<br>​    时延：数据包第一个比特进入防火墙到最后一比特从防火墙输出的时间间隔<br>​    丢包率：通过防火墙传送时所丢失数据包数量占所发送数据包的比率<br>​    并发连接数：防火墙能够同时处理的点对点连接的最大数目<br>​    新建连接数：在不丢包的情况下每秒可以建立的最大连接数</p>
+<h4 id="3-防火墙的分类：软件防火墙和硬件防火墙。"><a href="#3-防火墙的分类：软件防火墙和硬件防火墙。" class="headerlink" title="3.防火墙的分类：软件防火墙和硬件防火墙。"></a>3.防火墙的分类：软件防火墙和硬件防火墙。</h4><p>  （1）包过滤防火墙：可基于3层和4层数据做过滤。<br>       优点：转发效率高，但是管理麻烦；不能基于应用层数据做过滤。<br>  （2）应用网关型防火墙：给用户所有的流量做代理，也叫做代理防火墙。<br>       特点：可以基于应用层数据做过滤，但是效率比较低；当网络流量过大时，容易产生性能瓶颈。<br>  （3）状态检测防火墙：可以基于数据访问的状态做记录（状态缓存），基于数据流做转发，后续报文直接查缓存信息。<br>       特点：提高了转发效率，但是对应用层的数据检测不够深入。<br>  （4）DPI：Deep Packet Inspection深度包监测防火墙。<br>       特点：可以高效的对应用层数据做监测。</p>
+<h4 id="4-防火墙的部署方式；"><a href="#4-防火墙的部署方式；" class="headerlink" title="4.防火墙的部署方式；"></a>4.防火墙的部署方式；</h4><p>   =============可以对数据做识别和控制=============<br>  （1）透明模式：把防火墙当交换机用，优点是对现有的网络改动最小；缺点就是不够安全。<br>  （2）路由模式：把防火墙当路由器用，优点是更加安全；但是对网络改动比较大。<br>  （3）混杂模式：把防火墙有些接口当二层接口使用；有些接口当三层接口使用。<br>   =============只能对数据做识别，把日志发送给日志服务器。=============<br>  （4）旁路模式：在核心交换机上开启端口镜像，把流量复制一份发送给“防火墙/上网行为”，由防火墙做流量识别，把日志发送出去。</p>
+<h4 id="5-防火墙实验步骤："><a href="#5-防火墙实验步骤：" class="headerlink" title="5.防火墙实验步骤："></a>5.防火墙实验步骤：</h4><p>  （1）环境说明：<br>       XP：模拟Inside区域——————————————VMNET1——————192.168.1.0/24<br>       DMZ: 模拟内网的web服务器区域—————VMNET2——————172.16.1.0/24<br>       Outside：模拟外网服务器区域———————VMNET3——————100.1.1.0/24</p>
+<p>  （2）准备多网卡的环境：<br>        在VMware中添加多个虚拟网卡：编辑————虚拟网络适配器<br>        在防火墙上，添加最少3块虚拟网卡，依次连接VMnet1、net2、net3.<br>        XP：模拟Inside区域，192.168.1.1——————————————VMNET1——————192.168.1.254/24<br>        DMZ: 模拟内网的web服务器区域,172.16.1.1——————VMNET2——————172.16.1.254/24<br>        Outside：模拟外网服务器区域，100.1.1.2———————VMNET3——————100.1.1.1/24</p>
+<p>  （3）在真机里开启VMNET1，并配置为192.168.1.0/24网段，测试网络连通性，并使用web界面来登录防火墙。<br>        <a href="https://192.168.1.254:8080/" target="_blank" rel="noopener">https://192.168.1.254:8080/</a><br>        superman / talent<br>  （4）给防火墙配置IP<br>        网络管理————&gt;接口——————&gt;给不同的接口配置不同的IP，并标注为不同的区域</p>
+<p>  （5）给防火墙划分区域，允许区域之间的访问。<br>       资源管理————&gt;区域————&gt;把不同的接口绑定到不同的区域里</p>
+<p>  （6）添加策略（ACL），配置区域之间的互访（这个模拟器由bug）<br>       防火墙————&gt;访问控制————&gt;添加策略<br>       添加3条：inside————&gt;outside   dmz————&gt;outside   inside————&gt;dmz<br>       在内网和DMZ区域的设备上做测试，看是否能ping通外网。<br>            ============》路由问题：不能ping通，原因是外网的2003上没有配置网关。<br>  （7）去掉外网服务器上的网关，在防火墙上把内网和DMZ区域的网段，做NAT转换。<br>        定义内网允许上网的网段和WAN的IP：资源管理————&gt;地址————&gt;子网（网段），主机</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="blog.shenzihao.top">申子昊</a>
-            <p>原文链接：<a href="blog.shenzihao.top/2019/08/10/xss实战/">blog.shenzihao.top/2019/08/10/xss实战/</a>
-            <p>发表日期：<a href="blog.shenzihao.top/2019/08/10/xss实战/">八月 10日 2019, 7:31:05 晚上</a>
-            <p>更新日期：<a href="blog.shenzihao.top/2019/08/10/xss实战/">August 11th 2019, 1:59:55 pm</a>
+            <p>原文链接：<a href="blog.shenzihao.top/2019/09/11/网络十/">blog.shenzihao.top/2019/09/11/网络十/</a>
+            <p>发表日期：<a href="blog.shenzihao.top/2019/09/11/网络十/">九月 11日 2019, 7:15:48 晚上</a>
+            <p>更新日期：<a href="blog.shenzihao.top/2019/09/11/网络十/">September 11th 2019, 7:17:43 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -443,16 +427,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/08/11/XSS-简介/" title= "XSS简介">
-                    <div class="nextTitle">XSS简介</div>
+                <a href= "/2019/09/11/XSS绕过/" title= "XSS绕过">
+                    <div class="nextTitle">XSS绕过</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/08/10/MSF实验/" title= "MSF实验">
-                    <div class="prevTitle">MSF实验</div>
+                <a href= "/2019/09/10/网络九/" title= "网络九">
+                    <div class="prevTitle">网络九</div>
                 </a>
             
         </li>
@@ -540,7 +524,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#xss实战"><span class="toc-number">1.</span> <span class="toc-text">xss实战</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙Firewall"><span class="toc-number">1.</span> <span class="toc-text">防火墙Firewall</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-常见的安全设备；"><span class="toc-number">1.1.</span> <span class="toc-text">1.常见的安全设备；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-防火墙基本概念"><span class="toc-number">1.2.</span> <span class="toc-text">2.防火墙基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-防火墙的分类：软件防火墙和硬件防火墙。"><span class="toc-number">1.3.</span> <span class="toc-text">3.防火墙的分类：软件防火墙和硬件防火墙。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-防火墙的部署方式；"><span class="toc-number">1.4.</span> <span class="toc-text">4.防火墙的部署方式；</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-防火墙实验步骤："><span class="toc-number">1.5.</span> <span class="toc-text">5.防火墙实验步骤：</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

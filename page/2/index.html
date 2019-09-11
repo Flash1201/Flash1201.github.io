@@ -359,6 +359,68 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/28/网络五/" >
+            
+                <span>网络五</span>
+        </a>
+        <div class="abstract-content">
+            <p><strong>1.路由协议</strong>：静态路由协议和动态路由协议。<br>  （1）<strong>静态路由的基本格式</strong>：ip   route  目标网段  目标子网  下一跳</p>
+<p>  （2）<strong>默认路由</strong>：一般配置在出口路由器（边缘路由器：一边连接的LAN，一边连接WAN），所有不知道的数据包都交给“互联网中的下一跳”。<br>       ip   route   0.0.0.0   0.0.0.0   下一跳 </p>
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/25/渗透简介/" >
+            
+                <span>渗透简介</span>
+        </a>
+        <div class="abstract-content">
+            <h5 id="1-1-攻击思路"><a href="#1-1-攻击思路" class="headerlink" title="1.1 攻击思路"></a>1.1 攻击思路</h5><p>有2种思路：</p>
+<pre><code>攻击外网服务器，获取外网服务器的权限，接着利用入侵成功的外网服务器作为跳板，攻击内网其他服务器，最后获得敏感数据，并将数据传递到攻击者，看情况安装长期后门，实现长期控制和获得敏感数据的方式；
+
+攻击办公网的系统、办公网电脑、办公网无线等方式，一般是采用社工，实现控制办公电脑，再用获得的办公网数据，可能是内网的各种登录账号和密码，再获取办公网或者生产网的有用数据。</code></pre><p>一般内网安全检查使用第一种思路，实际的攻击2种思路结合实现。</p>
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试">渗透测试</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/24/Off-Path-TCP-Exploit/" >
             
                 <span>Off-Path TCP Exploit</span>
@@ -592,71 +654,6 @@ height:50vh;
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "Linux">Linux</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/15/linux汇总3/" >
-            
-                <span>linux汇总</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="磁盘和文件系统管理"><a href="#磁盘和文件系统管理" class="headerlink" title="磁盘和文件系统管理"></a>磁盘和文件系统管理</h4><h5 id="一、磁盘管理及分区"><a href="#一、磁盘管理及分区" class="headerlink" title="一、磁盘管理及分区"></a>一、磁盘管理及分区</h5><h6 id="1．-检测并确认新磁盘"><a href="#1．-检测并确认新磁盘" class="headerlink" title="1．  检测并确认新磁盘"></a>1．  检测并确认新磁盘</h6><p>​       <strong>fdisk -l</strong>                    查看系统中硬盘设备及分区情况</p>
-<p>A:部分展示的是sda 系统的第一个磁盘以及分区情况<br>B部分展示的是sdb 系统的第二个磁盘及分区情况<br>C部分展示的是lvm磁盘分区情况<br>解析:<br> :磁盘总容量为42949672960bytes  1k=1024b<br> :磁盘总共划分的扇区数量<br> :磁盘划分的每个扇区大小为512b </p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/14/git常用命令/" >
-            
-                <span>git常用命令</span>
-        </a>
-        <div class="abstract-content">
-            <h5 id="1-远程仓库相关命令"><a href="#1-远程仓库相关命令" class="headerlink" title="1.远程仓库相关命令"></a>1.远程仓库相关命令</h5><p>检出仓库：$ <strong>git</strong> clone <strong>git</strong>://github.com/jquery/jquery.<strong>git</strong></p>
-<p>查看远程仓库：$ <strong>git</strong> remote -v</p>
-<p>添加远程仓库：$ <strong>git</strong> remote add [name] [url]</p>
-<p>删除远程仓库：$ <strong>git</strong> remote rm [name]</p>
-<p>修改远程仓库：$ <strong>git</strong> remote set-url –<strong>push</strong>[name][newUrl]</p>
-<p>拉取远程仓库：$ <strong>git</strong> pull [remoteName] [localBranchName]</p>
-<p>推送远程仓库：$ <strong>git push</strong> [remoteName] [localBranchName]</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
     
 </div>
             
@@ -1276,9 +1273,77 @@ height:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 35
+        Total : 37
         </div>
         <!-- search  -->
         
@@ -1294,6 +1359,16 @@ height:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/XSS绕过/" >XSS绕过</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/网络十/" >网络十</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/网络九/" >网络九</a>
         </li>
     
@@ -1304,12 +1379,12 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络六/" >网络六</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络六/" >网络六</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
         </li>
     
     
@@ -1354,7 +1429,7 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络二/" >网络二</a>
         </li>
     
     
@@ -1364,7 +1439,7 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络二/" >网络二</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
         </li>
     
     
@@ -1419,22 +1494,22 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/日志清除实验/" >日志清除实验</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/MSF实验/" >MSF实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/日志清除实验/" >日志清除实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
         </li>
     
     
@@ -1472,9 +1547,9 @@ height:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
-    
         <span class="sidebar-tag-name" data-tags="基础"><span class="iconfont-archer">&#xe606;</span>基础</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     

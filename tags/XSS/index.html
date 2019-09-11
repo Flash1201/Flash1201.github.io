@@ -346,6 +346,40 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/11/XSS绕过/" >
+            
+                <span>XSS绕过</span>
+        </a>
+        <div class="abstract-content">
+            XSS一些payload，考虑到在当下浏览器会做一些过滤，原始的&lt;script&gt;alert(1)&lt;/script&gt;已经不再适用当前网络环境，因此有必要做一些XSS绕过WAF的探究
+WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常见的WAF是如何识别XSS
+一般来讲，常见的WAF识别是基于正则匹配和指纹信息
+
+正则匹配绕过基于正则匹配的XSS，我们可以通过FUZZ检测一些可以绕过的XSS payload，正则匹配还是非常容易绕过的，基于一些Payload变种
+因为Javascript是一门脚本语言，具有较高的灵活性，通过在文末给出的payload列表...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/11</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "XSS">XSS</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/11/XSS-简介/" >
             
                 <span>XSS简介</span>
@@ -938,9 +972,77 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 35
+        Total : 37
         </div>
         <!-- search  -->
         
@@ -956,6 +1058,16 @@
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/XSS绕过/" >XSS绕过</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/网络十/" >网络十</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/网络九/" >网络九</a>
         </li>
     
@@ -966,12 +1078,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络六/" >网络六</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络六/" >网络六</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
         </li>
     
     
@@ -1016,7 +1128,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络二/" >网络二</a>
         </li>
     
     
@@ -1026,7 +1138,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络二/" >网络二</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
         </li>
     
     
@@ -1081,22 +1193,22 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/日志清除实验/" >日志清除实验</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/MSF实验/" >MSF实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/日志清除实验/" >日志清除实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
         </li>
     
     
@@ -1134,9 +1246,9 @@
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
-    
         <span class="sidebar-tag-name" data-tags="基础"><span class="iconfont-archer">&#xe606;</span>基础</span>
+    
+        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
