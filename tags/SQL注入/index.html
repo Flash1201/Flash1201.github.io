@@ -346,303 +346,29 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/04/密码学发展历史/" >
+        <a class="abstract-title" href = "/2019/09/28/手工注入语句/" >
             
-                <span>密码学发展历史</span>
+                <span>手工注入语句</span>
         </a>
         <div class="abstract-content">
-            <p>密码学基础：</p>
-<p>1.<strong>密码学发展历史</strong> </p>
-<p>2.<strong>密码学基本概念</strong> </p>
-<p>3.<strong>对称密码算法</strong> </p>
-<p>4.<strong>公钥密码算法</strong> </p>
-<p>5.<strong>散列函数与消息鉴别</strong></p>
+            1.判断是否有注入;and 1=1;and 1=2
+2.初步判断是否是mssql;and user&gt;0
+3.判断数据库系统;and (select count() from sysobjects)&gt;0 mssql;and (select count() from msysobjects)&gt;0 access
+4.注入参数是字符‘and [查询条件] and ‘’=’
+5.搜索时没过滤参数的‘and [查询条件] and ‘%25’=’
+6.猜数据库;and (select Count(*) from [数据库名])&gt;0
+7.猜字段;and (select Count...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/04</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/28</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "密码学">密码学</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/31/COOKIE/" >
-            
-                <span>COOKIE</span>
-        </a>
-        <div class="abstract-content">
-            <p>​         <strong>cookies</strong>也可以称作cookie，指某些网站为了辨别用户身份、进行session跟踪而存储在用户本地终端上的数据。</p>
-<p>​         一个cookies就是存储在用户主机浏览器中的文本文件。cookies是纯文本形式，它们不包含任何可执行代码。服务器告诉浏览器将这些信息存储，并且每个请求中都将该信息返回到服务器，服务器之后可以利用这些信息标识用户。多数需要登录的网站通常会在用户登录后将用户信息写入cookies，只要这个cookie存在且合法，就可以自由的浏览这个网站的所有站点。cookies只是包含数据，就其本身而言并不有害。</p>
-<p>​         服务器可以利用cookies包含的信息判断在HTTP传输的服务状态。cookies最典型的应用是判断注册用户是否已经登录网站和保留用户信息简化登录手续</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/31</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/31/爬虫开发基础/" >
-            
-                <span>爬虫开发基础</span>
-        </a>
-        <div class="abstract-content">
-            <h1 id="HTTP与HTTPS的区别"><a href="#HTTP与HTTPS的区别" class="headerlink" title="HTTP与HTTPS的区别"></a>HTTP与HTTPS的区别</h1><p>​        <strong>HTTP超文本传输协议</strong>，是一个客户端和服务器端请求和应答的标准（TCP）。客户端是终端用户，服务器是网站。通过使用WEB浏览器、网络爬虫或者其他工具，客户端发起一个到服务器指定端口的HTTP请求，这个客户叫用户代理（User Agent）.响应的服务器上存储着资源，比如HTML文件和图像，这个服务器为源服务器（Origin Serverr）,在用户代理和服务器中间可能存在多个中间层，比如代理、网关或者隧道（Tunnels）.</p>
-<p>​        通常，由HTTP客户端发起一个请求，建立一个服务器指定端口的TCP连接，HTTP服务器则在那个端口监听客户端发送过来的请求，一旦收到请求，服务器（向客户端）发回一个状态行（比如“HTTP/1.1 200 OK”）和（响应的）消息，消息的消息体可能是请求的文件、错误消息或者其他一些消息。</p>
-<p>​        HTTP协议传输的数据都是未加密的，也就是明文传输，因此使用HTTP协议传输隐私消息非常不安全。为了保证这些隐私数据能够加密传输，于是有了SSL协议用于对HTTP协议传输的数据进行加密，就有了HTTPS。</p>
-<p>​        HTTPS可以理解为HTTP+SSL/TLS在传输数据之前需要看客户端（浏览器）与服务端（网站）之间进行一次握手，在握手过程中将确立双方加密传输数据的密码信息。HTTP与HTTPS的主要区别。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/31</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/28/网络五/" >
-            
-                <span>网络五</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>1.路由协议</strong>：静态路由协议和动态路由协议。<br>  （1）<strong>静态路由的基本格式</strong>：ip   route  目标网段  目标子网  下一跳</p>
-<p>  （2）<strong>默认路由</strong>：一般配置在出口路由器（边缘路由器：一边连接的LAN，一边连接WAN），所有不知道的数据包都交给“互联网中的下一跳”。<br>       ip   route   0.0.0.0   0.0.0.0   下一跳 </p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/25/渗透简介/" >
-            
-                <span>渗透简介</span>
-        </a>
-        <div class="abstract-content">
-            <h5 id="1-1-攻击思路"><a href="#1-1-攻击思路" class="headerlink" title="1.1 攻击思路"></a>1.1 攻击思路</h5><p>有2种思路：</p>
-<pre><code>攻击外网服务器，获取外网服务器的权限，接着利用入侵成功的外网服务器作为跳板，攻击内网其他服务器，最后获得敏感数据，并将数据传递到攻击者，看情况安装长期后门，实现长期控制和获得敏感数据的方式；
-
-攻击办公网的系统、办公网电脑、办公网无线等方式，一般是采用社工，实现控制办公电脑，再用获得的办公网数据，可能是内网的各种登录账号和密码，再获取办公网或者生产网的有用数据。</code></pre><p>一般内网安全检查使用第一种思路，实际的攻击2种思路结合实现。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试">渗透测试</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/Off-Path-TCP-Exploit/" >
-            
-                <span>Off-Path TCP Exploit</span>
-        </a>
-        <div class="abstract-content">
-            <p>​      We discover a subtle yet serious timing side channel that exists in all generations of IEEE 802.11 or Wi-Fi technology, due to the fact that they are half-duplex. By exploiting the vulnerability, we are able to constrcut reliable and practical off-path TCP injection attacks against the laterst versions of all three major operating systems (macOS, Windows, and Linux). Our attac only requires a devicce connected to the Internet via a wireless router, and be reachable from an attack server. The thread model is that a user is lured to visit a malicious website first and then the puppet (i.e., a malicious javascript) running in a browser collaborates with an off-path adversary to hijack a TCP connection between the client and server for the prupose of injecting a spurious HTTP response that will be cached in the browser. Later on, when the victim accesses to the server, the browser would load the cached object (e.g., a script) rather than request it again. Notice that the victim connection is established and preserved by the puppet who repeatedly includes HTML elements (e.g, images). See <a href="https://people.eecs.berkeley.edu/~yahel/papers/Browser-Cache-Poisoning.Song.Spring10.attack-project.pdf" target="_blank" rel="noopener">web-cache poisoning atttacks</a> for more background.</p>
-<p><strong>我们发现了一个微妙但严重的定时侧通道，存在于所有代的IEEE 802.11或Wi-Fi技术中，因为它们是半双工的。通过利用该漏洞，我们能够针对所有三个主要操作系统（MacOS、Windows和Linux）的最新版本构建可靠且实用的非路径TCP注入攻击。我们的ATTAC只需要一个通过无线路由器连接到互联网的设备，并且可以从攻击服务器访问。线程模型是先引诱用户访问恶意网站，然后在浏览器中运行的Puppet（即恶意javascript）与非路径对手协作，劫持客户端和服务器之间的TCP连接，以防止注入虚假的HTTP响应。将在浏览器中缓存。稍后，当受害者访问服务器时，浏览器将加载缓存对象（例如脚本），而不是再次请求它。注意，受害者连接是由木偶建立和保留的，木偶反复包含HTML元素（例如，图像）。更多背景信息，请参见[网络缓存中毒属性]</strong></p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "漏洞复现">漏洞复现</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络四/" >
-            
-                <span>网络四</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。</strong><br>  网络层的设备：路由器<br>  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。</p>
-<p><strong>2.路由器的作用：</strong><br>    （1）实现不同网段的通信；<br>    （2）隔离广播域；<br>          路由器的每个接口=一个网段=一个广播域<br>    （3）为数据包寻找一条最优路径。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络三/" >
-            
-                <span>网络三</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>1.网络层：把数据帧转换为数据包，实现基于Ip地址的寻址和转发。</strong><br>  <strong>数据帧：在数据外边加入二层头部（帧头和帧尾）</strong><br>          <strong>Dmac（6Byte）+Smac（6Byte）+Type（2Byte）+Data +FCS（4Byte，帧尾）</strong><br>  <strong>数据包：三层IP头部+数据</strong></p>
-<p><strong>2.IP头部：标准长度是20Byte。</strong><br>  <strong>TTL：time to  live 生存时间，是一个三层防环机制，可以限制一个数据包在网络中传输的时间。</strong><br>       <strong>数据包每经过一个三层设备（路由器），他的TTL值就会减1，如果TTL=0，那么这个数据包就不能继续传输，会被丢弃。</strong><br>       <strong>每经过一个三层设备，叫做1跳。</strong><br>  Protocol：用来标识上层协议，如果是UDP=17；TCP=6；ICMP=1.<br>  Source IP<br>  Destination IP </p>
-<p><strong>3.ARP：Address Resolution  Protocol地址解析协议，用来根据Ip地址解析mac。</strong><br>  <strong>ARP报文分为2类：ARP请求报文Request；ARP响应报文Reply。</strong><br>  ARP请求报文是以广播的形式发送；ARP响应报文是以单播的形式回复。<br>  <strong>arp  -a    //查看arp缓存信息</strong><br>  <strong>arp  -d    //清除ARP缓存</strong></p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络二/" >
-            
-                <span>网络二</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>重点：交换机的工作原理、交换机的简单配置</strong></p>
-<p><strong>1.OSI七层模型：</strong><br>  <strong>（1）物理层</strong>：定义了终端设备的传输介质，传输的是bit流。<br>  <strong>（2）数据链路层</strong>：把bit转换为数据帧，实现基于mac地址的寻址和转发<br>  <strong>（3）网络层</strong>：把数据帧转换为数据包，实现基于IP地址的寻址和转发<br>  <strong>（4）传输层</strong>：把数据包转换为数据段，为数据提供可靠或者不可靠的传输，为应用程序提供端到端的服务<br>  <strong>（5）会话层</strong>：建立、维持和管理、终止会话<br>  <strong>（6）表示层</strong>：数据的表现形式，比如压缩、加密、<br>  <strong>（7）应用层</strong>：为用户提供服务。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络一/" >
-            
-                <span>网络一</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>ISP</strong>:运营商，电信、移动、联通<br><strong>IEEE</strong>：国际电子电气工程师协会，致力于电气、电子、计算机工程和与科学有关的领域的开发和研究，在太空<br><strong>ISO</strong>（国际标准化组织）<br><strong>网络设备</strong>：交换（实现相同网段通信）和路由器（找路，实现不同网段通信）<br><strong>IP</strong>：标识网络中任意一台主机的位置（收发件人的地址）</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "SQL注入">SQL注入</a>
     
 </div>
             
@@ -650,10 +376,6 @@
     </article>
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2019/">&#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2019/page/3/">3</a><a class="page-number" href="/archives/2019/page/4/">4</a><a class="extend next" rel="next" href="/archives/2019/page/3/">NEXT &#62;</a>
-    </nav>
     
 </main>
             <!-- profile -->
