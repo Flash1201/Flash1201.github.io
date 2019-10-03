@@ -359,6 +359,70 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/09/网络七/" >
+            
+                <span>网络七</span>
+        </a>
+        <div class="abstract-content">
+            <h4 id="ACL和子网划分"><a href="#ACL和子网划分" class="headerlink" title="ACL和子网划分"></a>ACL和子网划分</h4><p>1.配置思路<br>  第一步：配置PC<br>  第二步：配置二层交换机，划分vlan<br>  第三步：三层交换机配置SVI（交互虚接口），下联链路是2层，上联链路是3层；<br>          实现不同vlan通信：<br>          路由器====》单臂路由<br>          三层交换机===》交换虚接口</p>
+<p>  第四步：三层交换机开启路由器功能，解决路由问题<br>  第五步：出口路由器配置IP和路由</p>
+<p>2.ACL（Access Control List）访问控制列表：可以基于3层、4层的数据做过滤。<br>  ACL的工作原理（匹配规则）：<br>  按照从上到下依次匹配；<br>  如果有一条一旦匹配完成，就不再进行后续报文的匹配；<br>  隐含的一条是拒绝所有；<br>  ACL中最少要有一条允许的条目，否则没有意义；</p>
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/09/网络六/" >
+            
+                <span>网络六</span>
+        </a>
+        <div class="abstract-content">
+            <h4 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h4><p>1.以太通道和vlan划分的排查命令：<br>  SW3#show vlan brief      //检查vlan和接口是否对应（access链路）<br>  SW3#show int   trunk         //检查trunk链路<br>  SW3#show etherchannel summary   //检查以太通道（SU表示正常；如果是其他状态，就进入接口先shutdown ，再no shutdown）</p>
+<p>  （1）以太通道的协商方式：<br>  使用的两个协议：<br>  Link Aggregation Control Protocol ， LACP ：IEEE 定义的标准协议。<br>  Port Aggregation Protocol：是Cisco的专有协议。</p>
+<p>  SW2(config)#int range f0/6 - 8<br>  SW2(config-if-range)#channel-group 1 mode ?<br>  active     Enable LACP unconditionally            //主动模式<br>  passive    Enable LACP only if a LACP device is detected     //被动模式</p>
+<p>  auto       Enable PAgP only if a PAgP device is detected        //被动模式，自动协商<br>  desirable  Enable PAgP unconditionally        //期望，主动模式</p>
+<p>  on         Enable Etherchannel only    //表示手工指定为on；对端必须是on才能协商成功。</p>
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/09/04/密码学基本概念/" >
             
                 <span>密码学基本概念</span>
@@ -590,67 +654,6 @@ height:50vh;
         <div class="abstract-content">
             <p><strong>1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。</strong><br>  网络层的设备：路由器<br>  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。</p>
 <p><strong>2.路由器的作用：</strong><br>    （1）实现不同网段的通信；<br>    （2）隔离广播域；<br>          路由器的每个接口=一个网段=一个广播域<br>    （3）为数据包寻找一条最优路径。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络三/" >
-            
-                <span>网络三</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>1.网络层：把数据帧转换为数据包，实现基于Ip地址的寻址和转发。</strong><br>  <strong>数据帧：在数据外边加入二层头部（帧头和帧尾）</strong><br>          <strong>Dmac（6Byte）+Smac（6Byte）+Type（2Byte）+Data +FCS（4Byte，帧尾）</strong><br>  <strong>数据包：三层IP头部+数据</strong></p>
-<p><strong>2.IP头部：标准长度是20Byte。</strong><br>  <strong>TTL：time to  live 生存时间，是一个三层防环机制，可以限制一个数据包在网络中传输的时间。</strong><br>       <strong>数据包每经过一个三层设备（路由器），他的TTL值就会减1，如果TTL=0，那么这个数据包就不能继续传输，会被丢弃。</strong><br>       <strong>每经过一个三层设备，叫做1跳。</strong><br>  Protocol：用来标识上层协议，如果是UDP=17；TCP=6；ICMP=1.<br>  Source IP<br>  Destination IP </p>
-<p><strong>3.ARP：Address Resolution  Protocol地址解析协议，用来根据Ip地址解析mac。</strong><br>  <strong>ARP报文分为2类：ARP请求报文Request；ARP响应报文Reply。</strong><br>  ARP请求报文是以广播的形式发送；ARP响应报文是以单播的形式回复。<br>  <strong>arp  -a    //查看arp缓存信息</strong><br>  <strong>arp  -d    //清除ARP缓存</strong></p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络二/" >
-            
-                <span>网络二</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>重点：交换机的工作原理、交换机的简单配置</strong></p>
-<p><strong>1.OSI七层模型：</strong><br>  <strong>（1）物理层</strong>：定义了终端设备的传输介质，传输的是bit流。<br>  <strong>（2）数据链路层</strong>：把bit转换为数据帧，实现基于mac地址的寻址和转发<br>  <strong>（3）网络层</strong>：把数据帧转换为数据包，实现基于IP地址的寻址和转发<br>  <strong>（4）传输层</strong>：把数据包转换为数据段，为数据提供可靠或者不可靠的传输，为应用程序提供端到端的服务<br>  <strong>（5）会话层</strong>：建立、维持和管理、终止会话<br>  <strong>（6）表示层</strong>：数据的表现形式，比如压缩、加密、<br>  <strong>（7）应用层</strong>：为用户提供服务。</p>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1405,9 +1408,63 @@ height:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 41
+        Total : 43
         </div>
         <!-- search  -->
         
@@ -1423,12 +1480,22 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2019/09/28/手工注入语句/" >手工注入语句</a>
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/FUZZ工具/" >FUZZ工具</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/WFUZZ/" >WFUZZ</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2019/09/28/Weblogic漏洞/" >Weblogic漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2019/09/28/手工注入语句/" >手工注入语句</a>
         </li>
     
     
@@ -1443,17 +1510,22 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/网络十/" >网络十</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/XSS绕过/" >XSS绕过</a>
         </li>
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/网络十/" >网络十</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/网络九/" >网络九</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络八/" >网络八</a>
         </li>
     
     
@@ -1464,11 +1536,6 @@ height:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络八/" >网络八</a>
         </li>
     
     
@@ -1508,22 +1575,22 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络四/" >网络四</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络二/" >网络二</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络一/" >网络一</a>
         </li>
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络四/" >网络四</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络二/" >网络二</a>
         </li>
     
     
@@ -1583,7 +1650,7 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/MSF实验/" >MSF实验</a>
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
         </li>
     
     
@@ -1593,7 +1660,7 @@ height:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/MSF实验/" >MSF实验</a>
         </li>
     
     
@@ -1639,15 +1706,17 @@ height:50vh;
     
         <span class="sidebar-tag-name" data-tags="漏洞复现"><span class="iconfont-archer">&#xe606;</span>漏洞复现</span>
     
+        <span class="sidebar-tag-name" data-tags="FUZZ"><span class="iconfont-archer">&#xe606;</span>FUZZ</span>
+    
         <span class="sidebar-tag-name" data-tags="漏洞"><span class="iconfont-archer">&#xe606;</span>漏洞</span>
     
         <span class="sidebar-tag-name" data-tags="XSS"><span class="iconfont-archer">&#xe606;</span>XSS</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
-        <span class="sidebar-tag-name" data-tags="渗透测试"><span class="iconfont-archer">&#xe606;</span>渗透测试</span>
-    
         <span class="sidebar-tag-name" data-tags="后门"><span class="iconfont-archer">&#xe606;</span>后门</span>
+    
+        <span class="sidebar-tag-name" data-tags="渗透测试"><span class="iconfont-archer">&#xe606;</span>渗透测试</span>
     
         <span class="sidebar-tag-name" data-tags="密码学"><span class="iconfont-archer">&#xe606;</span>密码学</span>
     
