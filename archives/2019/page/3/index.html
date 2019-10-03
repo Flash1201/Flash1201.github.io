@@ -346,6 +346,66 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/24/Off-Path-TCP-Exploit/" >
+            
+                <span>Off-Path TCP Exploit</span>
+        </a>
+        <div class="abstract-content">
+            <p>​      We discover a subtle yet serious timing side channel that exists in all generations of IEEE 802.11 or Wi-Fi technology, due to the fact that they are half-duplex. By exploiting the vulnerability, we are able to constrcut reliable and practical off-path TCP injection attacks against the laterst versions of all three major operating systems (macOS, Windows, and Linux). Our attac only requires a devicce connected to the Internet via a wireless router, and be reachable from an attack server. The thread model is that a user is lured to visit a malicious website first and then the puppet (i.e., a malicious javascript) running in a browser collaborates with an off-path adversary to hijack a TCP connection between the client and server for the prupose of injecting a spurious HTTP response that will be cached in the browser. Later on, when the victim accesses to the server, the browser would load the cached object (e.g., a script) rather than request it again. Notice that the victim connection is established and preserved by the puppet who repeatedly includes HTML elements (e.g, images). See <a href="https://people.eecs.berkeley.edu/~yahel/papers/Browser-Cache-Poisoning.Song.Spring10.attack-project.pdf" target="_blank" rel="noopener">web-cache poisoning atttacks</a> for more background.</p>
+<p><strong>我们发现了一个微妙但严重的定时侧通道，存在于所有代的IEEE 802.11或Wi-Fi技术中，因为它们是半双工的。通过利用该漏洞，我们能够针对所有三个主要操作系统（MacOS、Windows和Linux）的最新版本构建可靠且实用的非路径TCP注入攻击。我们的ATTAC只需要一个通过无线路由器连接到互联网的设备，并且可以从攻击服务器访问。线程模型是先引诱用户访问恶意网站，然后在浏览器中运行的Puppet（即恶意javascript）与非路径对手协作，劫持客户端和服务器之间的TCP连接，以防止注入虚假的HTTP响应。将在浏览器中缓存。稍后，当受害者访问服务器时，浏览器将加载缓存对象（例如脚本），而不是再次请求它。注意，受害者连接是由木偶建立和保留的，木偶反复包含HTML元素（例如，图像）。更多背景信息，请参见[网络缓存中毒属性]</strong></p>
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "漏洞复现">漏洞复现</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/24/网络四/" >
+            
+                <span>网络四</span>
+        </a>
+        <div class="abstract-content">
+            <p><strong>1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。</strong><br>  网络层的设备：路由器<br>  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。</p>
+<p><strong>2.路由器的作用：</strong><br>    （1）实现不同网段的通信；<br>    （2）隔离广播域；<br>          路由器的每个接口=一个网段=一个广播域<br>    （3）为数据包寻找一条最优路径。</p>
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/08/24/网络三/" >
             
                 <span>网络三</span>
@@ -584,71 +644,6 @@
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/14/linux汇总2/" >
-            
-                <span>linux汇总</span>
-        </a>
-        <div class="abstract-content">
-            <h3 id="用户管理和文件权限"><a href="#用户管理和文件权限" class="headerlink" title="用户管理和文件权限"></a>用户管理和文件权限</h3><h5 id="1-用户管理"><a href="#1-用户管理" class="headerlink" title="1.用户管理:"></a>1.用户管理:</h5><h6 id="1-超级用户"><a href="#1-超级用户" class="headerlink" title="(1)超级用户:"></a>(1)超级用户:</h6><p>拥有操作系统的最高权限,可以进行任何操作.默认是root.它的Uid,gid都是0</p>
-<h6 id="2-普通用户"><a href="#2-普通用户" class="headerlink" title="(2)普通用户:"></a>(2)普通用户:</h6><p>是有管理员创建的用户,权限有限,只对自己的家目录拥有完整权限 Centos 7的Uid是从1000开始.</p>
-<h6 id="3-虚拟用户"><a href="#3-虚拟用户" class="headerlink" title="(3)虚拟用户:"></a>(3)虚拟用户:</h6><p>(程序用户===&gt;植物人),一般用来运行服务时候指定的用户,不能登录操作系统.<br>     系统的默认用户:<br>     Centos6之前是1—499;<br>     Centos7开始是1—999;</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/linux汇总/" >
-            
-                <span>linux汇总</span>
-        </a>
-        <div class="abstract-content">
-            <h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2><h5 id="一、linux命令"><a href="#一、linux命令" class="headerlink" title="一、linux命令"></a>一、linux命令</h5><h6 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h6><p>文件位于/bin/bash<br>cat /etc/shells常见的linuxshell有sh、bash、csh、tcsh、ash  其中bash shell是linux默认的shell<br>查看系统默认shell命令  echo $SHELL</p>
-<h5 id="LINUX命令分类"><a href="#LINUX命令分类" class="headerlink" title="LINUX命令分类"></a>LINUX命令分类</h5><h6 id="内部命令"><a href="#内部命令" class="headerlink" title="内部命令"></a>内部命令</h6><p>集成于 Shell 解释器程序内部的一些特殊指令，也称为内建（Built-in）指令     </p>
-<p>属于 Shell 的一部分</p>
-<p>没有单独对应的系统文件 </p>
-<p>自动载入内存，可以直接使用 </p>
-<h6 id="外部命令"><a href="#外部命令" class="headerlink" title="外部命令"></a>外部命令</h6><p>Linux系统中能够完成特定功能的脚本文件或二进制程序<br>属于 Shell 解释器程序之外的命令<br>每个外部命令对应了系统中的一个文件<br>必须知道其对应的文件位置，由 Shell 加载后才能执行</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "linux">linux</a>
     
 </div>
             
@@ -1320,9 +1315,55 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 43
+        Total : 45
         </div>
         <!-- search  -->
         
@@ -1338,22 +1379,32 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/WFUZZ/" >WFUZZ</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/FUZZ工具/" >FUZZ工具</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2019/09/28/手工注入语句/" >手工注入语句</a>
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/WFUZZ/" >WFUZZ</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/PHP反序列化原理分析/" >PHP反序列化原理分析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/Java反序列化漏洞的原理分析/" >Java反序列化漏洞的原理分析</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2019/09/28/Weblogic漏洞/" >Weblogic漏洞</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2019/09/28/手工注入语句/" >手工注入语句</a>
         </li>
     
     
@@ -1368,12 +1419,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/网络十/" >网络十</a>
+            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/XSS绕过/" >XSS绕过</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/XSS绕过/" >XSS绕过</a>
+            <span class="archive-post-date">09/11</span><a class="archive-post-title" href= "/2019/09/11/网络十/" >网络十</a>
         </li>
     
     
@@ -1383,12 +1434,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络六/" >网络六</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络八/" >网络八</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络八/" >网络八</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络六/" >网络六</a>
         </li>
     
     
@@ -1433,7 +1484,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络四/" >网络四</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络一/" >网络一</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
         </li>
     
     
@@ -1443,12 +1499,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络一/" >网络一</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络四/" >网络四</a>
         </li>
     
     
@@ -1503,12 +1554,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/日志清除实验/" >日志清除实验</a>
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
         </li>
     
     
@@ -1518,7 +1564,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/日志清除实验/" >日志清除实验</a>
         </li>
     
     
@@ -1581,6 +1632,8 @@
         <span class="sidebar-tag-name" data-tags="网络基础"><span class="iconfont-archer">&#xe606;</span>网络基础</span>
     
         <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="反序列化"><span class="iconfont-archer">&#xe606;</span>反序列化</span>
     
         <span class="sidebar-tag-name" data-tags="OWASP TOP10"><span class="iconfont-archer">&#xe606;</span>OWASP TOP10</span>
     

