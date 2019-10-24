@@ -359,6 +359,37 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/10/24/注入点判断/" >
+            
+                <span>注入点判断</span>
+        </a>
+        <div class="abstract-content">
+            一、注入点的判断及猜解1.加入单引号 ’提交结果:如果出现错误提示，则该网站可能就存在注入漏洞。
+2.数字型判断是否有注入语句：and 1=1 ;and 1=2 （经典）、’ and ‘1’=1(字符型）结果:分别返回不同的页面,说明存在注入漏洞.分析：and 的意思是“和”如果没有过滤我们的语句，and 1=1就会被代入SQL查询语句进行查询，如果and前后的两条语句都是真的话就不会出错，但如果前后语句有一个为假的话，程序就会暴错。也就表明程序有注入漏洞防注入解决办法：
+1使用or 2&gt;1 ; or 1&gt;2来进行判断  结果:分别返回不同的页面,说明存在注入漏洞.  分析：...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "SQL注入">SQL注入</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/10/03/Java反序列化漏洞的原理分析/" >
             
                 <span>Java反序列化漏洞的原理分析</span>
@@ -647,36 +678,6 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "XSS">XSS</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/11/网络十/" >
-            
-                <span>网络十</span>
-        </a>
-        <div class="abstract-content">
-            防火墙Firewall1.常见的安全设备；  （1）防火墙Firewall：实现区域隔离，实现对流量的控制  （2）上网行为管理：对用户的上网行为进行控制和管理；  （3）IDS：入侵检测系统，对进入内网的可疑流量进行检测和报警。==》门卫  （4）IPS：入侵防御系统，一旦发现可疑流量就会立即进行阻断，并记录日志。===》警察。  （5）WAF：Web Application Firewall，为服务器做攻击防护。
-2.防火墙基本概念​    吞吐量：在不丢包的情况下单位时间内通过的数据包数量​    时延：数据包第一个比特进入防火墙到最后一比特从防火墙输出的时间间隔​    丢包率：...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
     
 </div>
             
@@ -1464,9 +1465,52 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 45
+        Total : 46
         </div>
         <!-- search  -->
         
@@ -1482,7 +1526,17 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">10/24</span><a class="archive-post-title" href= "/2019/10/24/注入点判断/" >注入点判断</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/FUZZ工具/" >FUZZ工具</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/Java反序列化漏洞的原理分析/" >Java反序列化漏洞的原理分析</a>
         </li>
     
     
@@ -1493,11 +1547,6 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/PHP反序列化原理分析/" >PHP反序列化原理分析</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/Java反序列化漏洞的原理分析/" >Java反序列化漏洞的原理分析</a>
         </li>
     
     
@@ -1542,12 +1591,12 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络六/" >网络六</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络六/" >网络六</a>
         </li>
     
     
@@ -1587,12 +1636,12 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络一/" >网络一</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络四/" >网络四</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络一/" >网络一</a>
         </li>
     
     
@@ -1602,7 +1651,7 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络四/" >网络四</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
         </li>
     
     
@@ -1657,22 +1706,22 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/MSF实验/" >MSF实验</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/日志清除实验/" >日志清除实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/MSF实验/" >MSF实验</a>
         </li>
     
     
@@ -1732,17 +1781,17 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
         <span class="sidebar-tag-name" data-tags="密码学"><span class="iconfont-archer">&#xe606;</span>密码学</span>
     
+        <span class="sidebar-tag-name" data-tags="SQL注入"><span class="iconfont-archer">&#xe606;</span>SQL注入</span>
+    
         <span class="sidebar-tag-name" data-tags="网络基础"><span class="iconfont-archer">&#xe606;</span>网络基础</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
         <span class="sidebar-tag-name" data-tags="反序列化"><span class="iconfont-archer">&#xe606;</span>反序列化</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="OWASP TOP10"><span class="iconfont-archer">&#xe606;</span>OWASP TOP10</span>
     
         <span class="sidebar-tag-name" data-tags="web中间件"><span class="iconfont-archer">&#xe606;</span>web中间件</span>
-    
-        <span class="sidebar-tag-name" data-tags="SQL注入"><span class="iconfont-archer">&#xe606;</span>SQL注入</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
