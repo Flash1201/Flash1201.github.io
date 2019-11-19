@@ -346,39 +346,6 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/20/webshell/" >
-            
-                <span>记一次webshell</span>
-        </a>
-        <div class="abstract-content">
-            目标网站 我用127.0.0.1代替
-首先进入登录管理员的网站：127.0.0.1:81/admin/login.aspx
-发现后缀名是aspx 所以尝试绕过登陆常用万能密码：
-asp aspx万能密码1：”or “a”=”a2：’.).or.(‘.a.’=’.a3：or 1=1–4：’or 1=1–5：a’or’ 1=1–6：”or 1=1–7：’or.’a.’=’a8：”or”=”a’=’a9：’or’’=’10：’or’=’or’
-尝试使用：用户名：‘or’’=’  密码：‘or’’=’ 显示登陆成功 进入：127.0.0.1:81/admin/content.aspx 网站管理页...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试">渗透测试</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2019/09/11/XSS绕过/" >
             
                 <span>XSS绕过</span>
@@ -647,6 +614,38 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
             <p>​         <strong>cookies</strong>也可以称作cookie，指某些网站为了辨别用户身份、进行session跟踪而存储在用户本地终端上的数据。</p>
 <p>​         一个cookies就是存储在用户主机浏览器中的文本文件。cookies是纯文本形式，它们不包含任何可执行代码。服务器告诉浏览器将这些信息存储，并且每个请求中都将该信息返回到服务器，服务器之后可以利用这些信息标识用户。多数需要登录的网站通常会在用户登录后将用户信息写入cookies，只要这个cookie存在且合法，就可以自由的浏览这个网站的所有站点。cookies只是包含数据，就其本身而言并不有害。</p>
 <p>​         服务器可以利用cookies包含的信息判断在HTTP传输的服务状态。cookies最典型的应用是判断注册用户是否已经登录网站和保留用户信息简化登录手续</p>
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/31</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/08/31/爬虫开发基础/" >
+            
+                <span>爬虫开发基础</span>
+        </a>
+        <div class="abstract-content">
+            <h1 id="HTTP与HTTPS的区别"><a href="#HTTP与HTTPS的区别" class="headerlink" title="HTTP与HTTPS的区别"></a>HTTP与HTTPS的区别</h1><p>​        <strong>HTTP超文本传输协议</strong>，是一个客户端和服务器端请求和应答的标准（TCP）。客户端是终端用户，服务器是网站。通过使用WEB浏览器、网络爬虫或者其他工具，客户端发起一个到服务器指定端口的HTTP请求，这个客户叫用户代理（User Agent）.响应的服务器上存储着资源，比如HTML文件和图像，这个服务器为源服务器（Origin Serverr）,在用户代理和服务器中间可能存在多个中间层，比如代理、网关或者隧道（Tunnels）.</p>
+<p>​        通常，由HTTP客户端发起一个请求，建立一个服务器指定端口的TCP连接，HTTP服务器则在那个端口监听客户端发送过来的请求，一旦收到请求，服务器（向客户端）发回一个状态行（比如“HTTP/1.1 200 OK”）和（响应的）消息，消息的消息体可能是请求的文件、错误消息或者其他一些消息。</p>
+<p>​        HTTP协议传输的数据都是未加密的，也就是明文传输，因此使用HTTP协议传输隐私消息非常不安全。为了保证这些隐私数据能够加密传输，于是有了SSL协议用于对HTTP协议传输的数据进行加密，就有了HTTPS。</p>
+<p>​        HTTPS可以理解为HTTP+SSL/TLS在传输数据之前需要看客户端（浏览器）与服务端（网站）之间进行一次握手，在握手过程中将确立双方加密传输数据的密码信息。HTTP与HTTPS的主要区别。</p>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1393,130 +1392,9 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 48
+        Total : 47
         </div>
         <!-- search  -->
         
@@ -1527,27 +1405,8 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
     
-    <div class="archive-year"> 10007 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/07</span><a class="archive-post-title" href= "/10007/06/07/日记/" >日记</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/24</span><a class="archive-post-title" href= "/2019/10/24/注入点判断/" >注入点判断</a>
-        </li>
     
     
         <li class="archive-post-item">
@@ -1556,12 +1415,12 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/FUZZ工具/" >FUZZ工具</a>
+            <span class="archive-post-date">10/24</span><a class="archive-post-title" href= "/2019/10/24/注入点判断/" >注入点判断</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/PHP反序列化原理分析/" >PHP反序列化原理分析</a>
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/Java反序列化漏洞的原理分析/" >Java反序列化漏洞的原理分析</a>
         </li>
     
     
@@ -1571,7 +1430,12 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/Java反序列化漏洞的原理分析/" >Java反序列化漏洞的原理分析</a>
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/PHP反序列化原理分析/" >PHP反序列化原理分析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/FUZZ工具/" >FUZZ工具</a>
         </li>
     
     
@@ -1616,12 +1480,12 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络八/" >网络八</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络八/" >网络八</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2019/09/09/网络七/" >网络七</a>
         </li>
     
     
@@ -1661,12 +1525,12 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络二/" >网络二</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络四/" >网络四</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络二/" >网络二</a>
         </li>
     
     
@@ -1676,7 +1540,7 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络三/" >网络三</a>
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2019/08/24/网络四/" >网络四</a>
         </li>
     
     
@@ -1731,22 +1595,22 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/MSF实验/" >MSF实验</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/日志清除实验/" >日志清除实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/权限维持实验/" >权限维持实验</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span><a class="archive-post-title" href= "/2019/08/10/嗅探欺骗实验/" >嗅探欺骗实验</a>
         </li>
     
     
@@ -1784,9 +1648,9 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="基础"><span class="iconfont-archer">&#xe606;</span>基础</span>
-    
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="基础"><span class="iconfont-archer">&#xe606;</span>基础</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
@@ -1805,8 +1669,6 @@ WAF识别拦截XSS的原理既然要绕过WAF的拦截，那么就得明白常�
         <span class="sidebar-tag-name" data-tags="后门"><span class="iconfont-archer">&#xe606;</span>后门</span>
     
         <span class="sidebar-tag-name" data-tags="密码学"><span class="iconfont-archer">&#xe606;</span>密码学</span>
-    
-        <span class="sidebar-tag-name" data-tags="Himawari"><span class="iconfont-archer">&#xe606;</span>Himawari</span>
     
         <span class="sidebar-tag-name" data-tags="SQL注入"><span class="iconfont-archer">&#xe606;</span>SQL注入</span>
     
