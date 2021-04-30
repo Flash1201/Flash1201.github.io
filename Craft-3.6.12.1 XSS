@@ -1,0 +1,5 @@
+Craft-3.6.12.1 XSS exists in the background，The path is background➡️settings➡️user settings➡️fields➡️create a new tab, the content is not verified when entering the user name, so there will be XSS vulnerabilities
+In the settings, resources, global variables, categories, all have XSS vulnerabilities
+payload:<img src=x onerror=alert('XSS');>
+https://user-images.githubusercontent.com/41565767/116662413-5506e280-a9c8-11eb-8704-3b8a5b5f2678.png
+https://user-images.githubusercontent.com/41565767/116665206-0b1ffb80-a9cc-11eb-9d3e-3e3459a08820.png
